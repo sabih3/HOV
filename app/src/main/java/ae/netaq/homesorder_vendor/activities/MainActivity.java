@@ -1,7 +1,9 @@
-package ae.netaq.homesorder_vendor.activities.main_activity;
+package ae.netaq.homesorder_vendor.activities;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +12,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
+import ae.netaq.homesorder_vendor.AppController;
 import ae.netaq.homesorder_vendor.R;
+import ae.netaq.homesorder_vendor.fragments.featured.FeaturedFragment;
+import ae.netaq.homesorder_vendor.fragments.orders.OrdersFragment;
+import ae.netaq.homesorder_vendor.fragments.products.ProductsFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -31,32 +37,38 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        navigationView.setNavigationItemSelectedListener(this);
-        
+        AppController.get(this).getHomesOrderServices();
+
+        //Setting up the toolbar.
         setUpToolBar();
 
+        //configuring the Navigation Drawer.
         configureNavigationDrawer();
+
+        //By default when the home ativity is loaded select the orders fragment to fill the container.
+        selectDrawerItem(navigationView.getMenu().getItem(0));
     }
 
     private void setUpToolBar() {
         toolbar.setTitle(R.string.orders);
-
         setSupportActionBar(toolbar);
     }
 
     private void configureNavigationDrawer() {
 
+        navigationView.setNavigationItemSelectedListener(this);
+
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.openDrawer, R.string.closeDrawer) {
 
             @Override
             public void onDrawerClosed(View drawerView) {
-                // Code here will be triggered once the drawer closes as we dont want anything to happen so we leave this blank
+                // Code here will be triggered once the drawer closes as we don't want anything to happen so we leave this blank
                 super.onDrawerClosed(drawerView);
             }
 
             @Override
             public void onDrawerOpened(View drawerView) {
-                // Code here will be triggered once the drawer open as we dont want anything to happen so we leave this blank
+                // Code here will be triggered once the drawer open as we don't want anything to happen so we leave this blank
                 super.onDrawerOpened(drawerView);
             }
         };
@@ -70,28 +82,47 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        selectDrawerItem(item);
+        return true;
+    }
+
+    public void selectDrawerItem(MenuItem item){
+
+        Fragment fragment = null;
+        Class fragmentClass;
 
         //Check to see which item was being clicked and perform appropriate action
         switch (item.getItemId()) {
-            //Replacing the main content with ContentFragment Which is our Inbox View;
-
             case R.id.nav_orders_item:
+                fragmentClass = OrdersFragment.class;
                 break;
             case R.id.nav_products_item:
+                fragmentClass = ProductsFragment.class;
                 break;
             case R.id.nav_featured_item:
+                fragmentClass = FeaturedFragment.class;
                 break;
             default:
+                fragmentClass = OrdersFragment.class;
         }
 
-        //Checking if the item is in checked state or not, if not make it in checked state
-        if (item.isChecked()) {
-            item.setChecked(false);
-        } else {
-            item.setChecked(true);
+        // Try to initialize the selected fragment
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
+        // Insert the fragment by replacing any existing fragment
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.main_container, fragment).commit();
+
+        // Highlight the selected item has been done by NavigationView
         item.setChecked(true);
+        // Set action bar title
+        toolbar.setTitle(item.getTitle());
+        // Close the navigation drawer
         drawer.closeDrawers();
 
-        return true;    }
+    }
 }

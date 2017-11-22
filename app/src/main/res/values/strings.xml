@@ -5,4 +5,8 @@
     <string name="orders">Orders</string>
     <string name="products">Products</string>
     <string name="featured">Featured</string>
+    <string name="new_tab_title">New</string>
+    <string name="processing_tab_title">Processing</string>
+    <string name="ready_tab_title">Ready</string>
+    <string name="dispatched_tab_title">Dispatched</string>
 </resources>
