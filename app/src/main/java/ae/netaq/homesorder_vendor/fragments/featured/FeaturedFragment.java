@@ -18,7 +18,7 @@ import ae.netaq.homesorder_vendor.R;
 
 public class FeaturedFragment extends Fragment {
 
-    View view;
+    private View view;
 
     public FeaturedFragment() {
     }

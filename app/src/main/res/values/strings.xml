@@ -9,4 +9,6 @@
     <string name="processing_tab_title">Processing</string>
     <string name="ready_tab_title">Ready</string>
     <string name="dispatched_tab_title">Dispatched</string>
+    <string name="products_tab_title">Products</string>
+    <string name="promotions_tabs_title">Promotions</string>
 </resources>

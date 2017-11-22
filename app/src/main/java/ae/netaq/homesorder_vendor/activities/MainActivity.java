@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import ae.netaq.homesorder_vendor.AppController;
 import ae.netaq.homesorder_vendor.R;
@@ -20,7 +21,7 @@ import ae.netaq.homesorder_vendor.fragments.products.ProductsFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener{
 
     @BindView(R.id.nav_view)
     NavigationView navigationView;
@@ -30,6 +31,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+
+    @BindView(R.id.sign_out_btn)
+    Button signOutBtn;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ButterKnife.bind(this);
 
         AppController.get(this).getHomesOrderServices();
+
+        signOutBtn.setOnClickListener(this);
 
         //Setting up the toolbar.
         setUpToolBar();
@@ -124,5 +130,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Close the navigation drawer
         drawer.closeDrawers();
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == R.id.sign_out_btn){
+            drawer.closeDrawers();
+        }
     }
 }

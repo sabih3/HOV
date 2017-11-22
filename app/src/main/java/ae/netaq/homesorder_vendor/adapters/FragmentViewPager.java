@@ -3,6 +3,8 @@ package ae.netaq.homesorder_vendor.adapters;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
+
 import java.util.ArrayList;
 
 import ae.netaq.homesorder_vendor.fragments.PagerFragment;
@@ -11,7 +13,7 @@ import ae.netaq.homesorder_vendor.fragments.PagerFragment;
  * Created by Netaq on 11/22/2017.
  */
 
-public class FragmentViewPager extends FragmentPagerAdapter {
+public class FragmentViewPager extends FragmentStatePagerAdapter {
 
     private final ArrayList<PagerFragment> mDataset;
 

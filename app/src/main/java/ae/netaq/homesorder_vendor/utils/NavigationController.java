@@ -15,6 +15,8 @@ import ae.netaq.homesorder_vendor.fragments.orders.dispatched_tab.DispatchedOrde
 import ae.netaq.homesorder_vendor.fragments.orders.new_tab.NewOrdersFragment;
 import ae.netaq.homesorder_vendor.fragments.orders.processing_tab.ProcessingOrdersFragment;
 import ae.netaq.homesorder_vendor.fragments.orders.ready_tab.ReadyOrdersFragment;
+import ae.netaq.homesorder_vendor.fragments.products.products_tab.SimpleProductsFragment;
+import ae.netaq.homesorder_vendor.fragments.products.promotions_tab.PromotionProductsFragment;
 
 /**
  * Created by Netaq on 11/21/2017.
@@ -50,5 +52,26 @@ public class NavigationController {
         return viewPagerAdapter;
     }
 
+    public static PagerAdapter getProductsPagerAdapter(Context context, FragmentManager supportFragmentManager) {
+
+        FragmentViewPager viewPagerAdapter = null;
+        if (context instanceof MainActivity) {
+
+            ArrayList<PagerFragment> fragmentList = new ArrayList<>();
+
+            Fragment simpleProductsFragment = new SimpleProductsFragment();
+            Fragment promotionProductsFragment = new PromotionProductsFragment();
+
+            PagerFragment simpleProductsPagerFragment = new PagerFragment(simpleProductsFragment, context.getString(R.string.products_tab_title));
+            PagerFragment promotionProductsPagerFragment = new PagerFragment(promotionProductsFragment, context.getString(R.string.promotions_tabs_title));
+
+            fragmentList.add(simpleProductsPagerFragment);
+            fragmentList.add(promotionProductsPagerFragment);
+
+            viewPagerAdapter = new FragmentViewPager(supportFragmentManager, fragmentList);
+
+        }
+        return viewPagerAdapter;
+    }
 
 }
