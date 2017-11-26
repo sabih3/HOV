@@ -34,7 +34,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @BindView(R.id.sign_out_btn)
     Button signOutBtn;
-    
+
+    private int navItemIndex = -1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,32 +98,43 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Fragment fragment = null;
         Class fragmentClass;
+        int position = 0;
 
         //Check to see which item was being clicked and perform appropriate action
         switch (item.getItemId()) {
             case R.id.nav_orders_item:
                 fragmentClass = OrdersFragment.class;
+                position = 0;
                 break;
             case R.id.nav_products_item:
                 fragmentClass = ProductsFragment.class;
+                position = 1;
                 break;
             case R.id.nav_featured_item:
                 fragmentClass = FeaturedFragment.class;
+                position = 2;
                 break;
             default:
                 fragmentClass = OrdersFragment.class;
+                position = 0;
         }
 
-        // Try to initialize the selected fragment
-        try {
-            fragment = (Fragment) fragmentClass.newInstance();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        if(navItemIndex == position){
+            drawer.closeDrawers();
+        }else {
+            // Try to initialize the selected fragment
+            try {
+                fragment = (Fragment) fragmentClass.newInstance();
 
-        // Insert the fragment by replacing any existing fragment
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.main_container, fragment).commit();
+                // Insert the fragment by replacing any existing fragment
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.main_container, fragment).commit();
+
+                navItemIndex = position;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 
         // Highlight the selected item has been done by NavigationView
         item.setChecked(true);

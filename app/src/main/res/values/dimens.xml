@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="design_navigation_separator_vertical_padding">0dp</dimen>
+    <dimen name="listing_text_size">12sp</dimen>
+    <dimen name="listing_text_size_small">10sp</dimen>
+</resources>
