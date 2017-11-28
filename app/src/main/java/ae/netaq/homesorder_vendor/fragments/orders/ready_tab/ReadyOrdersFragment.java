@@ -11,9 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import ae.netaq.homesorder_vendor.R;
-import ae.netaq.homesorder_vendor.adapters.orders.processing_tab.ProcessingOrdersRecyclerAdapter;
 import ae.netaq.homesorder_vendor.adapters.orders.ready_tab.ReadyOrdersRecyclerAdapter;
-import ae.netaq.homesorder_vendor.models.OrdersResponse;
+import ae.netaq.homesorder_vendor.models.Orders;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -21,13 +20,15 @@ import butterknife.ButterKnife;
  * Created by Netaq on 11/22/2017.
  */
 
-public class ReadyOrdersFragment extends Fragment {
+public class ReadyOrdersFragment extends Fragment implements ReadyOrdersView{
 
     @BindView(R.id.listing_recycler)
     RecyclerView processingOrdersRecycler;
 
     @BindView(R.id.swipe_refresh_layout)
     SwipeRefreshLayout swipeRefreshLayout;
+
+    private ReadyOrdersPresenter readyOrdersPresenter;
 
     public ReadyOrdersFragment() {
     }
@@ -42,16 +43,17 @@ public class ReadyOrdersFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.listing_layout, container, false);
         ButterKnife.bind(this, view);
-        initViews();
+
+        readyOrdersPresenter = new ReadyOrdersPresenter(this);
+        readyOrdersPresenter.getReadyOrdersList(getActivity());
 
         return view;
     }
 
-    private void initViews() {
-
-        ReadyOrdersRecyclerAdapter readyOrdersRecyclerAdapter = new ReadyOrdersRecyclerAdapter(OrdersResponse.getOrdersList());
+    @Override
+    public void onReadyOrdersFetched(Orders orders) {
+        ReadyOrdersRecyclerAdapter readyOrdersRecyclerAdapter = new ReadyOrdersRecyclerAdapter(orders.getOrders());
         processingOrdersRecycler.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
         processingOrdersRecycler.setAdapter(readyOrdersRecyclerAdapter);
-
     }
 }

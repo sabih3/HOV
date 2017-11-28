@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.adapters.products.viewholder.ProductsRecyclerViewHolder;
-import ae.netaq.homesorder_vendor.models.OrdersResponse;
 import ae.netaq.homesorder_vendor.models.ProductsResponse;
 
 /**

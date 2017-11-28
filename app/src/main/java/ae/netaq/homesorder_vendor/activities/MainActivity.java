@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //configuring the Navigation Drawer.
         configureNavigationDrawer();
 
-        //By default when the home ativity is loaded select the orders fragment to fill the container.
+        //By default when the home activity is loaded select the orders fragment to fill the container.
         selectDrawerItem(navigationView.getMenu().getItem(0));
     }
 

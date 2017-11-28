@@ -12,9 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import ae.netaq.homesorder_vendor.R;
-import ae.netaq.homesorder_vendor.adapters.orders.new_tab.NewOrdersRecyclerAdapter;
 import ae.netaq.homesorder_vendor.adapters.products.products_tab.SimpleProductsRecyclerAdapter;
-import ae.netaq.homesorder_vendor.models.OrdersResponse;
 import ae.netaq.homesorder_vendor.models.ProductsResponse;
 import butterknife.BindView;
 import butterknife.ButterKnife;

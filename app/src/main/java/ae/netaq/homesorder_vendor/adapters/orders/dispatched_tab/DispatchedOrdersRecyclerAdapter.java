@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.adapters.orders.viewholder.OrdersRecyclerViewHolder;
-import ae.netaq.homesorder_vendor.models.OrdersResponse;
+import ae.netaq.homesorder_vendor.models.Orders;
 
 /**
  * Created by Netaq on 11/23/2017.
@@ -16,9 +16,9 @@ import ae.netaq.homesorder_vendor.models.OrdersResponse;
 
 public class DispatchedOrdersRecyclerAdapter extends RecyclerView.Adapter<OrdersRecyclerViewHolder>{
 
-    ArrayList<OrdersResponse> mDataset;
+    ArrayList<Orders.Order> mDataset;
 
-    public DispatchedOrdersRecyclerAdapter(ArrayList<OrdersResponse> mDataset) {
+    public DispatchedOrdersRecyclerAdapter(ArrayList<Orders.Order> mDataset) {
         this.mDataset = mDataset;
     }
 
@@ -32,7 +32,9 @@ public class DispatchedOrdersRecyclerAdapter extends RecyclerView.Adapter<Orders
 
     @Override
     public void onBindViewHolder(OrdersRecyclerViewHolder holder, int position) {
-
+        holder.orderId.setText(String.valueOf(mDataset.get(position).getOrderID()));
+        holder.customerAddress.setText(mDataset.get(position).getCustomer().getAddress());
+        holder.CustomerName.setText(mDataset.get(position).getCustomer().getName());
     }
 
     @Override

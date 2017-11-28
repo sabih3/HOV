@@ -11,9 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import ae.netaq.homesorder_vendor.R;
-import ae.netaq.homesorder_vendor.adapters.orders.new_tab.NewOrdersRecyclerAdapter;
 import ae.netaq.homesorder_vendor.adapters.orders.processing_tab.ProcessingOrdersRecyclerAdapter;
-import ae.netaq.homesorder_vendor.models.OrdersResponse;
+import ae.netaq.homesorder_vendor.data_manager.DataManager;
+import ae.netaq.homesorder_vendor.models.Orders;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -21,13 +21,15 @@ import butterknife.ButterKnife;
  * Created by Netaq on 11/22/2017.
  */
 
-public class ProcessingOrdersFragment extends Fragment {
+public class ProcessingOrdersFragment extends Fragment implements ProcessingOrdersView {
 
     @BindView(R.id.listing_recycler)
     RecyclerView processingOrdersRecycler;
 
     @BindView(R.id.swipe_refresh_layout)
     SwipeRefreshLayout swipeRefreshLayout;
+
+    private ProcessingOrdersPresenter processingOrdersPresenter;
 
     public ProcessingOrdersFragment() {
     }
@@ -37,21 +39,21 @@ public class ProcessingOrdersFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.listing_layout, container, false);
         ButterKnife.bind(this, view);
-        initViews();
+
+        processingOrdersPresenter = new ProcessingOrdersPresenter(this);
+        processingOrdersPresenter.getProcessingOrdersList(getActivity());
 
         return view;
     }
 
-    private void initViews() {
-
-        ProcessingOrdersRecyclerAdapter processingOrdersRecyclerAdapter = new ProcessingOrdersRecyclerAdapter(OrdersResponse.getOrdersList());
+    @Override
+    public void onProcessingOrdersFetched(Orders orders) {
+        ProcessingOrdersRecyclerAdapter processingOrdersRecyclerAdapter = new ProcessingOrdersRecyclerAdapter(orders.getOrders());
         processingOrdersRecycler.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
         processingOrdersRecycler.setAdapter(processingOrdersRecyclerAdapter);
-
     }
 }
