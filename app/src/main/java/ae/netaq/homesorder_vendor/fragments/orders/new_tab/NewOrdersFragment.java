@@ -3,6 +3,7 @@ package ae.netaq.homesorder_vendor.fragments.orders.new_tab;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -23,6 +24,9 @@ public class NewOrdersFragment extends Fragment{
 
     @BindView(R.id.listing_recycler)
     RecyclerView newOrdersRecycler;
+
+    @BindView(R.id.swipe_refresh_layout)
+    SwipeRefreshLayout swipeRefreshLayout;
 
     public NewOrdersFragment() {
     }

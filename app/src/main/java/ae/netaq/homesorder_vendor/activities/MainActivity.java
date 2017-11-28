@@ -1,10 +1,13 @@
 package ae.netaq.homesorder_vendor.activities;
 
 import android.support.annotation.NonNull;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +21,7 @@ import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.fragments.featured.FeaturedFragment;
 import ae.netaq.homesorder_vendor.fragments.orders.OrdersFragment;
 import ae.netaq.homesorder_vendor.fragments.products.ProductsFragment;
+import ae.netaq.homesorder_vendor.utils.Constants;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -34,6 +38,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @BindView(R.id.sign_out_btn)
     Button signOutBtn;
+
+    @BindView(R.id.add_product_fab)
+    FloatingActionButton addProductFab;
 
     private int navItemIndex = -1;
 
@@ -59,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void setUpToolBar() {
         toolbar.setTitle(R.string.orders);
+        toolbar.setCollapsible(true);
         setSupportActionBar(toolbar);
     }
 
@@ -131,6 +139,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fragmentManager.beginTransaction().replace(R.id.main_container, fragment).commit();
 
                 navItemIndex = position;
+
+                if(navItemIndex == 1){
+                    addProductFab.setVisibility(View.VISIBLE);
+                }else{
+                    addProductFab.setVisibility(View.GONE);
+                }
+
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -53,7 +53,6 @@ public class ProductsFragment extends Fragment {
 
     private void initViews() {
         pager.setAdapter(NavigationController.getProductsPagerAdapter(this.getContext(),getChildFragmentManager()));
-        pager.setOffscreenPageLimit(2);
         tabs.setupWithViewPager(pager);
     }
 }

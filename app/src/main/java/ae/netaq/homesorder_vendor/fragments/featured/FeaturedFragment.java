@@ -32,7 +32,7 @@ public class FeaturedFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.featured_fragments, container, false);
+        view = inflater.inflate(R.layout.featured_fragment, container, false);
         return view;
 
     }
