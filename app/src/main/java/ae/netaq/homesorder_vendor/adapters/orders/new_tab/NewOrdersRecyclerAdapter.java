@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.adapters.orders.viewholder.OrdersRecyclerViewHolder;
-import ae.netaq.homesorder_vendor.models.Orders;
+import ae.netaq.homesorder_vendor.models.Order;
 
 /**
  * Created by Netaq on 11/23/2017.
@@ -16,9 +16,9 @@ import ae.netaq.homesorder_vendor.models.Orders;
 
 public class NewOrdersRecyclerAdapter extends RecyclerView.Adapter<OrdersRecyclerViewHolder>{
 
-    ArrayList<Orders.Order> mDataset;
+    ArrayList<Order> mDataset;
 
-    public NewOrdersRecyclerAdapter(ArrayList<Orders.Order> mDataset) {
+    public NewOrdersRecyclerAdapter(ArrayList<Order> mDataset) {
         this.mDataset = mDataset;
     }
 
