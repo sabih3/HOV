@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"/>
+
+    <com.badoualy.stepperindicator.StepperIndicator
+        android:id="@+id/add_product_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:stpi_stepCount="4"
+        app:stpi_lineStrokeWidth="1dp"
+        app:stpi_circleStrokeWidth="1dp"
+        app:stpi_lineDoneColor="@color/colorAccent"
+        app:stpi_showDoneIcon="true"
+        app:stpi_indicatorColor="@color/colorAccent"
+        app:stpi_circleRadius="15dp"
+        android:layout_margin="10dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ae.netaq.homesorder_vendor.utils.NonSwipeableViewPager
+            android:id="@+id/add_product_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/add_product_bottom_btn"/>
+        <Button
+            android:id="@+id/add_product_bottom_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/shittyGreen"
+            android:text="@string/add_details"
+            android:layout_margin="10dp"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+
+</LinearLayout>

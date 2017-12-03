@@ -22,6 +22,7 @@ import ae.netaq.homesorder_vendor.fragments.featured.FeaturedFragment;
 import ae.netaq.homesorder_vendor.fragments.orders.OrdersFragment;
 import ae.netaq.homesorder_vendor.fragments.products.ProductsFragment;
 import ae.netaq.homesorder_vendor.utils.Constants;
+import ae.netaq.homesorder_vendor.utils.NavigationController;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -54,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         signOutBtn.setOnClickListener(this);
 
+        addProductFab.setOnClickListener(this);
+
         //Setting up the toolbar.
         setUpToolBar();
 
@@ -66,7 +69,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void setUpToolBar() {
         toolbar.setTitle(R.string.orders);
-        toolbar.setCollapsible(true);
         setSupportActionBar(toolbar);
     }
 
@@ -140,6 +142,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 navItemIndex = position;
 
+                //Show the add product floating button when products is selected from navigation menu.
                 if(navItemIndex == 1){
                     addProductFab.setVisibility(View.VISIBLE);
                 }else{
@@ -164,6 +167,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void onClick(View v) {
         if(v.getId() == R.id.sign_out_btn){
             drawer.closeDrawers();
+        }else if(v.getId() == R.id.add_product_fab){
+            NavigationController.startActivityAddNewProduct(MainActivity.this);
         }
     }
 }

@@ -33,7 +33,7 @@
         android:layout_marginRight="16dp"
         android:src="@drawable/ic_add_white_24px"
         app:rippleColor="@color/lightGrey"
-        app:fabSize="normal"
+        app:fabSize="mini"
         app:borderWidth="0dp"
         android:visibility="visible"
         app:layout_behavior="ae.netaq.homesorder_vendor.utils.ScrollAwareFABBehavior"

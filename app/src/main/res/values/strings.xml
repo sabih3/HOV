@@ -11,4 +11,8 @@
     <string name="dispatched_tab_title">Dispatched</string>
     <string name="products_tab_title">Products</string>
     <string name="promotions_tabs_title">Promotions</string>
+    <string name="add_product">Add Product</string>
+    <string name="add_details">ADD DETAILS</string>
+    <string name="add_images">ADD IMAGES</string>
+    <string name="preview">PREVIEW</string>
 </resources>
