@@ -46,13 +46,13 @@ public class NewOrdersFragment extends Fragment implements NewOrdersView{
 
         newOrdersPresenter = new NewOrdersPresenter(this);
         newOrdersPresenter.getNewOrdersList(getActivity());
-
+;
         return view;
     }
 
     @Override
     public void onNewOrdersFetched(Orders orders) {
-        NewOrdersRecyclerAdapter newOrdersRecyclerAdapter = new NewOrdersRecyclerAdapter(orders.getOrders());
+        NewOrdersRecyclerAdapter newOrdersRecyclerAdapter = new NewOrdersRecyclerAdapter(orders.getOrders(), getActivity());
         newOrdersRecycler.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
         newOrdersRecycler.setAdapter(newOrdersRecyclerAdapter);
     }

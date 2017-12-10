@@ -4,19 +4,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.view.PagerAdapter;
 
 import java.util.ArrayList;
 
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.activities.AddNewProductActivity;
-import ae.netaq.homesorder_vendor.activities.MainActivity;
+import ae.netaq.homesorder_vendor.activities.OrderDetailActivity;
+import ae.netaq.homesorder_vendor.activities.ProductDetailActivity;
 import ae.netaq.homesorder_vendor.adapters.FragmentViewPager;
 import ae.netaq.homesorder_vendor.fragments.PagerFragment;
-import ae.netaq.homesorder_vendor.fragments.add_new_product.AddProductImagesFragment;
-import ae.netaq.homesorder_vendor.fragments.add_new_product.AddProductInformationFragment;
-import ae.netaq.homesorder_vendor.fragments.add_new_product.ChooseCategoryFragment;
-import ae.netaq.homesorder_vendor.fragments.add_new_product.ProductPreviewFragment;
+import ae.netaq.homesorder_vendor.fragments.add_new_product.add_product_images.AddProductImagesFragment;
+import ae.netaq.homesorder_vendor.fragments.add_new_product.add_product_information.AddProductInformationFragment;
+import ae.netaq.homesorder_vendor.fragments.add_new_product.choose_category.ChooseCategoryFragment;
+import ae.netaq.homesorder_vendor.fragments.add_new_product.product_preview.ProductPreviewFragment;
 import ae.netaq.homesorder_vendor.fragments.orders.dispatched_tab.DispatchedOrdersFragment;
 import ae.netaq.homesorder_vendor.fragments.orders.new_tab.NewOrdersFragment;
 import ae.netaq.homesorder_vendor.fragments.orders.processing_tab.ProcessingOrdersFragment;
@@ -30,7 +30,7 @@ import ae.netaq.homesorder_vendor.fragments.products.promotions_tab.PromotionPro
 
 public class NavigationController {
 
-    public static PagerAdapter getOrdersPagerAdapter(Context context, FragmentManager supportFragmentManager) {
+    public static FragmentViewPager getOrdersPagerAdapter(Context context, FragmentManager supportFragmentManager) {
 
         FragmentViewPager viewPagerAdapter ;
 
@@ -56,7 +56,7 @@ public class NavigationController {
         return viewPagerAdapter;
     }
 
-    public static PagerAdapter getProductsPagerAdapter(Context context, FragmentManager supportFragmentManager) {
+    public static FragmentViewPager getProductsPagerAdapter(Context context, FragmentManager supportFragmentManager) {
 
         FragmentViewPager viewPagerAdapter;
 
@@ -76,7 +76,7 @@ public class NavigationController {
         return viewPagerAdapter;
     }
 
-    public static PagerAdapter getAddNewProductPagerAdapter(FragmentManager supportFragmentManager) {
+    public static FragmentViewPager getAddNewProductPagerAdapter(FragmentManager supportFragmentManager) {
 
         FragmentViewPager viewPagerAdapter;
 
@@ -105,6 +105,16 @@ public class NavigationController {
 
     public static void startActivityAddNewProduct(Context context){
         Intent intent = new Intent(context, AddNewProductActivity.class);
+        context.startActivity(intent);
+    }
+
+    public static void startActivityOrderDetail(Context context){
+        Intent intent = new Intent(context, OrderDetailActivity.class);
+        context.startActivity(intent);
+    }
+
+    public static void startActivityProductDetail(Context context){
+        Intent intent = new Intent(context, ProductDetailActivity.class);
         context.startActivity(intent);
     }
 

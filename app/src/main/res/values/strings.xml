@@ -12,7 +12,27 @@
     <string name="products_tab_title">Products</string>
     <string name="promotions_tabs_title">Promotions</string>
     <string name="add_product">Add Product</string>
+    <string name="add_product_caps">ADD PRODUCT</string>
     <string name="add_details">ADD DETAILS</string>
     <string name="add_images">ADD IMAGES</string>
     <string name="preview">PREVIEW</string>
+    <string name="order_detail">Order Detail</string>
+    <string name="product_detail">Product Detail</string>
+    <string name="product_name">Product Name</string>
+    <string name="choose_category">Choose Category:</string>
+    <string name="choose_sub_category">Choose Sub Category:</string>
+    <string name="description">Description</string>
+    <string name="price">Price</string>
+    <string name="add_photo"><u>Add Photo</u></string>
+    <string name="product_price_required_error">Product Price is required</string>
+    <string name="product_description_required_error">Product Description is required</string>
+    <string name="product_name_required_error">Product Name is required</string>
+    <string name="add_images_error">Please add images to proceed</string>
+    <string name="select_pictures">Select Pictures</string>
+    <string name="choose_subcategory_error">Please choose sub category to proceed</string>
+    <string name="choose_main_category_error">Please choose main category to proceed</string>
+    <string name="choose_group">Choose Group</string>
+    <string name="select_one_category_error">Please select one category</string>
+    <string name="choose_subcategory_group_error">Please choose sub category and group to proceed</string>
+    <string name="valid_price_error">Please enter valid price</string>
 </resources>

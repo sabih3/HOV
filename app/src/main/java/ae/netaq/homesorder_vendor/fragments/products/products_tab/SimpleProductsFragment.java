@@ -49,7 +49,7 @@ public class SimpleProductsFragment extends Fragment{
 
     private void initViews() {
 
-        SimpleProductsRecyclerAdapter simpleProductsRecyclerAdapter = new SimpleProductsRecyclerAdapter(ProductsResponse.getProducts());
+        SimpleProductsRecyclerAdapter simpleProductsRecyclerAdapter = new SimpleProductsRecyclerAdapter(ProductsResponse.getProducts(), getActivity());
         newOrdersRecycler.setLayoutManager(new GridLayoutManager(getContext(),2,LinearLayoutManager.VERTICAL,false));
         newOrdersRecycler.setAdapter(simpleProductsRecyclerAdapter);
 

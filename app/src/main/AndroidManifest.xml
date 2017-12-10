@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ae.netaq.homesorder_vendor">
 
+    <!-- if you want to load images from the internet -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- if you want to load images from a file OR from the internet -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:name=".AppController"
         android:allowBackup="true"
@@ -17,7 +23,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.AddNewProductActivity"/>
+
+        <activity
+            android:name=".activities.AddNewProductActivity"
+            android:windowSoftInputMode="adjustPan" />
+
+        <activity android:name=".activities.OrderDetailActivity"/>
+        <activity android:name=".activities.ProductDetailActivity"/>
     </application>
 
 </manifest>

@@ -1,7 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:paddingTop="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
 
-</RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_category"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="@dimen/listing_text_size"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:baselineAligned="false"
+        android:layout_marginTop="10dp">
+        <RelativeLayout
+            android:id="@+id/food_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/food_image_view"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:src="@drawable/food"
+                android:scaleType="centerCrop"/>
+            <cn.refactor.library.SmoothCheckBox
+                android:id="@+id/food_checkbox"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="10dp"
+                app:color_checked="@color/shittyGreen"
+                app:color_unchecked="@color/checkBoxUnchecked"
+                app:color_unchecked_stroke="@color/checkBoxUnchecked"
+                app:stroke_width="1dp"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/fashion_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/fashion_image_view"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:src="@drawable/fashion"
+                android:scaleType="centerCrop"/>
+            <cn.refactor.library.SmoothCheckBox
+                android:id="@+id/fashion_checkbox"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="10dp"
+                app:color_checked="@color/shittyGreen"
+                app:color_unchecked="@color/checkBoxUnchecked"
+                app:color_unchecked_stroke="@color/checkBoxUnchecked"
+                app:stroke_width="1dp"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_sub_category"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:textSize="@dimen/listing_text_size"/>
+
+    <android.support.v7.widget.AppCompatSpinner
+        android:id="@+id/categories_spinner"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/round_rect_shape"
+        android:popupTheme="@style/SpinnerTheme"
+        />
+
+    <LinearLayout
+        android:id="@+id/group_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_group"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:textSize="@dimen/listing_text_size"/>
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/group_spinner"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/round_rect_shape"
+            android:popupTheme="@style/SpinnerTheme"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>

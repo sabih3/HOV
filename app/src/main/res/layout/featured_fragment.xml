@@ -5,9 +5,12 @@
     android:layout_height="match_parent"
     android:gravity="center">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="FeaturedFragment"/>
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="1dp"
+            android:paddingRight="1dp"
+            android:id="@+id/rv_featured_fragment">
+        </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>
