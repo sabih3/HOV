@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@android:color/white"
-    android:padding="10dp"
-    android:orientation="vertical">
+    android:overScrollMode="never">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/add_product_information_product_name_layout"
@@ -24,6 +29,25 @@
         android:theme="@style/TextInputTheme"
         android:textColor="@android:color/black"
         android:backgroundTint="@color/lightGrey"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/add_product_information_product_name_layout_arabic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/TextInputTheme"
+        app:errorEnabled="true"
+        >
+        <EditText
+            android:id="@+id/add_product_information_product_name_arabic"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/product_name_ar"
+            android:inputType="text"
+            android:maxLines="1"
+            android:theme="@style/TextInputTheme"
+            android:textColor="@android:color/black"
+            android:backgroundTint="@color/lightGrey"/>
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -63,8 +87,30 @@
             android:textColor="@android:color/black"
             android:minLines="5"
             android:gravity="top"
-            android:imeOptions="actionDone"
+            android:imeOptions="actionNext"
             android:backgroundTint="@color/lightGrey"/>
     </android.support.design.widget.TextInputLayout>
 
-</LinearLayout>
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/add_product_information_product_description_layout_arabic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/TextInputTheme"
+        app:errorEnabled="true"
+        >
+        <EditText
+            android:id="@+id/add_product_information_product_description_arabic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Description (Ar)"
+            android:inputType="textMultiLine"
+            android:theme="@style/TextInputTheme"
+            android:textColor="@android:color/black"
+            android:minLines="5"
+            android:gravity="top"
+            android:imeOptions="actionDone"
+            android:backgroundTint="@color/lightGrey"/>
+    </android.support.design.widget.TextInputLayout>
+    </LinearLayout>
+
+</ScrollView>

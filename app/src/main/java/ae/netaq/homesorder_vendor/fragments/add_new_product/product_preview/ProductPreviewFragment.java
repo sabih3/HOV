@@ -69,4 +69,10 @@ public class ProductPreviewFragment extends Fragment {
         mCallback.onAddProductRequested();
     }
 
+    @Override
+    public void onDetach() {
+        mCallback = null;
+        super.onDetach();
+    }
+
 }

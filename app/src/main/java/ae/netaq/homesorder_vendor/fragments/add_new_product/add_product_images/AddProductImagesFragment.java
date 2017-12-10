@@ -82,19 +82,6 @@ public class AddProductImagesFragment extends Fragment implements View.OnClickLi
         addPhotoImagesRecycler.setLayoutManager(new GridLayoutManager(getActivity(), 3, LinearLayoutManager.VERTICAL, false));
     }
 
-    @Override
-    public void onClick(View v) {
-        if(v.getId() == R.id.add_photo_layout){
-         openImageChooser();
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        mCallback = null;
-        super.onDetach();
-    }
-
     // The following code is responsible of selecting multiple images from the storage.
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
@@ -138,5 +125,18 @@ public class AddProductImagesFragment extends Fragment implements View.OnClickLi
         }else{
             Utils.showToast(getActivity(), getString(R.string.add_images_error));
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == R.id.add_photo_layout){
+         openImageChooser();
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        mCallback = null;
+        super.onDetach();
     }
 }

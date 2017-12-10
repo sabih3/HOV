@@ -2,17 +2,14 @@ package ae.netaq.homesorder_vendor.fragments.add_new_product.choose_category;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.LinearGradient;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -22,7 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ae.netaq.homesorder_vendor.R;
-import ae.netaq.homesorder_vendor.fragments.add_new_product.add_product_information.AddProductInformationView;
 import ae.netaq.homesorder_vendor.utils.Utils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -112,6 +108,7 @@ public class ChooseCategoryFragment extends Fragment implements View.OnClickList
                     groupLayout.setVisibility(View.GONE);
                 }else{
                     foodImageView.setColorFilter(Color.TRANSPARENT);
+                    foodCheckBox.clearAnimation();
                 }
             }
         });
@@ -147,6 +144,12 @@ public class ChooseCategoryFragment extends Fragment implements View.OnClickList
         }else{
             Utils.showToast(getActivity(), getString(R.string.choose_main_category_error));
         }
+    }
+
+    @Override
+    public void onDetach() {
+        mCallback = null;
+        super.onDetach();
     }
 
     @Override

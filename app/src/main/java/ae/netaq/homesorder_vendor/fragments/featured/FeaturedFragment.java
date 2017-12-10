@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.adapters.featured.FeaturedOrdersRecyclerAdapter;
-import ae.netaq.homesorder_vendor.adapters.featured.viewholder.FeaturedOrdersRecyclerViewHolder;
 
 /**
  * Created by Netaq on 11/21/2017.

@@ -35,4 +35,5 @@
     <string name="select_one_category_error">Please select one category</string>
     <string name="choose_subcategory_group_error">Please choose sub category and group to proceed</string>
     <string name="valid_price_error">Please enter valid price</string>
+    <string name="product_name_ar">Product Name (Ar)</string>
 </resources>
