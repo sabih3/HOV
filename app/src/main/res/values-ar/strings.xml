@@ -1,8 +1,5 @@
 <resources>
-    <string name="stage_move_under_process">Move to processing</string>
-    <string name="status_processing">Processing</string>
-    <string name="status_ready">Ready</string>
-    <string name="title_order_management_dialog">Move order to :</string>
+
     <string name="app_name">HomesOrder V</string>
     <string name="openDrawer">open_drawer</string>
     <string name="closeDrawer">close_drawer</string>

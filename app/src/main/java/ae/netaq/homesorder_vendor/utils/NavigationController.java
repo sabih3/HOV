@@ -33,8 +33,6 @@ import ae.netaq.homesorder_vendor.fragments.products.promotions_tab.PromotionPro
 public class NavigationController {
 
     public static FragmentViewPager getOrdersPagerAdapter(Context context, FragmentManager supportFragmentManager) {
-    public static PagerAdapter getOrdersPagerAdapter(Context context,
-                                                     FragmentManager supportFragmentManager) {
 
         FragmentViewPager viewPagerAdapter ;
 
