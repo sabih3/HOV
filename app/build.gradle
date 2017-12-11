@@ -43,4 +43,6 @@ dependencies {
     annotationProcessor 'com.google.dagger:dagger-compiler:2.13'
     compile 'com.github.badoualy:stepper-indicator:1.0.7'
     compile group: 'com.j256.ormlite', name: 'ormlite-android', version: '4.45'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'org.greenrobot:eventbus:3.1.1'
 }

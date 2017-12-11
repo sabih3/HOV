@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
@@ -54,7 +55,9 @@ public class OrdersFragment extends Fragment{
     }
 
     private void initViews() {
-        pager.setAdapter(NavigationController.getOrdersPagerAdapter(this.getContext(),getChildFragmentManager()));
+        PagerAdapter orderViewsAdapter = NavigationController.getOrdersPagerAdapter(this.getContext(), getChildFragmentManager());
+        pager.setOffscreenPageLimit(0);
+        pager.setAdapter(orderViewsAdapter);
         tabs.setupWithViewPager(pager);
     }
 }

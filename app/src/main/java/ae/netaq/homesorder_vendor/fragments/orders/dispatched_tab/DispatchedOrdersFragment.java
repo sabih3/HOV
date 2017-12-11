@@ -10,10 +10,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+import java.util.List;
+
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.adapters.orders.dispatched_tab.DispatchedOrdersRecyclerAdapter;
-import ae.netaq.homesorder_vendor.data_manager.DataManager;
-import ae.netaq.homesorder_vendor.models.Orders;
+import ae.netaq.homesorder_vendor.db.data_manager.tables.OrderTable;
+import ae.netaq.homesorder_vendor.event_bus.OrderMoveToDispatch;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -41,9 +47,14 @@ public class DispatchedOrdersFragment extends Fragment implements DispatchedOrde
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable
+                             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.listing_layout, container, false);
         ButterKnife.bind(this, view);
+
+        if(!EventBus.getDefault().isRegistered(this)){
+            EventBus.getDefault().register(this);
+        }
 
         dispatchedOrdersPresenter = new DispatchedOrdersPresenter(this);
         dispatchedOrdersPresenter.getDispatchedOrdersList(getActivity());
@@ -51,10 +62,19 @@ public class DispatchedOrdersFragment extends Fragment implements DispatchedOrde
         return view;
     }
 
+    //ReadyOrderFragment.onContextItemSelected
+    @Subscribe (threadMode = ThreadMode.MAIN)
+    public void onOrderedMovedToDispatch(OrderMoveToDispatch orderMoveToDispatch){
+        dispatchedOrdersPresenter.getDispatchedOrdersList(getActivity());
+    }
+
     @Override
-    public void onDispatchedOrdersFetched(Orders orders) {
-        DispatchedOrdersRecyclerAdapter dispatchedOrdersRecyclerAdapter = new DispatchedOrdersRecyclerAdapter(orders.getOrders());
-        processingOrdersRecycler.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
+    public void onDispatchedOrdersFetched(List<OrderTable> orders) {
+        DispatchedOrdersRecyclerAdapter dispatchedOrdersRecyclerAdapter =
+                                        new DispatchedOrdersRecyclerAdapter(orders);
+
+        processingOrdersRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
+
         processingOrdersRecycler.setAdapter(dispatchedOrdersRecyclerAdapter);
     }
 }

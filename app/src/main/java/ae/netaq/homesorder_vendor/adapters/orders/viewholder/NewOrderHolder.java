@@ -13,7 +13,7 @@ import butterknife.ButterKnife;
  * Created by Netaq on 11/23/2017.
  */
 
-public class OrdersRecyclerViewHolder extends RecyclerView.ViewHolder {
+public class NewOrderHolder extends RecyclerView.ViewHolder {
 
     @BindView(R.id.list_item_order_id)
     public TextView orderId;
@@ -36,8 +36,9 @@ public class OrdersRecyclerViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.list_item_context_menu_button)
     public ImageView contextMenuBtn;
 
-    public OrdersRecyclerViewHolder(View itemView) {
+    public NewOrderHolder(View itemView) {
         super(itemView);
         ButterKnife.bind(this, itemView);
+
     }
 }

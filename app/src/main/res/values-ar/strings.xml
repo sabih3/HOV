@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="stage_move_under_process">Move to processing</string>
+    <string name="status_processing">Processing</string>
+    <string name="status_ready">Ready</string>
+    <string name="title_order_management_dialog">Move order to :</string>
+</resources>

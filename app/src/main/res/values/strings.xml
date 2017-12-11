@@ -15,4 +15,10 @@
     <string name="add_details">ADD DETAILS</string>
     <string name="add_images">ADD IMAGES</string>
     <string name="preview">PREVIEW</string>
+    <string name="stage_move_under_process">Move to processing</string>
+
+
+    <string name="status_processing">Processing</string>
+    <string name="status_ready">Ready</string>
+    <string name="title_order_management_dialog">Move order to :</string>
 </resources>

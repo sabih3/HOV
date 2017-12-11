@@ -1,19 +1,39 @@
 package ae.netaq.homesorder_vendor.models;
 
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
+import java.io.Serializable;
+
 /**
- * Created by sabih on 03-Dec-17.
+ * Created by Sabih Ahmed on 03-Dec-17.
  */
-public class Product {
+
+public class Product implements Serializable{
+
+
+    public long id;
+
     public long productID;
+
     public String productNameAR;
+
+
     public String productNameEN;
+
+
     public String parentCategoryNameAR;
+
+
     public String parentCategoryNameEN;
+
     public int parentCategoryID;
+
+
     public int isOnPromotion;
+
     public int isFeatured;
-    public String comments;
-    public String parentCategoryName;
+
 
     public long getProductID() {
         return productID;
@@ -47,11 +67,5 @@ public class Product {
         return isFeatured;
     }
 
-    public String getComments() {
-        return comments;
-    }
 
-    public String getParentCategoryName() {
-        return parentCategoryName;
     }
-}

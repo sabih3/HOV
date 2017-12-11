@@ -30,7 +30,8 @@ import ae.netaq.homesorder_vendor.fragments.products.promotions_tab.PromotionPro
 
 public class NavigationController {
 
-    public static PagerAdapter getOrdersPagerAdapter(Context context, FragmentManager supportFragmentManager) {
+    public static PagerAdapter getOrdersPagerAdapter(Context context,
+                                                     FragmentManager supportFragmentManager) {
 
         FragmentViewPager viewPagerAdapter ;
 
@@ -108,4 +109,9 @@ public class NavigationController {
         context.startActivity(intent);
     }
 
+    public static void showMainActivity(Context context) {
+        Intent intent = new Intent(context, MainActivity.class);
+        context.startActivity(intent);
+
+    }
 }

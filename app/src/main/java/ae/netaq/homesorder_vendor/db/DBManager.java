@@ -9,25 +9,35 @@ import android.content.Context;
 public class DBManager {
 
     private static DBManager instance;
-    private DBHelper dbHelper;
+    private static DBHelper dbHelper;
 
     private DBManager(Context context) {
 
+
         dbHelper = new DBHelper(context);
+
         dbHelper.getWritableDatabase();
+
     }
 
-//    public static void init(Context context){
-//
-//        if(instance == null){
-//            instance = new DBManager(context);
-//        }
-//
-//    }
+    public static void init(Context context){
+
+        if(instance == null){
+            instance = new DBManager(context);
+
+        }
+
+    }
 
     public static DBManager getInstance(){
 
         return instance;
+    }
+
+
+    public DBHelper getDbHelper(){
+
+        return dbHelper;
     }
 
 

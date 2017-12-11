@@ -1,0 +1,27 @@
+{
+  "products": [
+        {
+          "productID": 2001,
+          "productNameAR":"",
+          "productNameEN": "Chicken Tikka",
+          "parentCategoryNameAR":"",
+          "parentCategoryNameEN": "food",
+          "parentCategoryID":22,
+          "isOnPromotion": 0,
+          "isFeatured": 1,
+          "comments":"Please keep spice level low"
+        },
+        {
+          "productID": 2005,
+          "productNameAR":"",
+          "productNameEN": "Samosa pack 12",
+          "parentCategoryNameAR":"",
+          "parentCategoryName": "food",
+          "parentCategoryID":22,
+          "isOnPromotion": 1,
+          "isFeatured": 1,
+          "comments":"High Spices"
+        }
+      ]
+      
+}
