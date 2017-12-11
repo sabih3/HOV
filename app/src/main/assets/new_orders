@@ -5,15 +5,17 @@
       "orderStatus":0,
       "orderTotal":120.50,
       "payment_mode":1,
-      "orderDate": "11/23/2017 14:08 ",
-      "dueDate": "11/25/2017 14:00 PM",
+      "orderDate": "12/06/2017 09:30",
+      "dueDate": "12/08/2017 15:00",
       "comments": "These are order comments",
       "customer":{
+              "customerID":45,
+              "name": "Abdullah",
+              "email":"someone@domain.com",
+              "address": "Netaq E Solutions, Abu Dhabi",
+              "phone":"+971-9999555",
+              "shippingNotes":"First call before deliver"
 
-        "name": "Abdullah",
-        "address": "Netaq E Solutions, Abu Dhabi",
-        "contactNumber":"+971-9999555",
-        "email":"someone@domain.com"
       },
 
       "products": [
@@ -46,39 +48,127 @@
       "orderStatus":0,
       "orderTotal":120.50,
       "payment_mode":2,
-      "orderDate": "11/23/2017 14:08 ",
-      "dueDate": "11/25/2017 14:00 PM",
+      "orderDate": "12/06/2017 09:30",
+      "dueDate": "12/08/2017 15:00",
       "comments": "These are order comments",
       "customer":{
+                    "customerID":46,
+                    "name": "Sabih ",
+                    "email":"someone@domain.com",
+                    "address": "1302 Liwa Street Abu Dhabi",
+                    "phone":"+971-50-4741150",
+                    "shippingNotes":"visit before 3"
 
-        "name": "Abdullah",
-        "address": "Netaq E Solutions, Abu Dhabi",
-        "contactNumber":"+971-9999555",
-        "email":"someone@domain.com"
       },
 
       "products": [
         {
-          "productID": 2009,
+          "productID": 3001,
           "productNameAR":"",
-          "productNameEN": "Chicken Tikka",
+          "productNameEN": "Abaya",
           "parentCategoryNameAR":"",
-          "parentCategoryNameEN": "food",
+          "parentCategoryNameEN": "Clothing",
           "parentCategoryID":22,
           "isOnPromotion": 0,
           "isFeatured": 1,
-          "comments":"Please keep spice level low"
+          "comments":""
         },
         {
-          "productID": 2013,
+          "productID": 3002,
           "productNameAR":"",
-          "productNameEN": "Samosa pack 12",
+          "productNameEN": "Shirt",
           "parentCategoryNameAR":"",
-          "parentCategoryName": "food",
+          "parentCategoryName": "Clothing",
           "parentCategoryID":22,
           "isOnPromotion": 1,
           "isFeatured": 1,
-          "comments":"High Spices"
+          "comments":""
+        }
+      ]
+    },
+    {
+          "orderID": 1003,
+          "orderStatus":0,
+          "orderTotal":130.50,
+          "payment_mode":1,
+          "orderDate": "12/06/2017 09:30",
+          "dueDate": "12/08/2017 15:00",
+          "comments": "These are order comments",
+          "customer":{
+                      "customerID":46,
+                      "name": "Sabih ",
+                      "email":"someone@domain.com",
+                      "address": "1401 Salam Street Abu Dhabi",
+                      "phone":"+971-02-4446663",
+                      "shippingNotes":"No Saturday plz"
+
+          },
+
+          "products": [
+            {
+              "productID": 3001,
+              "productNameAR":"",
+              "productNameEN": "Abaya",
+              "parentCategoryNameAR":"",
+              "parentCategoryNameEN": "Clothing",
+              "parentCategoryID":22,
+              "isOnPromotion": 0,
+              "isFeatured": 1,
+              "comments":""
+            },
+            {
+              "productID": 3002,
+              "productNameAR":"",
+              "productNameEN": "Shirt",
+              "parentCategoryNameAR":"",
+              "parentCategoryName": "Clothing",
+              "parentCategoryID":22,
+              "isOnPromotion": 1,
+              "isFeatured": 1,
+              "comments":""
+            }
+          ]
+        },
+        {
+      "orderID": 1004,
+      "orderStatus":0,
+      "orderTotal":120.50,
+      "payment_mode":2,
+      "orderDate": "12/06/2017 09:30",
+      "dueDate": "12/08/2017 15:00",
+      "comments": "These are order comments",
+      "customer":{
+              "customerID":45,
+              "name": "Nafees",
+              "email":"someone@domain.com",
+              "address": "1804 Shawarma Time Building",
+              "phone":"+971-9999555",
+              "shippingNotes":"First call before deliver"
+
+      },
+
+      "products": [
+        {
+          "productID": 2001,
+          "productNameAR":"",
+          "productNameEN": "Sofa",
+          "parentCategoryNameAR":"",
+          "parentCategoryNameEN": "Home style & living",
+          "parentCategoryID":25,
+          "isOnPromotion": 0,
+          "isFeatured": 1,
+          "comments":"It must be same color"
+        },
+        {
+          "productID": 2005,
+          "productNameAR":"",
+          "productNameEN": "Hand woven sweater",
+          "parentCategoryNameAR":"",
+          "parentCategoryName": "Home style & living",
+          "parentCategoryID":23,
+          "isOnPromotion": 1,
+          "isFeatured": 1,
+          "comments":""
         }
       ]
     }

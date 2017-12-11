@@ -1,0 +1,110 @@
+{
+  "products": [
+        {
+          "productID": 2001,
+          "productNameAR":"",
+          "productNameEN": "Abaya Black",
+          "parentCategoryNameAR":"",
+          "parentCategoryNameEN": "Fashion",
+          "parentCategoryID":22,
+          "perDayOrderLimit":"2",
+          "price":"135",
+          "offerPrice":"135",
+          "descAR":"",
+          "descEN":"",
+          "handlingTime":"5 Days",
+          "isOnPromotion": 0,
+          "isFeatured": 0,
+          "image":"http://www.hanayen.com/content/images/thumbs/0000276_hanayen-6519.jpeg"
+        },
+        {
+          "productID": 2002,
+          "productNameAR":"",
+          "productNameEN": "Kunafa 500 gms ",
+          "parentCategoryNameAR":"",
+          "parentCategoryName": "Food",
+          "parentCategoryID":22,
+          "perDayOrderLimit":"4",
+          "price":"50",
+          "offerPrice":"50",
+          "descAR":"",
+          "descEN":"",
+          "handlingTime":"1 Days",
+          "isOnPromotion": 0,
+          "isFeatured": 0,
+          "image":"https://www.visitdubai.com/-/media/images/articles/emirates%20sweets/baklava-arabic-desserts.jpg"
+        },
+        {
+          "productID": 2003,
+          "productNameAR":"",
+          "productNameEN": "Mandi Chicken 500 gms Pack",
+          "parentCategoryNameAR":"",
+          "parentCategoryName": "Food",
+          "parentCategoryID":22,
+          "perDayOrderLimit":"10",
+          "price":"60",
+          "offerPrice":"60",
+          "descAR":"",
+          "descEN":"",
+          "handlingTime":"1 Days",
+          "isOnPromotion": 0,
+          "isFeatured": 0,
+          "image":" https://www.archanaskitchen.com//images/archanaskitchen/1-Author/Shaharban/Arabian_Chicken_Mandhi.jpg"
+        },
+
+        {
+          "productID": 2004,
+          "productNameAR":"",
+          "productNameEN": "Arabic Qahwa 1.5 Ltr",
+          "parentCategoryNameAR":"",
+          "parentCategoryName": "Food",
+          "parentCategoryID":22,
+          "perDayOrderLimit":"10",
+          "price":"30",
+          "offerPrice":"30",
+          "descAR":"",
+          "descEN":"",
+          "handlingTime":"1 Days",
+          "isOnPromotion": 0,
+          "isFeatured": 0,
+          "image":" http://imgc.allpostersimages.com/images/P-473-488-90/40/4004/7L2WF00Z/posters/nico-tondini-arabic-coffee-dubai-united-arab-emirates-middle-east.jpg"
+        },
+        {
+        "productID": 2005,
+        "productNameAR":"",
+        "productNameEN": "Baby Sweater Hand Knitted",
+        "parentCategoryNameAR":"",
+        "parentCategoryName": "Fashion",
+        "parentCategoryID":22,
+        "perDayOrderLimit":"2",
+        "price":"120",
+        "offerPrice":"120",
+        "descAR":"",
+        "descEN":"",
+        "handlingTime":"1 Days",
+        "isOnPromotion": 0,
+        "isFeatured": 0,
+        "image":" http://www.cottageartcreations.com/wp-content/uploads/2017/09/crochet-baby-sweater-kids-crochet-baby-cardigan-winter-clothing-free-pattern-gift-ideas-fbrqcag-.jpg"
+        },
+        {
+        "productID": 2006,
+        "productNameAR":"",
+        "productNameEN": "Mutton Madfoon 750 gms",
+        "parentCategoryNameAR":"",
+        "parentCategoryName": "Food",
+        "parentCategoryID":22,
+        "perDayOrderLimit":"4",
+        "price":"120",
+        "offerPrice":"120",
+        "descAR":"",
+        "descEN":"",
+        "isOnPromotion": 0,
+        "isFeatured": 0,
+        "image":" http://www.cottageartcreations.com/wp-content/uploads/2017/09/crochet-baby-sweater-kids-crochet-baby-cardigan-winter-clothing-free-pattern-gift-ideas-fbrqcag-.jpg"
+    }
+
+
+
+      ]
+      
+}

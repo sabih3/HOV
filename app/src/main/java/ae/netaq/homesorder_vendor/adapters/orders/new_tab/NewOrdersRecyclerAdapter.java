@@ -6,42 +6,60 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import ae.netaq.homesorder_vendor.R;
-import ae.netaq.homesorder_vendor.adapters.orders.viewholder.OrdersRecyclerViewHolder;
-import ae.netaq.homesorder_vendor.models.Orders;
+import ae.netaq.homesorder_vendor.adapters.orders.viewholder.NewOrderHolder;
+import ae.netaq.homesorder_vendor.db.data_manager.tables.OrderTable;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
 
 /**
  * Created by Netaq on 11/23/2017.
  */
 
-public class NewOrdersRecyclerAdapter extends RecyclerView.Adapter<OrdersRecyclerViewHolder>{
+public class NewOrdersRecyclerAdapter extends RecyclerView.Adapter<NewOrderHolder>{
 
-    private ArrayList<Orders.Order> mDataset;
-
+    private List<OrderTable> mDataset;
     private Context mContext;
+    private OptionButtonClickListener optionButtonListener;
 
-    public NewOrdersRecyclerAdapter(ArrayList<Orders.Order> mDataset, Context mContext) {
-        this.mDataset = mDataset;
-        this.mContext = mContext;
+    public void setOptionButtonListener(OptionButtonClickListener optionButtonListener) {
+        this.optionButtonListener = optionButtonListener;
     }
 
-    @Override
-    public OrdersRecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public NewOrdersRecyclerAdapter(List<OrderTable> mDataset) {
+        this.mDataset = mDataset;
+    }
 
-        OrdersRecyclerViewHolder viewHolder =
-                new OrdersRecyclerViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.order_list_item, parent, false));
+
+
+    @Override
+    public NewOrderHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        mContext = parent.getContext();
+        NewOrderHolder viewHolder = new NewOrderHolder(LayoutInflater.from(mContext).
+                        inflate(R.layout.order_list_item, parent, false));
 
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(OrdersRecyclerViewHolder holder, int position) {
-        holder.orderId.setText(String.valueOf(mDataset.get(position).getOrderID()));
-        holder.customerAddress.setText(mDataset.get(position).getCustomer().getAddress());
-        holder.CustomerName.setText(mDataset.get(position).getCustomer().getName());
+    public void onBindViewHolder(NewOrderHolder holder, int position) {
+        OrderTable orderTable = mDataset.get(position);
+        final long orderID = orderTable.getOrderID();
+        String address = orderTable.getAddress();
+        String name = orderTable.getName();
+
+        holder.orderId.setText(String.valueOf(orderID));
+        holder.customerAddress.setText(address);
+        holder.CustomerName.setText(name);
+
+        holder.contextMenuBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                optionButtonListener.onOptionButtonSelected(orderID);
+            }
+        });
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,5 +71,12 @@ public class NewOrdersRecyclerAdapter extends RecyclerView.Adapter<OrdersRecycle
     @Override
     public int getItemCount() {
         return mDataset.size();
+
     }
+
+    public interface OptionButtonClickListener{
+
+        void onOptionButtonSelected(long orderID);
+    }
+
 }

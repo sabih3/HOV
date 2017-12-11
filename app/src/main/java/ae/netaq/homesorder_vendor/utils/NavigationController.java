@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.activities.AddNewProductActivity;
+import ae.netaq.homesorder_vendor.activities.MainActivity;
 import ae.netaq.homesorder_vendor.activities.OrderDetailActivity;
 import ae.netaq.homesorder_vendor.activities.ProductDetailActivity;
 import ae.netaq.homesorder_vendor.activities.SettingsActivity;
@@ -124,4 +125,9 @@ public class NavigationController {
         context.startActivity(intent);
     }
 
+    public static void showMainActivity(Context context) {
+        Intent intent = new Intent(context, MainActivity.class);
+        context.startActivity(intent);
+
+    }
 }

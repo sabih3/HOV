@@ -11,6 +11,18 @@
 
     </style>
 
+    <style name="AlertDialogTheme">
+        <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowMinWidthMajor">@android:dimen/dialog_min_width_major</item>
+        <item name="android:windowMinWidthMinor">@android:dimen/dialog_min_width_minor</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textColorAlertDialogListItem">@color/shittyGreen</item>
+
+    </style>
+
     <style name="NavigationViewTheme">
         <item name="android:listDivider">@color/lightGrey</item>
         <item name="android:textStyle">bold</item>
