@@ -90,7 +90,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/round_rect_shape"
-        android:popupTheme="@style/SpinnerTheme"
+        android:popupTheme="@style/SpinnerDropdownTheme"
         />
 
     <LinearLayout
@@ -114,7 +114,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/round_rect_shape"
-            android:popupTheme="@style/SpinnerTheme"
+            android:popupTheme="@style/SpinnerDropdownTheme"
             />
     </LinearLayout>
 

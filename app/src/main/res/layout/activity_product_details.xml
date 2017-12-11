@@ -10,7 +10,9 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:titleTextColor="@android:color/black"
         android:background="@color/colorPrimary"
+        app:navigationIcon="@drawable/ic_prev"
         >
     </android.support.v7.widget.Toolbar>
     <RelativeLayout

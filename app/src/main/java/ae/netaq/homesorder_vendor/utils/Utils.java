@@ -1,10 +1,16 @@
 package ae.netaq.homesorder_vendor.utils;
 
 import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.provider.MediaStore;
+import android.util.DisplayMetrics;
 import android.widget.Toast;
+
+import java.util.Locale;
 
 /**
  * Created by Netaq on 12/6/2017.
@@ -28,6 +34,20 @@ public class Utils {
         }
         cursor.close();
         return res;
+    }
+
+    private void setLocale(Context context, Locale locale){
+        Resources resources = context.getResources();
+        Configuration configuration = resources.getConfiguration();
+        DisplayMetrics displayMetrics = resources.getDisplayMetrics();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1){
+            configuration.setLocale(locale);
+            context.getApplicationContext().createConfigurationContext(configuration);
+        }
+        else{
+            configuration.locale=locale;
+            resources.updateConfiguration(configuration,displayMetrics);
+        }
     }
 
 }

@@ -10,6 +10,7 @@
             android:layout_height="match_parent"
             android:paddingLeft="1dp"
             android:paddingRight="1dp"
+            android:background="@color/colorPrimary"
             android:id="@+id/rv_featured_fragment">
         </android.support.v7.widget.RecyclerView>
 

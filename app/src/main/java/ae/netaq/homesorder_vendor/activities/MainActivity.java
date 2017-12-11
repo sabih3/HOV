@@ -15,6 +15,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import ae.netaq.homesorder_vendor.AppController;
 import ae.netaq.homesorder_vendor.R;
@@ -43,6 +45,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @BindView(R.id.add_product_fab)
     FloatingActionButton addProductFab;
 
+    ImageView settingsBtn;
+
     private int navItemIndex = -1;
 
     @Override
@@ -56,6 +60,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         signOutBtn.setOnClickListener(this);
 
         addProductFab.setOnClickListener(this);
+
+        settingsBtn = navigationView.getHeaderView(0).findViewById(R.id.settings_icon);
+
+        settingsBtn.setOnClickListener(this);
 
         //Setting up the toolbar.
         setUpToolBar();
@@ -169,6 +177,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             drawer.closeDrawers();
         }else if(v.getId() == R.id.add_product_fab){
             NavigationController.startActivityAddNewProduct(MainActivity.this);
+        }else if(v.getId() == R.id.settings_icon){
+            NavigationController.startActivitySettings(MainActivity.this);
         }
     }
 }

@@ -19,7 +19,7 @@
         android:fitsSystemWindows="true"
         android:background="@android:color/white"
         android:theme="@style/NavigationViewTheme"
-        app:itemTextColor="@color/colorPrimary"
+        app:itemTextColor="@android:color/black"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/nav_drawer_items"
         >
@@ -27,11 +27,12 @@
         <Button
             android:id="@+id/sign_out_btn"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
             android:layout_marginBottom="15dp"
+            style="@style/ButtonTheme"
             android:text="Sign Out"
             />
 

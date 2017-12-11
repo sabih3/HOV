@@ -34,7 +34,7 @@ public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
 
         if (dyConsumed > 0) {
             animateFab(true, child);
-        } else if (dyConsumed < 0) {
+        } else if (dyConsumed <= 0) {
             animateFab(false, child);
         }
     }
@@ -43,6 +43,6 @@ public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
         if (isFabHide && hide || !isFabHide && !hide) return;
         isFabHide = hide;
         int moveY = hide ? (2 * child.getHeight()) : 0;
-        child.animate().translationY(moveY).setStartDelay(100).setDuration(300).start();
+        child.animate().translationY(moveY).setStartDelay(0).setDuration(200).start();
     }
 }

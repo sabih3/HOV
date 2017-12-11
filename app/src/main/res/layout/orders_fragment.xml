@@ -10,13 +10,16 @@
         android:id="@+id/orders_tab_layout"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:tabTextColor="@android:color/white"
-        app:tabSelectedTextColor="@android:color/white"
+        app:tabTextColor="@color/lightGrey"
+        app:tabSelectedTextColor="@android:color/black"
         app:tabMode="scrollable"
-        android:background="@color/colorPrimary">
+        android:background="@android:color/white">
 
     </android.support.design.widget.TabLayout>
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/lightGrey"/>
     <android.support.v4.view.ViewPager
         android:id="@+id/orders_view_pager"
         android:layout_width="match_parent"

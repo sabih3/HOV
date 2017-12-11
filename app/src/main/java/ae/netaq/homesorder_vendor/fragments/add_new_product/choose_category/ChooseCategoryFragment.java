@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,6 +78,7 @@ public class ChooseCategoryFragment extends Fragment implements View.OnClickList
 
         View view = inflater.inflate(R.layout.choose_category_fragment, container, false);
         ButterKnife.bind(this, view);
+
         foodLayout.setOnClickListener(this);
         fashionLayout.setOnClickListener(this);
 

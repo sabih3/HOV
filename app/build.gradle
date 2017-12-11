@@ -47,4 +47,5 @@ dependencies {
     compile 'com.github.elton2048:SmoothCheckBox:1.0.1'
     compile 'com.mobsandgeeks:android-saripaar:2.0.2'
     compile 'me.relex:circleindicator:1.2.2@aar'
+    compile 'de.hdodenhof:circleimageview:2.2.0'
 }

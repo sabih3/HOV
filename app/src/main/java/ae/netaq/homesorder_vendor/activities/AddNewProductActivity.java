@@ -67,7 +67,6 @@ public class AddNewProductActivity extends AppCompatActivity implements ChooseCa
 
         toolbar.setTitle(R.string.add_product);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         product = Product.getInstance();
 
@@ -87,6 +86,13 @@ public class AddNewProductActivity extends AppCompatActivity implements ChooseCa
                     pager.setCurrentItem(step, true);
                 }
             }
+        });
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+             }
         });
 
         nextBtn.setOnClickListener(new View.OnClickListener() {

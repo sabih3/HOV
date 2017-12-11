@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import com.squareup.picasso.Picasso;
 
@@ -42,7 +43,6 @@ public class ProductDetailActivity extends AppCompatActivity{
 
         toolbar.setTitle(R.string.product_detail);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         picasso = AppController.get(this).getPicasso();
 
@@ -50,11 +50,25 @@ public class ProductDetailActivity extends AppCompatActivity{
     }
 
     private void setupProductImageSlider() {
+
+        initViews();
+
+    }
+
+    private void initViews() {
+
         ArrayList<Integer> images = new ArrayList<>();
         images.add(R.drawable.fashion);
         images.add(R.drawable.food);
 
         sliderPager.setAdapter(new SliderPagerAdapter(ProductDetailActivity.this, images,null, picasso));
         circleIndicator.setViewPager(sliderPager);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }

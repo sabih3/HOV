@@ -91,8 +91,6 @@ public class AddProductImagesFragment extends Fragment implements View.OnClickLi
                     for (int i = 0; i < clipData.getItemCount(); i++) {
                         ClipData.Item item = clipData.getItemAt(i);
                         Uri uri = item.getUri();
-                        //In case you need image's absolute path
-                        //String path= getPathFromURI(uri);
                         imagesUri.add(uri);
                     }
                 }
