@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleTextColor="@android:color/black"
+        android:background="@color/colorPrimary"
+        app:navigationIcon="@drawable/ic_prev"
+        >
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:orientation="vertical">
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/language_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/round_rect_shape"
+            android:popupTheme="@style/SpinnerDropdownTheme"
+            />
+    </LinearLayout>
+</LinearLayout>

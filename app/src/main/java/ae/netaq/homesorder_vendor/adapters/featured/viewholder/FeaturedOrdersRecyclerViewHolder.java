@@ -1,6 +1,7 @@
 package ae.netaq.homesorder_vendor.adapters.featured.viewholder;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 
 /**
@@ -9,6 +10,8 @@ import android.view.View;
 
 public class FeaturedOrdersRecyclerViewHolder extends RecyclerView.ViewHolder {
     public FeaturedOrdersRecyclerViewHolder(View itemView) {
+
         super(itemView);
+
     }
 }

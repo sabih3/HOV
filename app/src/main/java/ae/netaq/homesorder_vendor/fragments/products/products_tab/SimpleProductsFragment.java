@@ -11,14 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.adapters.products.products_tab.SimpleProductsRecyclerAdapter;
-import ae.netaq.homesorder_vendor.db.data_manager.ProductsManager;
-import ae.netaq.homesorder_vendor.models.Product;
 import ae.netaq.homesorder_vendor.models.ProductsResponse;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -55,16 +49,7 @@ public class SimpleProductsFragment extends Fragment{
 
     private void initViews() {
 
-        ArrayList<Product> productList = ProductsManager.getProducts(getContext());
-        ProductsManager.insertAllProducts(productList);
-        try {
-            List<Product> products = ProductsManager.getProductDao().queryForAll();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-
-        SimpleProductsRecyclerAdapter simpleProductsRecyclerAdapter = new SimpleProductsRecyclerAdapter(ProductsResponse.getProducts());
+        SimpleProductsRecyclerAdapter simpleProductsRecyclerAdapter = new SimpleProductsRecyclerAdapter(ProductsResponse.getProducts(), getActivity());
         newOrdersRecycler.setLayoutManager(new GridLayoutManager(getContext(),2,LinearLayoutManager.VERTICAL,false));
         newOrdersRecycler.setAdapter(simpleProductsRecyclerAdapter);
 

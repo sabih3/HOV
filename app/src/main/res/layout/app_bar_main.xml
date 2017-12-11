@@ -3,12 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white">
 
     <FrameLayout
         android:id="@+id/main_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:focusable="false"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         />
 
@@ -20,6 +22,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
+            app:titleTextColor="@android:color/black"
             android:background="@color/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways"/>
     </android.support.design.widget.AppBarLayout>
@@ -33,7 +36,7 @@
         android:layout_marginRight="16dp"
         android:src="@drawable/ic_add_white_24px"
         app:rippleColor="@color/lightGrey"
-        app:fabSize="mini"
+        app:fabSize="normal"
         app:borderWidth="0dp"
         android:visibility="visible"
         app:layout_behavior="ae.netaq.homesorder_vendor.utils.ScrollAwareFABBehavior"

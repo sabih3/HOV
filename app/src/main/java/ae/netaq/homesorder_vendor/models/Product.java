@@ -1,71 +1,93 @@
 package ae.netaq.homesorder_vendor.models;
 
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.table.DatabaseTable;
+import android.net.Uri;
 
-import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
- * Created by Sabih Ahmed on 03-Dec-17.
+ * Created by Netaq on 12/7/2017.
  */
 
-public class Product implements Serializable{
+public class Product {
 
+    private static Product product = new Product();
 
-    public long id;
-
-    public long productID;
-
-    public String productNameAR;
-
-
-    public String productNameEN;
-
-
-    public String parentCategoryNameAR;
-
-
-    public String parentCategoryNameEN;
-
-    public int parentCategoryID;
-
-
-    public int isOnPromotion;
-
-    public int isFeatured;
-
-
-    public long getProductID() {
-        return productID;
+    private Product() {
     }
 
-    public String getProductNameAR() {
-        return productNameAR;
+    public static Product getInstance( ) {
+        return product;
     }
 
-    public String getProductNameEN() {
-        return productNameEN;
+    private String productName;
+    private Float productPrice;
+    private String productDescription;
+    private int productCategory;
+    private String productSubCategory;
+    private String productGroup;
+    private ArrayList<Uri> productImagesUri;
+
+    public String getProductName() {
+        return productName;
     }
 
-    public String getParentCategoryNameAR() {
-        return parentCategoryNameAR;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
-    public String getParentCategoryNameEN() {
-        return parentCategoryNameEN;
+    public static Product getProduct() {
+        return product;
     }
 
-    public int getParentCategoryID() {
-        return parentCategoryID;
+    public static void setProduct(Product product) {
+        Product.product = product;
     }
 
-    public int getIsOnPromotion() {
-        return isOnPromotion;
+    public Float getProductPrice() {
+        return productPrice;
     }
 
-    public int getIsFeatured() {
-        return isFeatured;
+    public void setProductPrice(Float productPrice) {
+        this.productPrice = productPrice;
     }
 
-
+    public String getProductDescription() {
+        return productDescription;
     }
+
+    public void setProductDescription(String productDescription) {
+        this.productDescription = productDescription;
+    }
+
+    public int getProductCategory() {
+        return productCategory;
+    }
+
+    public void setProductCategory(int productCategory) {
+        this.productCategory = productCategory;
+    }
+
+    public String getProductSubCategory() {
+        return productSubCategory;
+    }
+
+    public void setProductSubCategory(String productSubCategory) {
+        this.productSubCategory = productSubCategory;
+    }
+
+    public ArrayList<Uri> getProductImagesUri() {
+        return productImagesUri;
+    }
+
+    public void setProductImagesUri(ArrayList<Uri> productImagesUri) {
+        this.productImagesUri = productImagesUri;
+    }
+
+    public String getProductGroup() {
+        return productGroup;
+    }
+
+    public void setProductGroup(String productGroup) {
+        this.productGroup = productGroup;
+    }
+}

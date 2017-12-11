@@ -11,6 +11,7 @@ import java.util.List;
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.adapters.orders.viewholder.NewOrderHolder;
 import ae.netaq.homesorder_vendor.db.data_manager.tables.OrderTable;
+import ae.netaq.homesorder_vendor.utils.NavigationController;
 
 /**
  * Created by Netaq on 11/23/2017.
@@ -56,6 +57,13 @@ public class NewOrdersRecyclerAdapter extends RecyclerView.Adapter<NewOrderHolde
             @Override
             public void onClick(View view) {
                 optionButtonListener.onOptionButtonSelected(orderID);
+            }
+        });
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavigationController.startActivityOrderDetail(mContext);
             }
         });
     }

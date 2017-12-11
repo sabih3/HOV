@@ -1,8 +1,10 @@
 package ae.netaq.homesorder_vendor.adapters.featured;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.adapters.featured.viewholder.FeaturedOrdersRecyclerViewHolder;
 
 /**
@@ -10,9 +12,15 @@ import ae.netaq.homesorder_vendor.adapters.featured.viewholder.FeaturedOrdersRec
  */
 
 public class FeaturedOrdersRecyclerAdapter extends RecyclerView.Adapter<FeaturedOrdersRecyclerViewHolder> {
+
+
     @Override
     public FeaturedOrdersRecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return null;
+
+        FeaturedOrdersRecyclerViewHolder viewHolder = new FeaturedOrdersRecyclerViewHolder
+                (LayoutInflater.from(parent.getContext()).inflate(R.layout.featured_list_item,parent,false));
+
+        return viewHolder;
     }
 
     @Override
@@ -22,6 +30,6 @@ public class FeaturedOrdersRecyclerAdapter extends RecyclerView.Adapter<Featured
 
     @Override
     public int getItemCount() {
-        return 0;
+        return 6;
     }
 }

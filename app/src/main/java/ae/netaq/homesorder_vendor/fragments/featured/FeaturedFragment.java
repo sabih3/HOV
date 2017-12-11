@@ -3,11 +3,15 @@ package ae.netaq.homesorder_vendor.fragments.featured;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import ae.netaq.homesorder_vendor.R;
+import ae.netaq.homesorder_vendor.adapters.featured.FeaturedOrdersRecyclerAdapter;
 
 /**
  * Created by Netaq on 11/21/2017.
@@ -19,12 +23,13 @@ import ae.netaq.homesorder_vendor.R;
 public class FeaturedFragment extends Fragment {
 
     private View view;
-
+    RecyclerView recyclerViewFeatured;
     public FeaturedFragment() {
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
     }
 
@@ -33,7 +38,16 @@ public class FeaturedFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.featured_fragment, container, false);
-        return view;
+        initViews();
+         return view;
 
     }
+
+    private void initViews() {
+        recyclerViewFeatured =view.findViewById(R.id.rv_featured_fragment);
+        recyclerViewFeatured.setLayoutManager(new GridLayoutManager(getActivity(),2, LinearLayoutManager.VERTICAL, false));
+        recyclerViewFeatured.setAdapter(new FeaturedOrdersRecyclerAdapter());
+
+    }
+
 }

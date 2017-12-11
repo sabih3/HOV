@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimary">#ffffff</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#EF3E35</color>
     <color name="shittyGreen">#44CE00</color>
-    <color name="lightGrey">#E2E2E2</color>
+    <color name="lightGrey">#acacac</color>
+    <color name="ratingYellow">#ffd200</color>
+    <color name="checkBoxUnchecked">#373737</color>
+    <color name="checkBoxChecked">#373737</color>
+
 </resources>
