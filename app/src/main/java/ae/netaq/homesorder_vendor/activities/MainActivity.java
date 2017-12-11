@@ -1,5 +1,6 @@
 package ae.netaq.homesorder_vendor.activities;
 
+import android.content.res.Configuration;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -25,6 +26,7 @@ import ae.netaq.homesorder_vendor.fragments.orders.OrdersFragment;
 import ae.netaq.homesorder_vendor.fragments.products.ProductsFragment;
 import ae.netaq.homesorder_vendor.utils.Constants;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
+import ae.netaq.homesorder_vendor.utils.Utils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -49,6 +51,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private int navItemIndex = -1;
 
+    public static boolean configChanges = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +69,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         settingsBtn.setOnClickListener(this);
 
+        //Setting up the local
+        setLocal();
+
         //Setting up the toolbar.
         setUpToolBar();
 
@@ -73,6 +80,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //By default when the home activity is loaded select the orders fragment to fill the container.
         selectDrawerItem(navigationView.getMenu().getItem(0));
+    }
+
+    private void setLocal() {
+        Utils.configureLocal(this);
+        if(configChanges){
+            configChanges = false;
+            recreate();
+        }
     }
 
     private void setUpToolBar() {
@@ -118,24 +133,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Class fragmentClass;
         int position = 0;
 
-        //Check to see which item was being clicked and perform appropriate action
-        switch (item.getItemId()) {
-            case R.id.nav_orders_item:
-                fragmentClass = OrdersFragment.class;
-                position = 0;
-                break;
-            case R.id.nav_products_item:
-                fragmentClass = ProductsFragment.class;
-                position = 1;
-                break;
-            case R.id.nav_featured_item:
-                fragmentClass = FeaturedFragment.class;
-                position = 2;
-                break;
-            default:
-                fragmentClass = OrdersFragment.class;
-                position = 0;
-        }
+            //Check to see which item was being clicked and perform appropriate action
+            switch (item.getItemId()) {
+                case R.id.nav_orders_item:
+                    fragmentClass = OrdersFragment.class;
+                    position = 0;
+                    break;
+                case R.id.nav_products_item:
+                    fragmentClass = ProductsFragment.class;
+                    position = 1;
+                    break;
+                case R.id.nav_featured_item:
+                    fragmentClass = FeaturedFragment.class;
+                    position = 2;
+                    break;
+                default:
+                    fragmentClass = OrdersFragment.class;
+                    position = 0;
+            }
 
         if(navItemIndex == position){
             drawer.closeDrawers();
@@ -179,6 +194,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             NavigationController.startActivityAddNewProduct(MainActivity.this);
         }else if(v.getId() == R.id.settings_icon){
             NavigationController.startActivitySettings(MainActivity.this);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(configChanges){
+            setLocal();
         }
     }
 }

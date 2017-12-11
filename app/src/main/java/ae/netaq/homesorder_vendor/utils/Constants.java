@@ -6,5 +6,6 @@ package ae.netaq.homesorder_vendor.utils;
 
 public class Constants {
 
-    public static final int NONE=0;
+    public static final String LANGUAGE_PREF_KEY = "lang";
+
 }

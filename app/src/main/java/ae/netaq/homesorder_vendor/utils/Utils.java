@@ -1,6 +1,8 @@
 package ae.netaq.homesorder_vendor.utils;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.Cursor;
@@ -11,6 +13,8 @@ import android.util.DisplayMetrics;
 import android.widget.Toast;
 
 import java.util.Locale;
+
+import ae.netaq.homesorder_vendor.activities.SettingsActivity;
 
 /**
  * Created by Netaq on 12/6/2017.
@@ -24,7 +28,7 @@ public class Utils {
 
     //The following code can be used to get the real path from the URI
     /* Get the real path from the URI */
-    public String getPathFromURI(Context context, Uri contentUri) {
+    public static String getPathFromURI(Context context, Uri contentUri) {
         String res = null;
         String[] proj = {MediaStore.Images.Media.DATA};
         Cursor cursor = context.getContentResolver().query(contentUri, proj, null, null, null);
@@ -36,18 +40,23 @@ public class Utils {
         return res;
     }
 
-    private void setLocale(Context context, Locale locale){
-        Resources resources = context.getResources();
-        Configuration configuration = resources.getConfiguration();
-        DisplayMetrics displayMetrics = resources.getDisplayMetrics();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1){
-            configuration.setLocale(locale);
-            context.getApplicationContext().createConfigurationContext(configuration);
+    public static void configureLocal(Activity activity){
+        if(DevicePreferences.getLang().equals("")){
+            setLocale(activity, new Locale("en"));
+        }else if (DevicePreferences.getLang().equals("ar")){
+            setLocale(activity, new Locale("ar"));
+        }else{
+            setLocale(activity, new Locale("en"));
         }
-        else{
-            configuration.locale=locale;
-            resources.updateConfiguration(configuration,displayMetrics);
-        }
+    }
+
+    public static void setLocale(Activity activity, Locale locale){
+
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        activity.getBaseContext().getResources().updateConfiguration(config, activity.getBaseContext().getResources().getDisplayMetrics());
+
     }
 
 }

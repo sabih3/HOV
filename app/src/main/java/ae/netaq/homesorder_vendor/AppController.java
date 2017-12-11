@@ -9,6 +9,7 @@ import ae.netaq.homesorder_vendor.dagger.AppComponent;
 import ae.netaq.homesorder_vendor.dagger.ContextModule;
 import ae.netaq.homesorder_vendor.dagger.DaggerAppComponent;
 import ae.netaq.homesorder_vendor.network.HomesOrderServices;
+import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 
 /**
  * Created by Netaq on 11/20/2017.
@@ -27,6 +28,8 @@ public class AppController extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
+
+        DevicePreferences.getInstance().init(this);
 
         AppComponent component = DaggerAppComponent.builder().contextModule(new ContextModule(this)).build();
 
