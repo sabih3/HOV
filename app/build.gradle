@@ -51,4 +51,5 @@ dependencies {
     compile 'com.mobsandgeeks:android-saripaar:2.0.2'
     compile 'me.relex:circleindicator:1.2.2@aar'
     compile 'de.hdodenhof:circleimageview:2.2.0'
+    compile 'jp.wasabeef:recyclerview-animators:2.2.7'
 }

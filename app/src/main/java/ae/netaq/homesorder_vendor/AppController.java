@@ -11,6 +11,7 @@ import ae.netaq.homesorder_vendor.dagger.DaggerAppComponent;
 import ae.netaq.homesorder_vendor.db.DBHelper;
 import ae.netaq.homesorder_vendor.db.DBManager;
 import ae.netaq.homesorder_vendor.network.HomesOrderServices;
+import ae.netaq.homesorder_vendor.utils.Common;
 import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 
 /**
@@ -31,7 +32,7 @@ public class AppController extends Application{
     public void onCreate() {
         super.onCreate();
 
-        DevicePreferences.getInstance().init(this);
+        DevicePreferences.getInstance().init(this); // init SharedPrefs
 
         AppComponent component = DaggerAppComponent.builder().contextModule(new ContextModule(this)).build();
 
@@ -39,9 +40,11 @@ public class AppController extends Application{
         picasso = component.getPicasso();
 
 
-        DBManager.init(this);
+        DBManager.init(this);// init DB
 
+        boolean preferredLocale = DevicePreferences.getInstance().isLocaleSetToArabic();
 
+        Common.setAppLocaleToArabic(this,preferredLocale); // set preferred lcoale
 
     }
 

@@ -1,5 +1,7 @@
 package ae.netaq.homesorder_vendor.activities;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
@@ -16,21 +18,30 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import ae.netaq.homesorder_vendor.AppController;
 import ae.netaq.homesorder_vendor.R;
+import ae.netaq.homesorder_vendor.event_bus.LanguageChangeEvent;
 import ae.netaq.homesorder_vendor.fragments.featured.FeaturedFragment;
 import ae.netaq.homesorder_vendor.fragments.orders.OrdersFragment;
 import ae.netaq.homesorder_vendor.fragments.products.ProductsFragment;
+import ae.netaq.homesorder_vendor.utils.Common;
 import ae.netaq.homesorder_vendor.utils.Constants;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
 import ae.netaq.homesorder_vendor.utils.Utils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements
+             NavigationView.OnNavigationItemSelectedListener,
+             View.OnClickListener{
 
     @BindView(R.id.nav_view)
     NavigationView navigationView;
@@ -47,7 +58,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @BindView(R.id.add_product_fab)
     FloatingActionButton addProductFab;
 
-    ImageView settingsBtn;
+
+    private ImageView settingsBtn;
 
     private int navItemIndex = -1;
 
@@ -61,6 +73,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         AppController.get(this).getHomesOrderServices();
 
+        EventBus.getDefault().register(this);
+
+
         signOutBtn.setOnClickListener(this);
 
         addProductFab.setOnClickListener(this);
@@ -68,9 +83,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         settingsBtn = navigationView.getHeaderView(0).findViewById(R.id.settings_icon);
 
         settingsBtn.setOnClickListener(this);
-
-        //Setting up the local
-        setLocal();
 
         //Setting up the toolbar.
         setUpToolBar();
@@ -82,11 +94,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         selectDrawerItem(navigationView.getMenu().getItem(0));
     }
 
+
+
     private void setLocal() {
-        Utils.configureLocal(this);
+        //Utils.configureLocal(this);
         if(configChanges){
             configChanges = false;
-            recreate();
+
         }
     }
 
@@ -201,7 +215,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onResume() {
         super.onResume();
         if(configChanges){
-            setLocal();
+            recreate();
+            configChanges = false;
         }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onLanguageChanged(LanguageChangeEvent languageChangeEvent){
+        configChanges = true;
     }
 }

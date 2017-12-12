@@ -31,6 +31,7 @@ import ae.netaq.homesorder_vendor.fragments.add_new_product.choose_category.Choo
 import ae.netaq.homesorder_vendor.fragments.add_new_product.product_preview.ProductPreviewFragment;
 import ae.netaq.homesorder_vendor.fragments.add_new_product.product_preview.ProductPreviewView;
 import ae.netaq.homesorder_vendor.models.Product;
+import ae.netaq.homesorder_vendor.utils.Common;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
 import ae.netaq.homesorder_vendor.utils.NonSwipeableViewPager;
 import butterknife.BindView;
@@ -71,6 +72,9 @@ public class AddNewProductActivity extends AppCompatActivity implements ChooseCa
         product = Product.getInstance();
 
         initViews();
+        //Common.changeViewWithLocale(this,pager);
+        //Common.changeViewWithLocale(this,indicator);
+
     }
 
     private void initViews() {
