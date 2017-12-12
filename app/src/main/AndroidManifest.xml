@@ -23,7 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.MainActivity"/>
+        <activity android:name=".activities.MainActivity"
+                  android:configChanges="locale"/>
         <activity android:name=".activities.OrderDetailActivity"/>
         <activity android:name=".activities.ProductDetailActivity"/>
         <activity android:name=".activities.SettingsActivity"/>

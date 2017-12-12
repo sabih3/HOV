@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -12,21 +13,34 @@
         android:layout_height="wrap_content"
         app:titleTextColor="@android:color/black"
         android:background="@color/colorPrimary"
-        app:navigationIcon="@drawable/ic_prev"
-        >
+        app:navigationIcon="@drawable/ic_prev">
     </android.support.v7.widget.Toolbar>
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/language_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="10dp"
-        android:orientation="vertical">
-        <android.support.v7.widget.AppCompatSpinner
-            android:id="@+id/language_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/round_rect_shape"
-            android:popupTheme="@style/SpinnerDropdownTheme"
-            />
-    </LinearLayout>
+        android:layout_height="60dp"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:text="@string/label_language"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/selected_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:text="English"
+            android:textSize="16sp"/>
+    </RelativeLayout>
 </LinearLayout>

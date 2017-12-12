@@ -17,6 +17,7 @@ import android.widget.Spinner;
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.utils.FashionCategoriesManager;
 import ae.netaq.homesorder_vendor.utils.FoodCategoriesManager;
+import ae.netaq.homesorder_vendor.utils.Common;
 import ae.netaq.homesorder_vendor.utils.Utils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,6 +28,9 @@ import cn.refactor.library.SmoothCheckBox;
  */
 
 public class ChooseCategoryFragment extends Fragment implements View.OnClickListener{
+
+    @BindView(R.id.category_parent)
+    LinearLayout parentLayout;
 
     @BindView(R.id.food_layout)
     RelativeLayout foodLayout;
@@ -86,6 +90,7 @@ public class ChooseCategoryFragment extends Fragment implements View.OnClickList
         fashionLayout.setOnClickListener(this);
 
         initViews();
+        //Common.changeViewWithLocale(getContext(),parentLayout);
 
         setUpSpinners();
 

@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import ae.netaq.homesorder_vendor.R;
+import ae.netaq.homesorder_vendor.utils.Common;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -50,6 +51,7 @@ public class OrdersFragment extends Fragment{
         view = inflater.inflate(R.layout.orders_fragment, container, false);
         ButterKnife.bind(this, view);
         initViews();
+        Common.changeViewWithLocale(getContext(),pager);
         return view;
 
     }

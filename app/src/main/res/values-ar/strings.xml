@@ -37,6 +37,7 @@
     <string name="valid_price_error">السعر المدخل غير صالح</string>
     <string name="product_name_ar">Product Name (Ar)</string>
     <string name="settings">اختر</string>
+    <string name="label_language">الغة</string>
 
     <string-array name="languages_array">
         <item>English</item>
