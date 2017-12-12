@@ -30,8 +30,7 @@ public class DispatchedOrdersRecyclerAdapter extends RecyclerView.Adapter<NewOrd
     @Override
     public NewOrderHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         mContext = parent.getContext();
-        NewOrderHolder viewHolder = new NewOrderHolder(LayoutInflater.from(mContext).
-                                    inflate(R.layout.order_list_item, parent, false));
+        NewOrderHolder viewHolder = new NewOrderHolder(LayoutInflater.from(mContext).inflate(R.layout.order_list_item, parent, false));
 
         return viewHolder;
     }

@@ -17,6 +17,7 @@ import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import com.mobsandgeeks.saripaar.annotation.Order;
 import com.mobsandgeeks.saripaar.annotation.Pattern;
+import com.shawnlin.numberpicker.NumberPicker;
 
 import java.util.List;
 
@@ -61,6 +62,12 @@ public class AddProductInformationFragment extends Fragment implements Validator
 
     @BindView(R.id.add_product_information_product_description_layout)
     TextInputLayout productDescriptionLayout;
+
+    @BindView(R.id.picker_order_limit)
+    NumberPicker orderLimit;
+
+    @BindView(R.id.picker_handling_time)
+    NumberPicker handlingTime;
 
     private AddProductInformationView mCallback;
 

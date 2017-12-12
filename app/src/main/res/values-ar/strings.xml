@@ -1,5 +1,4 @@
 <resources>
-
     <string name="app_name">HomesOrder V</string>
     <string name="openDrawer">open_drawer</string>
     <string name="closeDrawer">close_drawer</string>
@@ -34,7 +33,7 @@
     <string name="choose_main_category_error">اختر الفئة الأساسية للمتابعة</string>
     <string name="choose_group">اختر مجموعة</string>
     <string name="select_one_category_error">من فضلك اختر فئة واحدة</string>
-    <string name="choose_subcategory_group_error">من فضلك اختر الفئة الفرعية والمجموعة للمتابعة</string>
+    <string name="choose_group_category_error">من فضلك اختر الفئة الفرعية والمجموعة للمتابعة</string>
     <string name="valid_price_error">السعر المدخل غير صالح</string>
     <string name="product_name_ar">Product Name (Ar)</string>
     <string name="settings">اختر</string>

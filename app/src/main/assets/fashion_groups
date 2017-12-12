@@ -1,0 +1,28 @@
+{
+  "fashion_groups":[
+    {
+      "id":null,
+      "subCategoryAR":"Choose Group",
+      "subCategoryEN":"Choose Group",
+      "backGroundImage":""
+    },
+    {
+      "id":311,
+      "subCategoryAR":"Men",
+      "subCategoryEN":"Men",
+      "backGroundImage":""
+    },
+    {
+      "id":312,
+      "subCategoryAR":"Women",
+      "subCategoryEN":"Women",
+      "backGroundImage":""
+    },
+    {
+      "id":313,
+      "subCategoryAR":"Kids",
+      "subCategoryEN":"Kids",
+      "backGroundImage":""
+    }
+  ]
+}

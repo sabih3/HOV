@@ -1,0 +1,46 @@
+{
+  "fashion_men":[
+    {
+      "id":null,
+      "subCategoryAR":"Choose Category",
+      "subCategoryEN":"Choose Category",
+      "backGroundImage":""
+    },
+    {
+      "id":211,
+      "subCategoryAR":"Dresses",
+      "subCategoryEN":"Dresses",
+      "backGroundImage":""
+    },
+    {
+      "id":212,
+      "subCategoryAR":"Watches",
+      "subCategoryEN":"Watches",
+      "backGroundImage":""
+    },
+    {
+      "id":213,
+      "subCategoryAR":"Accessories",
+      "subCategoryEN":"Accessories",
+      "backGroundImage":""
+    },
+    {
+      "id":214,
+      "subCategoryAR":"Shoes",
+      "subCategoryEN":"Shoes",
+      "backGroundImage":""
+    },
+    {
+      "id":215,
+      "subCategoryAR":"Beauty & Grooming",
+      "subCategoryEN":"Beauty & Grooming",
+      "backGroundImage":""
+    },
+    {
+      "id":216,
+      "subCategoryAR":"Shirt & Pants",
+      "subCategoryEN":"Shirt & Pants",
+      "backGroundImage":""
+    }
+  ]
+}

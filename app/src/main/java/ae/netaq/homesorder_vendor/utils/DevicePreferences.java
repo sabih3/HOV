@@ -3,6 +3,8 @@ package ae.netaq.homesorder_vendor.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import ae.netaq.homesorder_vendor.constants.Constants;
+
 /**
  * Created by Netaq on 9/20/2017.
  */

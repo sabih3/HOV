@@ -1,14 +1,11 @@
 package ae.netaq.homesorder_vendor.activities;
 
-import android.content.res.Configuration;
 import android.support.annotation.NonNull;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,14 +14,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import ae.netaq.homesorder_vendor.AppController;
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.fragments.featured.FeaturedFragment;
 import ae.netaq.homesorder_vendor.fragments.orders.OrdersFragment;
 import ae.netaq.homesorder_vendor.fragments.products.ProductsFragment;
-import ae.netaq.homesorder_vendor.utils.Constants;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
 import ae.netaq.homesorder_vendor.utils.Utils;
 import butterknife.BindView;

@@ -1,0 +1,44 @@
+{
+  "food":[
+    {
+      "id":null,
+      "subCategoryAR":"Choose Category",
+      "subCategoryEN":"Choose Category",
+      "backGroundImage":""
+    },
+    {
+      "id":111,
+      "subCategoryAR":"Sweets",
+      "subCategoryEN":"Sweets",
+      "backGroundImage":""
+    },
+    {
+
+      "id":112,
+      "subCategoryAR":"Local Dish",
+      "subCategoryEN":"Local Dish",
+      "backGroundImage":""
+    },
+    {
+
+      "id":113,
+      "subCategoryAR":"Snacks",
+      "subCategoryEN":"Snacks",
+      "backGroundImage":""
+    },
+    {
+
+      "id":114,
+      "subCategoryAR":"Coffee",
+      "subCategoryEN":"Coffee",
+      "backGroundImage":""
+    },
+    {
+
+      "id":115,
+      "subCategoryAR":"Cakes",
+      "subCategoryEN":"Cakes",
+      "backGroundImage":""
+    }
+  ]
+}

@@ -33,6 +33,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    compile group: 'com.j256.ormlite', name: 'ormlite-android', version: '4.45'
     compile 'com.squareup.okhttp3:logging-interceptor:3.6.0'
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
@@ -51,4 +52,5 @@ dependencies {
     compile 'com.mobsandgeeks:android-saripaar:2.0.2'
     compile 'me.relex:circleindicator:1.2.2@aar'
     compile 'de.hdodenhof:circleimageview:2.2.0'
+    compile 'com.shawnlin:number-picker:2.4.4'
 }

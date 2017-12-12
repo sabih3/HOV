@@ -1,0 +1,52 @@
+{
+  "fashion_women":[
+    {
+      "id":null,
+      "subCategoryAR":"Choose Category",
+      "subCategoryEN":"Choose Category",
+      "backGroundImage":""
+    },
+    {
+      "id":221,
+      "subCategoryAR":"Dresses",
+      "subCategoryEN":"Dresses",
+      "backGroundImage":""
+    },
+    {
+      "id":222,
+      "subCategoryAR":"Abaya & Sheela",
+      "subCategoryEN":"Abaya & Sheela",
+      "backGroundImage":""
+    },
+    {
+      "id":223,
+      "subCategoryAR":"Watches",
+      "subCategoryEN":"Watches",
+      "backGroundImage":""
+    },
+    {
+      "id":224,
+      "subCategoryAR":"Accessories",
+      "subCategoryEN":"Accessories",
+      "backGroundImage":""
+    },
+    {
+      "id":225,
+      "subCategoryAR":"Shoes",
+      "subCategoryEN":"Shoes",
+      "backGroundImage":""
+    },
+    {
+      "id":226,
+      "subCategoryAR":"Beauty & Grooming",
+      "subCategoryEN":"Beauty & Grooming",
+      "backGroundImage":""
+    },
+    {
+      "id":227,
+      "subCategoryAR":"Shirt & Pants",
+      "subCategoryEN":"Shirt & Pants",
+      "backGroundImage":""
+    }
+  ]
+}

@@ -75,26 +75,32 @@
         </RelativeLayout>
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/choose_sub_category"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        android:layout_marginTop="20dp"
-        android:textSize="@dimen/listing_text_size"/>
-
-    <android.support.v7.widget.AppCompatSpinner
-        android:id="@+id/categories_spinner"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/round_rect_shape"
-        android:popupTheme="@style/SpinnerDropdownTheme"
-        />
-
     <LinearLayout
-        android:id="@+id/group_layout"
+        android:id="@+id/food_spinner_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_category"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:textSize="@dimen/listing_text_size"/>
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/categories_spinner_food"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/round_rect_shape"
+            android:popupTheme="@style/SpinnerDropdownTheme"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/fashion_spinner_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -109,7 +115,25 @@
             android:textSize="@dimen/listing_text_size"/>
 
         <android.support.v7.widget.AppCompatSpinner
-            android:id="@+id/group_spinner"
+            android:id="@+id/group_spinner_fashion"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/round_rect_shape"
+            android:popupTheme="@style/SpinnerDropdownTheme"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_category"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:textSize="@dimen/listing_text_size"/>
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/categories_spinner_fashion"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"

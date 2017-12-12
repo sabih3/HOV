@@ -1,0 +1,34 @@
+{
+  "fashion_kids":[
+    {
+      "id":null,
+      "subCategoryAR":"Choose Category",
+      "subCategoryEN":"Choose Category",
+      "backGroundImage":""
+    },
+    {
+      "id":231,
+      "subCategoryAR":"Dresses",
+      "subCategoryEN":"Dresses",
+      "backGroundImage":""
+    },
+    {
+      "id":232,
+      "subCategoryAR":"Baby wear",
+      "subCategoryEN":"Baby wear",
+      "backGroundImage":""
+    },
+    {
+      "id":233,
+      "subCategoryAR":"Accessories",
+      "subCategoryEN":"Accessories",
+      "backGroundImage":""
+    },
+    {
+      "id":234,
+      "subCategoryAR":"Shoes",
+      "subCategoryEN":"Shoes",
+      "backGroundImage":""
+    }
+  ]
+}

@@ -8,7 +8,6 @@ import com.squareup.picasso.Picasso;
 import ae.netaq.homesorder_vendor.dagger.AppComponent;
 import ae.netaq.homesorder_vendor.dagger.ContextModule;
 import ae.netaq.homesorder_vendor.dagger.DaggerAppComponent;
-import ae.netaq.homesorder_vendor.db.DBHelper;
 import ae.netaq.homesorder_vendor.db.DBManager;
 import ae.netaq.homesorder_vendor.network.HomesOrderServices;
 import ae.netaq.homesorder_vendor.utils.DevicePreferences;

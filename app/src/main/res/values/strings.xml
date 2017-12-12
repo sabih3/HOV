@@ -31,9 +31,9 @@
     <string name="select_pictures">Select Pictures</string>
     <string name="choose_subcategory_error">Please choose sub category to proceed</string>
     <string name="choose_main_category_error">Please choose main category to proceed</string>
-    <string name="choose_group">Choose Group</string>
+    <string name="choose_group">Choose Target Group</string>
     <string name="select_one_category_error">Please select one category</string>
-    <string name="choose_subcategory_group_error">Please choose sub category and group to proceed</string>
+    <string name="choose_group_category_error">Please choose target group and category to proceed</string>
     <string name="valid_price_error">Please enter valid price</string>
     <string name="product_name_ar">Product Name (Ar)</string>
     <string name="settings">Settings</string>
@@ -48,4 +48,5 @@
         <item>English</item>
         <item>Arabic</item>
     </string-array>
+
 </resources>

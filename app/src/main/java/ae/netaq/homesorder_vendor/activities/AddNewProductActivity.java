@@ -1,19 +1,12 @@
 package ae.netaq.homesorder_vendor.activities;
 
-import android.app.Fragment;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import com.badoualy.stepperindicator.StepperIndicator;
@@ -35,7 +28,6 @@ import ae.netaq.homesorder_vendor.utils.NavigationController;
 import ae.netaq.homesorder_vendor.utils.NonSwipeableViewPager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.internal.Utils;
 
 /**
  * Created by Netaq on 11/29/2017.
@@ -84,6 +76,7 @@ public class AddNewProductActivity extends AppCompatActivity implements ChooseCa
             public void onStepClicked(int step) {
                 if(pager.getCurrentItem() > step) {
                     pager.setCurrentItem(step, true);
+                    setButtonTile(pager.getCurrentItem());
                 }
             }
         });
@@ -116,13 +109,23 @@ public class AddNewProductActivity extends AppCompatActivity implements ChooseCa
 
     }
 
+    private void setButtonTile(int position){
+        if(position == 0){
+            nextBtn.setText(getString(R.string.add_details));
+        }else if(position == 1){
+            nextBtn.setText(getString(R.string.add_images));
+        }else if(position == 2){
+            nextBtn.setText(getString(R.string.preview));
+        }else if(position == 3){
+            nextBtn.setText(getString(R.string.add_product_caps));
+        }
+    }
     @Override
     public void onAddImagesCompleted(ArrayList<Uri> imagesUri) {
         product.setProductImagesUri(imagesUri);
         pager.setCurrentItem(pager.getCurrentItem()+1, true);
-        nextBtn.setText(getString(R.string.add_product_caps));
+        setButtonTile(pager.getCurrentItem());
         ((ProductPreviewFragment) pagerAdapter.getFragment(3)).setupProductImageSlider(imagesUri);
-
     }
 
     @Override
@@ -131,7 +134,7 @@ public class AddNewProductActivity extends AppCompatActivity implements ChooseCa
         product.setProductDescription(productDescription);
         product.setProductPrice(productPrice);
         pager.setCurrentItem(pager.getCurrentItem()+1, true);
-        nextBtn.setText(getString(R.string.preview));
+        setButtonTile(pager.getCurrentItem());
     }
 
     @Override
@@ -140,7 +143,7 @@ public class AddNewProductActivity extends AppCompatActivity implements ChooseCa
         product.setProductSubCategory(productSubCategory);
         product.setProductGroup(productGroup);
         pager.setCurrentItem(pager.getCurrentItem()+1, true);
-        nextBtn.setText(getString(R.string.add_images));
+        setButtonTile(pager.getCurrentItem());
     }
 
     @Override

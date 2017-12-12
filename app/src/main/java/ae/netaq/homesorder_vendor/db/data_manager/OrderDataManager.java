@@ -25,12 +25,6 @@ public class OrderDataManager {
     public static final int STATUS_DISPATCHED = 3;
 
 
-    private static String FILENAME_NEW_ORDERS = "new_orders";
-    private static String FILENAME_PROCESSING_ORDERS = "processing_orders";
-    private static String FILENAME_READY_ORDERS = "ready_orders";
-    private static String FILENAME_DISPATCHED_ORDERS = "dispatched_orders";
-
-
     public static List<OrderTable> getNewOrdersList(Context context) throws SQLException {
         List<OrderTable> persistedOrders = new ArrayList<>();
 
