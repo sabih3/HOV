@@ -1,26 +1,26 @@
 {
-  "fashion_groups":[
+  "groups":[
     {
       "id":null,
-      "subCategoryAR":"Choose Group",
+      "subCategoryAR":"اختر الفئة",
       "subCategoryEN":"Choose Group",
       "backGroundImage":""
     },
     {
       "id":311,
-      "subCategoryAR":"Men",
+      "subCategoryAR":"رجالي",
       "subCategoryEN":"Men",
       "backGroundImage":""
     },
     {
       "id":312,
-      "subCategoryAR":"Women",
+      "subCategoryAR":"حريمي",
       "subCategoryEN":"Women",
       "backGroundImage":""
     },
     {
       "id":313,
-      "subCategoryAR":"Kids",
+      "subCategoryAR":"أطفال",
       "subCategoryEN":"Kids",
       "backGroundImage":""
     }

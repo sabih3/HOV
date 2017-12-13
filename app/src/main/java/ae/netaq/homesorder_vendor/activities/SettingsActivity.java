@@ -13,15 +13,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import org.greenrobot.eventbus.EventBus;
-
-import java.util.Arrays;
 import java.util.List;
 
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.event_bus.LanguageChangeEvent;
 import ae.netaq.homesorder_vendor.utils.Common;
 import ae.netaq.homesorder_vendor.utils.DevicePreferences;
-import ae.netaq.homesorder_vendor.utils.Utils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -31,7 +28,7 @@ import butterknife.ButterKnife;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    @BindView(R.id.toolbar)
+    @BindView(R.id.toolbar_settings)
     Toolbar toolbar;
 
     @BindView(R.id.language_layout)
@@ -40,41 +37,29 @@ public class SettingsActivity extends AppCompatActivity {
     @BindView(R.id.selected_language)
     TextView selectedLanguage;
 
-    List<String> languagesArray;
-
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         ButterKnife.bind(this);
 
-        initViews();
-
         setToolbar();
 
-
+        initViews();
     }
 
     private void setToolbar() {
         toolbar.setTitle(R.string.settings);
+        setSupportActionBar(toolbar);
 
         if(DevicePreferences.isLocaleSetToArabic()){
             toolbar.setNavigationIcon(R.drawable.ic_prev_ar);
         }else{
             toolbar.setNavigationIcon(R.drawable.ic_prev);
         }
-
-        setSupportActionBar(toolbar);
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
     }
 
     private void initViews() {
-
 
         String language = DevicePreferences.isLocaleSetToArabic() ?
                         getString(R.string.lang_name_eng) : getString(R.string.lang_name_arabic);

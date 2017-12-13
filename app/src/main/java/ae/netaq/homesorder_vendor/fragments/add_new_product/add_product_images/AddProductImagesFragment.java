@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import ae.netaq.homesorder_vendor.AppController;
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.adapters.add_new_product_images.AddImagesRecyclerAdapter;
+import ae.netaq.homesorder_vendor.utils.Common;
 import ae.netaq.homesorder_vendor.utils.Utils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -67,9 +68,12 @@ public class AddProductImagesFragment extends Fragment implements View.OnClickLi
 
         View view = inflater.inflate(R.layout.add_images_fragment, container, false);
         ButterKnife.bind(this, view);
+
         addPhoto.setOnClickListener(this);
         picasso = AppController.get(getActivity()).getPicasso();
         imagesUri = new ArrayList<>();
+
+        Common.changeViewWithLocale(getContext(),view);
 
         initViews();
 

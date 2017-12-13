@@ -22,18 +22,10 @@ public class Product {
     private String productName;
     private Float productPrice;
     private String productDescription;
-    private int productCategory;
-    private String productSubCategory;
-    private String productGroup;
+    private int mainCategory;
+    private ProductCategories.Category subCategory;
+    private ProductGroups.Group group;
     private ArrayList<Uri> productImagesUri;
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
 
     public static Product getProduct() {
         return product;
@@ -41,6 +33,14 @@ public class Product {
 
     public static void setProduct(Product product) {
         Product.product = product;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public Float getProductPrice() {
@@ -59,20 +59,28 @@ public class Product {
         this.productDescription = productDescription;
     }
 
-    public int getProductCategory() {
-        return productCategory;
+    public int getMainCategory() {
+        return mainCategory;
     }
 
-    public void setProductCategory(int productCategory) {
-        this.productCategory = productCategory;
+    public void setMainCategory(int mainCategory) {
+        this.mainCategory = mainCategory;
     }
 
-    public String getProductSubCategory() {
-        return productSubCategory;
+    public ProductCategories.Category getSubCategory() {
+        return subCategory;
     }
 
-    public void setProductSubCategory(String productSubCategory) {
-        this.productSubCategory = productSubCategory;
+    public void setSubCategory(ProductCategories.Category subCategory) {
+        this.subCategory = subCategory;
+    }
+
+    public ProductGroups.Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(ProductGroups.Group group) {
+        this.group = group;
     }
 
     public ArrayList<Uri> getProductImagesUri() {
@@ -81,13 +89,5 @@ public class Product {
 
     public void setProductImagesUri(ArrayList<Uri> productImagesUri) {
         this.productImagesUri = productImagesUri;
-    }
-
-    public String getProductGroup() {
-        return productGroup;
-    }
-
-    public void setProductGroup(String productGroup) {
-        this.productGroup = productGroup;
     }
 }

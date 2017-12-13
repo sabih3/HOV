@@ -87,16 +87,6 @@ public class MainActivity extends AppCompatActivity implements
         selectDrawerItem(navigationView.getMenu().getItem(0));
     }
 
-
-
-    private void setLocal() {
-        //Utils.configureLocal(this);
-        if(configChanges){
-            configChanges = false;
-
-        }
-    }
-
     private void setUpToolBar() {
         toolbar.setTitle(R.string.orders);
         setSupportActionBar(toolbar);

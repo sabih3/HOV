@@ -22,6 +22,7 @@ import com.shawnlin.numberpicker.NumberPicker;
 import java.util.List;
 
 import ae.netaq.homesorder_vendor.R;
+import ae.netaq.homesorder_vendor.utils.Common;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -53,6 +54,11 @@ public class AddProductInformationFragment extends Fragment implements Validator
     @BindView(R.id.add_product_information_product_description_arabic)
     EditText productDescriptionAr;
 
+    @BindView(R.id.add_product_information_product_size)
+    EditText productSize;
+
+    @BindView(R.id.add_product_information_product_color)
+    EditText productColor;
 
     @BindView(R.id.add_product_information_product_name_layout)
     TextInputLayout productNameLayout;
@@ -62,6 +68,12 @@ public class AddProductInformationFragment extends Fragment implements Validator
 
     @BindView(R.id.add_product_information_product_description_layout)
     TextInputLayout productDescriptionLayout;
+
+    @BindView(R.id.add_product_information_product_size_layout)
+    TextInputLayout productSizeLayout;
+
+    @BindView(R.id.add_product_information_product_color_layout)
+    TextInputLayout productColorLayout;
 
     @BindView(R.id.picker_order_limit)
     NumberPicker orderLimit;
@@ -82,22 +94,22 @@ public class AddProductInformationFragment extends Fragment implements Validator
         try {
             mCallback = (AddProductInformationView) context;
         } catch (ClassCastException e) {
-            throw new ClassCastException(context.toString() + " must implement AddProductInformationView");
+            throw new ClassCastException(context.toString() +
+                    " must implement AddProductInformationView");
         }
     }
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.add_information_fragment, container, false);
         ButterKnife.bind(this, view);
 
-        productDescription.setImeOptions(EditorInfo.IME_ACTION_NEXT);
-        productDescription.setRawInputType(InputType.TYPE_CLASS_TEXT);
+        initViews();
 
-        productDescriptionAr.setImeOptions(EditorInfo.IME_ACTION_DONE);
-        productDescriptionAr.setRawInputType(InputType.TYPE_CLASS_TEXT);
+        Common.changeViewWithLocale(getContext(),view);
 
         validator = new Validator(this);
         validator.setValidationListener(this);
@@ -107,9 +119,27 @@ public class AddProductInformationFragment extends Fragment implements Validator
 
     }
 
+    private void initViews() {
+
+        productDescription.setImeOptions(EditorInfo.IME_ACTION_NEXT);
+        productDescription.setRawInputType(InputType.TYPE_CLASS_TEXT);
+
+        productDescriptionAr.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        productDescriptionAr.setRawInputType(InputType.TYPE_CLASS_TEXT);
+
+    }
+
     public void validate(){
         removeErrors();
         validator.validate();
+    }
+
+    public void setSelectedMainCategory(int mainCategory){if(mainCategory == 0){
+            productColorLayout.setVisibility(View.GONE);
+        }else{
+            productColorLayout.setVisibility(View.VISIBLE);
+            productColor.clearFocus();
+        }
     }
 
     private void removeErrors() {
@@ -120,7 +150,9 @@ public class AddProductInformationFragment extends Fragment implements Validator
 
     @Override
     public void onValidationSucceeded() {
-        mCallback.onProductInformationAdded(productName.getText().toString(),Float.parseFloat(productPrice.getText().toString()),productDescription.getText().toString());
+        mCallback.onProductInformationAdded(productName.getText().toString(),
+                Float.parseFloat(productPrice.getText().toString()),
+                productDescription.getText().toString());
     }
 
     @Override

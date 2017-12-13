@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import ae.netaq.homesorder_vendor.AppController;
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.adapters.SliderPagerAdapter;
+import ae.netaq.homesorder_vendor.utils.Common;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import me.relex.circleindicator.CircleIndicator;
@@ -55,7 +56,10 @@ public class ProductPreviewFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.product_preview_fragment, container, false);
         ButterKnife.bind(this, view);
+
         picasso = AppController.get(getActivity()).getPicasso();
+
+        Common.changeViewWithLocale(getContext(),view);
 
         return view;
     }

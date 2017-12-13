@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.adapters.products.products_tab.SimpleProductsRecyclerAdapter;
 import ae.netaq.homesorder_vendor.models.ProductsResponse;
+import ae.netaq.homesorder_vendor.utils.Common;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -42,6 +43,7 @@ public class SimpleProductsFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.listing_layout, container, false);
         ButterKnife.bind(this, view);
+        Common.changeViewWithLocale(getContext(),view);
         initViews();
 
         return view;

@@ -20,6 +20,7 @@ import ae.netaq.homesorder_vendor.adapters.orders.new_tab.NewOrdersRecyclerAdapt
 import ae.netaq.homesorder_vendor.db.data_manager.OrderDataManager;
 import ae.netaq.homesorder_vendor.db.data_manager.tables.OrderTable;
 import ae.netaq.homesorder_vendor.event_bus.OrderMovedToProcess;
+import ae.netaq.homesorder_vendor.utils.Common;
 import ae.netaq.homesorder_vendor.utils.OrderManagementUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -59,6 +60,7 @@ public class NewOrdersFragment extends Fragment implements NewOrdersView,
         View view = inflater.inflate(R.layout.listing_layout, container, false);
         ButterKnife.bind(this, view);
 
+        Common.changeViewWithLocale(getActivity(), view);
         newOrdersPresenter = new NewOrdersPresenter(this);
         newOrdersPresenter.getNewOrdersList(getActivity());
 
