@@ -1,29 +1,41 @@
 package ae.netaq.homesorder_vendor.db.data_manager.tables;
 
+import android.net.Uri;
+
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.DESCRIPTION_AR;
+import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.DESCRIPTION_EN;
 import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.FEATURED;
+import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.HANDLING_TIME;
 import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.NAME_AR;
 import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.NAME_EN;
+import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.ORDER_LIMIT;
 import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.PARENT_CATEGORY_AR;
 import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.PARENT_CATEGORY_EN;
 import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.PARENT_ID;
 import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.PRODUCT_ID;
 import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.PROMOTION;
+import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.SUB_CATEGORY;
 import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.TABLE_NAME;
+import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.TARGET_GROUP;
 
 /**
  * Created by sabih on 05-Dec-17.
  */
 
 @DatabaseTable(tableName = TABLE_NAME)
-public class ProductTable {
+public class ProductTable implements Serializable{
 
-    @DatabaseField(generatedId = true)
+    @DatabaseField(generatedId = true,columnName = ColumnNames.ID)
     public long id;
 
-    @DatabaseField(unique = true,columnName = PRODUCT_ID)
+    @DatabaseField(columnName = PRODUCT_ID)
     public long productID;
 
     @DatabaseField(columnName = NAME_AR)
@@ -46,6 +58,29 @@ public class ProductTable {
 
     @DatabaseField(columnName = FEATURED)
     public int isFeatured;
+
+    @DatabaseField(columnName = DESCRIPTION_EN)
+    private String descriptionEN;
+
+    @DatabaseField(columnName = DESCRIPTION_AR)
+    private String descriptionAR;
+
+    @DatabaseField(columnName = TARGET_GROUP)
+    private int targetGroupID;
+
+    @DatabaseField(columnName = SUB_CATEGORY)
+    private int subCategoryID;
+
+    @DatabaseField(columnName = ORDER_LIMIT)
+    private int perDayOrderLimit;
+
+    @DatabaseField(columnName = HANDLING_TIME)
+    private int handlingTime;
+
+    private List<ImageTable> imagesArray;
+
+    private ArrayList<Uri> imagesLocalURI;
+
 
     public long getId() {
         return id;
@@ -119,8 +154,42 @@ public class ProductTable {
         this.isFeatured = isFeatured;
     }
 
+    public void setTargetGroup(int targetGroupID) {
+        this.targetGroupID = targetGroupID;
+    }
+
+    public void setSubCategoryID(int subCategoryID) {
+        this.subCategoryID = subCategoryID;
+    }
+
+    public void setPerDayOrderLimit(int perDayOrderLimit) {
+        this.perDayOrderLimit = perDayOrderLimit;
+    }
+
+    public void setHandlingTime(int handlingTime) {
+        this.handlingTime = handlingTime;
+    }
+
+    public void setDescriptionEN(String descriptionEN) {
+        this.descriptionEN = descriptionEN;
+    }
+
+    public void setDescriptionAR(String descriptionAR) {
+        this.descriptionAR = descriptionAR;
+    }
+
+    public void setImagesArray(List<ImageTable> imagesArray) {
+        this.imagesArray = imagesArray;
+    }
+
+    public List<ImageTable> getImagesArray() {
+        return imagesArray;
+    }
+
+
     public interface ColumnNames{
         String TABLE_NAME = "products";
+        String ID = "id";
         String PRODUCT_ID = "product_id";
         String NAME_AR = "name_ar";
         String NAME_EN = "name_en";
@@ -130,6 +199,13 @@ public class ProductTable {
         String PROMOTION = "on_promotion";
         String FEATURED = "is_featured";
 
+
+        String DESCRIPTION_AR = "desc_AR";
+        String DESCRIPTION_EN = "desc_EN";
+        String ORDER_LIMIT = "daily_order_limit";
+        String HANDLING_TIME = "handling_time";
+        String TARGET_GROUP = "target_group";
+        String SUB_CATEGORY = "sub_category";
 
     }
 }

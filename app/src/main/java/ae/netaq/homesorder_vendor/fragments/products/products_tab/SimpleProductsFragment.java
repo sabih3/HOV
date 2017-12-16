@@ -11,9 +11,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import ae.netaq.homesorder_vendor.R;
+import ae.netaq.homesorder_vendor.adapters.products.products_tab.ProductsPresenter;
+import ae.netaq.homesorder_vendor.adapters.products.products_tab.ProductsView;
 import ae.netaq.homesorder_vendor.adapters.products.products_tab.SimpleProductsRecyclerAdapter;
+import ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable;
 import ae.netaq.homesorder_vendor.models.ProductsResponse;
+import ae.netaq.homesorder_vendor.utils.NavigationController;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -21,13 +28,16 @@ import butterknife.ButterKnife;
  * Created by Netaq on 11/22/2017.
  */
 
-public class SimpleProductsFragment extends Fragment{
+public class SimpleProductsFragment extends Fragment implements
+             ProductsView,SimpleProductsRecyclerAdapter.ProductSelectionListener{
 
     @BindView(R.id.listing_recycler)
     RecyclerView newOrdersRecycler;
 
     @BindView(R.id.swipe_refresh_layout)
     SwipeRefreshLayout swipeRefreshLayout;
+
+    private ProductsPresenter presenter;
 
     public SimpleProductsFragment() {
     }
@@ -39,20 +49,49 @@ public class SimpleProductsFragment extends Fragment{
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater,
+                             @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.listing_layout, container, false);
         ButterKnife.bind(this, view);
         initViews();
+
+
+
 
         return view;
     }
 
     private void initViews() {
 
-        SimpleProductsRecyclerAdapter simpleProductsRecyclerAdapter = new SimpleProductsRecyclerAdapter(ProductsResponse.getProducts(), getActivity());
-        newOrdersRecycler.setLayoutManager(new GridLayoutManager(getContext(),2,LinearLayoutManager.VERTICAL,false));
-        newOrdersRecycler.setAdapter(simpleProductsRecyclerAdapter);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        presenter = new ProductsPresenter(this);
+        presenter.fetchProducts(getContext());
+    }
+
+    @Override
+    public void onProductsFetched(List<ProductTable> allProducts) {
+        List<ProductTable> productList = allProducts;
+        setProductsInList(allProducts);
 
     }
 
+    private void setProductsInList(List<ProductTable> allProducts){
+        SimpleProductsRecyclerAdapter simpleProductsRecyclerAdapter =
+                new SimpleProductsRecyclerAdapter(allProducts, getActivity());
+
+        simpleProductsRecyclerAdapter.setProductListener(this);
+        newOrdersRecycler.setLayoutManager(new GridLayoutManager(getContext(),2,
+
+                LinearLayoutManager.VERTICAL,false));
+        newOrdersRecycler.setAdapter(simpleProductsRecyclerAdapter);
+    }
+
+    @Override
+    public void onProductSelected(ProductTable product) {
+        NavigationController.startActivityProductDetail(getContext(),product);
+    }
 }

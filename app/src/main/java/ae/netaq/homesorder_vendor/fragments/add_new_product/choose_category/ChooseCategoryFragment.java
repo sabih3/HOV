@@ -112,6 +112,7 @@ public class ChooseCategoryFragment extends Fragment implements View.OnClickList
                 if(i>0){
                     categoriesSpinnerFashion.setEnabled(true);
                     if(i == 1){
+                        
                         categoriesSpinnerFashion.setAdapter(FashionCategoriesManager.fashionMenCategoriesAdapter(getActivity()));
                     }else if(i == 2){
                         categoriesSpinnerFashion.setAdapter(FashionCategoriesManager.fashionWomenCategoriesAdapter(getActivity()));

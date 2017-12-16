@@ -59,4 +59,21 @@ public class Utils {
 
     }
 
+
+    public static String getPathBasedOnSDK(Context context, Uri uri) {
+
+        String realPathFromURI = "";
+
+        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT){
+            realPathFromURI = ImageUtils.getRealPathFromURI_API11to18(context, uri);
+        }
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            realPathFromURI = ImageUtils.getRealPathFromURI_API19(context,uri);
+        }
+
+        return realPathFromURI;
+
+    }
 }

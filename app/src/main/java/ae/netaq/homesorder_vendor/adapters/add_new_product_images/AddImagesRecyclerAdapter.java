@@ -21,11 +21,12 @@ import ae.netaq.homesorder_vendor.adapters.add_new_product_images.viewholder.Add
 
 public class AddImagesRecyclerAdapter extends RecyclerView.Adapter<AddImagesViewHolder> {
 
-    Context mContext;
+    private Context mContext;
 
-    ArrayList<Uri> mDataSet;
+    private ArrayList<Uri> mDataSet;
 
-    Picasso picasso;
+    private Picasso picasso;
+
 
     public AddImagesRecyclerAdapter(Context mContext, ArrayList<Uri> mDataSet, Picasso picasso) {
         this.mContext = mContext;
@@ -35,7 +36,8 @@ public class AddImagesRecyclerAdapter extends RecyclerView.Adapter<AddImagesView
 
     @Override
     public AddImagesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new AddImagesViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.add_new_product_image_item,parent,false));
+        return new AddImagesViewHolder(LayoutInflater.from(parent.getContext()).
+                    inflate(R.layout.add_new_product_image_item,parent,false));
     }
 
     @Override
@@ -53,5 +55,6 @@ public class AddImagesRecyclerAdapter extends RecyclerView.Adapter<AddImagesView
     @Override
     public int getItemCount() {
         return mDataSet.size();
+
     }
 }

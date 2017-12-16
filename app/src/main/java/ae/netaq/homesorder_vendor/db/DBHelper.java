@@ -12,6 +12,7 @@ import com.j256.ormlite.table.TableUtils;
 import java.sql.SQLException;
 
 import ae.netaq.homesorder_vendor.db.data_manager.tables.CustomerTable;
+import ae.netaq.homesorder_vendor.db.data_manager.tables.ImageTable;
 import ae.netaq.homesorder_vendor.db.data_manager.tables.OrderTable;
 import ae.netaq.homesorder_vendor.db.data_manager.tables.OrderedProductsTable;
 import ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable;
@@ -32,7 +33,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper{
 
     private static String TAG = DBHelper.class.getSimpleName();
     private static String DATABASE_NAME = "vendor-db";
-    private static int DATABASE_VERSION = 1;
+    private static int DATABASE_VERSION = 3;
 
 
 
@@ -41,7 +42,8 @@ public class DBHelper extends OrmLiteSqliteOpenHelper{
             CustomerTable.class,
             ProductTable.class,
             OrderedProductsTable.class,
-            ShippingInfoTable.class
+            ShippingInfoTable.class,
+            ImageTable.class
     };
 
     public DBHelper(Context context) {
@@ -79,6 +81,12 @@ public class DBHelper extends OrmLiteSqliteOpenHelper{
             TableUtils.createTable(connectionSource,TABLES[4]);
         } catch (SQLException e) {
             Log.e(TAG,"Error in Table create with table name:"+TABLES[4].getSimpleName());
+        }
+
+        try {
+            TableUtils.createTable(connectionSource,TABLES[5]);
+        } catch (SQLException e) {
+            Log.e(TAG,"Error in Table create with table name:"+TABLES[5].getSimpleName());
         }
     }
 
@@ -118,6 +126,12 @@ public class DBHelper extends OrmLiteSqliteOpenHelper{
             }
 
             try {
+                TableUtils.dropTable(connectionSource,TABLES[5],false);
+            } catch (SQLException e) {
+                Log.e(TAG,"Error in Table Drop with table name:"+TABLES[5].getSimpleName());
+            }
+
+            try {
                 TableUtils.createTable(connectionSource,TABLES[0]);
             } catch (SQLException e) {
                 Log.e(TAG,"Error in Table Upgrade with table name:"+TABLES[0].getSimpleName());
@@ -145,6 +159,12 @@ public class DBHelper extends OrmLiteSqliteOpenHelper{
                 TableUtils.createTable(connectionSource,TABLES[4]);
             } catch (SQLException e) {
                 Log.e(TAG,"Error in Table create with table name:"+TABLES[4].getSimpleName());
+            }
+
+            try {
+                TableUtils.createTable(connectionSource,TABLES[5]);
+            } catch (SQLException e) {
+                Log.e(TAG,"Error in Table create with table name:"+TABLES[5].getSimpleName());
             }
         }
     }

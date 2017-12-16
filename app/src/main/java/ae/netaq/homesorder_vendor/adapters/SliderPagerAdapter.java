@@ -9,8 +9,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
+import java.util.List;
 
 import ae.netaq.homesorder_vendor.R;
+import ae.netaq.homesorder_vendor.db.data_manager.tables.ImageTable;
+import ae.netaq.homesorder_vendor.utils.Utils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -23,13 +26,15 @@ public class SliderPagerAdapter extends PagerAdapter {
     @BindView(R.id.image)
     ImageView imageView;
 
-    private ArrayList<Integer> images;
+    private List<ImageTable> images;
     private ArrayList<Uri> imagesUri;
     private LayoutInflater inflater;
     private Picasso picasso;
     private Context context;
 
-    public SliderPagerAdapter(Context context, ArrayList<Integer> images, ArrayList<Uri> imagesUri, Picasso picasso) {
+    public SliderPagerAdapter(Context context,
+                              List<ImageTable> images,
+                              ArrayList<Uri> imagesUri, Picasso picasso) {
         this.context = context;
         this.images = images;
         this.imagesUri = imagesUri;
@@ -58,11 +63,19 @@ public class SliderPagerAdapter extends PagerAdapter {
         View myImageLayout = inflater.inflate(R.layout.image_slide, view, false);
         ButterKnife.bind(this, myImageLayout);
 
-        if(images!=null) {
-            picasso.load(images.get(position)).resize(500, 400).centerCrop().into(imageView);
-        }else if(imagesUri!=null){
-            picasso.load(imagesUri.get(position)).resize(500, 400).centerCrop().into(imageView);
+        if(images !=null){
+            Uri imageURI = Uri.parse(images.get(position).getImageURI());
+            String imagePath = Utils.getPathBasedOnSDK(context,imageURI);
+            // load from detail
+            picasso.load("file://"+imagePath).resize(500, 400).centerCrop().into(imageView);
         }
+        if(imagesUri != null){
+
+            //load from preview
+            picasso.load(imagesUri.get(position)).resize(500, 400).centerCrop().into(imageView);
+
+        }
+
 
         view.addView(myImageLayout, 0);
         return myImageLayout;

@@ -15,7 +15,8 @@
           "handlingTime":"5 Days",
           "isOnPromotion": 0,
           "isFeatured": 0,
-          "image":"http://www.hanayen.com/content/images/thumbs/0000276_hanayen-6519.jpeg"
+          "image":"http://www.hanayen.com/content/images/thumbs/0000276_hanayen-6519.jpeg",
+          "comments":"These are product level comments, only used by consumer while ordering a product "
         },
         {
           "productID": 2002,
@@ -32,7 +33,8 @@
           "handlingTime":"1 Days",
           "isOnPromotion": 0,
           "isFeatured": 0,
-          "image":"https://www.visitdubai.com/-/media/images/articles/emirates%20sweets/baklava-arabic-desserts.jpg"
+          "image":"https://www.visitdubai.com/-/media/images/articles/emirates%20sweets/baklava-arabic-desserts.jpg",
+          "comments":"These are product level comments, only used by consumer while ordering a product "
         },
         {
           "productID": 2003,
@@ -49,7 +51,8 @@
           "handlingTime":"1 Days",
           "isOnPromotion": 0,
           "isFeatured": 0,
-          "image":" https://www.archanaskitchen.com//images/archanaskitchen/1-Author/Shaharban/Arabian_Chicken_Mandhi.jpg"
+          "image":" https://www.archanaskitchen.com//images/archanaskitchen/1-Author/Shaharban/Arabian_Chicken_Mandhi.jpg",
+          "comments":"These are product level comments, only used by consumer while ordering a product "
         },
 
         {
@@ -67,7 +70,8 @@
           "handlingTime":"1 Days",
           "isOnPromotion": 0,
           "isFeatured": 0,
-          "image":" http://imgc.allpostersimages.com/images/P-473-488-90/40/4004/7L2WF00Z/posters/nico-tondini-arabic-coffee-dubai-united-arab-emirates-middle-east.jpg"
+          "image":" http://imgc.allpostersimages.com/images/P-473-488-90/40/4004/7L2WF00Z/posters/nico-tondini-arabic-coffee-dubai-united-arab-emirates-middle-east.jpg",
+          "comments":"These are product level comments, only used by consumer while ordering a product "
         },
         {
         "productID": 2005,
@@ -84,7 +88,8 @@
         "handlingTime":"1 Days",
         "isOnPromotion": 0,
         "isFeatured": 0,
-        "image":" http://www.cottageartcreations.com/wp-content/uploads/2017/09/crochet-baby-sweater-kids-crochet-baby-cardigan-winter-clothing-free-pattern-gift-ideas-fbrqcag-.jpg"
+        "image":" http://www.cottageartcreations.com/wp-content/uploads/2017/09/crochet-baby-sweater-kids-crochet-baby-cardigan-winter-clothing-free-pattern-gift-ideas-fbrqcag-.jpg",
+        "comments":"These are product level comments, only used by consumer while ordering a product "
         },
         {
         "productID": 2006,
@@ -100,7 +105,8 @@
         "descEN":"",
         "isOnPromotion": 0,
         "isFeatured": 0,
-        "image":" http://www.cottageartcreations.com/wp-content/uploads/2017/09/crochet-baby-sweater-kids-crochet-baby-cardigan-winter-clothing-free-pattern-gift-ideas-fbrqcag-.jpg"
+        "image":" http://www.cottageartcreations.com/wp-content/uploads/2017/09/crochet-baby-sweater-kids-crochet-baby-cardigan-winter-clothing-free-pattern-gift-ideas-fbrqcag-.jpg",
+        "comments":"These are product level comments, only used by consumer while ordering a product "
     }
 
 
