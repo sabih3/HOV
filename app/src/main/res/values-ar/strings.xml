@@ -43,7 +43,10 @@
     <string name="description_ar">الوصف(عربى)</string>
     <string name="color">اللون</string>
     <string name="size">بحجم</string>
-
+    <string name="username">Username</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="password">Password</string>
+    <string name="sign_in">SIGN IN</string>
 
 
 </resources>
