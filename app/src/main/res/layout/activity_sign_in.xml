@@ -71,7 +71,7 @@
             android:text="@string/forgot_password"/>
 
         <Button
-            android:id="@+id/add_product_bottom_btn"
+            android:id="@+id/sign_in_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/ButtonTheme"
@@ -84,7 +84,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:id="@+id/sign_in_register_now">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

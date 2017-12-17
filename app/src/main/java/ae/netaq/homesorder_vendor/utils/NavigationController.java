@@ -12,6 +12,7 @@ import ae.netaq.homesorder_vendor.activities.AddNewProductActivity;
 import ae.netaq.homesorder_vendor.activities.MainActivity;
 import ae.netaq.homesorder_vendor.activities.OrderDetailActivity;
 import ae.netaq.homesorder_vendor.activities.ProductDetailActivity;
+import ae.netaq.homesorder_vendor.activities.RegisterActivity;
 import ae.netaq.homesorder_vendor.activities.SettingsActivity;
 import ae.netaq.homesorder_vendor.adapters.FragmentViewPager;
 import ae.netaq.homesorder_vendor.fragments.PagerFragment;
@@ -122,6 +123,11 @@ public class NavigationController {
 
     public static void startActivitySettings(Context context){
         Intent intent = new Intent(context, SettingsActivity.class);
+        context.startActivity(intent);
+    }
+
+    public static void startActivityRegister(Context context){
+        Intent intent = new Intent(context, RegisterActivity.class);
         context.startActivity(intent);
     }
 

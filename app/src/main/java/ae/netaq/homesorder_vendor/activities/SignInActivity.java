@@ -37,7 +37,10 @@ public class SignInActivity extends AppCompatActivity implements Animation.Anima
     @BindView(R.id.transitions_container)
     LinearLayout transitionsContainer;
 
-    @BindView(R.id.add_product_bottom_btn)
+    @BindView(R.id.sign_in_register_now)
+    LinearLayout registerLayout;
+
+    @BindView(R.id.sign_in_btn)
     Button addProductBtn;
 
     private Animation fadeInAnimation;
@@ -53,6 +56,8 @@ public class SignInActivity extends AppCompatActivity implements Animation.Anima
         fadeInAnimation.setAnimationListener(this);
 
         addProductBtn.setOnClickListener(this);
+
+        registerLayout.setOnClickListener(this);
 
         logo.startAnimation(fadeInAnimation);
 
@@ -79,7 +84,7 @@ public class SignInActivity extends AppCompatActivity implements Animation.Anima
     @Override
     public void onClick(View view) {
 
-        if(view.getId() == R.id.add_product_bottom_btn){
+        if(view.getId() == R.id.sign_in_btn){
             OrderBAL.getAllOrders(this,new OrderBAL.OrderFetchListener() {
                 @Override
                 public void onOrdersFetched(ArrayList<Order> orders) {
@@ -96,6 +101,8 @@ public class SignInActivity extends AppCompatActivity implements Animation.Anima
                 }
 
             });
+        }else if(view.getId() == R.id.sign_in_register_now){
+            NavigationController.startActivityRegister(SignInActivity.this);
         }
 
     }
