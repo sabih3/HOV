@@ -19,27 +19,31 @@
         <ImageView
             android:id="@+id/img_view_products_list"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:src="@color/colorAccent"/>
+            android:layout_height="150dp" />
             <TextView
+                android:id="@+id/tv_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CUSTOMER NAME"
+                android:text="Category Name"
                 android:textSize="@dimen/listing_text_size_small"
                 android:layout_margin="10dp"
                 android:textColor="@color/lightGrey"/>
             <TextView
+                android:id="@+id/tv_prod_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Lorem Ipsium Dollor"
+                android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
                 android:textStyle="bold"
                 android:textSize="@dimen/listing_text_size"
                 android:textColor="@android:color/black"/>
             <TextView
+                android:id="@+id/tv_prod_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="49.00 AED"
+                android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginBottom="10dp"
                 android:textStyle="bold"

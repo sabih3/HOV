@@ -5,5 +5,8 @@ package ae.netaq.homesorder_vendor.fragments.add_new_product.add_product_informa
  */
 
 public interface AddProductInformationView {
-    void onProductInformationAdded(String productName, Float productPrice, String productDescription);
+    void onProductInformationAdded(String productNameEN, String productNameAR,
+                                   Double productPrice,
+                                   String descEN, String descAR, String size,
+                                   String color, int orderLimit, int handlingTime);
 }

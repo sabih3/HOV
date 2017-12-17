@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.COLOR;
 import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.DESCRIPTION_AR;
 import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.DESCRIPTION_EN;
 import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.FEATURED;
@@ -19,9 +20,13 @@ import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.Col
 import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.PARENT_CATEGORY_AR;
 import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.PARENT_CATEGORY_EN;
 import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.PARENT_ID;
+import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.PRICE;
 import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.PRODUCT_ID;
 import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.PROMOTION;
+import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.SIZE;
 import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.SUB_CATEGORY;
+import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.SUB_CATEGORY_NAME_AR;
+import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.SUB_CATEGORY_NAME_EN;
 import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.TABLE_NAME;
 import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.TARGET_GROUP;
 
@@ -31,6 +36,8 @@ import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.Col
 
 @DatabaseTable(tableName = TABLE_NAME)
 public class ProductTable implements Serializable{
+
+
 
     @DatabaseField(generatedId = true,columnName = ColumnNames.ID)
     public long id;
@@ -53,6 +60,9 @@ public class ProductTable implements Serializable{
     @DatabaseField(columnName = PARENT_ID)
     public int parentCategoryID;
 
+    @DatabaseField(columnName = PRICE)
+    private Double productPrice;
+
     @DatabaseField(columnName = PROMOTION)
     public int isOnPromotion;
 
@@ -71,15 +81,29 @@ public class ProductTable implements Serializable{
     @DatabaseField(columnName = SUB_CATEGORY)
     private int subCategoryID;
 
+    @DatabaseField(columnName = SUB_CATEGORY_NAME_EN)
+    private String subCategoryNameEN;
+
+    @DatabaseField(columnName = SUB_CATEGORY_NAME_AR)
+    private String subCategoryNameAR;
+
     @DatabaseField(columnName = ORDER_LIMIT)
     private int perDayOrderLimit;
 
     @DatabaseField(columnName = HANDLING_TIME)
     private int handlingTime;
 
+    @DatabaseField(columnName = SIZE)
+    private String size;
+
+    @DatabaseField(columnName = COLOR)
+    private String color;
+
     private List<ImageTable> imagesArray;
 
     private ArrayList<Uri> imagesLocalURI;
+
+
 
 
     public long getId() {
@@ -138,6 +162,10 @@ public class ProductTable implements Serializable{
         this.parentCategoryID = parentCategoryID;
     }
 
+    public Double getProductPrice() {
+        return productPrice;
+    }
+
     public int getIsOnPromotion() {
         return isOnPromotion;
     }
@@ -186,6 +214,77 @@ public class ProductTable implements Serializable{
         return imagesArray;
     }
 
+    public String getDescriptionEN() {
+        return descriptionEN;
+    }
+
+    public String getDescriptionAR() {
+        return descriptionAR;
+    }
+
+    public int getTargetGroupID() {
+        return targetGroupID;
+    }
+
+    public void setTargetGroupID(int targetGroupID) {
+        this.targetGroupID = targetGroupID;
+    }
+
+    public int getSubCategoryID() {
+        return subCategoryID;
+    }
+
+    public String getSubCategoryNameAR() {
+        return subCategoryNameAR;
+    }
+
+    public void setSubCategoryNameAR(String subCategoryNameAR) {
+        this.subCategoryNameAR = subCategoryNameAR;
+    }
+
+    public String getSubCategoryNameEN() {
+        return subCategoryNameEN;
+    }
+
+    public void setSubCategoryNameEN(String subCategoryNameEN) {
+        this.subCategoryNameEN = subCategoryNameEN;
+    }
+
+    public int getPerDayOrderLimit() {
+        return perDayOrderLimit;
+    }
+
+    public int getHandlingTime() {
+        return handlingTime;
+    }
+
+    public ArrayList<Uri> getImagesLocalURI() {
+        return imagesLocalURI;
+    }
+
+    public void setImagesLocalURI(ArrayList<Uri> imagesLocalURI) {
+        this.imagesLocalURI = imagesLocalURI;
+    }
+
+    public void setProductPrice(Double productPrice) {
+        this.productPrice = productPrice;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
 
     public interface ColumnNames{
         String TABLE_NAME = "products";
@@ -206,6 +305,13 @@ public class ProductTable implements Serializable{
         String HANDLING_TIME = "handling_time";
         String TARGET_GROUP = "target_group";
         String SUB_CATEGORY = "sub_category";
+        String SUB_CATEGORY_NAME_EN = "sub_category_name_en";
+        String SUB_CATEGORY_NAME_AR = "sub_category_name_ar";
+
+        String PRICE = "price";
+        String SIZE = "size";
+        String COLOR = "color";
+
 
     }
 }

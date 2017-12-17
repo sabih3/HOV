@@ -8,5 +8,6 @@
     <color name="ratingYellow">#ffd200</color>
     <color name="checkBoxUnchecked">#373737</color>
     <color name="checkBoxChecked">#373737</color>
+    <color name="black">#000000</color>
 
 </resources>

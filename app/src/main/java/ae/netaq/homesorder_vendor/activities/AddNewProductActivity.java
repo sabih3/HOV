@@ -171,17 +171,33 @@ public class AddNewProductActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onProductInformationAdded(String productName, Float productPrice, String productDescription) {
-        Product.getInstance().setProductNameEN(productName);
-        Product.getInstance().setProductDescriptionEN(productDescription);
+    public void onProductInformationAdded(String productNameEN, String productNameAR,
+                                          Double productPrice,
+                                          String descEN,
+                                          String descAR,
+                                          String size,
+                                          String color,
+                                          int orderLimit,
+                                          int handlingTime) {
+        Product.getInstance().setProductNameEN(productNameEN);
+        Product.getInstance().setProductNameAR(productNameAR);
         Product.getInstance().setProductPrice(productPrice);
+        Product.getInstance().setColor(color);
+        Product.getInstance().setSize(size);
+        Product.getInstance().setDailyLimit(orderLimit);
+        Product.getInstance().setHandlingTime(handlingTime);
+
+        Product.getInstance().setProductDescriptionEN(descEN);
+        Product.getInstance().setProductDescriptionAR(descAR);
+
 
         pager.setCurrentItem(pager.getCurrentItem()+1, true);
         setButtonTile(pager.getCurrentItem());
     }
 
     @Override
-    public void onCategoryChosen(int mainCategory, ProductCategories.Category subCategory, ProductGroups.Group group) {
+    public void onCategoryChosen(int mainCategory, ProductCategories.Category subCategory,
+                                                   ProductGroups.Group group) {
         Product.getInstance().setMainCategory(mainCategory);
         Product.getInstance().setSubCategory(subCategory);
         Product.getInstance().setGroup(group);
@@ -198,17 +214,25 @@ public class AddNewProductActivity extends AppCompatActivity implements
         ProductTable productToPersist = new ProductTable();
         productToPersist.setProductID(product.getProductID());
         productToPersist.setParentCategoryID(product.getParentCategoryID());
-        productToPersist.setParentCategoryNameEN("");
-        productToPersist.setParentCategoryNameEN("");
+
+//        productToPersist.setParentCategoryNameEN(product.getSubCategory().getSubCategoryEN());
+//        productToPersist.setParentCategoryNameAR("");
 
         productToPersist.setTargetGroup(product.getTargetGroup());
         productToPersist.setSubCategoryID(product.getSubCategoryID());
+        productToPersist.setSubCategoryNameAR(product.getSubCategory().getSubCategoryAR());
+        productToPersist.setSubCategoryNameEN(product.getSubCategory().getSubCategoryEN());
         productToPersist.setProductNameEN(product.getProductNameEN());
-        productToPersist.setProductNameAR("");
+        productToPersist.setProductNameAR(product.getProductNameAR());
         productToPersist.setPerDayOrderLimit(product.getDailyOrderLimit());
         productToPersist.setHandlingTime(product.getHandlingTime());
+        productToPersist.setProductPrice(product.getProductPrice());
+        productToPersist.setDescriptionAR(product.getProductDescriptionAR());
         productToPersist.setDescriptionEN(product.getProductDescriptionEN());
-        productToPersist.setDescriptionAR("arabic description");
+        productToPersist.setColor(product.getColor());
+        productToPersist.setSize(product.getSize());
+        productToPersist.setPerDayOrderLimit(product.getDailyOrderLimit());
+        productToPersist.setHandlingTime(product.getHandlingTime());
         //productToPersist.setImagesLocalURI(product.getProductImagesUri());
 
         long productID = ProductsManager.persistProduct(productToPersist);

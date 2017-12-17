@@ -56,6 +56,17 @@
     <string name="password">Password</string>
     <string name="sign_in">SIGN IN</string>
 
+
+    <!--Product Detail -->
+    <string name="label_size">SIZE : </string>
+    <string name="label_target_group">TARGETED GROUP : </string>
+    <string name="label_color">COLOR : </string>
+    <string name="label_desc_en">DESCRIPTION ENGLISH : </string>
+    <string name="label_desc_ar">DESCRIPTION ARABIC : </string>
+
+    <string name="label_daily_limit">DAILY ORDER LIMIT : </string>
+    <string name="label_handling_time">HANDLING TIME : </string>
+
     <string-array name="languages_array">
         <item>English</item>
         <item>Arabic</item>
