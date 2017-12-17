@@ -73,7 +73,6 @@ public class AddNewProductActivity extends AppCompatActivity implements
         toolbar.setTitle(R.string.add_product);
         setSupportActionBar(toolbar);
 
-        product = Product.getInstance();
 
         Common.changeViewWithLocale(this,pager);
         Common.changeViewWithLocale(this,indicator);
