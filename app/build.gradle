@@ -54,4 +54,5 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:2.2.0'
     compile 'com.shawnlin:number-picker:2.4.4'
     compile 'jp.wasabeef:recyclerview-animators:2.2.7'
+    compile "com.andkulikov:transitionseverywhere:1.7.8"
 }

@@ -1,42 +1,42 @@
 {
-  "food":[
+  "categories":[
     {
       "id":null,
-      "subCategoryAR":"Choose Category",
+      "subCategoryAR":"اختر الفئة",
       "subCategoryEN":"Choose Category",
       "backGroundImage":""
     },
     {
       "id":111,
-      "subCategoryAR":"Sweets",
+      "subCategoryAR":"الحلويات",
       "subCategoryEN":"Sweets",
       "backGroundImage":""
     },
     {
 
       "id":112,
-      "subCategoryAR":"Local Dish",
+      "subCategoryAR":"الطبق الشعبي",
       "subCategoryEN":"Local Dish",
       "backGroundImage":""
     },
     {
 
       "id":113,
-      "subCategoryAR":"Snacks",
+      "subCategoryAR":"المقبلات",
       "subCategoryEN":"Snacks",
       "backGroundImage":""
     },
     {
 
       "id":114,
-      "subCategoryAR":"Coffee",
+      "subCategoryAR":"القهوة",
       "subCategoryEN":"Coffee",
       "backGroundImage":""
     },
     {
 
       "id":115,
-      "subCategoryAR":"Cakes",
+      "subCategoryAR":"الكعك",
       "subCategoryEN":"Cakes",
       "backGroundImage":""
     }

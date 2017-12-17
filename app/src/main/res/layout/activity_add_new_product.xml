@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         app:titleTextColor="@android:color/black"
         android:background="@color/colorPrimary"
-        app:navigationIcon="@drawable/ic_prev"
+        app:navigationIcon="@drawable/ic_close_shitty_green"
         android:layoutDirection="locale"/>
 
     <com.badoualy.stepperindicator.StepperIndicator

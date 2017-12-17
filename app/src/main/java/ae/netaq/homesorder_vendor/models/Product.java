@@ -35,7 +35,9 @@ public class Product {
     private Float productPrice;
     private String productDescriptionEN;
     private String productDescriptionAR;
-
+    private int mainCategory;
+    private ProductCategories.Category subCategory;
+    private ProductGroups.Group group;
     private int productCategory;
     private String productSubCategory;
     private String productGroup;
@@ -73,20 +75,28 @@ public class Product {
         this.productDescriptionEN = productDescriptionEN;
     }
 
-    public int getProductCategory() {
-        return productCategory;
+    public int getMainCategory() {
+        return mainCategory;
     }
 
-    public void setProductCategory(int productCategory) {
-        this.productCategory = productCategory;
+    public void setMainCategory(int mainCategory) {
+        this.mainCategory = mainCategory;
     }
 
-    public String getProductSubCategory() {
-        return productSubCategory;
+    public ProductCategories.Category getSubCategory() {
+        return subCategory;
     }
 
-    public void setProductSubCategory(String productSubCategory) {
-        this.productSubCategory = productSubCategory;
+    public void setSubCategory(ProductCategories.Category subCategory) {
+        this.subCategory = subCategory;
+    }
+
+    public ProductGroups.Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(ProductGroups.Group group) {
+        this.group = group;
     }
 
     public ArrayList<Uri> getProductImagesUri() {

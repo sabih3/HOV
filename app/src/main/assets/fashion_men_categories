@@ -1,44 +1,44 @@
 {
-  "fashion_men":[
+  "categories":[
     {
       "id":null,
-      "subCategoryAR":"Choose Category",
+      "subCategoryAR":"اختر الفئة",
       "subCategoryEN":"Choose Category",
       "backGroundImage":""
     },
     {
       "id":211,
-      "subCategoryAR":"Dresses",
+      "subCategoryAR":"الفساتين",
       "subCategoryEN":"Dresses",
       "backGroundImage":""
     },
     {
       "id":212,
-      "subCategoryAR":"Watches",
+      "subCategoryAR":"الساعات",
       "subCategoryEN":"Watches",
       "backGroundImage":""
     },
     {
       "id":213,
-      "subCategoryAR":"Accessories",
+      "subCategoryAR":"الإكسسوارات",
       "subCategoryEN":"Accessories",
       "backGroundImage":""
     },
     {
       "id":214,
-      "subCategoryAR":"Shoes",
+      "subCategoryAR":"الأحذية",
       "subCategoryEN":"Shoes",
       "backGroundImage":""
     },
     {
       "id":215,
-      "subCategoryAR":"Beauty & Grooming",
+      "subCategoryAR":"أدوات التجميل والحلاقة",
       "subCategoryEN":"Beauty & Grooming",
       "backGroundImage":""
     },
     {
       "id":216,
-      "subCategoryAR":"Shirt & Pants",
+      "subCategoryAR":"ملابس",
       "subCategoryEN":"Shirt & Pants",
       "backGroundImage":""
     }

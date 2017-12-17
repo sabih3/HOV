@@ -1,32 +1,32 @@
 {
-  "fashion_kids":[
+  "categories":[
     {
       "id":null,
-      "subCategoryAR":"Choose Category",
+      "subCategoryAR":"اختر الفئة",
       "subCategoryEN":"Choose Category",
       "backGroundImage":""
     },
     {
       "id":231,
-      "subCategoryAR":"Dresses",
+      "subCategoryAR":"الفساتين",
       "subCategoryEN":"Dresses",
       "backGroundImage":""
     },
     {
       "id":232,
-      "subCategoryAR":"Baby wear",
+      "subCategoryAR":"ملابس أطفال",
       "subCategoryEN":"Baby wear",
       "backGroundImage":""
     },
     {
       "id":233,
-      "subCategoryAR":"Accessories",
+      "subCategoryAR":"الإكسسوارات",
       "subCategoryEN":"Accessories",
       "backGroundImage":""
     },
     {
       "id":234,
-      "subCategoryAR":"Shoes",
+      "subCategoryAR":"الأحذية",
       "subCategoryEN":"Shoes",
       "backGroundImage":""
     }

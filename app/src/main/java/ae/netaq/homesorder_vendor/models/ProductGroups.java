@@ -8,13 +8,13 @@ import java.util.List;
 
 public class ProductGroups {
 
-    public List<FashionGroup> fashion_groups;
+    public List<Group> groups;
 
-    public List<FashionGroup> getFashion_groups() {
-        return fashion_groups;
+    public List<Group> getGroups() {
+        return groups;
     }
 
-    public class FashionGroup
+    public class Group
     {
         public int id;
         public String subCategoryAR;

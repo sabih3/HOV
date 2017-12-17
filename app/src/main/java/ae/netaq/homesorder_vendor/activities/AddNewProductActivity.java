@@ -32,6 +32,9 @@ import ae.netaq.homesorder_vendor.fragments.add_new_product.choose_category.Choo
 import ae.netaq.homesorder_vendor.fragments.add_new_product.product_preview.ProductPreviewFragment;
 import ae.netaq.homesorder_vendor.fragments.add_new_product.product_preview.ProductPreviewView;
 import ae.netaq.homesorder_vendor.models.Product;
+import ae.netaq.homesorder_vendor.models.ProductCategories;
+import ae.netaq.homesorder_vendor.models.ProductGroups;
+import ae.netaq.homesorder_vendor.utils.Common;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
 import ae.netaq.homesorder_vendor.utils.NonSwipeableViewPager;
 import butterknife.BindView;
@@ -70,9 +73,12 @@ public class AddNewProductActivity extends AppCompatActivity implements
         toolbar.setTitle(R.string.add_product);
         setSupportActionBar(toolbar);
 
+        product = Product.getInstance();
+
+        Common.changeViewWithLocale(this,pager);
+        Common.changeViewWithLocale(this,indicator);
+
         initViews();
-        //Common.changeViewWithLocale(this,pager);
-        //Common.changeViewWithLocale(this,indicator);
 
     }
 
@@ -98,6 +104,9 @@ public class AddNewProductActivity extends AppCompatActivity implements
         pager.setAdapter(pagerAdapter);
         pager.setOffscreenPageLimit(4);
         indicator.setViewPager(pager);
+
+        if(Common.isAPPLocaleArabic(this))
+        indicator.setDoneIcon(getResources().getDrawable(R.drawable.ic_done_ar_white_18px));
 
         indicator.addOnStepClickListener(new StepperIndicator.OnStepClickListener() {
             @Override
@@ -173,12 +182,13 @@ public class AddNewProductActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onCategoryChosen(int productCategory, String productSubCategory, String productGroup) {
-        Product.getInstance().setProductCategory(productCategory);
-        Product.getInstance().setProductSubCategory(productSubCategory);
-        Product.getInstance().setProductGroup(productGroup);
+    public void onCategoryChosen(int mainCategory, ProductCategories.Category subCategory, ProductGroups.Group group) {
+        Product.getInstance().setMainCategory(mainCategory);
+        Product.getInstance().setSubCategory(subCategory);
+        Product.getInstance().setGroup(group);
 
         pager.setCurrentItem(pager.getCurrentItem()+1, true);
+        ((AddProductInformationFragment) pagerAdapter.getFragment(1)).setSelectedMainCategory(mainCategory);
         setButtonTile(pager.getCurrentItem());
     }
 

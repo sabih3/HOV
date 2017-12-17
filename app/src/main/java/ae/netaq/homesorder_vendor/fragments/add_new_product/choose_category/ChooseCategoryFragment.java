@@ -15,9 +15,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import ae.netaq.homesorder_vendor.R;
-import ae.netaq.homesorder_vendor.utils.FashionCategoriesManager;
-import ae.netaq.homesorder_vendor.utils.FoodCategoriesManager;
+import ae.netaq.homesorder_vendor.models.ProductCategories;
+import ae.netaq.homesorder_vendor.models.ProductGroups;
+import ae.netaq.homesorder_vendor.utils.ProductCategoriesManager;
 import ae.netaq.homesorder_vendor.utils.Common;
+import ae.netaq.homesorder_vendor.utils.ProductGroupsManager;
 import ae.netaq.homesorder_vendor.utils.Utils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,9 +30,6 @@ import cn.refactor.library.SmoothCheckBox;
  */
 
 public class ChooseCategoryFragment extends Fragment implements View.OnClickListener{
-
-    @BindView(R.id.category_parent)
-    LinearLayout parentLayout;
 
     @BindView(R.id.food_layout)
     RelativeLayout foodLayout;
@@ -67,6 +66,10 @@ public class ChooseCategoryFragment extends Fragment implements View.OnClickList
 
     private ChooseCategoryView mCallback;
 
+    private ProductCategories.Category category;
+
+    private ProductGroups.Group group;
+
     public ChooseCategoryFragment() {
     }
 
@@ -89,8 +92,9 @@ public class ChooseCategoryFragment extends Fragment implements View.OnClickList
         foodLayout.setOnClickListener(this);
         fashionLayout.setOnClickListener(this);
 
+        Common.changeViewWithLocale(getContext(),view);
+
         initViews();
-        //Common.changeViewWithLocale(getContext(),parentLayout);
 
         setUpSpinners();
 
@@ -102,9 +106,49 @@ public class ChooseCategoryFragment extends Fragment implements View.OnClickList
 
         categoriesSpinnerFashion.setEnabled(false);
 
-        categoriesSpinnerFood.setAdapter(FoodCategoriesManager.foodCategoriesAdapter(getActivity()));
+        categoriesSpinnerFood.setAdapter(ProductCategoriesManager.getProductCategoriesAdapter(getActivity(),
+                ProductCategoriesManager.FILENAME_FOOD_CATEGORIES));
 
-        groupSpinnerFashion.setAdapter(FashionCategoriesManager.fashionGroups(getActivity()));
+        groupSpinnerFashion.setAdapter(ProductGroupsManager.getProductGroupsAdapter(getActivity(),
+                ProductGroupsManager.FILENAME_PRODUCT_GROUPS));
+
+        categoriesSpinnerFood.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(i>0){
+                    category = ProductCategoriesManager.getProductCategories(getContext(),
+                            ProductCategoriesManager.FILENAME_FOOD_CATEGORIES).getCategories().get(i);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        categoriesSpinnerFashion.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(i>0){
+                    if(groupSpinnerFashion.getSelectedItemPosition() == 1){
+                        category = ProductCategoriesManager.getProductCategories(getContext(),
+                                ProductCategoriesManager.FILENAME_FASHION_CATEGORIES_MEN).getCategories().get(i);
+                    }else if(groupSpinnerFashion.getSelectedItemPosition() == 2){
+                        category = ProductCategoriesManager.getProductCategories(getContext(),
+                                ProductCategoriesManager.FILENAME_FASHION_CATEGORIES_WOMEN).getCategories().get(i);
+                    }else if(groupSpinnerFashion.getSelectedItemPosition() == 3){
+                        category = ProductCategoriesManager.getProductCategories(getContext(),
+                                ProductCategoriesManager.FILENAME_FASHION_CATEGORIES_KIDS).getCategories().get(i);
+                    }
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         groupSpinnerFashion.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -112,12 +156,21 @@ public class ChooseCategoryFragment extends Fragment implements View.OnClickList
                 if(i>0){
                     categoriesSpinnerFashion.setEnabled(true);
                     if(i == 1){
-                        
-                        categoriesSpinnerFashion.setAdapter(FashionCategoriesManager.fashionMenCategoriesAdapter(getActivity()));
+                        categoriesSpinnerFashion.setAdapter(ProductCategoriesManager.
+                                getProductCategoriesAdapter(getActivity(),
+                                        ProductCategoriesManager.FILENAME_FASHION_CATEGORIES_MEN));
+                        group = ProductGroupsManager.getProductGroups(getActivity(),
+                                ProductGroupsManager.FILENAME_PRODUCT_GROUPS).getGroups().get(1);
                     }else if(i == 2){
-                        categoriesSpinnerFashion.setAdapter(FashionCategoriesManager.fashionWomenCategoriesAdapter(getActivity()));
+                        categoriesSpinnerFashion.setAdapter(ProductCategoriesManager.getProductCategoriesAdapter(getActivity(),
+                                ProductCategoriesManager.FILENAME_FASHION_CATEGORIES_WOMEN));
+                        group = ProductGroupsManager.getProductGroups(getActivity(),
+                                ProductGroupsManager.FILENAME_PRODUCT_GROUPS).getGroups().get(2);
                     }else if(i == 3){
-                        categoriesSpinnerFashion.setAdapter(FashionCategoriesManager.fashionKidsCategoriesAdapter(getActivity()));
+                        categoriesSpinnerFashion.setAdapter(ProductCategoriesManager.getProductCategoriesAdapter(getActivity(),
+                                ProductCategoriesManager.FILENAME_FASHION_CATEGORIES_KIDS));
+                        group = ProductGroupsManager.getProductGroups(getActivity(),
+                                ProductGroupsManager.FILENAME_PRODUCT_GROUPS).getGroups().get(3);
                     }
                 }
             }
@@ -167,13 +220,14 @@ public class ChooseCategoryFragment extends Fragment implements View.OnClickList
     public void validate(){
         if(foodCheckBox.isChecked()){
             if(categoriesSpinnerFood.getSelectedItemPosition() != 0){
-                mCallback.onCategoryChosen(0,categoriesSpinnerFood.getSelectedItem().toString(),null);
+                mCallback.onCategoryChosen(0,category,null);
             }else{
                 Utils.showToast(getActivity(), getString(R.string.choose_subcategory_error));
             }
         }else if(fashionCheckbox.isChecked()){
-            if(categoriesSpinnerFashion.getSelectedItemPosition() != 0 && groupSpinnerFashion.getSelectedItemPosition()!= 0){
-                mCallback.onCategoryChosen(1,categoriesSpinnerFashion.getSelectedItem().toString(),groupSpinnerFashion.getSelectedItem().toString());
+            if(categoriesSpinnerFashion.getSelectedItemPosition() != 0 &&
+                    groupSpinnerFashion.getSelectedItemPosition()!= 0){
+                mCallback.onCategoryChosen(1,category,group);
             }else{
                 Utils.showToast(getActivity(), getString(R.string.choose_group_category_error));
             }

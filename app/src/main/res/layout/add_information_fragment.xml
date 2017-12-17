@@ -56,7 +56,6 @@
         android:layout_height="wrap_content"
         android:theme="@style/TextInputTheme"
         app:errorEnabled="true"
-
         >
         <EditText
             android:id="@+id/add_product_information_product_price"
@@ -74,7 +73,55 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="5dp">
+            android:baselineAligned="false">
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/add_product_information_product_size_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextInputTheme"
+                app:errorEnabled="true"
+                android:layout_weight="1"
+                >
+                <EditText
+                    android:id="@+id/add_product_information_product_size"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/size"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:theme="@style/TextInputTheme"
+                    android:textColor="@android:color/black"
+                    android:backgroundTint="@color/lightGrey"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/add_product_information_product_color_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextInputTheme"
+                app:errorEnabled="true"
+                android:layout_weight="1"
+                >
+                <EditText
+                    android:id="@+id/add_product_information_product_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/color"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:theme="@style/TextInputTheme"
+                    android:textColor="@android:color/black"
+                    android:backgroundTint="@color/lightGrey"/>
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp"
+            android:baselineAligned="false">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -84,7 +131,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Order Limit (Per Day)"
+                    android:text="@string/order_limit_per_day"
                     android:textColor="@android:color/black"
                     android:textStyle="bold"
                     android:textSize="@dimen/listing_text_size"/>
@@ -110,7 +157,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Handling Time (Hours)"
+                    android:text="@string/handling_time_days"
                     android:textColor="@android:color/black"
                     android:textStyle="bold"
                     android:textSize="@dimen/listing_text_size"/>
@@ -144,8 +191,6 @@
             android:inputType="textMultiLine"
             android:theme="@style/TextInputTheme"
             android:textColor="@android:color/black"
-            android:minLines="5"
-            android:gravity="top"
             android:imeOptions="actionNext"
             android:backgroundTint="@color/lightGrey"/>
     </android.support.design.widget.TextInputLayout>
@@ -161,12 +206,10 @@
             android:id="@+id/add_product_information_product_description_arabic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Description (Ar)"
+            android:hint="@string/description_ar"
             android:inputType="textMultiLine"
             android:theme="@style/TextInputTheme"
             android:textColor="@android:color/black"
-            android:minLines="5"
-            android:gravity="top"
             android:imeOptions="actionDone"
             android:backgroundTint="@color/lightGrey"/>
     </android.support.design.widget.TextInputLayout>

@@ -41,6 +41,7 @@ import ae.netaq.homesorder_vendor.AppController;
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.activities.AddNewProductActivity;
 import ae.netaq.homesorder_vendor.adapters.add_new_product_images.AddImagesRecyclerAdapter;
+import ae.netaq.homesorder_vendor.utils.Common;
 import ae.netaq.homesorder_vendor.event_bus.StoragePermissionGrantedEvent;
 import ae.netaq.homesorder_vendor.utils.ImageUtils;
 import ae.netaq.homesorder_vendor.utils.Utils;
@@ -92,6 +93,8 @@ public class AddProductImagesFragment extends Fragment{
 
         picasso = AppController.get(getActivity()).getPicasso();
         imagesUri = new ArrayList<>();
+
+        Common.changeViewWithLocale(getContext(),view);
 
         initViews();
 
