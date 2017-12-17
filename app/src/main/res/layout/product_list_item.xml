@@ -17,6 +17,7 @@
             android:background="@drawable/round_rect_shape"
             >
         <ImageView
+            android:id="@+id/img_view_products_list"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:src="@color/colorAccent"/>

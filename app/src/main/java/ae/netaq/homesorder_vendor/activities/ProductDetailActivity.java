@@ -10,10 +10,14 @@ import android.view.View;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import ae.netaq.homesorder_vendor.AppController;
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.adapters.SliderPagerAdapter;
+import ae.netaq.homesorder_vendor.db.data_manager.tables.ImageTable;
+import ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable;
+import ae.netaq.homesorder_vendor.utils.NavigationController;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import me.relex.circleindicator.CircleIndicator;
@@ -34,6 +38,7 @@ public class ProductDetailActivity extends AppCompatActivity{
     Toolbar toolbar;
 
     private Picasso picasso;
+    private ProductTable product;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,22 +51,25 @@ public class ProductDetailActivity extends AppCompatActivity{
 
         picasso = AppController.get(this).getPicasso();
 
-        setupProductImageSlider();
+        try {
+            product = (ProductTable) getIntent().getSerializableExtra(NavigationController.KEY_PRODUCT);
+        }catch (NullPointerException npe){
+
+        }
+
+
+        setupProductImageSlider(product.getImagesArray());
     }
 
-    private void setupProductImageSlider() {
-
-        initViews();
-
-    }
-
-    private void initViews() {
+    private void setupProductImageSlider(List<ImageTable> imagesArray) {
 
         ArrayList<Integer> images = new ArrayList<>();
         images.add(R.drawable.fashion);
         images.add(R.drawable.food);
 
-        sliderPager.setAdapter(new SliderPagerAdapter(ProductDetailActivity.this, images,null, picasso));
+        sliderPager.setAdapter(new SliderPagerAdapter(ProductDetailActivity.this,
+                imagesArray,null, picasso));
+
         circleIndicator.setViewPager(sliderPager);
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -70,5 +78,11 @@ public class ProductDetailActivity extends AppCompatActivity{
                 finish();
             }
         });
+
+    }
+
+    private void initViews() {
+
+
     }
 }

@@ -15,6 +15,7 @@ import ae.netaq.homesorder_vendor.activities.ProductDetailActivity;
 import ae.netaq.homesorder_vendor.activities.RegisterActivity;
 import ae.netaq.homesorder_vendor.activities.SettingsActivity;
 import ae.netaq.homesorder_vendor.adapters.FragmentViewPager;
+import ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable;
 import ae.netaq.homesorder_vendor.fragments.PagerFragment;
 import ae.netaq.homesorder_vendor.fragments.add_new_product.add_product_images.AddProductImagesFragment;
 import ae.netaq.homesorder_vendor.fragments.add_new_product.add_product_information.AddProductInformationFragment;
@@ -32,6 +33,8 @@ import ae.netaq.homesorder_vendor.fragments.products.promotions_tab.PromotionPro
  */
 
 public class NavigationController {
+
+    public static final String KEY_PRODUCT = "key_product";
 
     public static FragmentViewPager getOrdersPagerAdapter(Context context, FragmentManager supportFragmentManager) {
 
@@ -116,8 +119,9 @@ public class NavigationController {
         context.startActivity(intent);
     }
 
-    public static void startActivityProductDetail(Context context){
+    public static void startActivityProductDetail(Context context, ProductTable product){
         Intent intent = new Intent(context, ProductDetailActivity.class);
+        intent.putExtra(KEY_PRODUCT,product);
         context.startActivity(intent);
     }
 

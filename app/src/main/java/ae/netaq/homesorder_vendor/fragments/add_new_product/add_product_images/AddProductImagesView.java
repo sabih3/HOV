@@ -9,5 +9,5 @@ import java.util.ArrayList;
  */
 
 public interface AddProductImagesView {
-    void onAddImagesCompleted(ArrayList<Uri> imagesUri);
+    void onAddImagesCompleted(ArrayList<Uri> imagesUri, ArrayList<byte[]> bytesArray);
 }

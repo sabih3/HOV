@@ -34,7 +34,7 @@ public class OrderDetailProductItemRecyclerAdapter extends RecyclerView.Adapter<
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavigationController.startActivityProductDetail(mContext);
+                NavigationController.startActivityProductDetail(mContext, null);
             }
         });
 
