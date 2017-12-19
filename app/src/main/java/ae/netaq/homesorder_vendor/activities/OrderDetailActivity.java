@@ -10,6 +10,7 @@ import android.view.View;
 
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.adapters.order_detail_products_listing.OrderDetailProductItemRecyclerAdapter;
+import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -31,10 +32,20 @@ public class OrderDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_order_details);
         ButterKnife.bind(this);
 
+        setToolBar();
+
+        initViews();
+    }
+
+    private void setToolBar() {
         toolbar.setTitle(R.string.order_detail);
         setSupportActionBar(toolbar);
 
-        initViews();
+        if(DevicePreferences.isLocaleSetToArabic()){
+            toolbar.setNavigationIcon(R.drawable.ic_prev_ar);
+        }else{
+            toolbar.setNavigationIcon(R.drawable.ic_prev);
+        }
     }
 
     private void initViews() {

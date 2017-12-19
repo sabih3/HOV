@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorPrimary"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorPrimary">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -15,7 +15,13 @@
         app:navigationIcon="@drawable/ic_prev"
         >
     </android.support.v7.widget.Toolbar>
-    
+
+    <ScrollView
+        android:id="@+id/scroll_view_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:paddingBottom="60dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,19 +29,20 @@
         android:padding="10dp">
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/register_username_layout"
+            android:id="@+id/register_email_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/TextInputTheme"
             app:errorEnabled="true"
             >
             <EditText
-                android:id="@+id/register_username"
+                android:id="@+id/register_email"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="@string/username"
-                android:inputType="text"
+                android:hint="@string/username_your_username_must_be_your_email"
+                android:inputType="textEmailAddress"
                 android:maxLines="1"
+                android:layoutDirection="ltr"
                 android:theme="@style/TextInputTheme"
                 android:textColor="@android:color/black"
                 android:backgroundTint="@color/lightGrey"/>
@@ -53,14 +60,110 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="@string/password"
-                android:inputType="text"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:layoutDirection="ltr"
+                android:theme="@style/TextInputTheme"
+                android:textColor="@android:color/black"
+                android:backgroundTint="@color/lightGrey"/>
+        </android.support.design.widget.TextInputLayout>
+
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/register_phone_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/TextInputTheme"
+            app:errorEnabled="true"
+            >
+            <EditText
+                android:id="@+id/register_phone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/phone_number"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:layoutDirection="ltr"
+                android:theme="@style/TextInputTheme"
+                android:textColor="@android:color/black"
+                android:backgroundTint="@color/lightGrey"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/register_shop_name_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/TextInputTheme"
+            app:errorEnabled="true"
+            >
+            <EditText
+                android:id="@+id/register_shop_name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/shop_vendor_name"
+                android:inputType="textPersonName"
                 android:maxLines="1"
                 android:theme="@style/TextInputTheme"
                 android:textColor="@android:color/black"
                 android:backgroundTint="@color/lightGrey"/>
         </android.support.design.widget.TextInputLayout>
-    </LinearLayout>
-    
-    
 
-</LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:textSize="@dimen/listing_text_size_large"
+                android:textStyle="bold"
+                android:layout_marginLeft="3dp"
+                android:layout_marginStart="3dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="@string/logo_optional"/>
+
+            <LinearLayout
+                android:id="@+id/add_photo_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:gravity="center"
+                tools:ignore="UseCompoundDrawables">
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_photo"
+                    android:textStyle="bold"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="@dimen/listing_text_size_large"/>
+                <ImageView
+                    android:id="@+id/register_selected_logo_image_view"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_camera"
+                    tools:ignore="ContentDescription" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/register_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/ButtonTheme"
+        android:layout_margin="10dp"
+        android:layout_alignParentBottom="true"
+        android:text="@string/register"/>
+</RelativeLayout>

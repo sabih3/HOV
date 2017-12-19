@@ -1,16 +1,12 @@
-package ae.netaq.homesorder_vendor.activities;
+package ae.netaq.homesorder_vendor.activities.sign_in;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
-import com.transitionseverywhere.TransitionManager;
 
 import java.util.ArrayList;
 
@@ -23,19 +19,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by Netaq on 12/14/2017.
+ * Created by Netaq on 12/17/2017.
  */
 
-public class SignInActivity extends AppCompatActivity implements Animation.AnimationListener, View.OnClickListener{
 
-    @BindView(R.id.logo_image_view)
-    ImageView logo;
-
-    @BindView(R.id.sign_in_fields_layout)
-    LinearLayout inputFieldsLayout;
-
-    @BindView(R.id.transitions_container)
-    LinearLayout transitionsContainer;
+public class SignInActivity extends AppCompatActivity implements View.OnClickListener{
 
     @BindView(R.id.sign_in_register_now)
     LinearLayout registerLayout;
@@ -43,7 +31,6 @@ public class SignInActivity extends AppCompatActivity implements Animation.Anima
     @BindView(R.id.sign_in_btn)
     Button addProductBtn;
 
-    private Animation fadeInAnimation;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,33 +38,10 @@ public class SignInActivity extends AppCompatActivity implements Animation.Anima
         setContentView(R.layout.activity_sign_in);
         ButterKnife.bind(this);
 
-        fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in_anim);
-
-        fadeInAnimation.setAnimationListener(this);
-
         addProductBtn.setOnClickListener(this);
 
         registerLayout.setOnClickListener(this);
 
-        logo.startAnimation(fadeInAnimation);
-
-    }
-
-    @Override
-    public void onAnimationStart(Animation animation) {
-
-    }
-
-    @Override
-    public void onAnimationEnd(Animation animation) {
-        if(animation == fadeInAnimation){
-            TransitionManager.beginDelayedTransition(transitionsContainer);
-            inputFieldsLayout.setVisibility(View.VISIBLE);
-        }
-    }
-
-    @Override
-    public void onAnimationRepeat(Animation animation) {
 
     }
 
