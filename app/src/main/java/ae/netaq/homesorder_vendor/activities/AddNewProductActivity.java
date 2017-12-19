@@ -101,7 +101,7 @@ public class AddNewProductActivity extends AppCompatActivity implements
     private void initViews() {
         pagerAdapter =  NavigationController.getAddNewProductPagerAdapter(getSupportFragmentManager());
         pager.setAdapter(pagerAdapter);
-        pager.setOffscreenPageLimit(4);
+        pager.setOffscreenPageLimit(3);
         indicator.setViewPager(pager);
 
         if(Common.isAPPLocaleArabic(this))
@@ -195,6 +195,7 @@ public class AddNewProductActivity extends AppCompatActivity implements
         setButtonTile(pager.getCurrentItem());
     }
 
+    //Fired from ChooseCategoryFragment.validate
     @Override
     public void onCategoryChosen(int mainCategory, ProductCategories.Category subCategory,
                                                    ProductGroups.Group group) {
@@ -218,7 +219,7 @@ public class AddNewProductActivity extends AppCompatActivity implements
 //        productToPersist.setParentCategoryNameEN(product.getSubCategory().getSubCategoryEN());
 //        productToPersist.setParentCategoryNameAR("");
 
-        productToPersist.setTargetGroup(product.getTargetGroup());
+        productToPersist.setTargetGroup(product.getGroup().getId());
         productToPersist.setSubCategoryID(product.getSubCategoryID());
         productToPersist.setSubCategoryNameAR(product.getSubCategory().getSubCategoryAR());
         productToPersist.setSubCategoryNameEN(product.getSubCategory().getSubCategoryEN());

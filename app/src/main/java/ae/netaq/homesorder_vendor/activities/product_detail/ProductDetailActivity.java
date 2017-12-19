@@ -2,13 +2,10 @@ package ae.netaq.homesorder_vendor.activities.product_detail;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.TypedValue;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -22,7 +19,10 @@ import ae.netaq.homesorder_vendor.adapters.SliderPagerAdapter;
 import ae.netaq.homesorder_vendor.db.data_manager.tables.ImageTable;
 import ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable;
 import ae.netaq.homesorder_vendor.utils.Common;
+import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
+import ae.netaq.homesorder_vendor.utils.ProductDetailUtility;
+import ae.netaq.homesorder_vendor.utils.ProductGroupsManager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import me.relex.circleindicator.CircleIndicator;
@@ -39,17 +39,28 @@ public class ProductDetailActivity extends AppCompatActivity implements ProductD
     @BindView(R.id.slider_indicator)
     CircleIndicator circleIndicator;
 
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;
+    @BindView(R.id.toolbar) Toolbar toolbar;
 
-    @BindView(R.id.tv_category)
-    TextView tv_categoryName;
+    @BindView(R.id.tv_category) TextView tv_categoryName;
 
-    @BindView(R.id.tv_prod_title)
-    TextView tv_productTitle;
+    @BindView(R.id.tv_prod_title) TextView tv_productTitle;
 
-    @BindView(R.id.prod_values_layout)
-    LinearLayout valuesLayout;
+    @BindView(R.id.value_price) TextView value_price;
+
+    @BindView(R.id.value_size) TextView val_size;
+
+    @BindView(R.id.value_color) TextView val_color;
+
+    @BindView(R.id.value_group) TextView val_group;
+
+    @BindView(R.id.value_limit) TextView val_limit;
+
+    @BindView(R.id.value_desc_en) TextView val_desc_en;
+
+    @BindView(R.id.value_time) TextView val_time;
+
+    @BindView(R.id.value_desc_ar) TextView val_desc_ar;
+
 
     private Picasso picasso;
     private ProductTable product;
@@ -60,8 +71,8 @@ public class ProductDetailActivity extends AppCompatActivity implements ProductD
         setContentView(R.layout.activity_product_details);
         ButterKnife.bind(this);
 
-        toolbar.setTitle(R.string.product_detail);
-        setSupportActionBar(toolbar);
+        setToolbar();
+
 
         picasso = AppController.get(this).getPicasso();
 
@@ -71,14 +82,28 @@ public class ProductDetailActivity extends AppCompatActivity implements ProductD
 
         }
 
-
         setupProductImageSlider(product.getImagesArray());
-        setCategory(product);
-        setProductTitle(product);
-        setValues(product);
+
+        ProductDetailUtility detailUtility = new ProductDetailUtility(this,
+                             getWindow().findViewById(android.R.id.content));
+        detailUtility.bindValues(product);
+
+//        setCategory(product);
+//        setProductTitle(product);
+//        setValues(product);
 
 
+    }
 
+    private void setToolbar() {
+        toolbar.setTitle(R.string.product_detail);
+        setSupportActionBar(toolbar);
+
+        if(DevicePreferences.isLocaleSetToArabic()){
+            toolbar.setNavigationIcon(R.drawable.ic_prev_ar);
+        }else{
+            toolbar.setNavigationIcon(R.drawable.ic_prev);
+        }
     }
 
     private void setProductTitle(ProductTable product) {
@@ -135,10 +160,6 @@ public class ProductDetailActivity extends AppCompatActivity implements ProductD
 
     }
 
-    private void initViews() {
-
-
-    }
 
     @Override
     public void OnProductFetched() {
@@ -146,31 +167,35 @@ public class ProductDetailActivity extends AppCompatActivity implements ProductD
     }
 
     private void setValues(ProductTable product){
-        valuesLayout.removeAllViews();
-        ArrayList<Object> values = new ArrayList<>();
+        Double productPrice = product.getProductPrice();
 
-        int targetGroupID = product.getTargetGroupID();
-        int perDayOrderLimit = product.getPerDayOrderLimit();
-        int handlingTime = product.getHandlingTime();
         String size = product.getSize();
+
         String color = product.getColor();
 
-        values.add(targetGroupID);
-        values.add(perDayOrderLimit);
-        values.add(handlingTime);
-        values.add(size);
-        values.add(color);
+        int targetGroupID = product.getTargetGroupID();
 
-        for(Object vals : values){
-            TextView valueTextView = new TextView(this);
-            valueTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                                      getResources().getDimension(R.dimen.body_font_large));
-            valueTextView.setTextColor(ContextCompat.getColor(this,R.color.black));
+        String groupName = ProductGroupsManager.getLocaleBasedName(this,targetGroupID);
 
-            valueTextView.setText(vals.toString());
-            valuesLayout.addView(valueTextView);
-        }
+        int perDayOrderLimit = product.getPerDayOrderLimit();
+        int handlingTime = product.getHandlingTime();
 
+        String descEN = product.getDescriptionEN();
+
+        String descAR = product.getDescriptionAR();
+
+        value_price.setText(String.valueOf(productPrice));
+        val_size.setText(size);
+        val_color.setText(color);
+        val_group.setText(groupName);
+        val_limit.setText(String.valueOf(perDayOrderLimit));
+        val_time.setText(String.valueOf(handlingTime));
+        val_desc_en.setText(descEN);
+
+        val_desc_ar.setText(descAR);
 
     }
+
+
+
 }
