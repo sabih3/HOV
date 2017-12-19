@@ -2,22 +2,17 @@ package ae.netaq.homesorder_vendor.utils;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
-import android.util.DisplayMetrics;
 import android.widget.Toast;
 
 import java.util.Locale;
 import java.util.regex.Pattern;
 
-import ae.netaq.homesorder_vendor.activities.SettingsActivity;
 import ae.netaq.homesorder_vendor.constants.Regex;
-import commons.validator.routines.EmailValidator;
 
 /**
  * Created by Netaq on 12/6/2017.
