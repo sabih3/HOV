@@ -20,7 +20,7 @@
         android:theme="@style/AppTheme"
         >
 
-        <activity android:name=".activities.SignInActivity">
+        <activity android:name=".activities.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,13 +28,15 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".activities.SplashScreen"/>
+        <activity android:name=".activities.sign_in.SignInActivity"/>
         <activity android:name=".activities.MainActivity"
                   android:configChanges="locale"/>
         <activity android:name=".activities.OrderDetailActivity"/>
         <activity android:name=".activities.product_detail.ProductDetailActivity"/>
         <activity android:name=".activities.SettingsActivity"/>
         <activity android:name=".activities.AddNewProductActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".activities.register.RegisterActivity"
             android:windowSoftInputMode="adjustPan"/>
     </application>
 

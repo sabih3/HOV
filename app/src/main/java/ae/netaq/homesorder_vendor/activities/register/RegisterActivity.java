@@ -1,0 +1,233 @@
+package ae.netaq.homesorder_vendor.activities.register;
+
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
+import android.support.design.widget.TextInputLayout;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+
+import com.mobsandgeeks.saripaar.ValidationError;
+import com.mobsandgeeks.saripaar.Validator;
+import com.mobsandgeeks.saripaar.annotation.Email;
+import com.mobsandgeeks.saripaar.annotation.NotEmpty;
+import com.mobsandgeeks.saripaar.annotation.Order;
+import com.mobsandgeeks.saripaar.annotation.Pattern;
+import com.squareup.picasso.Picasso;
+
+import java.util.List;
+
+import ae.netaq.homesorder_vendor.AppController;
+import ae.netaq.homesorder_vendor.R;
+import ae.netaq.homesorder_vendor.constants.Regex;
+import ae.netaq.homesorder_vendor.utils.Utils;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+/**
+ * Created by Netaq on 12/17/2017.
+ */
+
+public class RegisterActivity extends AppCompatActivity implements View.OnClickListener, Validator.ValidationListener{
+
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+
+    @BindView(R.id.add_photo_layout)
+    LinearLayout addPhotoLayout;
+
+    @BindView(R.id.register_email_layout)
+    TextInputLayout registerEmailLayout;
+
+    @Pattern(regex = Regex.emailRegex, messageResId = R.string.valid_email_address_error, caseSensitive = false)
+    @NotEmpty(messageResId = R.string.field_required)
+    @BindView(R.id.register_email)
+    EditText registerEmail;
+
+    @BindView(R.id.register_password_layout)
+    TextInputLayout registerPasswordLayout;
+
+    @NotEmpty(messageResId = R.string.field_required)
+    @BindView(R.id.register_password)
+    EditText registerPassword;
+
+    @BindView(R.id.register_phone_layout)
+    TextInputLayout registerPhoneLayout;
+
+    @Pattern(regex = Regex.phoneRegex, messageResId = R.string.valid_phone_number_error)
+    @NotEmpty(messageResId = R.string.field_required)
+    @BindView(R.id.register_phone)
+    EditText registerPhone;
+
+    @BindView(R.id.register_shop_name_layout)
+    TextInputLayout registerVendorNameLayout;
+
+    @NotEmpty(messageResId = R.string.field_required)
+    @BindView(R.id.register_shop_name)
+    EditText registerVendorName;
+
+    @BindView(R.id.register_selected_logo_image_view)
+    ImageView selectedLogo;
+
+    @BindView(R.id.register_btn)
+    Button registerBtn;
+
+    private Validator validator;
+
+    private static final int SELECT_PICTURE = 100;
+
+    private Picasso picasso;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_register);
+        ButterKnife.bind(this);
+
+        toolbar.setTitle(R.string.register);
+        setSupportActionBar(toolbar);
+
+        validator = new Validator(this);
+        validator.setValidationListener(this);
+
+        addPhotoLayout.setOnClickListener(this);
+
+        registerBtn.setOnClickListener(this);
+
+        picasso = AppController.get(this).getPicasso();
+
+
+        initViews();
+    }
+
+    private void initViews() {
+
+        setTextWatchers();
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
+
+    private void setTextWatchers() {
+        registerEmail.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(!Utils.isValidEmail(registerEmail.getText().toString())){
+                    registerEmailLayout.setError(getString(R.string.valid_email_address_error));
+                }else{
+                    registerEmailLayout.setError(null);
+                }
+            }
+        });
+
+        registerPhone.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(!Utils.isValidPhone(registerPhone.getText().toString())){
+                    registerPhoneLayout.setError(getString(R.string.valid_phone_number_error));
+                }else{
+                    registerPhoneLayout.setError(null);
+                }
+            }
+        });
+    }
+
+    private void removeErrors() {
+        registerEmailLayout.setError(null);
+        registerPasswordLayout.setError(null);
+        registerPhoneLayout.setError(null);
+        registerVendorNameLayout.setError(null);
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        if(view.getId() == R.id.add_photo_layout){
+            openImageChooser();
+        }else if(view.getId() == R.id.register_btn){
+            removeErrors();
+            validator.setValidationMode(Validator.Mode.BURST);
+            validator.validate();
+        }
+
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            if (data != null) {
+                //For Single image
+                Uri uri = data.getData();
+                picasso.load(uri).resize(200, 200).centerCrop().into(selectedLogo);
+            }
+        }
+    }
+
+    public void openImageChooser() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, false);
+        intent.setAction(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        startActivityForResult(Intent.createChooser(intent, getString(R.string.select_pictures)), SELECT_PICTURE);
+    }
+
+    @Override
+    public void onValidationSucceeded() {
+
+    }
+
+    @Override
+    public void onValidationFailed(List<ValidationError> errors) {
+        for(int i = 0 ; i<errors.size() ; i++) {
+            if (errors.get(i).getView().getId() == R.id.register_email) {
+                registerEmail.requestFocus();
+                registerEmailLayout.setError(errors.get(i).getFailedRules().get(0).getMessage(this));
+            } else if (errors.get(i).getView().getId() == R.id.register_password) {
+                registerPassword.requestFocus();
+                registerPasswordLayout.setError(errors.get(i).getCollatedErrorMessage(this));
+            } else if (errors.get(i).getView().getId() == R.id.register_phone) {
+                registerPhone.requestFocus();
+                registerPhoneLayout.setError(errors.get(i).getFailedRules().get(0).getMessage(this));
+            } else if (errors.get(i).getView().getId() == R.id.register_shop_name) {
+                registerVendorName.requestFocus();
+                registerVendorNameLayout.setError(errors.get(i).getCollatedErrorMessage(this));
+            }
+        }
+    }
+
+}

@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#EF3E35</color>
     <color name="shittyGreen">#44CE00</color>
+    <color name="shittyDarkGreen">#39ac00</color>
     <color name="lightGrey">#acacac</color>
     <color name="ratingYellow">#ffd200</color>
     <color name="checkBoxUnchecked">#373737</color>

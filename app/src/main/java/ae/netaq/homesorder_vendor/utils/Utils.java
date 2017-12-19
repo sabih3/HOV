@@ -2,19 +2,17 @@ package ae.netaq.homesorder_vendor.utils;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
-import android.util.DisplayMetrics;
 import android.widget.Toast;
 
 import java.util.Locale;
+import java.util.regex.Pattern;
 
-import ae.netaq.homesorder_vendor.activities.SettingsActivity;
+import ae.netaq.homesorder_vendor.constants.Regex;
 
 /**
  * Created by Netaq on 12/6/2017.
@@ -75,5 +73,23 @@ public class Utils {
 
         return realPathFromURI;
 
+    }
+
+    public final static boolean isValidEmail(String target) {
+        Pattern pattern = Pattern.compile(Regex.emailRegex,Pattern.CASE_INSENSITIVE);
+        if (target == null) {
+            return false;
+        } else {
+            return pattern.matcher(target).find();
+        }
+    }
+
+    public final static boolean isValidPhone(String target) {
+        Pattern pattern = Pattern.compile(Regex.phoneRegex);
+        if (target == null) {
+            return false;
+        } else {
+            return pattern.matcher(target).find();
+        }
     }
 }
