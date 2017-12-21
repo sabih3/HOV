@@ -36,11 +36,15 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import static ae.netaq.homesorder_vendor.activities.register.RegisterView.*;
+
 /**
  * Created by Netaq on 12/17/2017.
  */
 
-public class RegisterActivity extends AppCompatActivity implements View.OnClickListener, Validator.ValidationListener{
+public class RegisterActivity extends AppCompatActivity implements
+        View.OnClickListener,
+        Validator.ValidationListener,RegisterView{
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -108,6 +112,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     private Uri logoImageUri = null;
 
+    private RegisterPresenter presenter;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -126,6 +132,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         picasso = AppController.get(this).getPicasso();
 
+        presenter = new RegisterPresenter(this);
         initViews();
     }
 
@@ -235,10 +242,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         User.getInstance().setUserPhone(registerPhone.getText().toString());
         User.getInstance().setVendorName(registerVendorName.getText().toString());
         User.getInstance().setLogoUri(logoImageUri);
-        DevicePreferences.saveUserInfo(User.getInstance());
-        Utils.showToast(this, "USer Registered Successfully");
-        NavigationController.showMainActivity(RegisterActivity.this);
-        RegisterActivity.this.finish();
+
+
+        //request network to register user
+        presenter.registerUser();
+
     }
 
     @Override
@@ -266,4 +274,18 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
+    //RegisterView
+    @Override
+    public void onRegistrationSuccess() {
+        //DevicePreferences.saveUserInfo(User.getInstance());
+        Utils.showToast(this, "USer Registered Successfully");
+        NavigationController.showMainActivity(RegisterActivity.this);
+        RegisterActivity.this.finish();
+    }
+
+    //RegisterView
+    @Override
+    public void onRegistrationFailure(String exception) {
+
+    }
 }

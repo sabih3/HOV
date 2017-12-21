@@ -66,7 +66,7 @@
                             android:layout_alignParentStart="true"
                             android:textSize="@dimen/listing_text_size_large"
                             android:textColor="@color/lightGrey"
-                            android:text="@string/username"/>
+                            android:text="@string/name"/>
 
                         <TextView
                             android:layout_width="wrap_content"

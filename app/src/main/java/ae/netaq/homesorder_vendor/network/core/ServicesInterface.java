@@ -1,7 +1,11 @@
 package ae.netaq.homesorder_vendor.network.core;
 
+import ae.netaq.homesorder_vendor.network.model.GeneralResponse;
+import ae.netaq.homesorder_vendor.network.model.UserToRegister;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 /**
@@ -11,5 +15,8 @@ import retrofit2.http.Query;
 
 public interface ServicesInterface {
 
+
+    @POST(Endpoints.USER_REGISTER)
+    Call<GeneralResponse> registerUser(@Body UserToRegister user);
 
 }

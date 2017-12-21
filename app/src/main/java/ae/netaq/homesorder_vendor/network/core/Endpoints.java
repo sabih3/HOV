@@ -7,7 +7,11 @@ package ae.netaq.homesorder_vendor.network.core;
 
 public class Endpoints {
 
-    public static final String BASE_URL = "";
+    public static final String BASE_URL = "http://home.kendev.xyz/homeorder/public/api/";
+
+    public static final String USER_REGISTER ="vendor/me/register";
+    public static final String USER_LOGIN ="vendor/login";
+
 
 
 }
