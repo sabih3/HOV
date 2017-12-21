@@ -1,4 +1,4 @@
-package ae.netaq.homesorder_vendor.network;
+package ae.netaq.homesorder_vendor.network.services;
 
 import android.content.Context;
 
@@ -16,7 +16,7 @@ import ae.netaq.homesorder_vendor.utils.NavigationController;
  * Created by sabih on 06-Dec-17.
  */
 
-public class OrderBAL {
+public class OrderService {
 
     private static String FILENAME_NEW_ORDERS = "new_orders";
 

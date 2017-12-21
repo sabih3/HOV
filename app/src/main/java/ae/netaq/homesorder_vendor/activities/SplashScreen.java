@@ -19,10 +19,9 @@ import com.transitionseverywhere.TransitionManager;
 import java.util.ArrayList;
 
 import ae.netaq.homesorder_vendor.R;
-import ae.netaq.homesorder_vendor.activities.sign_in.SignInActivity;
 import ae.netaq.homesorder_vendor.db.data_manager.OrderDataManager;
 import ae.netaq.homesorder_vendor.models.Order;
-import ae.netaq.homesorder_vendor.network.OrderBAL;
+import ae.netaq.homesorder_vendor.network.services.OrderService;
 import ae.netaq.homesorder_vendor.utils.Common;
 import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
@@ -154,7 +153,7 @@ public class SplashScreen extends AppCompatActivity implements Animation.Animati
                 NavigationController.startActivitySignIn(SplashScreen.this);
                 finish();
             }else{
-                OrderBAL.getAllOrders(this,new OrderBAL.OrderFetchListener() {
+                OrderService.getAllOrders(this,new OrderService.OrderFetchListener() {
                     @Override
                     public void onOrdersFetched(ArrayList<Order> orders) {
 

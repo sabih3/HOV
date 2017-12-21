@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ import java.util.ArrayList;
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.db.data_manager.OrderDataManager;
 import ae.netaq.homesorder_vendor.models.Order;
-import ae.netaq.homesorder_vendor.network.OrderBAL;
+import ae.netaq.homesorder_vendor.network.services.OrderService;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -49,7 +48,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View view) {
 
         if(view.getId() == R.id.sign_in_btn){
-            OrderBAL.getAllOrders(this,new OrderBAL.OrderFetchListener() {
+            OrderService.getAllOrders(this,new OrderService.OrderFetchListener() {
                 @Override
                 public void onOrdersFetched(ArrayList<Order> orders) {
 
