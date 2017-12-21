@@ -67,6 +67,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
             });
         }else if(view.getId() == R.id.sign_in_register_now){
             NavigationController.startActivityRegister(SignInActivity.this);
+            finish();
         }
 
     }

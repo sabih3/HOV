@@ -75,6 +75,17 @@
     <string name="customer_name">CUSTOMER NAME:</string>
     <string name="payment_mode">PAYMENT MODE:</string>
     <string name="total">TOTAL:</string>
+    <string name="profile">Profile</string>
+    <string name="update">Update</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="person_name">Person Name</string>
+    <string name="retype_password">Retype Password</string>
+    <string name="passwords_match_error">Passwords don\'t match</string>
+    <string name="passowrd_six_chars_error">Password must be atleast six characters</string>
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
+    <string name="retype_new_password">Retype new password</string>
+    <string name="wrong_password_error">Wrong password</string>
 
     <string-array name="languages_array">
         <item>English</item>

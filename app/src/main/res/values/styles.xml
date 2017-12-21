@@ -26,7 +26,7 @@
     <style name="NavigationViewTheme">
         <item name="android:listDivider">@color/lightGrey</item>
         <item name="android:textStyle">bold</item>
-        <item name="colorControlHighlight">#cdcdcd</item>
+        <item name="colorControlHighlight">@color/colorPrimary</item>
     </style>
 
     <style name="SpinnerDropdownTheme">

@@ -14,14 +14,11 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
-import com.mobsandgeeks.saripaar.annotation.Email;
+import com.mobsandgeeks.saripaar.annotation.ConfirmPassword;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
-import com.mobsandgeeks.saripaar.annotation.Order;
+import com.mobsandgeeks.saripaar.annotation.Password;
 import com.mobsandgeeks.saripaar.annotation.Pattern;
 import com.squareup.picasso.Picasso;
 
@@ -29,10 +26,15 @@ import java.util.List;
 
 import ae.netaq.homesorder_vendor.AppController;
 import ae.netaq.homesorder_vendor.R;
+import ae.netaq.homesorder_vendor.activities.MainActivity;
 import ae.netaq.homesorder_vendor.constants.Regex;
+import ae.netaq.homesorder_vendor.models.User;
+import ae.netaq.homesorder_vendor.utils.DevicePreferences;
+import ae.netaq.homesorder_vendor.utils.NavigationController;
 import ae.netaq.homesorder_vendor.utils.Utils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by Netaq on 12/17/2017.
@@ -43,8 +45,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
-    @BindView(R.id.add_photo_layout)
-    LinearLayout addPhotoLayout;
+    @BindView(R.id.add_photo_image_view)
+    CircleImageView logoImageView;
+
+    @BindView(R.id.edit_photo_image_view)
+    CircleImageView editPhotoImageView;
 
     @BindView(R.id.register_email_layout)
     TextInputLayout registerEmailLayout;
@@ -58,8 +63,24 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     TextInputLayout registerPasswordLayout;
 
     @NotEmpty(messageResId = R.string.field_required)
+    @Password(messageResId = R.string.passowrd_six_chars_error)
     @BindView(R.id.register_password)
     EditText registerPassword;
+
+    @BindView(R.id.register_retype_password_layout)
+    TextInputLayout registerRetypePasswordLayout;
+
+    @NotEmpty(messageResId = R.string.field_required)
+    @ConfirmPassword(messageResId = R.string.passwords_match_error)
+    @BindView(R.id.register_retype_password)
+    EditText registerRetypePassword;
+
+    @BindView(R.id.register_person_name_layout)
+    TextInputLayout registerPersonNameLayout;
+
+    @NotEmpty(messageResId = R.string.field_required)
+    @BindView(R.id.register_person_name)
+    EditText registerPersonName;
 
     @BindView(R.id.register_phone_layout)
     TextInputLayout registerPhoneLayout;
@@ -76,9 +97,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     @BindView(R.id.register_shop_name)
     EditText registerVendorName;
 
-    @BindView(R.id.register_selected_logo_image_view)
-    ImageView selectedLogo;
-
     @BindView(R.id.register_btn)
     Button registerBtn;
 
@@ -87,6 +105,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private static final int SELECT_PICTURE = 100;
 
     private Picasso picasso;
+
+    private Uri logoImageUri = null;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -100,12 +120,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         validator = new Validator(this);
         validator.setValidationListener(this);
 
-        addPhotoLayout.setOnClickListener(this);
+        editPhotoImageView.setOnClickListener(this);
 
         registerBtn.setOnClickListener(this);
 
         picasso = AppController.get(this).getPicasso();
-
 
         initViews();
     }
@@ -169,6 +188,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private void removeErrors() {
         registerEmailLayout.setError(null);
         registerPasswordLayout.setError(null);
+        registerRetypePasswordLayout.setError(null);
+        registerPersonNameLayout.setError(null);
         registerPhoneLayout.setError(null);
         registerVendorNameLayout.setError(null);
     }
@@ -176,7 +197,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View view) {
 
-        if(view.getId() == R.id.add_photo_layout){
+        if(view.getId() == R.id.edit_photo_image_view){
             openImageChooser();
         }else if(view.getId() == R.id.register_btn){
             removeErrors();
@@ -191,8 +212,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         if (resultCode == RESULT_OK) {
             if (data != null) {
                 //For Single image
-                Uri uri = data.getData();
-                picasso.load(uri).resize(200, 200).centerCrop().into(selectedLogo);
+                logoImageUri = data.getData();
+                picasso.load(logoImageUri).resize(200, 200).centerCrop().into(logoImageView);
             }
         }
     }
@@ -208,7 +229,16 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onValidationSucceeded() {
-
+        User.getInstance().setUserEmail(registerEmail.getText().toString());
+        User.getInstance().setUserPassword(registerPassword.getText().toString());
+        User.getInstance().setPersonName(registerPersonName.getText().toString());
+        User.getInstance().setUserPhone(registerPhone.getText().toString());
+        User.getInstance().setVendorName(registerVendorName.getText().toString());
+        User.getInstance().setLogoUri(logoImageUri);
+        DevicePreferences.saveUserInfo(User.getInstance());
+        Utils.showToast(this, "USer Registered Successfully");
+        NavigationController.showMainActivity(RegisterActivity.this);
+        RegisterActivity.this.finish();
     }
 
     @Override
@@ -219,8 +249,14 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 registerEmailLayout.setError(errors.get(i).getFailedRules().get(0).getMessage(this));
             } else if (errors.get(i).getView().getId() == R.id.register_password) {
                 registerPassword.requestFocus();
-                registerPasswordLayout.setError(errors.get(i).getCollatedErrorMessage(this));
-            } else if (errors.get(i).getView().getId() == R.id.register_phone) {
+                registerPasswordLayout.setError(errors.get(i).getFailedRules().get(0).getMessage(this));
+            } else if (errors.get(i).getView().getId() == R.id.register_retype_password) {
+                registerRetypePassword.requestFocus();
+                registerRetypePasswordLayout.setError(errors.get(i).getFailedRules().get(0).getMessage(this));
+            }else if (errors.get(i).getView().getId() == R.id.register_person_name) {
+                registerPersonName.requestFocus();
+                registerPersonNameLayout.setError(errors.get(i).getCollatedErrorMessage(this));
+            }else if (errors.get(i).getView().getId() == R.id.register_phone) {
                 registerPhone.requestFocus();
                 registerPhoneLayout.setError(errors.get(i).getFailedRules().get(0).getMessage(this));
             } else if (errors.get(i).getView().getId() == R.id.register_shop_name) {

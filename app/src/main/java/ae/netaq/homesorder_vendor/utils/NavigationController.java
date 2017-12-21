@@ -12,9 +12,11 @@ import ae.netaq.homesorder_vendor.activities.AddNewProductActivity;
 import ae.netaq.homesorder_vendor.activities.MainActivity;
 import ae.netaq.homesorder_vendor.activities.OrderDetailActivity;
 import ae.netaq.homesorder_vendor.activities.ProductDetailActivity;
+import ae.netaq.homesorder_vendor.activities.ProfileActivity;
 import ae.netaq.homesorder_vendor.activities.register.RegisterActivity;
 import ae.netaq.homesorder_vendor.activities.SettingsActivity;
 import ae.netaq.homesorder_vendor.activities.sign_in.SignInActivity;
+import ae.netaq.homesorder_vendor.activities.update_profile.UpdateProfileActivity;
 import ae.netaq.homesorder_vendor.adapters.FragmentViewPager;
 import ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable;
 import ae.netaq.homesorder_vendor.fragments.PagerFragment;
@@ -141,9 +143,16 @@ public class NavigationController {
         context.startActivity(intent);
     }
 
+    public static void startActivityProfile(Context context){
+        Intent intent = new Intent(context, ProfileActivity.class);
+        context.startActivity(intent);
+    }
     public static void showMainActivity(Context context) {
         Intent intent = new Intent(context, MainActivity.class);
         context.startActivity(intent);
-
+    }
+    public static void showUpdateProfileActivity(Context context) {
+        Intent intent = new Intent(context, UpdateProfileActivity.class);
+        context.startActivity(intent);
     }
 }

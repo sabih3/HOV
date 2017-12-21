@@ -2,6 +2,7 @@ package ae.netaq.homesorder_vendor.utils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.database.Cursor;
 import android.net.Uri;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 import java.util.Locale;
 import java.util.regex.Pattern;
 
+import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.constants.Regex;
 
 /**

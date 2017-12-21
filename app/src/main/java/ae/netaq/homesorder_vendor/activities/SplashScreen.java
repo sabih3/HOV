@@ -4,7 +4,6 @@ import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.AppCompatSpinner;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -20,6 +19,7 @@ import com.transitionseverywhere.TransitionManager;
 import java.util.ArrayList;
 
 import ae.netaq.homesorder_vendor.R;
+import ae.netaq.homesorder_vendor.activities.sign_in.SignInActivity;
 import ae.netaq.homesorder_vendor.db.data_manager.OrderDataManager;
 import ae.netaq.homesorder_vendor.models.Order;
 import ae.netaq.homesorder_vendor.network.OrderBAL;
@@ -150,8 +150,27 @@ public class SplashScreen extends AppCompatActivity implements Animation.Animati
                 }, 100);
             }
         }else{
-            NavigationController.startActivitySignIn(SplashScreen.this);
-            finish();
+            if(DevicePreferences.getUserInfo()==null){
+                NavigationController.startActivitySignIn(SplashScreen.this);
+                finish();
+            }else{
+                OrderBAL.getAllOrders(this,new OrderBAL.OrderFetchListener() {
+                    @Override
+                    public void onOrdersFetched(ArrayList<Order> orders) {
+
+                        OrderDataManager.persistAllOrders(orders, new OrderDataManager.OrderPersistenceListener() {
+                            @Override
+                            public void onOrdersPersisted() {
+
+                                NavigationController.showMainActivity(SplashScreen.this);
+                                finish();
+
+                            }
+                        });
+                    }
+
+                });
+            }
         }
     }
 
