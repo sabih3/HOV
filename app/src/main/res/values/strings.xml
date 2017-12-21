@@ -44,8 +44,8 @@
     <string name="status_ready">Ready</string>
     <string name="title_order_management_dialog">Move order to :</string>
     <string name="label_language">Language</string>
-    <string name="lang_name_arabic" >العربية</string>
-    <string name="lang_name_eng" >English</string>
+    <string name="lang_name_arabic">العربية</string>
+    <string name="lang_name_eng">English</string>
     <string name="handling_time_days">Handling Time (Days)</string>
     <string name="order_limit_per_day">Order Limit (Per Day)</string>
     <string name="description_ar">Description (Ar)</string>

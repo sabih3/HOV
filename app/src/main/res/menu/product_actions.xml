@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/option_edit"
+        android:title="Edit" />
+
+    <item android:id="@+id/option_promote"
+        android:title="Promote" />
+
+    <item android:id="@+id/option_feature"
+        android:title="Set Featured" />
+
+    <item android:id="@+id/option_activity"
+        android:title="Pause"
+        />
+    <item android:id="@+id/option_remove"
+        android:title="Remove"
+        />
+</menu>

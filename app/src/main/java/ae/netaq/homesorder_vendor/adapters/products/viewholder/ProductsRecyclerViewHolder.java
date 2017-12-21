@@ -34,6 +34,9 @@ public class ProductsRecyclerViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.tv_prod_price)
     public TextView prodPrice;
 
+    @BindView(R.id.product_action_icon)
+    public ImageView actionIcon;
+
     public ProductsRecyclerViewHolder(View itemView) {
         super(itemView);
         ButterKnife.bind(this, itemView);
