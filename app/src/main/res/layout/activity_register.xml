@@ -17,10 +17,11 @@
     </android.support.v7.widget.Toolbar>
 
     <ScrollView
+        android:id="@+id/register_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"
-        android:paddingBottom="60dp">
+        android:layout_marginBottom="60dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -76,6 +77,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/TextInputTheme"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/shittyGreen"
             app:errorEnabled="true"
             >
             <EditText
@@ -96,6 +99,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/TextInputTheme"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/shittyGreen"
             app:errorEnabled="true"
             >
             <EditText

@@ -63,7 +63,6 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
     @BindView(R.id.update_profile_new_password_layout)
     TextInputLayout profileUpdateNewPasswordLayout;
 
-    @com.mobsandgeeks.saripaar.annotation.Optional()
     @Password(messageResId = R.string.passowrd_six_chars_error)
     @BindView(R.id.update_profile_new_password)
     EditText profileUpdateNewPassword;
@@ -117,6 +116,8 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
         validator.setValidationListener(this);
 
         profileUpdateBtn.setOnClickListener(this);
+
+        editPhotoImageView.setOnClickListener(this);
 
         picasso = AppController.get(this).getPicasso();
 
