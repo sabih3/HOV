@@ -32,6 +32,8 @@ import butterknife.ButterKnife;
 
 public class AddProductInformationFragment extends Fragment implements Validator.ValidationListener{
 
+    private static final int DEFAULT_VALUE_ORDER_LIMIT = 1;
+    private static final int DEFAULT_VALUE_HANDLING_TIME = 1;
     @NotEmpty(messageResId  = R.string.product_name_required_error)
     @Order(1)
     @BindView(R.id.add_product_information_product_name)
@@ -85,8 +87,8 @@ public class AddProductInformationFragment extends Fragment implements Validator
 
     private Validator validator;
 
-    private int orderLimit = -1;
-    private int handlingTime = -1 ;
+    private int orderLimit = DEFAULT_VALUE_ORDER_LIMIT;
+    private int handlingTime = DEFAULT_VALUE_HANDLING_TIME ;
 
     public AddProductInformationFragment() {
     }

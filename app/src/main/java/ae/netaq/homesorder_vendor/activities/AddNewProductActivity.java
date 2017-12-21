@@ -218,8 +218,12 @@ public class AddNewProductActivity extends AppCompatActivity implements
 
 //        productToPersist.setParentCategoryNameEN(product.getSubCategory().getSubCategoryEN());
 //        productToPersist.setParentCategoryNameAR("");
+        try {
+            productToPersist.setTargetGroup(product.getGroup().getId());
+        }catch (NullPointerException npe){
+            productToPersist.setTargetGroup(-1);
+        }
 
-        productToPersist.setTargetGroup(product.getGroup().getId());
         productToPersist.setSubCategoryID(product.getSubCategoryID());
         productToPersist.setSubCategoryNameAR(product.getSubCategory().getSubCategoryAR());
         productToPersist.setSubCategoryNameEN(product.getSubCategory().getSubCategoryEN());
