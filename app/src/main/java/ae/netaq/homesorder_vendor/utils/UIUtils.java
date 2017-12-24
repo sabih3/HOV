@@ -1,5 +1,6 @@
 package ae.netaq.homesorder_vendor.utils;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
@@ -9,6 +10,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import ae.netaq.homesorder_vendor.R;
@@ -41,6 +43,15 @@ public class UIUtils {
         }
     }
 
+    public static void showProgressDialog(Context context, String msg, ProgressDialog dialog){
+        dialog.setMessage(msg);
+        dialog.setCancelable(false);
+        dialog.show();
+    }
+
+    public static void hideProgressDialog(ProgressDialog dialog){
+        dialog.hide();
+    }
     /**Method for showing Snack bar
      *
      * @param coordinatorLayout
@@ -99,7 +110,7 @@ public class UIUtils {
                                          String negativeButtonTitle,
                                          final DialogButtonListener dialogButtonListener) {
 
-        final AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.AlertDialogTheme);
 
 
         builder.setMessage(message).
@@ -121,18 +132,15 @@ public class UIUtils {
 
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
-
+/*
         alertDialog.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(ContextCompat.getColor(context,R.color.colorAccent));
         alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(ContextCompat.getColor(context,R.color.colorAccent));
-
-
+*/
     }
 
 
     public interface DialogButtonListener {
         void onPositiveButtonClicked();
         void onNegativeButtonClicked();
-
-
     }
 }

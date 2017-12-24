@@ -78,7 +78,7 @@
             android:layout_height="wrap_content"
             android:theme="@style/TextInputTheme"
             app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/shittyGreen"
+            app:passwordToggleTint="@color/colorAccent"
             app:errorEnabled="true"
             >
             <EditText
@@ -100,7 +100,7 @@
             android:layout_height="wrap_content"
             android:theme="@style/TextInputTheme"
             app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/shittyGreen"
+            app:passwordToggleTint="@color/colorAccent"
             app:errorEnabled="true"
             >
             <EditText

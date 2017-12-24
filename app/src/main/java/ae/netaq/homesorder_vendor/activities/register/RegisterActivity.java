@@ -1,5 +1,6 @@
 package ae.netaq.homesorder_vendor.activities.register;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -118,6 +119,8 @@ public class RegisterActivity extends AppCompatActivity implements
 
     private RegisterPresenter presenter;
 
+    private ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -137,6 +140,8 @@ public class RegisterActivity extends AppCompatActivity implements
         picasso = AppController.get(this).getPicasso();
 
         presenter = new RegisterPresenter(this,this);
+
+        progressDialog = new ProgressDialog(this, R.style.ProgressDialogTheme);
 
         initViews();
     }
@@ -331,6 +336,7 @@ public class RegisterActivity extends AppCompatActivity implements
 
         //request network to register user
         presenter.registerUser();
+        UIUtils.showProgressDialog(this, "Registering! Please Wait...", progressDialog);
 
     }
 
@@ -365,6 +371,7 @@ public class RegisterActivity extends AppCompatActivity implements
     @Override
     public void onRegistrationSuccess() {
         //DevicePreferences.saveUserInfo(User.getInstance());
+        UIUtils.hideProgressDialog(progressDialog);
         Utils.showToast(this, "USer Registered Successfully");
         NavigationController.showMainActivity(RegisterActivity.this);
         RegisterActivity.this.finish();
@@ -374,13 +381,14 @@ public class RegisterActivity extends AppCompatActivity implements
     @Override
     public void onEmailTaken(String localizedError) {
         //TODO (1) : Handle Email Taken on view
-
+        UIUtils.hideProgressDialog(progressDialog);
         UIUtils.showMessageDialog(this, localizedError,
                 "Take me to login",
-                "cancel", new UIUtils.DialogButtonListener() {
+                "Cancel", new UIUtils.DialogButtonListener() {
             @Override
             public void onPositiveButtonClicked() {
-
+                NavigationController.startActivitySignIn(RegisterActivity.this);
+                finish();
             }
 
             @Override
@@ -394,6 +402,20 @@ public class RegisterActivity extends AppCompatActivity implements
     @Override
     public void onVendorNameTaken(String localizedError) {
        //TODO (2) : Handle Vendor Name Taken on view
+        UIUtils.hideProgressDialog(progressDialog);
+        UIUtils.showMessageDialog(this, localizedError,
+                "Ok",
+                "Cancel", new UIUtils.DialogButtonListener() {
+                    @Override
+                    public void onPositiveButtonClicked() {
+                        registerVendorName.requestFocus();
+                    }
+
+                    @Override
+                    public void onNegativeButtonClicked() {
+
+                    }
+                });
     }
 
 
@@ -402,12 +424,39 @@ public class RegisterActivity extends AppCompatActivity implements
     @Override
     public void onNetworkFailure() {
         //TODO (3) : Handle Network Failure
+        UIUtils.hideProgressDialog(progressDialog);
+        UIUtils.showMessageDialog(this, "Unable to connect with the internet",
+                "Ok",
+                "", new UIUtils.DialogButtonListener() {
+                    @Override
+                    public void onPositiveButtonClicked() {
+                    }
+
+                    @Override
+                    public void onNegativeButtonClicked() {
+
+                    }
+                });
     }
 
     //RegisterPresenter.registerUser
     @Override
     public void onUnDefinedException(String localizedError) {
         //TODO (4) : Handle Undefined Exception on view
+        UIUtils.hideProgressDialog(progressDialog);
+        UIUtils.showMessageDialog(this, localizedError,
+                "Ok",
+                "Cancel", new UIUtils.DialogButtonListener() {
+                    @Override
+                    public void onPositiveButtonClicked() {
+                        registerVendorName.requestFocus();
+                    }
+
+                    @Override
+                    public void onNegativeButtonClicked() {
+
+                    }
+                });
     }
 
     /** =========================Network Call backs block end========= =========================**/
