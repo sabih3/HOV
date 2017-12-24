@@ -52,4 +52,10 @@ public class RestClient {
 
         return servicesInterface;
     }
+
+    public static Retrofit getRetrofit() {
+
+
+        return retrofit;
+    }
 }

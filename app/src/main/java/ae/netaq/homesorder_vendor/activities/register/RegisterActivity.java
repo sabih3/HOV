@@ -34,6 +34,7 @@ import ae.netaq.homesorder_vendor.models.Order;
 import ae.netaq.homesorder_vendor.models.User;
 import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
+import ae.netaq.homesorder_vendor.utils.UIUtils;
 import ae.netaq.homesorder_vendor.utils.Utils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -135,7 +136,8 @@ public class RegisterActivity extends AppCompatActivity implements
 
         picasso = AppController.get(this).getPicasso();
 
-        presenter = new RegisterPresenter(this);
+        presenter = new RegisterPresenter(this,this);
+
         initViews();
     }
 
@@ -357,7 +359,9 @@ public class RegisterActivity extends AppCompatActivity implements
         }
     }
 
-    //RegisterView
+    /** =====================Call backs related to Network Requests ============================**/
+
+    //RegisterPresenter.registerUser
     @Override
     public void onRegistrationSuccess() {
         //DevicePreferences.saveUserInfo(User.getInstance());
@@ -366,9 +370,45 @@ public class RegisterActivity extends AppCompatActivity implements
         RegisterActivity.this.finish();
     }
 
-    //RegisterView
+    //RegisterPresenter.registerUser
     @Override
-    public void onRegistrationFailure(String exception) {
+    public void onEmailTaken(String localizedError) {
+        //TODO (1) : Handle Email Taken on view
 
+        UIUtils.showMessageDialog(this, localizedError,
+                "Take me to login",
+                "cancel", new UIUtils.DialogButtonListener() {
+            @Override
+            public void onPositiveButtonClicked() {
+
+            }
+
+            @Override
+            public void onNegativeButtonClicked() {
+
+            }
+        });
     }
+
+    //RegisterPresenter.registerUser
+    @Override
+    public void onVendorNameTaken(String localizedError) {
+       //TODO (2) : Handle Vendor Name Taken on view
+    }
+
+
+
+    //RegisterPresenter.registerUser
+    @Override
+    public void onNetworkFailure() {
+        //TODO (3) : Handle Network Failure
+    }
+
+    //RegisterPresenter.registerUser
+    @Override
+    public void onUnDefinedException(String localizedError) {
+        //TODO (4) : Handle Undefined Exception on view
+    }
+
+    /** =========================Network Call backs block end========= =========================**/
 }

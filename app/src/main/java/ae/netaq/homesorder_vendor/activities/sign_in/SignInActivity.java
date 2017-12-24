@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
  */
 
 
-public class SignInActivity extends AppCompatActivity implements View.OnClickListener{
+public class SignInActivity extends AppCompatActivity implements View.OnClickListener,SignInView{
 
     @BindView(R.id.sign_in_register_now)
     LinearLayout registerLayout;
@@ -30,6 +30,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     @BindView(R.id.sign_in_btn)
     Button addProductBtn;
 
+    private SignInPresenter presenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,33 +42,46 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
         registerLayout.setOnClickListener(this);
 
-
+        presenter = new SignInPresenter(this);
     }
 
     @Override
     public void onClick(View view) {
 
+
         if(view.getId() == R.id.sign_in_btn){
-            OrderService.getAllOrders(this,new OrderService.OrderFetchListener() {
-                @Override
-                public void onOrdersFetched(ArrayList<Order> orders) {
 
-                    OrderDataManager.persistAllOrders(orders, new OrderDataManager.OrderPersistenceListener() {
-                        @Override
-                        public void onOrdersPersisted() {
+            //After Validation,
+            presenter.requestLogin("sabih17@vendor.com","Password@123");
 
-                            NavigationController.showMainActivity(SignInActivity.this);
-                            finish();
-
-                        }
-                    });
-                }
-
-            });
         }else if(view.getId() == R.id.sign_in_register_now){
             NavigationController.startActivityRegister(SignInActivity.this);
-            finish();
         }
+
+    }
+
+    @Override
+    public void onLoggedIn() {
+        OrderService.getAllOrders(this,new OrderService.OrderFetchListener() {
+            @Override
+            public void onOrdersFetched(ArrayList<Order> orders) {
+
+                OrderDataManager.persistAllOrders(orders, new OrderDataManager.OrderPersistenceListener() {
+                    @Override
+                    public void onOrdersPersisted() {
+
+                        NavigationController.showMainActivity(SignInActivity.this);
+                        finish();
+
+                    }
+                });
+            }
+
+        });
+    }
+
+    @Override
+    public void onLoginFailure(String exception) {
 
     }
 }

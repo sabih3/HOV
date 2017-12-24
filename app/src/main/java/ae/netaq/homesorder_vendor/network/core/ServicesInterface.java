@@ -1,6 +1,7 @@
 package ae.netaq.homesorder_vendor.network.core;
 
 import ae.netaq.homesorder_vendor.network.model.GeneralResponse;
+import ae.netaq.homesorder_vendor.network.model.Login;
 import ae.netaq.homesorder_vendor.network.model.UserToRegister;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -19,4 +20,6 @@ public interface ServicesInterface {
     @POST(Endpoints.USER_REGISTER)
     Call<GeneralResponse> registerUser(@Body UserToRegister user);
 
+    @POST(Endpoints.USER_LOGIN)
+    Call<GeneralResponse> loginUser(@Body Login login);
 }

@@ -15,18 +15,18 @@ public class ErrorResolver {
 
 
     public static String getLocalizedError(Context mContext,
-                                           Response<?> response) {
+                                          int code) {
 
-        APIError apiError = ErrorUtils.parseError(response);
-
-        String interpretedException = interpretError(mContext, apiError);
+//        APIError apiError = ErrorUtils.parseError(response);
+//        int code = apiError.getCode();
+        String interpretedException = interpretError(mContext, code);
 
         return interpretedException;
     }
 
-    private static String interpretError(Context mContext, APIError apiError) {
+    private static String interpretError(Context mContext, int code) {
 
-        int code = apiError.getCode();
+
         String interpretedError ="";
 
         switch (code){

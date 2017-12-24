@@ -10,8 +10,8 @@ public class UserToRegister {
     private String username;
     private String password;
     private String phone;
-    private String vendorName;
-    private String device_id;
+    private String vendorname;
+    private String deviceid;
 
     public void setEmail(String email) {
         this.email = email;
@@ -30,11 +30,11 @@ public class UserToRegister {
     }
 
     public void setVendorName(String vendorName) {
-        this.vendorName = vendorName;
+        this.vendorname = vendorName;
     }
 
     public void setDevideID(String devideID) {
-        this.device_id = devideID;
+        this.deviceid = devideID;
     }
 
     public String getEmail() {
@@ -54,10 +54,10 @@ public class UserToRegister {
     }
 
     public String getVendorName() {
-        return vendorName;
+        return vendorname;
     }
 
     public String getDevideID() {
-        return device_id;
+        return deviceid;
     }
 }
