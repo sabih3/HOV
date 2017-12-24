@@ -32,6 +32,8 @@ import butterknife.ButterKnife;
 
 public class AddProductInformationFragment extends Fragment implements Validator.ValidationListener{
 
+    private static final int DEFAULT_VALUE_ORDER_LIMIT = 1;
+    private static final int DEFAULT_VALUE_HANDLING_TIME = 1;
     @NotEmpty(messageResId  = R.string.product_name_required_error)
     @Order(1)
     @BindView(R.id.add_product_information_product_name)
@@ -76,14 +78,17 @@ public class AddProductInformationFragment extends Fragment implements Validator
     TextInputLayout productColorLayout;
 
     @BindView(R.id.picker_order_limit)
-    NumberPicker orderLimit;
+    NumberPicker picker_order_limit;
 
     @BindView(R.id.picker_handling_time)
-    NumberPicker handlingTime;
+    NumberPicker picker_handling_time;
 
     private AddProductInformationView mCallback;
 
     private Validator validator;
+
+    private int orderLimit = DEFAULT_VALUE_ORDER_LIMIT;
+    private int handlingTime = DEFAULT_VALUE_HANDLING_TIME ;
 
     public AddProductInformationFragment() {
     }
@@ -127,6 +132,9 @@ public class AddProductInformationFragment extends Fragment implements Validator
         productDescriptionAr.setImeOptions(EditorInfo.IME_ACTION_DONE);
         productDescriptionAr.setRawInputType(InputType.TYPE_CLASS_TEXT);
 
+        picker_order_limit.setOnValueChangedListener(new OrderLimitListener());
+        picker_handling_time.setOnValueChangedListener(new HandlingTimeListener());
+
     }
 
     public void validate(){
@@ -150,9 +158,25 @@ public class AddProductInformationFragment extends Fragment implements Validator
 
     @Override
     public void onValidationSucceeded() {
-        mCallback.onProductInformationAdded(productName.getText().toString(),
-                Float.parseFloat(productPrice.getText().toString()),
-                productDescription.getText().toString());
+        String productNameAR = productNameAr.getText().toString();
+        String productNameEN = productName.getText().toString();
+        Double price = Double.parseDouble(productPrice.getText().toString());
+        String size = productSize.getText().toString();
+        String color = productColor.getText().toString();
+
+        String descEN = productDescription.getText().toString();
+        String descAR = productDescriptionAr.getText().toString();
+
+        //Will be Called in AddNewProductActivity.onProductInformationAdded
+        mCallback.onProductInformationAdded(productNameEN,
+                                            productNameAR,
+                                            price,
+                                            descEN,
+                                            descAR,
+                                            size,
+                                            color,
+                                            orderLimit,
+                                            handlingTime);
     }
 
     @Override
@@ -174,6 +198,20 @@ public class AddProductInformationFragment extends Fragment implements Validator
                 productPrice.requestFocus();
                 productPriceLayout.setError(errors.get(i).getFailedRules().get(0).getMessage(getActivity()));
             }
+        }
+    }
+
+    private class OrderLimitListener implements NumberPicker.OnValueChangeListener {
+        @Override
+        public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+            AddProductInformationFragment.this.orderLimit = newVal;
+        }
+    }
+
+    private class HandlingTimeListener implements NumberPicker.OnValueChangeListener {
+        @Override
+        public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+            AddProductInformationFragment.this.handlingTime = newVal;
         }
     }
 }

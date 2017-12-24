@@ -216,7 +216,7 @@ public class ChooseCategoryFragment extends Fragment implements View.OnClickList
         });
 
     }
-
+    //Will trigger AddNewProductActivity.onCategoryChosen()
     public void validate(){
         if(foodCheckBox.isChecked()){
             if(categoriesSpinnerFood.getSelectedItemPosition() != 0){

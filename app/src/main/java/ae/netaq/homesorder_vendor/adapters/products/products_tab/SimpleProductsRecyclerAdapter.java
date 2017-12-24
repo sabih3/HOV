@@ -66,6 +66,8 @@ public class SimpleProductsRecyclerAdapter extends RecyclerView.Adapter<Products
 
             }
         });
+
+        holder.bindData(mContext,product);
     }
 
     @Override

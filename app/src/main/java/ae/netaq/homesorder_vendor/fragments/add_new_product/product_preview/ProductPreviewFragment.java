@@ -16,7 +16,9 @@ import java.util.ArrayList;
 import ae.netaq.homesorder_vendor.AppController;
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.adapters.SliderPagerAdapter;
+import ae.netaq.homesorder_vendor.models.Product;
 import ae.netaq.homesorder_vendor.utils.Common;
+import ae.netaq.homesorder_vendor.utils.ProductDetailUtility;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import me.relex.circleindicator.CircleIndicator;
@@ -40,6 +42,8 @@ public class ProductPreviewFragment extends Fragment {
     public ProductPreviewFragment() {
     }
 
+    private View view;
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -54,12 +58,15 @@ public class ProductPreviewFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.product_preview_fragment, container, false);
+        view = inflater.inflate(R.layout.product_preview_fragment, container, false);
+
         ButterKnife.bind(this, view);
 
         picasso = AppController.get(getActivity()).getPicasso();
 
         Common.changeViewWithLocale(getContext(),view);
+
+
 
         return view;
     }
@@ -67,6 +74,10 @@ public class ProductPreviewFragment extends Fragment {
     public void setupProductImageSlider(ArrayList<Uri> imagesUri) {
         sliderPager.setAdapter(new SliderPagerAdapter(getActivity(), null,imagesUri, picasso));
         circleIndicator.setViewPager(sliderPager);
+
+        ProductDetailUtility detailUtility = new ProductDetailUtility(getContext(),
+                view);
+        detailUtility.bindValues(Product.getInstance());
     }
 
     public void validate(){

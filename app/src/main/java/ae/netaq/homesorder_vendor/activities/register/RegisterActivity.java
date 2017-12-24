@@ -14,7 +14,6 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.ConfirmPassword;
@@ -33,19 +32,23 @@ import ae.netaq.homesorder_vendor.constants.Regex;
 import ae.netaq.homesorder_vendor.db.data_manager.OrderDataManager;
 import ae.netaq.homesorder_vendor.models.Order;
 import ae.netaq.homesorder_vendor.models.User;
-import ae.netaq.homesorder_vendor.network.OrderBAL;
 import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
+import ae.netaq.homesorder_vendor.utils.UIUtils;
 import ae.netaq.homesorder_vendor.utils.Utils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import static ae.netaq.homesorder_vendor.activities.register.RegisterView.*;
+
 /**
  * Created by Netaq on 12/17/2017.
  */
 
-public class RegisterActivity extends AppCompatActivity implements View.OnClickListener, Validator.ValidationListener{
+public class RegisterActivity extends AppCompatActivity implements
+        View.OnClickListener,
+        Validator.ValidationListener,RegisterView{
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -113,6 +116,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     private Uri logoImageUri = null;
 
+    private RegisterPresenter presenter;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -130,6 +135,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         registerBtn.setOnClickListener(this);
 
         picasso = AppController.get(this).getPicasso();
+
+        presenter = new RegisterPresenter(this,this);
 
         initViews();
     }
@@ -320,25 +327,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         User.getInstance().setUserPhone(registerPhone.getText().toString());
         User.getInstance().setVendorName(registerVendorName.getText().toString());
         User.getInstance().setLogoUri(logoImageUri);
-        DevicePreferences.saveUserInfo(User.getInstance());
-        Utils.showToast(this, "USer Registered Successfully");
 
-        OrderBAL.getAllOrders(this,new OrderBAL.OrderFetchListener() {
-            @Override
-            public void onOrdersFetched(ArrayList<Order> orders) {
 
-                OrderDataManager.persistAllOrders(orders, new OrderDataManager.OrderPersistenceListener() {
-                    @Override
-                    public void onOrdersPersisted() {
+        //request network to register user
+        presenter.registerUser();
 
-                        NavigationController.showMainActivity(RegisterActivity.this);
-                        finish();
-
-                    }
-                });
-            }
-
-        });
     }
 
     @Override
@@ -366,4 +359,56 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
+    /** =====================Call backs related to Network Requests ============================**/
+
+    //RegisterPresenter.registerUser
+    @Override
+    public void onRegistrationSuccess() {
+        //DevicePreferences.saveUserInfo(User.getInstance());
+        Utils.showToast(this, "USer Registered Successfully");
+        NavigationController.showMainActivity(RegisterActivity.this);
+        RegisterActivity.this.finish();
+    }
+
+    //RegisterPresenter.registerUser
+    @Override
+    public void onEmailTaken(String localizedError) {
+        //TODO (1) : Handle Email Taken on view
+
+        UIUtils.showMessageDialog(this, localizedError,
+                "Take me to login",
+                "cancel", new UIUtils.DialogButtonListener() {
+            @Override
+            public void onPositiveButtonClicked() {
+
+            }
+
+            @Override
+            public void onNegativeButtonClicked() {
+
+            }
+        });
+    }
+
+    //RegisterPresenter.registerUser
+    @Override
+    public void onVendorNameTaken(String localizedError) {
+       //TODO (2) : Handle Vendor Name Taken on view
+    }
+
+
+
+    //RegisterPresenter.registerUser
+    @Override
+    public void onNetworkFailure() {
+        //TODO (3) : Handle Network Failure
+    }
+
+    //RegisterPresenter.registerUser
+    @Override
+    public void onUnDefinedException(String localizedError) {
+        //TODO (4) : Handle Undefined Exception on view
+    }
+
+    /** =========================Network Call backs block end========= =========================**/
 }

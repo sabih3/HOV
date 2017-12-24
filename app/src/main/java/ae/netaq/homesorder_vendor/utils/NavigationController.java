@@ -11,7 +11,7 @@ import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.activities.AddNewProductActivity;
 import ae.netaq.homesorder_vendor.activities.MainActivity;
 import ae.netaq.homesorder_vendor.activities.OrderDetailActivity;
-import ae.netaq.homesorder_vendor.activities.ProductDetailActivity;
+import ae.netaq.homesorder_vendor.activities.product_detail.ProductDetailActivity;
 import ae.netaq.homesorder_vendor.activities.ProfileActivity;
 import ae.netaq.homesorder_vendor.activities.register.RegisterActivity;
 import ae.netaq.homesorder_vendor.activities.SettingsActivity;

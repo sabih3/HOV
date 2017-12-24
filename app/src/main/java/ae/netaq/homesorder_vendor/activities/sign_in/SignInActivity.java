@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ import java.util.ArrayList;
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.db.data_manager.OrderDataManager;
 import ae.netaq.homesorder_vendor.models.Order;
-import ae.netaq.homesorder_vendor.network.OrderBAL;
+import ae.netaq.homesorder_vendor.network.services.OrderService;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,7 +22,7 @@ import butterknife.ButterKnife;
  */
 
 
-public class SignInActivity extends AppCompatActivity implements View.OnClickListener{
+public class SignInActivity extends AppCompatActivity implements View.OnClickListener,SignInView{
 
     @BindView(R.id.sign_in_register_now)
     LinearLayout registerLayout;
@@ -31,6 +30,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     @BindView(R.id.sign_in_btn)
     Button addProductBtn;
 
+    private SignInPresenter presenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,33 +42,46 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
         registerLayout.setOnClickListener(this);
 
-
+        presenter = new SignInPresenter(this);
     }
 
     @Override
     public void onClick(View view) {
 
+
         if(view.getId() == R.id.sign_in_btn){
-            OrderBAL.getAllOrders(this,new OrderBAL.OrderFetchListener() {
-                @Override
-                public void onOrdersFetched(ArrayList<Order> orders) {
 
-                    OrderDataManager.persistAllOrders(orders, new OrderDataManager.OrderPersistenceListener() {
-                        @Override
-                        public void onOrdersPersisted() {
+            //After Validation,
+            presenter.requestLogin("sabih17@vendor.com","Password@123");
 
-                            NavigationController.showMainActivity(SignInActivity.this);
-                            finish();
-
-                        }
-                    });
-                }
-
-            });
         }else if(view.getId() == R.id.sign_in_register_now){
             NavigationController.startActivityRegister(SignInActivity.this);
-            finish();
         }
+
+    }
+
+    @Override
+    public void onLoggedIn() {
+        OrderService.getAllOrders(this,new OrderService.OrderFetchListener() {
+            @Override
+            public void onOrdersFetched(ArrayList<Order> orders) {
+
+                OrderDataManager.persistAllOrders(orders, new OrderDataManager.OrderPersistenceListener() {
+                    @Override
+                    public void onOrdersPersisted() {
+
+                        NavigationController.showMainActivity(SignInActivity.this);
+                        finish();
+
+                    }
+                });
+            }
+
+        });
+    }
+
+    @Override
+    public void onLoginFailure(String exception) {
 
     }
 }

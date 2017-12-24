@@ -6,8 +6,8 @@ import android.widget.ArrayAdapter;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import ae.netaq.homesorder_vendor.models.ProductCategories;
 import ae.netaq.homesorder_vendor.models.ProductGroups;
 
 /**
@@ -44,5 +44,41 @@ public class ProductGroupsManager {
         Gson gson = new Gson();
 
         return gson.fromJson(jsonString, ProductGroups.class);
+    }
+
+    public static ProductGroups.Group getProductGroup(Context context, int id) {
+        String jsonString = JSONUtils.loadJSONFromAsset(context, FILENAME_PRODUCT_GROUPS);
+
+        Gson gson = new Gson();
+
+        ProductGroups productGroup = gson.fromJson(jsonString, ProductGroups.class);
+
+        List<ProductGroups.Group> groups = productGroup.getGroups();
+
+        ProductGroups.Group group = null;
+        for(ProductGroups.Group iterator : groups ){
+
+            if(iterator.getId()==id){
+                group = iterator;
+            }
+        }
+
+
+
+        return group;
+    }
+
+    public static String getLocaleBasedName(Context context,int id){
+        String groupName = "";
+
+        ProductGroups.Group productGroup = getProductGroup(context, id);
+        if(Common.isAPPLocaleArabic(context)){
+            groupName = productGroup.getSubCategoryAR();
+        }else{
+            groupName = productGroup.getSubCategoryEN();
+        }
+
+        return groupName;
+
     }
 }

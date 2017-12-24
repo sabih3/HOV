@@ -18,6 +18,8 @@ public class Product {
     private int parentCategoryID;
     private int subCategoryID;
     private ArrayList<byte[]> imagesArray;
+    private String color;
+    private String size;
 
 
     private Product() {
@@ -32,7 +34,7 @@ public class Product {
 
     private String productNameEN;
     private String productNameAR;
-    private Float productPrice;
+    private Double productPrice;
     private String productDescriptionEN;
     private String productDescriptionAR;
     private int mainCategory;
@@ -59,11 +61,11 @@ public class Product {
         Product.product = product;
     }
 
-    public Float getProductPrice() {
+    public Double getProductPrice() {
         return productPrice;
     }
 
-    public void setProductPrice(Float productPrice) {
+    public void setProductPrice(Double productPrice) {
         this.productPrice = productPrice;
     }
 
@@ -186,5 +188,41 @@ public class Product {
 
     public void setImagesArray(ArrayList<byte[]> imagesArray) {
         this.imagesArray = imagesArray;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public int getDailyLimit() {
+        return dailyLimit;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public int getProductCategory() {
+        return productCategory;
+    }
+
+    public void setProductCategory(int productCategory) {
+        this.productCategory = productCategory;
+    }
+
+    public String getProductSubCategory() {
+        return productSubCategory;
+    }
+
+    public void setProductSubCategory(String productSubCategory) {
+        this.productSubCategory = productSubCategory;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
     }
 }
