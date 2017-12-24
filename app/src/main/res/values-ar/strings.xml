@@ -134,6 +134,7 @@
 <string name="error_default">We faced difficulty this time. Please give another try !</string>
 <string name="error_msg_1001">Seems that you are already registered with us. Do you want to Login instead ?</string>
 <string name="error_msg_1002">This shop name is in use by other vendor.Please try with other.</string>
+    <string name="error_msg_2001">Your credentials are incorrect.</string>
 
 
 </resources>

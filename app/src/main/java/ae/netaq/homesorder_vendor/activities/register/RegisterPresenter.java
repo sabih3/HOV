@@ -37,15 +37,15 @@ public class RegisterPresenter {
         user.setVendorName(User.getInstance().getVendorName());
         user.setDevideID("1212");
 
-        Call<GeneralResponse> registerRequest = RestClient.getAdapter().registerUser(user);
+        Call<AuthenticationResponse> registerRequest = RestClient.getAdapter().registerUser(user);
 
-        registerRequest.enqueue(new Callback<GeneralResponse>() {
+        registerRequest.enqueue(new Callback<AuthenticationResponse>() {
             @Override
-            public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
+            public void onResponse(Call<AuthenticationResponse> call, Response<AuthenticationResponse> response) {
                 if(response.body() != null){
                     //No App Server exception
                     if(response.body().getCode()== ResponseCodes.SUCCESS){
-
+                        String token = response.body().getToken();
                         viewListener.onRegistrationSuccess();
                     }
                 }
@@ -81,7 +81,7 @@ public class RegisterPresenter {
             }
 
             @Override
-            public void onFailure(Call<GeneralResponse> call, Throwable t) {
+            public void onFailure(Call<AuthenticationResponse> call, Throwable t) {
                     //TODO: Handle Network failure here
                     viewListener.onNetworkFailure();
             }

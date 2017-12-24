@@ -39,6 +39,9 @@ public class ErrorResolver {
                 interpretedError = mContext.getString(R.string.error_msg_1002);
             break;
 
+            case 2001:
+                interpretedError = mContext.getString(R.string.error_msg_2001);
+            break;
             default:
                 interpretedError = mContext.getString(R.string.error_default);
             break;

@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
@@ -30,6 +31,12 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     @BindView(R.id.sign_in_btn)
     Button addProductBtn;
 
+    @BindView(R.id.sign_in_username)
+    EditText et_userName;
+
+    @BindView(R.id.sign_in_password)
+    EditText et_password;
+
     private SignInPresenter presenter;
 
     @Override
@@ -42,7 +49,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
         registerLayout.setOnClickListener(this);
 
-        presenter = new SignInPresenter(this);
+        presenter = new SignInPresenter(this,this);
     }
 
     @Override
@@ -52,7 +59,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         if(view.getId() == R.id.sign_in_btn){
 
             //After Validation,
-            presenter.requestLogin("sabih17@vendor.com","Password@123");
+            presenter.requestLogin(et_userName.getText().toString().trim(),et_password.getText().toString().trim());
 
         }else if(view.getId() == R.id.sign_in_register_now){
             NavigationController.startActivityRegister(SignInActivity.this);
@@ -60,8 +67,12 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
+
+    //SignInPresenter.requestLogin
     @Override
-    public void onLoggedIn() {
+    public void onLoggedIn(String token) {
+
+        //TODO (1): set token in USser then persist
         OrderService.getAllOrders(this,new OrderService.OrderFetchListener() {
             @Override
             public void onOrdersFetched(ArrayList<Order> orders) {
@@ -80,8 +91,21 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         });
     }
 
+    //SignInPresenter.requestLogin
     @Override
     public void onLoginFailure(String exception) {
+        //TODO (2): Handle UI for exception
+    }
 
+    //SignInPresenter.requestLogin
+    @Override
+    public void onNetworkFailure() {
+        //TODO (3): Handle UI for exception
+    }
+
+    //SignInPresenter.requestLogin
+    @Override
+    public void onUnDefinedException(String localizedError) {
+        //TODO (4): Handle UI for exception
     }
 }
