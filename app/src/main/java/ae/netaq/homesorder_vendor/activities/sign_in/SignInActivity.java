@@ -13,7 +13,9 @@ import java.util.ArrayList;
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.db.data_manager.OrderDataManager;
 import ae.netaq.homesorder_vendor.models.Order;
+import ae.netaq.homesorder_vendor.models.User;
 import ae.netaq.homesorder_vendor.network.services.OrderService;
+import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -72,7 +74,9 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onLoggedIn(String token) {
 
-        //TODO (1): set token in USser then persist
+        User.getInstance().setUserToken(token);
+        DevicePreferences.getInstance().saveUserInfo(User.getInstance());
+
         OrderService.getAllOrders(this,new OrderService.OrderFetchListener() {
             @Override
             public void onOrdersFetched(ArrayList<Order> orders) {

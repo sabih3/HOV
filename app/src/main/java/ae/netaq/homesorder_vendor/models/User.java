@@ -15,6 +15,7 @@ public class User {
     private String vendorName;
     private String personName;
     private Uri logoUri;
+    private String userToken;
 
     public static User getInstance( ) {
         if(user == null){
@@ -70,4 +71,14 @@ public class User {
     public void setLogoUri(Uri logoUri) {
         this.logoUri = logoUri;
     }
+
+    public String getUserToken() {
+        return userToken;
+    }
+
+    public void setUserToken(String userToken) {
+        this.userToken = userToken;
+    }
+
+
 }

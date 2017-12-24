@@ -9,6 +9,7 @@ import ae.netaq.homesorder_vendor.network.core.RestClient;
 import ae.netaq.homesorder_vendor.network.model.APIError;
 import ae.netaq.homesorder_vendor.network.model.GeneralResponse;
 import ae.netaq.homesorder_vendor.network.model.UserToRegister;
+import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import ae.netaq.homesorder_vendor.utils.ErrorResolver;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,6 +38,8 @@ public class RegisterPresenter {
         user.setVendorName(User.getInstance().getVendorName());
         user.setDevideID("1212");
 
+        DevicePreferences.getInstance().saveUserInfo(User.getInstance());
+
         Call<AuthenticationResponse> registerRequest = RestClient.getAdapter().registerUser(user);
 
         registerRequest.enqueue(new Callback<AuthenticationResponse>() {
@@ -46,7 +49,7 @@ public class RegisterPresenter {
                     //No App Server exception
                     if(response.body().getCode()== ResponseCodes.SUCCESS){
                         String token = response.body().getToken();
-                        viewListener.onRegistrationSuccess();
+                        viewListener.onRegistrationSuccess(token);
                     }
                 }
 
