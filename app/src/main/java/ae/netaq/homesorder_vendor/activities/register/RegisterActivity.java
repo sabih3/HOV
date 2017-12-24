@@ -368,12 +368,11 @@ public class RegisterActivity extends AppCompatActivity implements
         User.getInstance().setUserToken(token);
         DevicePreferences.saveUserInfo(User.getInstance());
 
-    public void onRegistrationSuccess() {
-        //DevicePreferences.saveUserInfo(User.getInstance());
         UIUtils.hideProgressDialog(progressDialog);
         Utils.showToast(this, "USer Registered Successfully");
         NavigationController.showMainActivity(RegisterActivity.this);
         RegisterActivity.this.finish();
+
     }
 
     //RegisterPresenter.registerUser
@@ -460,3 +459,4 @@ public class RegisterActivity extends AppCompatActivity implements
 
     /** =========================Network Call backs block end========= =========================**/
 }
+
