@@ -78,6 +78,7 @@
     <string name="new_password">New Password</string>
     <string name="retype_new_password">Retype new password</string>
     <string name="wrong_password_error">Wrong password</string>
+    <string name="invalid_password_error">Password must be 8 characters long and must contail atleast one upper case and one number or symbol</string>
 
 
 </resources>

@@ -68,7 +68,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     TextInputLayout registerPasswordLayout;
 
     @NotEmpty(messageResId = R.string.field_required)
-    @Password(messageResId = R.string.passowrd_six_chars_error)
+    @Password(scheme = Password.Scheme.ALPHA_NUMERIC_MIXED_CASE_SYMBOLS, min = 8, messageResId = R.string.invalid_password_error)
     @BindView(R.id.register_password)
     EditText registerPassword;
 

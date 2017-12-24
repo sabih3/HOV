@@ -63,7 +63,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
     @BindView(R.id.update_profile_new_password_layout)
     TextInputLayout profileUpdateNewPasswordLayout;
 
-    @Password(messageResId = R.string.passowrd_six_chars_error)
+    @Password(scheme = Password.Scheme.ALPHA_NUMERIC_MIXED_CASE_SYMBOLS, min = 8, messageResId = R.string.invalid_password_error)
     @BindView(R.id.update_profile_new_password)
     EditText profileUpdateNewPassword;
 
@@ -156,8 +156,14 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
         profileUpdateVendorName.setText(DevicePreferences.getUserInfo().getVendorName());
         updateProfilePersonName.setText(DevicePreferences.getUserInfo().getPersonName());
         profileUpdatePhone.setText(DevicePreferences.getUserInfo().getUserPhone());
+
         profileUpdateEmail.setEnabled(false);
+        profileUpdateEmail.setFocusable(false);
         profileUpdateVendorName.setEnabled(false);
+        profileUpdateVendorName.setFocusable(false);
+
+        profileUpdateEmail.setTextColor(getResources().getColor(R.color.lightGrey));
+        profileUpdateVendorName.setTextColor(getResources().getColor(R.color.lightGrey));
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
