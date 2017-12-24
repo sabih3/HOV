@@ -22,12 +22,15 @@ import com.mobsandgeeks.saripaar.annotation.Password;
 import com.mobsandgeeks.saripaar.annotation.Pattern;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ae.netaq.homesorder_vendor.AppController;
 import ae.netaq.homesorder_vendor.R;
-import ae.netaq.homesorder_vendor.activities.MainActivity;
+import ae.netaq.homesorder_vendor.activities.SplashScreen;
 import ae.netaq.homesorder_vendor.constants.Regex;
+import ae.netaq.homesorder_vendor.db.data_manager.OrderDataManager;
+import ae.netaq.homesorder_vendor.models.Order;
 import ae.netaq.homesorder_vendor.models.User;
 import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
@@ -170,6 +173,26 @@ public class RegisterActivity extends AppCompatActivity implements
             }
         });
 
+        registerPassword.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(registerPassword.getText().length()>0){
+                    registerPasswordLayout.setError(null);
+                }else{
+                    registerPasswordLayout.setError(getString(R.string.field_required));
+                }
+            }
+        });
         registerPhone.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -187,6 +210,66 @@ public class RegisterActivity extends AppCompatActivity implements
                     registerPhoneLayout.setError(getString(R.string.valid_phone_number_error));
                 }else{
                     registerPhoneLayout.setError(null);
+                }
+            }
+        });
+        registerRetypePassword.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(registerRetypePassword.getText().toString().equals(registerPassword.getText().toString())){
+                    registerRetypePasswordLayout.setError(null);
+                }else{
+                    registerRetypePasswordLayout.setError(getString(R.string.passwords_match_error));
+                }
+            }
+        });
+        registerVendorName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(registerVendorName.getText().length()>0){
+                    registerVendorNameLayout.setError(null);
+                }else{
+                    registerVendorNameLayout.setError(getString(R.string.field_required));
+                }
+            }
+        });
+        registerPersonName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(registerPersonName.getText().length()>0){
+                    registerPersonNameLayout.setError(null);
+                }else{
+                    registerPersonNameLayout.setError(getString(R.string.field_required));
                 }
             }
         });
