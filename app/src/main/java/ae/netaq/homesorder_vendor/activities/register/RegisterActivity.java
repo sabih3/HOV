@@ -23,15 +23,11 @@ import com.mobsandgeeks.saripaar.annotation.Password;
 import com.mobsandgeeks.saripaar.annotation.Pattern;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import ae.netaq.homesorder_vendor.AppController;
 import ae.netaq.homesorder_vendor.R;
-import ae.netaq.homesorder_vendor.activities.SplashScreen;
 import ae.netaq.homesorder_vendor.constants.Regex;
-import ae.netaq.homesorder_vendor.db.data_manager.OrderDataManager;
-import ae.netaq.homesorder_vendor.models.Order;
 import ae.netaq.homesorder_vendor.models.User;
 import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
@@ -40,8 +36,6 @@ import ae.netaq.homesorder_vendor.utils.Utils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
-
-import static ae.netaq.homesorder_vendor.activities.register.RegisterView.*;
 
 /**
  * Created by Netaq on 12/17/2017.
@@ -365,10 +359,15 @@ public class RegisterActivity extends AppCompatActivity implements
         }
     }
 
-    /** =====================Call backs related to Network Requests ============================**/
+    /** =====================Call backs related to Network Requests ============================
+     * @param token**/
 
     //RegisterPresenter.registerUser
     @Override
+    public void onRegistrationSuccess(String token) {
+        User.getInstance().setUserToken(token);
+        DevicePreferences.saveUserInfo(User.getInstance());
+
     public void onRegistrationSuccess() {
         //DevicePreferences.saveUserInfo(User.getInstance());
         UIUtils.hideProgressDialog(progressDialog);

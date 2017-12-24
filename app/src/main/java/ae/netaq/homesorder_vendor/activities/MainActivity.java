@@ -26,6 +26,7 @@ import ae.netaq.homesorder_vendor.event_bus.LanguageChangeEvent;
 import ae.netaq.homesorder_vendor.fragments.featured.FeaturedFragment;
 import ae.netaq.homesorder_vendor.fragments.orders.OrdersFragment;
 import ae.netaq.homesorder_vendor.fragments.products.ProductsFragment;
+import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -207,6 +208,10 @@ public class MainActivity extends AppCompatActivity implements
     public void onClick(View v) {
         if(v.getId() == R.id.sign_out_btn){
             drawer.closeDrawers();
+
+            //TODO: Ask confirmation about sign out
+            DevicePreferences.getInstance().saveUserInfo(null);
+            //TODO: Present Login screen from here
         }else if(v.getId() == R.id.add_product_fab){
             NavigationController.startActivityAddNewProduct(MainActivity.this);
         }else if(v.getId() == R.id.settings_icon){

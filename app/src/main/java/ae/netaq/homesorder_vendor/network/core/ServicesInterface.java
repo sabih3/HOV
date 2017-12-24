@@ -1,5 +1,6 @@
 package ae.netaq.homesorder_vendor.network.core;
 
+import ae.netaq.homesorder_vendor.activities.register.AuthenticationResponse;
 import ae.netaq.homesorder_vendor.network.model.GeneralResponse;
 import ae.netaq.homesorder_vendor.network.model.Login;
 import ae.netaq.homesorder_vendor.network.model.UserToRegister;
@@ -18,8 +19,8 @@ public interface ServicesInterface {
 
 
     @POST(Endpoints.USER_REGISTER)
-    Call<GeneralResponse> registerUser(@Body UserToRegister user);
+    Call<AuthenticationResponse> registerUser(@Body UserToRegister user);
 
     @POST(Endpoints.USER_LOGIN)
-    Call<GeneralResponse> loginUser(@Body Login login);
+    Call<AuthenticationResponse> loginUser(@Body Login login);
 }

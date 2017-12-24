@@ -9,6 +9,7 @@ import ae.netaq.homesorder_vendor.network.core.RestClient;
 import ae.netaq.homesorder_vendor.network.model.APIError;
 import ae.netaq.homesorder_vendor.network.model.GeneralResponse;
 import ae.netaq.homesorder_vendor.network.model.UserToRegister;
+import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import ae.netaq.homesorder_vendor.utils.ErrorResolver;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,16 +38,18 @@ public class RegisterPresenter {
         user.setVendorName(User.getInstance().getVendorName());
         user.setDevideID("1212");
 
-        Call<GeneralResponse> registerRequest = RestClient.getAdapter().registerUser(user);
+        DevicePreferences.getInstance().saveUserInfo(User.getInstance());
 
-        registerRequest.enqueue(new Callback<GeneralResponse>() {
+        Call<AuthenticationResponse> registerRequest = RestClient.getAdapter().registerUser(user);
+
+        registerRequest.enqueue(new Callback<AuthenticationResponse>() {
             @Override
-            public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
+            public void onResponse(Call<AuthenticationResponse> call, Response<AuthenticationResponse> response) {
                 if(response.body() != null){
                     //No App Server exception
                     if(response.body().getCode()== ResponseCodes.SUCCESS){
-
-                        viewListener.onRegistrationSuccess();
+                        String token = response.body().getToken();
+                        viewListener.onRegistrationSuccess(token);
                     }
                 }
 
@@ -81,7 +84,7 @@ public class RegisterPresenter {
             }
 
             @Override
-            public void onFailure(Call<GeneralResponse> call, Throwable t) {
+            public void onFailure(Call<AuthenticationResponse> call, Throwable t) {
                     //TODO: Handle Network failure here
                     viewListener.onNetworkFailure();
             }
