@@ -330,7 +330,7 @@ public class RegisterActivity extends AppCompatActivity implements
 
         //request network to register user
         presenter.registerUser();
-        UIUtils.showProgressDialog(this, "Registering! Please Wait...", progressDialog);
+        UIUtils.showProgressDialog(this, getString(R.string.registering_please_wait), progressDialog);
 
     }
 
@@ -369,7 +369,7 @@ public class RegisterActivity extends AppCompatActivity implements
         DevicePreferences.saveUserInfo(User.getInstance());
 
         UIUtils.hideProgressDialog(progressDialog);
-        Utils.showToast(this, "USer Registered Successfully");
+        Utils.showToast(this, getString(R.string.user_registered_successfully));
         NavigationController.showMainActivity(RegisterActivity.this);
         RegisterActivity.this.finish();
 
@@ -381,8 +381,8 @@ public class RegisterActivity extends AppCompatActivity implements
         //TODO (1) : Handle Email Taken on view
         UIUtils.hideProgressDialog(progressDialog);
         UIUtils.showMessageDialog(this, localizedError,
-                "Take me to login",
-                "Cancel", new UIUtils.DialogButtonListener() {
+                getString(R.string.take_me_to_login),
+                getString(R.string.cancel), new UIUtils.DialogButtonListener() {
             @Override
             public void onPositiveButtonClicked() {
                 NavigationController.startActivitySignIn(RegisterActivity.this);
@@ -402,8 +402,8 @@ public class RegisterActivity extends AppCompatActivity implements
        //TODO (2) : Handle Vendor Name Taken on view
         UIUtils.hideProgressDialog(progressDialog);
         UIUtils.showMessageDialog(this, localizedError,
-                "Ok",
-                "Cancel", new UIUtils.DialogButtonListener() {
+                getString(R.string.ok),
+                getString(R.string.cancel), new UIUtils.DialogButtonListener() {
                     @Override
                     public void onPositiveButtonClicked() {
                         registerVendorName.requestFocus();
@@ -423,8 +423,8 @@ public class RegisterActivity extends AppCompatActivity implements
     public void onNetworkFailure() {
         //TODO (3) : Handle Network Failure
         UIUtils.hideProgressDialog(progressDialog);
-        UIUtils.showMessageDialog(this, "Unable to connect with the internet",
-                "Ok",
+        UIUtils.showMessageDialog(this, getString(R.string.unable_to_connect_error),
+                getString(R.string.ok),
                 "", new UIUtils.DialogButtonListener() {
                     @Override
                     public void onPositiveButtonClicked() {
@@ -443,8 +443,8 @@ public class RegisterActivity extends AppCompatActivity implements
         //TODO (4) : Handle Undefined Exception on view
         UIUtils.hideProgressDialog(progressDialog);
         UIUtils.showMessageDialog(this, localizedError,
-                "Ok",
-                "Cancel", new UIUtils.DialogButtonListener() {
+                getString(R.string.ok),
+                getString(R.string.cancel), new UIUtils.DialogButtonListener() {
                     @Override
                     public void onPositiveButtonClicked() {
                         registerVendorName.requestFocus();

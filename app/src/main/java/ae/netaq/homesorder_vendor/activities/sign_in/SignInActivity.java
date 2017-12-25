@@ -124,8 +124,8 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         //TODO (2): Handle UI for exception
         UIUtils.hideProgressDialog(progressDialog);
         UIUtils.showMessageDialog(this, exception,
-                "Ok",
-                "Cancel", new UIUtils.DialogButtonListener() {
+                getString(R.string.ok),
+                getString(R.string.cancel), new UIUtils.DialogButtonListener() {
                     @Override
                     public void onPositiveButtonClicked() {
                     }
@@ -142,8 +142,8 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     public void onNetworkFailure() {
         //TODO (3): Handle UI for exception
         UIUtils.hideProgressDialog(progressDialog);
-        UIUtils.showMessageDialog(this, "Unable to connect with the internet",
-                "Ok",
+        UIUtils.showMessageDialog(this, getString(R.string.unable_to_connect_error),
+                getString(R.string.ok),
                 "", new UIUtils.DialogButtonListener() {
                     @Override
                     public void onPositiveButtonClicked() {
@@ -162,8 +162,8 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         //TODO (4): Handle UI for exception
         UIUtils.hideProgressDialog(progressDialog);
         UIUtils.showMessageDialog(this, localizedError,
-                "Ok",
-                "Cancel", new UIUtils.DialogButtonListener() {
+                getString(R.string.ok),
+                getString(R.string.cancel), new UIUtils.DialogButtonListener() {
                     @Override
                     public void onPositiveButtonClicked() {
                     }
@@ -177,7 +177,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onValidationSucceeded() {
-        UIUtils.showProgressDialog(this, "Signing In! Please Wait...", progressDialog);
+        UIUtils.showProgressDialog(this, getString(R.string.sign_in_please_wait), progressDialog);
         presenter.requestLogin(et_userName.getText().toString().trim(),et_password.getText().toString().trim());
     }
 

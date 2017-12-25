@@ -49,7 +49,7 @@
 
     <style name="DrawerArrowStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
         <item name="spinBars">true</item>
-        <item name="color">@color/shittyGreen</item>
+        <item name="color">@color/colorAccent</item>
     </style>
 
 </resources>
