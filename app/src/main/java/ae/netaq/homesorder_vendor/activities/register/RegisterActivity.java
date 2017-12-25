@@ -457,6 +457,6 @@ public class RegisterActivity extends AppCompatActivity implements
                 });
     }
 
-    /** =========================Network Call backs block end========= =========================**/
+    /** =========================Network Call backs block end=================================**/
 }
 
