@@ -19,7 +19,11 @@
             android:id="@+id/nav_featured_item"
             android:title="@string/featured" />
     </group>
-
-    
+    <group android:checkableBehavior="single"
+        android:id="@+id/fifth_item">
+        <item
+            android:id="@+id/nav_profile_item"
+            android:title="@string/profile" />
+    </group>
 
 </menu>

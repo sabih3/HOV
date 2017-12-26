@@ -43,30 +43,42 @@
     <string name="description_ar">الوصف(عربى)</string>
     <string name="color">اللون</string>
     <string name="size">بحجم</string>
-    <string name="username">اسم المستخدم</string>
+    <string name="name">اسم المستخدم</string>
     <string name="forgot_password">هل نسيت كلمة المرور؟</string>
     <string name="password">كلمه السر</string>
     <string name="sign_in">تسجيل الدخول</string>
     <string name="register">تسجيل</string>
     <string name="email">البريد الإلكتروني</string>
     <string name="phone_number">رقم الهاتف</string>
-    <string name="shop_vendor_name">إميشوب / اسم البائع</string>
+    <string name="shop_vendor_name">اسم المتجر / البائع</string>
     <string name="logo_optional">الشعار (اختياري)</string>
     <string name="choose_language">اختر اللغة</string>
     <string name="username_your_username_must_be_your_email">اسم المستخدم (يجب أن يكون اسم المستخدم هو بريدك الإلكتروني)</string>
     <string name="valid_email_address_error">أدخل عنوان بريد إلكتروني صالح</string>
     <string name="field_required">هذه الخانة مطلوبه</string>
-    <string name="valid_phone_number_error">أدخل رقم هاتف صالحا</string>
-    <string name="dont_have_and_account">لا تملك والحساب؟</string>
+    <string name="valid_phone_number_error">أدخل رقم هاتف صحيح</string>
+    <string name="dont_have_and_account">لا تملك حساب؟</string>
     <string name="register_now">سجل الان</string>
     <string name="order_id">رقم التعريف الخاص بالطلب:</string>
-    <string name="waiting">Waiting</string>
+    <string name="waiting">انتظار</string>
     <string name="delivery_date">تاريخ التسليم او الوصول:</string>
     <string name="delivery_time">موعد التسليم:</string>
     <string name="customer_address">عنوان العميل:</string>
-    <string name="customer_name">اسم الزبون:</string>
+    <string name="customer_name">اسم العميل:</string>
     <string name="payment_mode">طريقة الدفع:</string>
     <string name="total">مجموع:</string>
+    <string name="profile">Profile</string>
+    <string name="update">Update</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="person_name">Person Name</string>
+    <string name="retype_password">Retype Password</string>
+    <string name="passwords_match_error">Passwords don\'t match</string>
+    <string name="passowrd_six_chars_error">Password must be atleast six characters</string>
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
+    <string name="retype_new_password">Retype new password</string>
+    <string name="wrong_password_error">Wrong password</string>
+    <string name="invalid_password_error">Password must be 8 characters long and must contail atleast one upper case and one number or symbol</string>
 
     <string name="label_size">حجم: </string>
     <string name="label_target_group">المجموعة المستهدفة:</string>
@@ -118,6 +130,19 @@
 بل وحلفاؤها الاندونيسية دول, بلا كل حادثة وتنصيب. لفشل ليرتفع بالحرب عن كلا. عل جعل ودول شدّت. بين الأحمر التكاليف أي. جدول الربيع، الشّعبين نفس تم, عل بحث حادثة لإعادة الإكتفاء, أهّل كنقطة استطاعوا عدم أي.
 
 يبق والفلبين بالولايات في, مع الأسيوي المتحدة الأثناء، على. في وبدون يتبقّ انتباه قام, و تشكيل المضي أراضي بحث. تلك أي خلاف لأداء لهيمنة. العصبة الطرفين استراليا، تم قبل.</string>
+
+
+<string name="error_default">We faced difficulty this time. Please give another try !</string>
+<string name="error_msg_1001">Seems that you are already registered with us. Do you want to Login instead ?</string>
+<string name="error_msg_1002">This shop name is in use by other vendor.Please try with other.</string>
+    <string name="error_msg_2001">Your credentials are incorrect.</string>
+    <string name="unable_to_connect_error">Unable to connect with the internet</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="user_registered_successfully">User Registered Successfully</string>
+    <string name="take_me_to_login">Take me to login</string>
+    <string name="sign_in_please_wait">Signing In! Please Wait...</string>
+    <string name="registering_please_wait">Registering! Please Wait...</string>
 
 
 </resources>

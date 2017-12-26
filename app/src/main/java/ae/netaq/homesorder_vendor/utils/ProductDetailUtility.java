@@ -101,7 +101,13 @@ public class ProductDetailUtility {
 
         int targetGroupID = product.getTargetGroupID();
 
-        String groupName = ProductGroupsManager.getLocaleBasedName(context,targetGroupID);
+        String groupName = "N/A";
+
+        // -1 will be set in case of food
+        if(targetGroupID != -1){
+            groupName = ProductGroupsManager.getLocaleBasedName(context,targetGroupID);
+        }
+
 
         int perDayOrderLimit = product.getPerDayOrderLimit();
         int handlingTime = product.getHandlingTime();
@@ -137,9 +143,14 @@ public class ProductDetailUtility {
 
         String color = product.getColor();
 
-        int targetGroupID = product.getGroup().getId();
+       try {
+           int targetGroupID = product.getGroup().getId();
 
-        String groupName = ProductGroupsManager.getLocaleBasedName(context,targetGroupID);
+           String groupName = ProductGroupsManager.getLocaleBasedName(context,targetGroupID);
+           val_group.setText(groupName);
+       }catch (NullPointerException npe){
+           val_group.setText("N/A");
+       }
 
         int perDayOrderLimit = product.getDailyOrderLimit();
         int handlingTime = product.getHandlingTime();
@@ -151,7 +162,7 @@ public class ProductDetailUtility {
         value_price.setText(String.valueOf(productPrice));
         val_size.setText(size);
         val_color.setText(color);
-        val_group.setText(groupName);
+
         val_limit.setText(String.valueOf(perDayOrderLimit));
         val_time.setText(String.valueOf(handlingTime));
         val_desc_en.setText(descEN);

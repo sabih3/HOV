@@ -51,7 +51,7 @@
     <string name="description_ar">Description (Ar)</string>
     <string name="color">Color</string>
     <string name="size">Size</string>
-    <string name="username">Username</string>
+    <string name="name">Username</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="password">Password</string>
     <string name="sign_in">SIGN IN</string>
@@ -61,7 +61,7 @@
     <string name="shop_vendor_name">Shop / Vendor Name</string>
     <string name="logo_optional">Logo (Optional)</string>
     <string name="choose_language">Choose Language</string>
-    <string name="username_your_username_must_be_your_email">Username (Your username must be your email)</string>
+    <string name="username_your_username_must_be_your_email">User name - Your email will be your username to login</string>
     <string name="valid_email_address_error">Enter a valid email address</string>
     <string name="field_required">This field is required</string>
     <string name="valid_phone_number_error">Enter a valid phone number</string>
@@ -75,6 +75,18 @@
     <string name="customer_name">CUSTOMER NAME:</string>
     <string name="payment_mode">PAYMENT MODE:</string>
     <string name="total">TOTAL:</string>
+    <string name="profile">Profile</string>
+    <string name="update">Update</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="person_name">Person Name</string>
+    <string name="retype_password">Retype Password</string>
+    <string name="passwords_match_error">Passwords don\'t match</string>
+    <string name="passowrd_six_chars_error">Password must be atleast six characters</string>
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
+    <string name="retype_new_password">Retype new password</string>
+    <string name="wrong_password_error">Wrong password</string>
+    <string name="invalid_password_error">Password must be 8 characters long and must contain at least one upper case, one lower case, one number and one symbol</string>
 
 
     <!--Product Detail -->
@@ -93,4 +105,15 @@
         <item>Arabic</item>
     </string-array>
 
+    <string name="error_default">We faced difficulty this time. Please give another try !</string>
+    <string name="error_msg_1001">This email is already registered</string>
+    <string name="error_msg_1002">This shop name is in use by other vendor.Please try with other.</string>
+    <string name="error_msg_2001">Your credentials are incorrect.</string>
+    <string name="unable_to_connect_error">Unable to connect with the internet</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="user_registered_successfully">User Registered Successfully</string>
+    <string name="take_me_to_login">Take me to login</string>
+    <string name="sign_in_please_wait">Signing In! Please Wait...</string>
+    <string name="registering_please_wait">Registering! Please Wait...</string>
 </resources>

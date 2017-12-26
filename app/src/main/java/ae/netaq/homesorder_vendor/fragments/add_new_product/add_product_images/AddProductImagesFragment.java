@@ -5,13 +5,9 @@ import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
@@ -20,7 +16,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,18 +27,15 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
 import ae.netaq.homesorder_vendor.AppController;
 import ae.netaq.homesorder_vendor.R;
-import ae.netaq.homesorder_vendor.activities.AddNewProductActivity;
 import ae.netaq.homesorder_vendor.adapters.add_new_product_images.AddImagesRecyclerAdapter;
 import ae.netaq.homesorder_vendor.utils.Common;
 import ae.netaq.homesorder_vendor.event_bus.StoragePermissionGrantedEvent;
-import ae.netaq.homesorder_vendor.utils.ImageUtils;
+import ae.netaq.homesorder_vendor.utils.NavigationController;
 import ae.netaq.homesorder_vendor.utils.Utils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -159,11 +151,12 @@ public class AddProductImagesFragment extends Fragment{
         }else{
             //ask permisssion
             ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-                                              AddNewProductActivity.REQUEST_PERMISSION_STORAGE);
+                                              NavigationController.REQUEST_PERMISSION_STORAGE);
         }
 
     }
 
+    //AddNewProductActivity.
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onPermissionGranted(StoragePermissionGrantedEvent permissionGranted){
         openImageChooser();

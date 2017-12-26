@@ -23,9 +23,9 @@
         app:stpi_lineStrokeWidth="1dp"
         app:stpi_circleStrokeWidth="1dp"
         app:stpi_lineColor="@color/lightGrey"
-        app:stpi_lineDoneColor="@color/colorAccent"
+        app:stpi_lineDoneColor="@color/shittyRed"
         app:stpi_showDoneIcon="true"
-        app:stpi_indicatorColor="@color/colorAccent"
+        app:stpi_indicatorColor="@color/shittyRed"
         app:stpi_circleRadius="15dp"
         android:layout_margin="10dp" />
     <View

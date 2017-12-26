@@ -1,19 +1,14 @@
 package ae.netaq.homesorder_vendor.activities;
 
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.RelativeLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import org.greenrobot.eventbus.EventBus;
-import java.util.List;
 
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.event_bus.LanguageChangeEvent;

@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/colorPrimary">
 
     <android.support.v7.widget.Toolbar
@@ -17,7 +16,6 @@
     </android.support.v7.widget.Toolbar>
 
     <ScrollView
-        android:id="@+id/register_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"
@@ -53,14 +51,14 @@
         </RelativeLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/register_email_layout"
+            android:id="@+id/update_profile_email_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/TextInputTheme"
             app:errorEnabled="true"
             >
             <EditText
-                android:id="@+id/register_email"
+                android:id="@+id/update_profile_email"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="@string/username_your_username_must_be_your_email"
@@ -73,83 +71,19 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/register_password_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/TextInputTheme"
-            app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/colorAccent"
-            app:errorEnabled="true"
-            >
-            <EditText
-                android:id="@+id/register_password"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="@string/password"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:layoutDirection="ltr"
-                android:theme="@style/TextInputTheme"
-                android:textColor="@android:color/black"
-                android:backgroundTint="@color/lightGrey"/>
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/register_retype_password_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/TextInputTheme"
-            app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/colorAccent"
-            app:errorEnabled="true"
-            >
-            <EditText
-                android:id="@+id/register_retype_password"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="@string/retype_password"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:layoutDirection="ltr"
-                android:theme="@style/TextInputTheme"
-                android:textColor="@android:color/black"
-                android:backgroundTint="@color/lightGrey"/>
-        </android.support.design.widget.TextInputLayout>
-
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/register_person_name_layout"
+            android:id="@+id/update_profile_person_name_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/TextInputTheme"
             app:errorEnabled="true"
             >
             <EditText
-                android:id="@+id/register_person_name"
+                android:id="@+id/update_profile_person_name"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="@string/person_name"
                 android:inputType="textPersonName"
                 android:maxLines="1"
-                android:theme="@style/TextInputTheme"
-                android:textColor="@android:color/black"
-                android:backgroundTint="@color/lightGrey"/>
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/register_phone_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/TextInputTheme"
-            app:errorEnabled="true"
-            >
-            <EditText
-                android:id="@+id/register_phone"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="@string/phone_number"
-                android:inputType="phone"
-                android:maxLines="1"
                 android:layoutDirection="ltr"
                 android:theme="@style/TextInputTheme"
                 android:textColor="@android:color/black"
@@ -157,14 +91,33 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/register_shop_name_layout"
+            android:id="@+id/update_profile_phone_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/TextInputTheme"
             app:errorEnabled="true"
             >
             <EditText
-                android:id="@+id/register_shop_name"
+                android:id="@+id/update_profile_phone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/phone_number"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:theme="@style/TextInputTheme"
+                android:textColor="@android:color/black"
+                android:backgroundTint="@color/lightGrey"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/update_profile_shop_name_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/TextInputTheme"
+            app:errorEnabled="true"
+            >
+            <EditText
+                android:id="@+id/update_profile_shop_name"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="@string/shop_vendor_name"
@@ -174,15 +127,79 @@
                 android:textColor="@android:color/black"
                 android:backgroundTint="@color/lightGrey"/>
         </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/update_profile_old_password_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/TextInputTheme"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/shittyGreen"
+            app:errorEnabled="true"
+            >
+            <EditText
+                android:id="@+id/update_profile_old_password"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/old_password"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:layoutDirection="ltr"
+                android:theme="@style/TextInputTheme"
+                android:textColor="@android:color/black"
+                android:backgroundTint="@color/lightGrey"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/update_profile_new_password_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/TextInputTheme"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/shittyGreen"
+            app:errorEnabled="true"
+            >
+            <EditText
+                android:id="@+id/update_profile_new_password"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/new_password"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:layoutDirection="ltr"
+                android:theme="@style/TextInputTheme"
+                android:textColor="@android:color/black"
+                android:backgroundTint="@color/lightGrey"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/update_profile_confirm_new_password_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/TextInputTheme"
+            app:errorEnabled="true"
+            >
+            <EditText
+                android:id="@+id/update_profile_confirm_new_password"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/retype_new_password"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:layoutDirection="ltr"
+                android:theme="@style/TextInputTheme"
+                android:textColor="@android:color/black"
+                android:backgroundTint="@color/lightGrey"/>
+        </android.support.design.widget.TextInputLayout>
     </LinearLayout>
     </ScrollView>
 
     <Button
-        android:id="@+id/register_btn"
+        android:id="@+id/update_profile_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/ButtonTheme"
         android:layout_margin="10dp"
         android:layout_alignParentBottom="true"
-        android:text="@string/register"/>
+        android:text="@string/update"/>
 </RelativeLayout>

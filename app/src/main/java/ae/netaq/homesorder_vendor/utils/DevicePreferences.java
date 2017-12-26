@@ -3,7 +3,10 @@ package ae.netaq.homesorder_vendor.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.google.gson.Gson;
+
 import ae.netaq.homesorder_vendor.constants.Constants;
+import ae.netaq.homesorder_vendor.models.User;
 
 /**
  * Created by Netaq on 9/20/2017.
@@ -13,6 +16,8 @@ public class DevicePreferences {
 
     private static final String LANGUAGE_PREF_KEY = "lang";
     private static final String KEY_ARABIC_LOCALE = "key_locale";
+    private static final String KEY_USER_INFO = "user_info";
+
 
     private static DevicePreferences instance;
     private static SharedPreferences prefs;
@@ -82,6 +87,21 @@ public class DevicePreferences {
         localeSetToArabic = prefs.getBoolean(KEY_ARABIC_LOCALE,false);
 
         return localeSetToArabic;
+    }
+
+    public static void saveUserInfo(User user){
+        SharedPreferences.Editor editor = prefs.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(user);
+        editor.putString(KEY_USER_INFO, json);
+        editor.commit();
+    }
+
+    public static User getUserInfo(){
+        Gson gson = new Gson();
+        String json = prefs.getString(KEY_USER_INFO, "");
+        User obj = gson.fromJson(json, User.class);
+        return obj;
     }
 
 }

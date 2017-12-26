@@ -48,8 +48,6 @@ public class AddNewProductActivity extends AppCompatActivity implements
              ChooseCategoryView, AddProductInformationView, AddProductImagesView,
              ProductPreviewView{
 
-    public static final int REQUEST_PERMISSION_STORAGE = 232;
-
     @BindView(R.id.add_product_pager)
     NonSwipeableViewPager pager;
 
@@ -84,14 +82,15 @@ public class AddNewProductActivity extends AppCompatActivity implements
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode){
-            case REQUEST_PERMISSION_STORAGE:
+            case NavigationController.REQUEST_PERMISSION_STORAGE:
                 if(grantResults.length > 0 && grantResults[0]== PackageManager.PERMISSION_GRANTED){
-                    //Fire event in Image fragment
+                    //Fire event in AddProductImagesFragment.onPermissionGranted
                     EventBus.getDefault().post(new StoragePermissionGrantedEvent());
 
                 }else{
 
-                    //TODO: Permission denied Handle This
+                    //No need to handle permission denial, as for image extraction, permission
+                    //grant is mandatory
                 }
                 return;
     }
@@ -218,8 +217,12 @@ public class AddNewProductActivity extends AppCompatActivity implements
 
 //        productToPersist.setParentCategoryNameEN(product.getSubCategory().getSubCategoryEN());
 //        productToPersist.setParentCategoryNameAR("");
+        try {
+            productToPersist.setTargetGroup(product.getGroup().getId());
+        }catch (NullPointerException npe){
+            productToPersist.setTargetGroup(-1);
+        }
 
-        productToPersist.setTargetGroup(product.getGroup().getId());
         productToPersist.setSubCategoryID(product.getSubCategoryID());
         productToPersist.setSubCategoryNameAR(product.getSubCategory().getSubCategoryAR());
         productToPersist.setSubCategoryNameEN(product.getSubCategory().getSubCategoryEN());

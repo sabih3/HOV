@@ -44,7 +44,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:layout_margin="10dp"
-                app:color_checked="@color/shittyGreen"
+                app:color_checked="@color/colorAccent"
                 app:color_unchecked="@color/checkBoxUnchecked"
                 app:color_unchecked_stroke="@color/checkBoxUnchecked"
                 app:stroke_width="1dp"/>
@@ -69,7 +69,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:layout_margin="10dp"
-                app:color_checked="@color/shittyGreen"
+                app:color_checked="@color/colorAccent"
                 app:color_unchecked="@color/checkBoxUnchecked"
                 app:color_unchecked_stroke="@color/checkBoxUnchecked"
                 app:stroke_width="1dp"/>

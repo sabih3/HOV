@@ -1,8 +1,5 @@
 package ae.netaq.homesorder_vendor.activities;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -17,6 +14,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+
+import com.squareup.picasso.Picasso;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -28,9 +28,11 @@ import ae.netaq.homesorder_vendor.event_bus.LanguageChangeEvent;
 import ae.netaq.homesorder_vendor.fragments.featured.FeaturedFragment;
 import ae.netaq.homesorder_vendor.fragments.orders.OrdersFragment;
 import ae.netaq.homesorder_vendor.fragments.products.ProductsFragment;
+import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity implements
              NavigationView.OnNavigationItemSelectedListener,
@@ -54,9 +56,17 @@ public class MainActivity extends AppCompatActivity implements
 
     private ImageView settingsBtn;
 
+    private RelativeLayout updateProfileBtn;
+
     private int navItemIndex = -1;
 
     public static boolean configChanges = false;
+
+    private Fragment fragment = null;
+
+    private Class fragmentClass = null;
+
+    private static boolean firstTimeLaunch = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements
 
         EventBus.getDefault().register(this);
 
+        firstTimeLaunch = true;
 
         signOutBtn.setOnClickListener(this);
 
@@ -75,8 +86,13 @@ public class MainActivity extends AppCompatActivity implements
 
         settingsBtn = navigationView.getHeaderView(0).findViewById(R.id.settings_icon);
 
+        updateProfileBtn = navigationView.getHeaderView(0).findViewById(R.id.update_profile_layout);
+
         settingsBtn.setOnClickListener(this);
 
+        updateProfileBtn.setOnClickListener(this);
+
+        setProfilePhoto();
         //Setting up the toolbar.
         setUpToolBar();
 
@@ -84,7 +100,19 @@ public class MainActivity extends AppCompatActivity implements
         configureNavigationDrawer();
 
         //By default when the home activity is loaded select the orders fragment to fill the container.
-        selectDrawerItem(navigationView.getMenu().getItem(0));
+        if(firstTimeLaunch){
+            selectDrawerItem(navigationView.getMenu().getItem(0));
+            initFragment();
+            firstTimeLaunch = false;
+        }
+    }
+
+    private void setProfilePhoto() {
+        CircleImageView profilePhoto = navigationView.getHeaderView(0).findViewById(R.id.profile_image);
+
+        if(DevicePreferences.getInstance().getUserInfo()!=null){
+            Picasso.with(this).load("file:\\"+DevicePreferences.getUserInfo().getProfileImagePath()).into(profilePhoto);
+        }
     }
 
     private void setUpToolBar() {
@@ -96,12 +124,14 @@ public class MainActivity extends AppCompatActivity implements
 
         navigationView.setNavigationItemSelectedListener(this);
 
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.openDrawer, R.string.closeDrawer) {
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawer,
+                toolbar, R.string.openDrawer, R.string.closeDrawer) {
 
             @Override
             public void onDrawerClosed(View drawerView) {
                 // Code here will be triggered once the drawer closes as we don't want anything to happen so we leave this blank
                 super.onDrawerClosed(drawerView);
+                initFragment();
             }
 
             @Override
@@ -118,6 +148,29 @@ public class MainActivity extends AppCompatActivity implements
         actionBarDrawerToggle.syncState();
     }
 
+    private void initFragment() {
+        if(fragmentClass != null){
+            // Try to initialize the selected fragment
+            try {
+                fragment = (Fragment) fragmentClass.newInstance();
+
+                // Insert the fragment by replacing any existing fragment
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.main_container, fragment).commit();
+
+                //Show the add product floating button when products is selected from navigation menu.
+                if(navItemIndex == 1){
+                    addProductFab.setVisibility(View.VISIBLE);
+                }else{
+                    addProductFab.setVisibility(View.GONE);
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         selectDrawerItem(item);
@@ -126,10 +179,7 @@ public class MainActivity extends AppCompatActivity implements
 
     public void selectDrawerItem(MenuItem item){
 
-        Fragment fragment = null;
-        Class fragmentClass;
         int position = 0;
-
             //Check to see which item was being clicked and perform appropriate action
             switch (item.getItemId()) {
                 case R.id.nav_orders_item:
@@ -144,53 +194,43 @@ public class MainActivity extends AppCompatActivity implements
                     fragmentClass = FeaturedFragment.class;
                     position = 2;
                     break;
+                case R.id.nav_profile_item:
+                    NavigationController.startActivityProfile(MainActivity.this);
+                    position = 3;
+                    break;
                 default:
                     fragmentClass = OrdersFragment.class;
-                    position = 0;
             }
-
-        if(navItemIndex == position){
-            drawer.closeDrawers();
-        }else {
-            // Try to initialize the selected fragment
-            try {
-                fragment = (Fragment) fragmentClass.newInstance();
-
-                // Insert the fragment by replacing any existing fragment
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.main_container, fragment).commit();
-
-                navItemIndex = position;
-
-                //Show the add product floating button when products is selected from navigation menu.
-                if(navItemIndex == 1){
-                    addProductFab.setVisibility(View.VISIBLE);
-                }else{
-                    addProductFab.setVisibility(View.GONE);
+            //Check that if the profile item is selected or not, if yes then do nothing.
+            if(position!=3){
+                if(navItemIndex == position){
+                    fragmentClass = null;
+                    drawer.closeDrawers();
                 }
-
-            } catch (Exception e) {
-                e.printStackTrace();
+                navItemIndex = position;
+                // Highlight the selected item has been done by NavigationView
+                item.setChecked(true);
+                // Set action bar title
+                toolbar.setTitle(item.getTitle());
+                // Close the navigation drawer
+                drawer.closeDrawers();
             }
-        }
-
-        // Highlight the selected item has been done by NavigationView
-        item.setChecked(true);
-        // Set action bar title
-        toolbar.setTitle(item.getTitle());
-        // Close the navigation drawer
-        drawer.closeDrawers();
-
     }
 
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.sign_out_btn){
             drawer.closeDrawers();
+
+            //TODO: Ask confirmation about sign out
+            DevicePreferences.getInstance().saveUserInfo(null);
+            //TODO: Present Login screen from here
         }else if(v.getId() == R.id.add_product_fab){
             NavigationController.startActivityAddNewProduct(MainActivity.this);
         }else if(v.getId() == R.id.settings_icon){
             NavigationController.startActivitySettings(MainActivity.this);
+        }else if(v.getId() == R.id.update_profile_layout){
+            NavigationController.showUpdateProfileActivity(MainActivity.this);
         }
     }
 
