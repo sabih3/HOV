@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements
     @BindView(R.id.add_product_fab)
     FloatingActionButton addProductFab;
 
+    private CircleImageView profilePhoto;
 
     private ImageView settingsBtn;
 
@@ -88,16 +89,19 @@ public class MainActivity extends AppCompatActivity implements
 
         updateProfileBtn = navigationView.getHeaderView(0).findViewById(R.id.update_profile_layout);
 
+        profilePhoto = navigationView.getHeaderView(0).findViewById(R.id.profile_image);
+
         settingsBtn.setOnClickListener(this);
 
         updateProfileBtn.setOnClickListener(this);
 
-        setProfilePhoto();
         //Setting up the toolbar.
         setUpToolBar();
 
         //configuring the Navigation Drawer.
         configureNavigationDrawer();
+
+        setProfilePhoto();
 
         //By default when the home activity is loaded select the orders fragment to fill the container.
         if(firstTimeLaunch){
@@ -108,10 +112,9 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void setProfilePhoto() {
-        CircleImageView profilePhoto = navigationView.getHeaderView(0).findViewById(R.id.profile_image);
-
         if(DevicePreferences.getInstance().getUserInfo()!=null){
-            Picasso.with(this).load("file:\\"+DevicePreferences.getUserInfo().getProfileImagePath()).into(profilePhoto);
+            Picasso.with(this).load("https://www.cleverfiles.com/howto/wp-content/uploads/2016/08/mini.jpg")
+                    .placeholder(R.drawable.ic_person_white_24px).into(profilePhoto);
         }
     }
 
