@@ -49,6 +49,7 @@
                 android:text="Product Title"
                 android:textStyle="bold"
                 android:textSize="@dimen/body_font_large"
+                android:theme="@style/TextInputTheme"
                 android:textColor="@android:color/black"/>
             <EditText
                 android:id="@+id/et_price"
@@ -57,13 +58,14 @@
                 android:textColor="@android:color/holo_red_dark"
                 android:textSize="@dimen/listing_text_size_large"
                 android:layout_below="@id/et_prod_title"
+                android:theme="@style/TextInputTheme"
                 android:text="50 AED"/>
         </RelativeLayout>
 
         <View
             android:id="@+id/separator"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="0.5dp"
             android:background="@color/lightGrey"
             android:layout_below="@id/product_title_section"
             android:layout_marginTop="10dp"
@@ -74,143 +76,144 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <!--Values Layout End-->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:padding="10dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
+                    android:orientation="horizontal"
+                    android:gravity="center">
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="45dp"
-                        android:gravity="center_vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:textColor="@android:color/black"
-                        android:textSize="@dimen/body_font_large"
+                        android:textSize="@dimen/listing_text_size_large"
                         android:text="@string/label_size"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="45dp"
-                        android:gravity="center_vertical"
-                        android:layout_marginTop="20dp"
-                        android:textColor="@android:color/black"
-                        android:textSize="@dimen/body_font_large"
-                        android:text="@string/label_color"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="45dp"
-                        android:gravity="center_vertical"
-                        android:layout_marginTop="20dp"
-                        android:textColor="@android:color/black"
-                        android:textSize="@dimen/body_font_large"
-                        android:text="@string/label_target_group"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="45dp"
-                        android:gravity="center_vertical"
-                        android:layout_marginTop="20dp"
-                        android:textColor="@android:color/black"
-                        android:textSize="@dimen/body_font_large"
-                        android:text="@string/label_daily_limit"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="45dp"
-                        android:gravity="center_vertical"
-                        android:layout_marginTop="20dp"
-                        android:textColor="@android:color/black"
-                        android:textSize="@dimen/body_font_large"
-                        android:text="@string/label_handling_time"/>
-
-                </LinearLayout>
-                <!--Values Layout Start-->
-                <LinearLayout
-                    android:id="@+id/prod_values_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
                     <EditText
                         android:id="@+id/et_size"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:theme="@style/TextInputTheme"
                         android:textColor="@android:color/black"
-                        android:textSize="@dimen/body_font_large"
-                        android:textAllCaps="true"
-                        />
-
-                    <EditText
-                        android:id="@+id/et_color"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:textColor="@android:color/black"
-                        android:textSize="@dimen/body_font_large"
-                        android:textAllCaps="true"
-                        />
-                    <android.support.v7.widget.AppCompatSpinner
-                        android:id="@+id/edit_spinner_group"
-                        android:layout_marginTop="30dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:background="@drawable/round_rect_shape"
-                        android:popupTheme="@style/SpinnerDropdownTheme"
-                        />
-                    <com.shawnlin.numberpicker.NumberPicker
-                        android:id="@+id/edit_order_limit"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        app:np_height="40dp"
-                        app:np_orientation="horizontal"
-                        app:np_dividerColor="@color/shittyGreen"
-                        app:np_max="10"
-                        app:np_min="1"
-                        app:np_selectedTextColor="@color/colorPrimaryDark"
-                        app:np_textColor="@color/colorPrimaryDark"
-                        app:np_value="1" />
-
-                    <com.shawnlin.numberpicker.NumberPicker
-                        android:id="@+id/edit_handling_time"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        app:np_height="40dp"
-                        app:np_orientation="horizontal"
-                        app:np_dividerColor="@color/shittyGreen"
-                        app:np_max="10"
-                        app:np_min="1"
-                        app:np_selectedTextColor="@color/colorPrimaryDark"
-                        app:np_textColor="@color/colorPrimaryDark"
-                        app:np_value="1" />
-
-                    <TextView
-                        android:id="@+id/value_time"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:textColor="@android:color/black"
-                        android:textSize="@dimen/body_font_large"
+                        android:textSize="@dimen/listing_text_size_large"
                         android:textAllCaps="true"
                         />
 
                 </LinearLayout>
-            </LinearLayout>
-            <!--Values Layout End-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/listing_text_size_large"
+                        android:text="@string/label_color"/>
+                    <EditText
+                        android:id="@+id/et_color"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:theme="@style/TextInputTheme"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/listing_text_size_large"
+                        android:textAllCaps="true"
+                        />
 
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/listing_text_size_large"
+                        android:text="@string/label_handling_time"/>
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/edit_spinner_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/round_rect_shape"
+                        android:popupTheme="@style/SpinnerDropdownTheme"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/listing_text_size_large"
+                        android:text="@string/label_target_group"/>
+                    <com.shawnlin.numberpicker.NumberPicker
+                        android:id="@+id/edit_order_limit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:np_height="36dp"
+                        app:np_orientation="horizontal"
+                        app:np_dividerColor="@color/colorAccent"
+                        app:np_max="10"
+                        app:np_min="1"
+                        app:np_selectedTextColor="@color/colorPrimaryDark"
+                        app:np_textColor="@color/colorPrimaryDark"
+                        app:np_value="1" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/listing_text_size_large"
+                        android:text="@string/label_daily_limit"/>
+                    <com.shawnlin.numberpicker.NumberPicker
+                        android:id="@+id/edit_handling_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:np_height="36dp"
+                        app:np_orientation="horizontal"
+                        app:np_dividerColor="@color/colorAccent"
+                        app:np_max="10"
+                        app:np_min="1"
+                        app:np_selectedTextColor="@color/colorPrimaryDark"
+                        app:np_textColor="@color/colorPrimaryDark"
+                        app:np_value="1" />
+                </LinearLayout>
+
+            </LinearLayout>
 
             <!--Description Layout Start-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="20dp"
                 android:padding="10dp">
 
                 <!--Label English Desc-->
@@ -218,22 +221,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/body_font_large"
+                    android:textSize="@dimen/listing_text_size_large"
                     android:text="@string/label_desc_en"/>
                 <!--Value English Desc-->
                 <EditText
                     android:id="@+id/et_desc_en"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
                     android:textSize="@dimen/body_font_large"
                     />
                 <!--Label Arabic Desc-->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/body_font_large"
+                    android:textSize="@dimen/listing_text_size_large"
                     android:text="@string/label_desc_ar"/>
 
                 <!--Value Arabic Desc-->

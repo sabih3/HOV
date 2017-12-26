@@ -1,5 +1,6 @@
 package ae.netaq.homesorder_vendor.fragments.products.products_tab;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
+import android.view.ContextThemeWrapper;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -104,7 +106,8 @@ public class SimpleProductsFragment extends Fragment implements
     @Override
     public void onProductActionListener(ProductTable product, View itemView) {
         this.productToEdit = product;
-        PopupMenu popup = new PopupMenu(getActivity(),itemView);
+        Context wrapper = new ContextThemeWrapper(getActivity(), R.style.PopupMenu);
+        PopupMenu popup = new PopupMenu(wrapper,itemView);
         popup.setOnMenuItemClickListener(this);
         popup.inflate(R.menu.product_actions);
         popup.show();
