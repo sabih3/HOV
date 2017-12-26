@@ -38,6 +38,7 @@ import ae.netaq.homesorder_vendor.fragments.products.promotions_tab.PromotionPro
 public class NavigationController {
 
     public static final String KEY_PRODUCT = "key_product";
+    public static final int REQUEST_PERMISSION_STORAGE = 232;
 
     public static FragmentViewPager getOrdersPagerAdapter(Context context, FragmentManager supportFragmentManager) {
 

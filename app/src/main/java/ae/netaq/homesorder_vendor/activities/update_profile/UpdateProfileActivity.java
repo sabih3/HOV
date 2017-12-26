@@ -171,6 +171,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
                 finish();
             }
         });
+        Picasso.with(this).load("file://"+DevicePreferences.getUserInfo().getProfileImagePath()).into(logoImageView);
     }
 
     public void openImageChooser() {
@@ -231,6 +232,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
             User.getInstance().setUserPassword(profileUpdateOldPassword.getText().toString());
             if(logoUri!=null){
                 User.getInstance().setLogoUri(logoUri);
+
             }else{
                 User.getInstance().setLogoUri(DevicePreferences.getUserInfo().getLogoUri());
             }

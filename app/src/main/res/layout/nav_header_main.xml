@@ -15,8 +15,8 @@
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:src="@drawable/food"
-                    android:scaleType="centerCrop"
-                    />
+                    android:scaleType="centerCrop" />
+
                 <RelativeLayout
                     android:id="@+id/update_profile_layout"
                     android:layout_width="wrap_content"

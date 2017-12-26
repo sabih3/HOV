@@ -61,7 +61,7 @@
     <string name="shop_vendor_name">Shop / Vendor Name</string>
     <string name="logo_optional">Logo (Optional)</string>
     <string name="choose_language">Choose Language</string>
-    <string name="username_your_username_must_be_your_email">Username (Your name must be your email)</string>
+    <string name="username_your_username_must_be_your_email">User name - Your email will be your username to login</string>
     <string name="valid_email_address_error">Enter a valid email address</string>
     <string name="field_required">This field is required</string>
     <string name="valid_phone_number_error">Enter a valid phone number</string>

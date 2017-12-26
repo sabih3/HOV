@@ -16,6 +16,7 @@ public class User {
     private String personName;
     private Uri logoUri;
     private String userToken;
+    private String profileImagePath;
 
     public static User getInstance( ) {
         if(user == null){
@@ -81,4 +82,11 @@ public class User {
     }
 
 
+    public String getProfileImagePath() {
+        return profileImagePath;
+    }
+
+    public void setProfileImagePath(String profileImagePath) {
+        this.profileImagePath = profileImagePath;
+    }
 }

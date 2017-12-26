@@ -1,13 +1,18 @@
 package ae.netaq.homesorder_vendor.activities.register;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -114,6 +119,7 @@ public class RegisterActivity extends AppCompatActivity implements
     private RegisterPresenter presenter;
 
     private ProgressDialog progressDialog;
+    private String imagePath ="";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -298,24 +304,53 @@ public class RegisterActivity extends AppCompatActivity implements
 
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        if(requestCode == NavigationController.REQUEST_PERMISSION_STORAGE){
+            Intent intent = new Intent();
+            intent.setType("image/*");
+            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+            intent.setAction(Intent.ACTION_OPEN_DOCUMENT);
+            intent.addCategory(Intent.CATEGORY_OPENABLE);
+
+            startActivityForResult(Intent.createChooser(intent, getString(R.string.select_pictures)),
+                    SELECT_PICTURE);
+        }
+    }
+
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
             if (data != null) {
-                //For Single image
                 logoImageUri = data.getData();
-                picasso.load(logoImageUri).resize(200, 200).centerCrop().into(logoImageView);
+                imagePath = Utils.getPathBasedOnSDK(this,logoImageUri);
+
+                picasso.load("file://"+imagePath).resize(200, 200).centerCrop().into(logoImageView);
+
             }
         }
     }
 
     public void openImageChooser() {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, false);
-        intent.setAction(Intent.ACTION_OPEN_DOCUMENT);
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        startActivityForResult(Intent.createChooser(intent, getString(R.string.select_pictures)), SELECT_PICTURE);
+        int permissionGrant = ContextCompat.checkSelfPermission(this,
+                              Manifest.permission.READ_EXTERNAL_STORAGE);
+
+        if(permissionGrant == PackageManager.PERMISSION_GRANTED){
+            Intent intent = new Intent();
+            intent.setType("image/*");
+            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+            intent.setAction(Intent.ACTION_OPEN_DOCUMENT);
+            intent.addCategory(Intent.CATEGORY_OPENABLE);
+
+            startActivityForResult(Intent.createChooser(intent, getString(R.string.select_pictures)),
+                                                        SELECT_PICTURE);
+        }else{
+            //ask permisssion
+            ActivityCompat.requestPermissions(this,
+                                              new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                                              NavigationController.REQUEST_PERMISSION_STORAGE);
+        }
     }
 
     @Override
@@ -325,7 +360,7 @@ public class RegisterActivity extends AppCompatActivity implements
         User.getInstance().setPersonName(registerPersonName.getText().toString());
         User.getInstance().setUserPhone(registerPhone.getText().toString());
         User.getInstance().setVendorName(registerVendorName.getText().toString());
-        User.getInstance().setLogoUri(logoImageUri);
+        User.getInstance().setProfileImagePath(imagePath);
 
 
         //request network to register user

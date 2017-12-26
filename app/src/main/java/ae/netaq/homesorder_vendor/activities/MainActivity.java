@@ -16,6 +16,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.squareup.picasso.Picasso;
+
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -30,6 +32,7 @@ import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity implements
              NavigationView.OnNavigationItemSelectedListener,
@@ -49,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements
 
     @BindView(R.id.add_product_fab)
     FloatingActionButton addProductFab;
+
 
     private ImageView settingsBtn;
 
@@ -88,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements
 
         updateProfileBtn.setOnClickListener(this);
 
+        setProfilePhoto();
         //Setting up the toolbar.
         setUpToolBar();
 
@@ -99,6 +104,14 @@ public class MainActivity extends AppCompatActivity implements
             selectDrawerItem(navigationView.getMenu().getItem(0));
             initFragment();
             firstTimeLaunch = false;
+        }
+    }
+
+    private void setProfilePhoto() {
+        CircleImageView profilePhoto = navigationView.getHeaderView(0).findViewById(R.id.profile_image);
+
+        if(DevicePreferences.getInstance().getUserInfo()!=null){
+            Picasso.with(this).load("file:\\"+DevicePreferences.getUserInfo().getProfileImagePath()).into(profilePhoto);
         }
     }
 
