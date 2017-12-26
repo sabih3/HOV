@@ -98,7 +98,8 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     public void onLoggedIn(String token) {
 
         User.getInstance().setUserToken(token);
-        DevicePreferences.getInstance().saveUserInfo(User.getInstance());
+
+        DevicePreferences.saveUserInfo(User.getInstance());
 
         OrderService.getAllOrders(this,new OrderService.OrderFetchListener() {
             @Override

@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void setProfilePhoto() {
-        if(DevicePreferences.getInstance().getUserInfo()!=null){
+        if(DevicePreferences.getUserInfo()!=null){
             Picasso.with(this).load("https://www.cleverfiles.com/howto/wp-content/uploads/2016/08/mini.jpg")
                     .placeholder(R.drawable.ic_person_white_24px).into(profilePhoto);
         }
