@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements
     @BindView(R.id.add_product_fab)
     FloatingActionButton addProductFab;
 
+    private CircleImageView profilePhoto;
 
     private ImageView settingsBtn;
 
@@ -92,16 +93,19 @@ public class MainActivity extends AppCompatActivity implements
 
         updateProfileBtn = navigationView.getHeaderView(0).findViewById(R.id.update_profile_layout);
 
+        profilePhoto = navigationView.getHeaderView(0).findViewById(R.id.profile_image);
+
         settingsBtn.setOnClickListener(this);
 
         updateProfileBtn.setOnClickListener(this);
 
-        setProfilePhoto();
         //Setting up the toolbar.
         setUpToolBar();
 
         //configuring the Navigation Drawer.
         configureNavigationDrawer();
+
+        setProfilePhoto();
 
         //By default when the home activity is loaded select the orders fragment to fill the container.
         if(firstTimeLaunch){
@@ -116,7 +120,13 @@ public class MainActivity extends AppCompatActivity implements
                                        findViewById(R.id.profile_image);
 
         if(DevicePreferences.getInstance().getUserInfo()!=null){
-            Picasso.with(this).load(DevicePreferences.getInstance().getUserInfo().getLogoURL()).into(profilePhoto);
+            try {
+                Picasso.with(this).load(DevicePreferences.getInstance().getUserInfo().getLogoURL())
+                        .placeholder(R.drawable.ic_person_white_24px).into(profilePhoto);
+            }catch (Exception exc){
+
+            }
+
         }
 
         TextView tvPersonName = navigationView.getHeaderView(0).findViewById(R.id.drawer_tv_person_name);

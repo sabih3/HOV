@@ -32,7 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="@string/name"
-                android:inputType="text"
+                android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:theme="@style/TextInputTheme"
                 android:textColor="@android:color/black"
@@ -55,7 +55,6 @@
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 android:maxLines="1"
-
                 android:theme="@style/TextInputTheme"
                 android:textColor="@android:color/black"
                 android:backgroundTint="@color/lightGrey"/>

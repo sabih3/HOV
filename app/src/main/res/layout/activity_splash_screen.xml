@@ -61,7 +61,7 @@
                 android:src="@drawable/ic_next"
                 app:borderWidth="0dp"
                 app:elevation="6dp"
-                android:backgroundTint="@color/shittyGreen"
+                android:backgroundTint="@color/colorAccent"
                 />
         </RelativeLayout>
     </RelativeLayout>
