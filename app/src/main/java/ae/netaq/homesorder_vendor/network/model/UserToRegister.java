@@ -1,5 +1,7 @@
 package ae.netaq.homesorder_vendor.network.model;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by sabih on 21-Dec-17.
  */
@@ -12,6 +14,9 @@ public class UserToRegister {
     private String phone;
     private String vendorname;
     private String deviceid;
+
+    @SerializedName("profile")
+    private String profileImage;
 
     public void setEmail(String email) {
         this.email = email;
@@ -59,5 +64,9 @@ public class UserToRegister {
 
     public String getDevideID() {
         return deviceid;
+    }
+
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
     }
 }

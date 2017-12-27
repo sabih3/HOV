@@ -9,6 +9,7 @@ import ae.netaq.homesorder_vendor.dagger.AppComponent;
 import ae.netaq.homesorder_vendor.dagger.ContextModule;
 import ae.netaq.homesorder_vendor.dagger.DaggerAppComponent;
 import ae.netaq.homesorder_vendor.db.DBManager;
+import ae.netaq.homesorder_vendor.models.User;
 import ae.netaq.homesorder_vendor.network.HomesOrderServices;
 import ae.netaq.homesorder_vendor.utils.Common;
 import ae.netaq.homesorder_vendor.utils.DevicePreferences;
@@ -44,6 +45,9 @@ public class AppController extends Application{
         boolean preferredLocale = DevicePreferences.getInstance().isLocaleSetToArabic();
 
         Common.setAppLocaleToArabic(this,preferredLocale); // set preferred lcoale
+
+        User cachedUser = DevicePreferences.getInstance().getUserInfo();
+
 
     }
 

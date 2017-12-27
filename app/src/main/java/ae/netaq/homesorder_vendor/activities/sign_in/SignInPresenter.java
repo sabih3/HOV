@@ -3,6 +3,7 @@ package ae.netaq.homesorder_vendor.activities.sign_in;
 import android.content.Context;
 
 import ae.netaq.homesorder_vendor.activities.register.AuthenticationResponse;
+import ae.netaq.homesorder_vendor.db.data_manager.UserDataManager;
 import ae.netaq.homesorder_vendor.network.core.ErrorUtils;
 import ae.netaq.homesorder_vendor.network.core.ResponseCodes;
 import ae.netaq.homesorder_vendor.network.core.RestClient;
@@ -29,6 +30,11 @@ public class SignInPresenter {
     }
 
 
+    /** This method logs the user in and persist user
+     *
+     * @param userName
+     * @param password
+     */
     public void requestLogin(String userName, String password) {
         Login login = new Login();
         login.setUsername(userName);
@@ -42,8 +48,8 @@ public class SignInPresenter {
                 if(response.body() != null){
                     //No App Server exception
                     if(response.body().getCode()== ResponseCodes.SUCCESS){
-                        String token = response.body().getToken();
-                        viewListener.onLoggedIn(token);
+                        UserDataManager.persistUser(response);
+                        viewListener.onLoggedIn();
                     }
                 }
 

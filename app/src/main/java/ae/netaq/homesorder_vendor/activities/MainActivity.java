@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
@@ -24,12 +25,15 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import ae.netaq.homesorder_vendor.AppController;
 import ae.netaq.homesorder_vendor.R;
+import ae.netaq.homesorder_vendor.db.data_manager.UserDataManager;
 import ae.netaq.homesorder_vendor.event_bus.LanguageChangeEvent;
 import ae.netaq.homesorder_vendor.fragments.featured.FeaturedFragment;
 import ae.netaq.homesorder_vendor.fragments.orders.OrdersFragment;
 import ae.netaq.homesorder_vendor.fragments.products.ProductsFragment;
+import ae.netaq.homesorder_vendor.models.User;
 import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
+import ae.netaq.homesorder_vendor.utils.UIUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -108,11 +112,15 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void setProfilePhoto() {
-        CircleImageView profilePhoto = navigationView.getHeaderView(0).findViewById(R.id.profile_image);
+        CircleImageView profilePhoto = navigationView.getHeaderView(0).
+                                       findViewById(R.id.profile_image);
 
         if(DevicePreferences.getInstance().getUserInfo()!=null){
-            Picasso.with(this).load("file:\\"+DevicePreferences.getUserInfo().getProfileImagePath()).into(profilePhoto);
+            Picasso.with(this).load(DevicePreferences.getInstance().getUserInfo().getLogoURL()).into(profilePhoto);
         }
+
+        TextView tvPersonName = navigationView.getHeaderView(0).findViewById(R.id.drawer_tv_person_name);
+        tvPersonName.setText(DevicePreferences.getInstance().getUserInfo().getPersonName());
     }
 
     private void setUpToolBar() {
@@ -222,9 +230,26 @@ public class MainActivity extends AppCompatActivity implements
         if(v.getId() == R.id.sign_out_btn){
             drawer.closeDrawers();
 
-            //TODO: Ask confirmation about sign out
-            DevicePreferences.getInstance().saveUserInfo(null);
-            //TODO: Present Login screen from here
+            UIUtils.showMessageDialog(this,
+                    getString(R.string.confirmation_log_out),
+                    getString(R.string.no),
+                    getString(R.string.yes),
+                    new UIUtils.DialogButtonListener() {
+                @Override
+                public void onPositiveButtonClicked() {
+                    //dialog gets dismissed
+                }
+
+                @Override
+                public void onNegativeButtonClicked() {
+                    //log out
+                    UserDataManager.clearUserData();
+                    MainActivity.this.finish();
+                    NavigationController.startActivitySignIn(MainActivity.this);
+
+                }
+            });
+
         }else if(v.getId() == R.id.add_product_fab){
             NavigationController.startActivityAddNewProduct(MainActivity.this);
         }else if(v.getId() == R.id.settings_icon){

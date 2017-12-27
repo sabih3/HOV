@@ -116,4 +116,7 @@
     <string name="take_me_to_login">Take me to login</string>
     <string name="sign_in_please_wait">Signing In! Please Wait...</string>
     <string name="registering_please_wait">Registering! Please Wait...</string>
+    <string name="confirmation_log_out">Do you really want to log out ?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>

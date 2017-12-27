@@ -152,10 +152,10 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
     }
 
     private void initViews() {
-        profileUpdateEmail.setText(DevicePreferences.getUserInfo().getUserEmail());
-        profileUpdateVendorName.setText(DevicePreferences.getUserInfo().getVendorName());
-        updateProfilePersonName.setText(DevicePreferences.getUserInfo().getPersonName());
-        profileUpdatePhone.setText(DevicePreferences.getUserInfo().getUserPhone());
+        profileUpdateEmail.setText(DevicePreferences.getInstance().getUserInfo().getUserEmail());
+        profileUpdateVendorName.setText(DevicePreferences.getInstance().getUserInfo().getVendorName());
+        updateProfilePersonName.setText(DevicePreferences.getInstance().getUserInfo().getPersonName());
+        profileUpdatePhone.setText(DevicePreferences.getInstance().getUserInfo().getUserPhone());
 
         profileUpdateEmail.setEnabled(false);
         profileUpdateEmail.setFocusable(false);
@@ -171,7 +171,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
                 finish();
             }
         });
-        Picasso.with(this).load("file://"+DevicePreferences.getUserInfo().getProfileImagePath()).into(logoImageView);
+        Picasso.with(this).load(DevicePreferences.getInstance().getUserInfo().getLogoURL()).into(logoImageView);
     }
 
     public void openImageChooser() {
@@ -224,7 +224,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
     @Override
     public void onValidationSucceeded() {
 
-        if(profileUpdateOldPassword.getText().toString().equals(DevicePreferences.getUserInfo().getUserPassword())){
+        if(profileUpdateOldPassword.getText().toString().equals(DevicePreferences.getInstance().getUserInfo().getUserPassword())){
             User.getInstance().setUserEmail(profileUpdateEmail.getText().toString());
             User.getInstance().setPersonName(updateProfilePersonName.getText().toString());
             User.getInstance().setUserPhone(profileUpdatePhone.getText().toString());
@@ -234,9 +234,9 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
                 User.getInstance().setLogoUri(logoUri);
 
             }else{
-                User.getInstance().setLogoUri(DevicePreferences.getUserInfo().getLogoUri());
+                User.getInstance().setLogoUri(DevicePreferences.getInstance().getUserInfo().getLogoUri());
             }
-            DevicePreferences.saveUserInfo(User.getInstance());
+            DevicePreferences.getInstance().saveUserInfo(User.getInstance());
             Utils.showToast(this,"Profile Updated Successfully");
         }else{
             profileUpdateOldPasswordLayout.setError(getString(R.string.wrong_password_error));

@@ -2,6 +2,7 @@ package ae.netaq.homesorder_vendor.activities.register;
 
 import android.content.Context;
 
+import ae.netaq.homesorder_vendor.db.data_manager.UserDataManager;
 import ae.netaq.homesorder_vendor.models.User;
 import ae.netaq.homesorder_vendor.network.core.ErrorUtils;
 import ae.netaq.homesorder_vendor.network.core.ResponseCodes;
@@ -29,18 +30,18 @@ public class RegisterPresenter {
         this.viewListener = registerView;
     }
 
-    public void registerUser() {
-        UserToRegister user = new UserToRegister();
-        user.setEmail(User.getInstance().getUserEmail());
-        user.setName(User.getInstance().getPersonName());
-        user.setPassword(User.getInstance().getUserPassword());
-        user.setPhone(User.getInstance().getUserPhone());
-        user.setVendorName(User.getInstance().getVendorName());
-        user.setDevideID("1212");
+    public void registerUser(UserToRegister userToRegister) {
+//        UserToRegister user = new UserToRegister();
+//        user.setEmail(User.getInstance().getUserEmail());
+//        user.setName(User.getInstance().getPersonName());
+//        user.setPassword(User.getInstance().getUserPassword());
+//        user.setPhone(User.getInstance().getUserPhone());
+//        user.setVendorName(User.getInstance().getVendorName());
+//        user.setDevideID("1212");
+//        user.setProfileImage(User.getInstance().getLogoString());
 
-        DevicePreferences.getInstance().saveUserInfo(User.getInstance());
 
-        Call<AuthenticationResponse> registerRequest = RestClient.getAdapter().registerUser(user);
+        Call<AuthenticationResponse> registerRequest = RestClient.getAdapter().registerUser(userToRegister);
 
         registerRequest.enqueue(new Callback<AuthenticationResponse>() {
             @Override
@@ -48,8 +49,11 @@ public class RegisterPresenter {
                 if(response.body() != null){
                     //No App Server exception
                     if(response.body().getCode()== ResponseCodes.SUCCESS){
-                        String token = response.body().getToken();
-                        viewListener.onRegistrationSuccess(token);
+
+                        UserDataManager.persistUser(response);
+
+
+                        viewListener.onRegistrationSuccess();
                     }
                 }
 
