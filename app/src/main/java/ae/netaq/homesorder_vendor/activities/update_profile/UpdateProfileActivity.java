@@ -177,8 +177,8 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
                 finish();
             }
         });
+
         Picasso.with(this).load(DevicePreferences.getInstance().getUserInfo().getLogoURL()).into(logoImageView);
-        picasso.load("file://"+DevicePreferences.getUserInfo().getProfileImagePath()).into(logoImageView);
     }
 
     private void selectProfilePicture(){
