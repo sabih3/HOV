@@ -12,6 +12,7 @@
         android:layout_height="?attr/actionBarSize"
         android:layout_alignParentTop="true"
         app:tabMode="fixed"
+        app:tabIndicatorColor="@color/shittyRed"
         app:tabTextColor="@color/lightGrey"
         app:tabSelectedTextColor="@android:color/black"
         android:background="@color/colorPrimary">

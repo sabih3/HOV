@@ -13,6 +13,7 @@
         app:tabTextColor="@color/lightGrey"
         app:tabSelectedTextColor="@android:color/black"
         app:tabMode="scrollable"
+        app:tabIndicatorColor="@color/shittyRed"
         android:background="@android:color/white">
 
     </android.support.design.widget.TabLayout>
