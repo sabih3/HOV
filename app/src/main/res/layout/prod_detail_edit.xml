@@ -5,15 +5,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/colorPrimary">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <RelativeLayout
-            android:id="@+id/category_name_section"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:padding="10dp">
+
             <TextView
                 android:id="@+id/tv_category"
                 android:layout_width="wrap_content"
@@ -21,27 +19,7 @@
                 android:textColor="@color/lightGrey"
                 android:textSize="@dimen/body_font_large"
                 android:text="CATEGORY NAME"/>
-            <!--<me.zhanghai.android.materialratingbar.MaterialRatingBar-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:minHeight="15dp"-->
-            <!--android:maxHeight="15dp"-->
-            <!--android:rating="5"-->
-            <!--android:layout_marginLeft="-3dp"-->
-            <!--android:layout_marginRight="-3dp"-->
-            <!--android:isIndicator="true"-->
-            <!--android:layout_alignParentRight="true"-->
-            <!--android:layout_alignParentEnd="true"-->
-            <!--app:mrb_progressTint="@color/ratingYellow"-->
-            <!--style="@style/Widget.MaterialRatingBar.RatingBar" />-->
-        </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/product_title_section"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/category_name_section"
-            android:padding="10dp">
             <EditText
                 android:id="@+id/et_prod_title"
                 android:layout_width="wrap_content"
@@ -57,10 +35,9 @@
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/holo_red_dark"
                 android:textSize="@dimen/listing_text_size_large"
-                android:layout_below="@id/et_prod_title"
                 android:theme="@style/TextInputTheme"
                 android:text="50 AED"/>
-        </RelativeLayout>
+        </LinearLayout>
 
         <View
             android:id="@+id/separator"
@@ -68,7 +45,6 @@
             android:layout_height="0.5dp"
             android:background="@color/lightGrey"
             android:layout_below="@id/product_title_section"
-            android:layout_marginTop="10dp"
             />
 
         <LinearLayout
@@ -137,6 +113,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
                     android:gravity="center">
                     <TextView
                         android:layout_width="match_parent"
@@ -251,5 +228,4 @@
             <!--Description Layout End-->
         </LinearLayout>
 
-    </RelativeLayout>
 </LinearLayout>

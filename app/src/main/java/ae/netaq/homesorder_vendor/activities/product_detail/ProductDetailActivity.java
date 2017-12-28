@@ -142,9 +142,6 @@ public class ProductDetailActivity extends AppCompatActivity implements ProductD
 
     private void setupProductImageSlider(List<ImageTable> imagesArray) {
 
-        ArrayList<Integer> images = new ArrayList<>();
-        images.add(R.drawable.fashion);
-        images.add(R.drawable.food);
 
         sliderPager.setAdapter(new SliderPagerAdapter(ProductDetailActivity.this,
                 imagesArray,null, picasso));
