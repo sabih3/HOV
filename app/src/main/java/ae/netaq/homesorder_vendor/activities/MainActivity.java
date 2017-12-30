@@ -248,6 +248,7 @@ public class MainActivity extends AppCompatActivity implements
                 @Override
                 public void onPositiveButtonClicked() {
                     //dialog gets dismissed
+                    NavigationController.showCountrySelectActivity(MainActivity.this);
                 }
 
                 @Override
