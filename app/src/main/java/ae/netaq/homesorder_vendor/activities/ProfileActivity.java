@@ -58,13 +58,16 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        personName.setText(DevicePreferences.getUserInfo().getPersonName());
-        vendorEmail.setText(DevicePreferences.getUserInfo().getUserEmail());
-        vendorPhone.setText(DevicePreferences.getUserInfo().getUserPhone());
-        vendorName.setText(DevicePreferences.getUserInfo().getVendorName());
+        personName.setText(DevicePreferences.getInstance().getUserInfo().getPersonName());
+        vendorEmail.setText(DevicePreferences.getInstance().getUserInfo().getUserEmail());
+        vendorPhone.setText(DevicePreferences.getInstance().getUserInfo().getUserPhone());
+        vendorName.setText(DevicePreferences.getInstance().getUserInfo().getVendorName());
 
-        if(DevicePreferences.getUserInfo().getProfileImagePath()!=""){
-            Picasso.with(this).load("file://"+DevicePreferences.getUserInfo().getProfileImagePath()).into(vendorProfileImg);
+        try {
+            Picasso.with(this).load(DevicePreferences.getInstance().getUserInfo().getLogoURL())
+                    .placeholder(R.drawable.ic_person_white_24px).into(vendorProfileImg);
+        }catch (Exception exc){
+
         }
 
     }

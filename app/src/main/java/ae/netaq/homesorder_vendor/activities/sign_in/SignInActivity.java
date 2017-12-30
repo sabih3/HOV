@@ -95,11 +95,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
     //SignInPresenter.requestLogin
     @Override
-    public void onLoggedIn(String token) {
-
-        User.getInstance().setUserToken(token);
-
-        DevicePreferences.saveUserInfo(User.getInstance());
+    public void onLoggedIn() {
 
         OrderService.getAllOrders(this,new OrderService.OrderFetchListener() {
             @Override
@@ -122,7 +118,6 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     //SignInPresenter.requestLogin
     @Override
     public void onLoginFailure(String exception) {
-        //TODO (2): Handle UI for exception
         UIUtils.hideProgressDialog(progressDialog);
         UIUtils.showMessageDialog(this, exception,
                 getString(R.string.ok),
@@ -141,7 +136,6 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     //SignInPresenter.requestLogin
     @Override
     public void onNetworkFailure() {
-        //TODO (3): Handle UI for exception
         UIUtils.hideProgressDialog(progressDialog);
         UIUtils.showMessageDialog(this, getString(R.string.unable_to_connect_error),
                 getString(R.string.ok),
@@ -160,7 +154,6 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     //SignInPresenter.requestLogin
     @Override
     public void onUnDefinedException(String localizedError) {
-        //TODO (4): Handle UI for exception
         UIUtils.hideProgressDialog(progressDialog);
         UIUtils.showMessageDialog(this, localizedError,
                 getString(R.string.ok),

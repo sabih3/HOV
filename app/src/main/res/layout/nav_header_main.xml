@@ -42,6 +42,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"/>
         <TextView
+            android:id="@+id/drawer_tv_person_name"
             android:layout_below="@id/profile_image_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -137,6 +137,7 @@ public class SplashScreen extends AppCompatActivity implements Animation.Animati
 
     @Override
     public void onAnimationEnd(Animation animation) {
+        //if language has not been selected in past, indication of first time install
         if(DevicePreferences.getLang().equals("")) {
             if (animation == fadeInAnimation) {
                 TransitionManager.beginDelayedTransition(transitionsContainer);
@@ -149,7 +150,10 @@ public class SplashScreen extends AppCompatActivity implements Animation.Animati
                 }, 100);
             }
         }else{
-            if(DevicePreferences.getUserInfo()==null){
+
+            
+            if(DevicePreferences.getInstance().getUserInfo()== null){
+
                 NavigationController.startActivitySignIn(SplashScreen.this);
                 finish();
             }else{
