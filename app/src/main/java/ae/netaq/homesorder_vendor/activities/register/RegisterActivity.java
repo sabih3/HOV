@@ -28,6 +28,7 @@ import com.mobsandgeeks.saripaar.annotation.Password;
 import com.mobsandgeeks.saripaar.annotation.Pattern;
 import com.squareup.picasso.Picasso;
 
+import java.security.Permission;
 import java.util.List;
 
 import ae.netaq.homesorder_vendor.AppController;
@@ -307,7 +308,7 @@ public class RegisterActivity extends AppCompatActivity implements
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
-        if(requestCode == NavigationController.REQUEST_PERMISSION_STORAGE){
+        if(requestCode == NavigationController.REQUEST_PERMISSION_STORAGE && grantResults[0] == PackageManager.PERMISSION_GRANTED){
             Intent intent = new Intent();
             intent.setType("image/*");
             intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
