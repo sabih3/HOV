@@ -43,6 +43,7 @@
             android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".activities.product_edit.ProductEditActivity"
             android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".activities.product_promotion.ProductPromotionActivity"/>
     </application>
 
 </manifest>

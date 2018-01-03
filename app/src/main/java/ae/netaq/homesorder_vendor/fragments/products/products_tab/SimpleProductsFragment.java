@@ -120,9 +120,12 @@ public class SimpleProductsFragment extends Fragment implements
         switch (itemId){
 
             case R.id.option_edit:
-
                 NavigationController.showProductEdit(getContext(),productToEdit);
             break;
+            case R.id.option_promote:
+                NavigationController.showActivityProductPromotion(getContext(),productToEdit);
+                break;
+
 
         }
         return false;

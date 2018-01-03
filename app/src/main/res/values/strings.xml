@@ -117,4 +117,11 @@
     <string name="sign_in_please_wait">Signing In! Please Wait...</string>
     <string name="registering_please_wait">Registering! Please Wait...</string>
     <string name="edit_product">Edit Product</string>
+    <string name="original_price">Original Price:</string>
+    <string name="discounted_price">Discounted Price:</string>
+    <string name="discount_percentage">Discount Percentage:</string>
+    <string name="start_date">Start Date:</string>
+    <string name="end_date">End Date:</string>
+    <string name="promote">Promote</string>
+    <string name="promotion">Promotion</string>
 </resources>
