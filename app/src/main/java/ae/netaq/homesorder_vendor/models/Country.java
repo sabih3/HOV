@@ -1,5 +1,6 @@
 package ae.netaq.homesorder_vendor.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,13 +8,34 @@ import java.util.List;
  * Created by sabih on 30-Dec-17.
  */
 
-public class Areas {
+public class Country implements Serializable{
     private String countryNameEN;
     private String countryNameAR;
     private int countryID;
     private String countryCode;
     private List<State> states;
 
+    //user for manage Selected
+    private boolean isSelected;
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
+    }
+
+    //used for manage selection
+    private List<State> selectedStates;
+
+    public List<State> getSelectedStates() {
+        return selectedStates;
+    }
+
+    public void setSelectedStates(List<State> selectedStates) {
+        this.selectedStates = selectedStates;
+    }
 
     public String getCountryNameEN() {
         return countryNameEN;
@@ -35,7 +57,7 @@ public class Areas {
         return states;
     }
 
-    public class State {
+    public class State implements Serializable{
         private String stateNameEN;
         private String stateNameAR;
         private int stateID;
@@ -71,7 +93,7 @@ public class Areas {
             return selectedAreas;
         }
 
-        public class Area {
+        public class Area implements Serializable{
             private String areaNameEN;
             private String areaNameAR;
             private String areaID;
