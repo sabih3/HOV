@@ -2,10 +2,10 @@ package ae.netaq.homesorder_vendor.activities;
 
 import android.content.Context;
 
-import com.google.gson.Gson;
+import java.util.ArrayList;
 
-import ae.netaq.homesorder_vendor.models.Areas;
-import ae.netaq.homesorder_vendor.utils.JSONUtils;
+import ae.netaq.homesorder_vendor.db.data_manager.UserDataManager;
+import ae.netaq.homesorder_vendor.models.Country;
 
 /**
  * Created by sabih on 30-Dec-17.
@@ -24,14 +24,14 @@ public class AreaSelectionPresenter {
     }
 
     public void getRegionalData() {
-        String areas_uae = JSONUtils.loadJSONFromAsset(context, "areas_uae.json");
 
-        Gson gson = new Gson();
-        Areas areas = gson.fromJson(areas_uae, Areas.class);
+        //Country country = CountryDataManager.getUAERegion(context);
 
-
-
-        areaSelectionView.onRegionalDataFetched(areas);
+//        ArrayList<Country> persistedRegions = UserDataManager.getUAERegion();
+//
+//        Country country = persistedRegions.get(0);
+//
+//        areaSelectionView.onRegionalDataFetched(country);
 
 
 

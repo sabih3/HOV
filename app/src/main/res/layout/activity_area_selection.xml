@@ -7,6 +7,9 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <ExpandableListView
         android:id="@+id/area_list"
         android:layout_width="match_parent"
@@ -15,7 +18,17 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp">
-
+        android:layout_marginBottom="20dp"
+        android:layout_above="@id/btn_proceed">
     </ExpandableListView>
+
+    <Button
+        android:id="@+id/btn_proceed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/ButtonTheme"
+        android:text="DONE"
+        android:layout_alignParentBottom="true"/>
+
+    </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>

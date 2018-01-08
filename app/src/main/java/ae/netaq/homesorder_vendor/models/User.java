@@ -2,6 +2,8 @@ package ae.netaq.homesorder_vendor.models;
 
 import android.net.Uri;
 
+import java.util.ArrayList;
+
 /**
  * Created by Netaq on 12/20/2017.
  */
@@ -19,6 +21,8 @@ public class User {
     private String profileImagePath;
     private String logoString;
     private String logoURL;
+    private Country uaeRegionAreas;
+    private Country ksaRegion;
 
     public static User getInstance( ) {
         if(user == null){
@@ -106,5 +110,21 @@ public class User {
 
     public void setLogoURL(String logoURL) {
         this.logoURL = logoURL;
+    }
+
+    public void setUAERegion(Country uaeRegionAreas) {
+        this.uaeRegionAreas = uaeRegionAreas;
+    }
+
+    public Country getUAERegionAreas() {
+        return uaeRegionAreas;
+    }
+
+    public void setKSARegion(Country ksaRegion) {
+        this.ksaRegion = ksaRegion;
+    }
+
+    public Country getKsaRegion() {
+        return ksaRegion;
     }
 }

@@ -9,8 +9,10 @@ import java.util.ArrayList;
 
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.activities.AddNewProductActivity;
+import ae.netaq.homesorder_vendor.activities.AreaSelectionUAE;
 import ae.netaq.homesorder_vendor.activities.MainActivity;
 import ae.netaq.homesorder_vendor.activities.OrderDetailActivity;
+import ae.netaq.homesorder_vendor.activities.country_area_selection.AreaSelectionKSA;
 import ae.netaq.homesorder_vendor.activities.country_area_selection.SelectCountryActivity;
 import ae.netaq.homesorder_vendor.activities.product_detail.ProductDetailActivity;
 import ae.netaq.homesorder_vendor.activities.ProfileActivity;
@@ -31,6 +33,7 @@ import ae.netaq.homesorder_vendor.fragments.orders.processing_tab.ProcessingOrde
 import ae.netaq.homesorder_vendor.fragments.orders.ready_tab.ReadyOrdersFragment;
 import ae.netaq.homesorder_vendor.fragments.products.products_tab.SimpleProductsFragment;
 import ae.netaq.homesorder_vendor.fragments.products.promotions_tab.PromotionProductsFragment;
+import ae.netaq.homesorder_vendor.models.Country;
 
 /**
  * Created by Netaq on 11/21/2017.
@@ -40,6 +43,7 @@ public class NavigationController {
 
     public static final String KEY_PRODUCT = "key_product";
     public static final int REQUEST_PERMISSION_STORAGE = 232;
+    public static final String KEY_SELECTED_REGION = "selectedRegion";
 
     public static FragmentViewPager getOrdersPagerAdapter(Context context, FragmentManager supportFragmentManager) {
 
@@ -159,6 +163,16 @@ public class NavigationController {
     }
     public static void showCountrySelectActivity(Context context) {
         Intent intent = new Intent(context, SelectCountryActivity.class);
+        context.startActivity(intent);
+    }
+
+    public static void showAreaSelectionUAE(Context context) {
+        Intent intent = new Intent(context, AreaSelectionUAE.class);
+        context.startActivity(intent);
+    }
+
+    public static void showAreaSelectionKSA(Context context) {
+        Intent intent = new Intent(context, AreaSelectionKSA.class);
         context.startActivity(intent);
     }
 }

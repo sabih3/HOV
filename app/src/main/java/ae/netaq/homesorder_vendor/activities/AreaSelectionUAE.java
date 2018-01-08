@@ -6,19 +6,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import ae.netaq.homesorder_vendor.R;
-import ae.netaq.homesorder_vendor.activities.country_area_selection.SelectCountryActivity;
 import ae.netaq.homesorder_vendor.adapters.AreaSelectionAdapter;
 import ae.netaq.homesorder_vendor.db.data_manager.UserDataManager;
+import ae.netaq.homesorder_vendor.event_bus.UAEAreasSelectedEvent;
 import ae.netaq.homesorder_vendor.models.Country;
-import ae.netaq.homesorder_vendor.utils.NavigationController;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class AreaSelectionScreen extends AppCompatActivity implements AreaSelectionView{
+public class AreaSelectionUAE extends AppCompatActivity implements AreaSelectionView{
 
     @BindView(R.id.area_list)
     ExpandableListView areaList;
@@ -45,12 +46,17 @@ public class AreaSelectionScreen extends AppCompatActivity implements AreaSelect
 //        selectedRegions = (ArrayList<Country>) getIntent().
 //                          getSerializableExtra(NavigationController.KEY_SELECTED_REGION);
 
-        presenter.getRegionalData();
+        //presenter.getRegionalData();
+
+        Country uaeRegion = UserDataManager.getUAERegion();
+
+        loadRegionDataInList(uaeRegion);
 
     }
 
     @Override
     public void onRegionalDataFetched(Country country) {
+
         loadRegionDataInList(country);
     }
 
@@ -63,14 +69,39 @@ public class AreaSelectionScreen extends AppCompatActivity implements AreaSelect
         @Override
         public void onClick(View view) {
 
-            List<Country.State> selectedStates = areaListAdapter.getSelectedAreas();
-            selectedStates.size();
+            Country country = areaListAdapter.getSelectedAreas();
 
-            if(selectedStates.size()==1){
-                SelectCountryActivity.selectedRegions.get(0).setSelectedStates(selectedStates);
+
+            UserDataManager.persistUAERegion(country);
+
+            List<Country.State> selectedStates = new ArrayList<>();
+            ArrayList<Country.State.Area> userSelectedAreas;
+
+            for(Country.State eachState :country.getStates()){
+                userSelectedAreas = new ArrayList<>();
+                List<Country.State.Area> areas = eachState.getAreas();
+
+                for(Country.State.Area eachArea: areas){
+
+                    if(eachArea.isSelected()){
+
+                        userSelectedAreas.add(eachArea);
+
+                    }
+                }
+
+                eachState.setSelectedAreas(userSelectedAreas);
+
+                if(eachState.getSelectedAreas().size()>0){
+                    selectedStates.add(eachState);
+                }
+
+
             }
 
-            AreaSelectionScreen.this.finish();
+            EventBus.getDefault().post(new UAEAreasSelectedEvent(country,selectedStates));
+
+            AreaSelectionUAE.this.finish();
 
         }
     }

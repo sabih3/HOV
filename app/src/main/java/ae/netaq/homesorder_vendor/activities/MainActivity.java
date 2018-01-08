@@ -216,6 +216,10 @@ public class MainActivity extends AppCompatActivity implements
                     NavigationController.startActivityProfile(MainActivity.this);
                     position = 3;
                     break;
+
+                case R.id.covergae_setup:
+                    NavigationController.showCountrySelectActivity(MainActivity.this);
+                    position = 4;
                 default:
                     fragmentClass = OrdersFragment.class;
             }

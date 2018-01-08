@@ -1,4 +1,5 @@
 {
+
     "countryNameEN":"United Arab Emirates",
     "countryNameAR":"",
     "countryID":1,
@@ -12,6 +13,13 @@
        "stateCode":"AUH",
        
          "areas":[
+           {
+             "areaNameEN":"All Abu Dhabi",
+             "areaNameAR":"",
+             "areaID":"",
+             "areaCode":""
+           },
+
            {
             "areaNameEN":"Al Adla",
             "areaNameAR":"ال عدلا",
@@ -51,6 +59,12 @@
        "stateID":2,
        "stateCode":"",
          "areas":[
+              {
+               "areaNameEN":"All Dubai",
+               "areaNameAR":"",
+               "areaID":"",
+               "areaCode":""
+              },
              {
               "areaNameEN":"Abu Hail",
               "areaNameAR":"ابو هيل",

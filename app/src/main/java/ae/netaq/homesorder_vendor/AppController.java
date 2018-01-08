@@ -9,6 +9,9 @@ import ae.netaq.homesorder_vendor.dagger.AppComponent;
 import ae.netaq.homesorder_vendor.dagger.ContextModule;
 import ae.netaq.homesorder_vendor.dagger.DaggerAppComponent;
 import ae.netaq.homesorder_vendor.db.DBManager;
+import ae.netaq.homesorder_vendor.db.data_manager.CountryDataManager;
+import ae.netaq.homesorder_vendor.db.data_manager.UserDataManager;
+import ae.netaq.homesorder_vendor.models.Country;
 import ae.netaq.homesorder_vendor.models.User;
 import ae.netaq.homesorder_vendor.network.HomesOrderServices;
 import ae.netaq.homesorder_vendor.utils.Common;
@@ -47,6 +50,12 @@ public class AppController extends Application{
         Common.setAppLocaleToArabic(this,preferredLocale); // set preferred lcoale
 
         User cachedUser = DevicePreferences.getInstance().getUserInfo();
+
+        Country uaeRegion = CountryDataManager.getUAERegion(this);
+        Country ksaRegion = CountryDataManager.getKSARegion(this);
+
+        UserDataManager.persistUAERegion(uaeRegion);
+        UserDataManager.persistKSARegion(ksaRegion);
 
 
     }

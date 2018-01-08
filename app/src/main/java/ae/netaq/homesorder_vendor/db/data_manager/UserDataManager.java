@@ -1,6 +1,9 @@
 package ae.netaq.homesorder_vendor.db.data_manager;
 
+import java.util.ArrayList;
+
 import ae.netaq.homesorder_vendor.activities.register.AuthenticationResponse;
+import ae.netaq.homesorder_vendor.models.Country;
 import ae.netaq.homesorder_vendor.models.User;
 import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import retrofit2.Response;
@@ -33,5 +36,27 @@ public class UserDataManager {
 
     public static void clearUserData() {
         DevicePreferences.getInstance().saveUserInfo(null);
+    }
+
+
+    public static void persistUAERegion(Country selectedRegions) {
+        User.getInstance().setUAERegion(selectedRegions);
+        DevicePreferences.getInstance().saveUserInfo(User.getInstance());
+    }
+
+
+    public static Country getUAERegion() {
+        Country selectedRegions = User.getInstance().getUAERegionAreas();
+        return selectedRegions;
+    }
+
+    public static void persistKSARegion(Country ksaRegion) {
+        User.getInstance().setKSARegion(ksaRegion);
+        DevicePreferences.getInstance().saveUserInfo(User.getInstance());
+    }
+
+    public static Country getKSARegion() {
+        Country selectedRegions = User.getInstance().getKsaRegion();
+        return selectedRegions;
     }
 }

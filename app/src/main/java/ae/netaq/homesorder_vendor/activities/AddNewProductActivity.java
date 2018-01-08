@@ -34,6 +34,7 @@ import ae.netaq.homesorder_vendor.fragments.add_new_product.product_preview.Prod
 import ae.netaq.homesorder_vendor.models.Product;
 import ae.netaq.homesorder_vendor.models.ProductCategories;
 import ae.netaq.homesorder_vendor.models.ProductGroups;
+import ae.netaq.homesorder_vendor.network.services.ProductService;
 import ae.netaq.homesorder_vendor.utils.Common;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
 import ae.netaq.homesorder_vendor.utils.NonSwipeableViewPager;
@@ -210,7 +211,6 @@ public class AddNewProductActivity extends AppCompatActivity implements
     @Override
     public void onAddProductRequested() {
         Product product = Product.getInstance();
-
         ProductTable productToPersist = new ProductTable();
         productToPersist.setProductID(product.getProductID());
         productToPersist.setParentCategoryID(product.getParentCategoryID());

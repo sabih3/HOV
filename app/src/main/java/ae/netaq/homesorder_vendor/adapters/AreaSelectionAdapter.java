@@ -5,14 +5,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import ae.netaq.homesorder_vendor.R;
-import ae.netaq.homesorder_vendor.models.Areas;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import ae.netaq.homesorder_vendor.db.data_manager.UserDataManager;
+import ae.netaq.homesorder_vendor.models.Country;
 import cn.refactor.library.SmoothCheckBox;
 
 /**
@@ -21,41 +22,42 @@ import cn.refactor.library.SmoothCheckBox;
 
 public class AreaSelectionAdapter extends BaseExpandableListAdapter{
 
-    private Areas states;
+    private Country country;
     private Context mContext;
-    private ArrayList<Areas.State.Area> selectedAreas = new ArrayList<>();
+    private ArrayList<Country.State.Area> selectedAreas;
 
 
-    public AreaSelectionAdapter(Context context, Areas states) {
+    public AreaSelectionAdapter(Context context, Country country) {
         this.mContext = context;
-        this.states = states;
+        this.country = country;
+
 
     }
 
     @Override
     public int getGroupCount() {
-        return states.getStates().size();
+        return country.getStates().size();
     }
 
     @Override
-    public int getChildrenCount(int i) {
-        return states.getStates().get(i).getAreas().size();
+    public int getChildrenCount(int groupPosition) {
+        return country.getStates().get(groupPosition).getAreas().size();
     }
 
     @Override
-    public Areas.State getGroup(int i) {
-        return states.getStates().get(i);
+    public Country.State getGroup(int i) {
+        return country.getStates().get(i);
     }
 
     @Override
-    public Areas.State.Area getChild(int groupPosition, int childPosition) {
-        return states.getStates().get(groupPosition).getAreas().get(childPosition);
+    public Country.State.Area getChild(int groupPosition, int childPosition) {
+        return country.getStates().get(groupPosition).getAreas().get(childPosition);
 
     }
 
     @Override
     public long getGroupId(int i) {
-        return states.getStates().get(i).getStateID();
+        return country.getStates().get(i).getStateID();
     }
 
     @Override
@@ -75,7 +77,7 @@ public class AreaSelectionAdapter extends BaseExpandableListAdapter{
             convertView = LayoutInflater.from(mContext).inflate(R.layout.list_group,null);
         }
 
-        Areas.State state = getGroup(groupPosition);
+        Country.State state = getGroup(groupPosition);
         String stateNameEN = state.getStateNameEN();
         TextView tvStateName = convertView.findViewById(R.id.tv_state_name);
         tvStateName.setText(stateNameEN);
@@ -87,7 +89,14 @@ public class AreaSelectionAdapter extends BaseExpandableListAdapter{
     public View getChildView(int groupPosition, int childPosition, boolean isExpanded,
                              View convertView, ViewGroup viewGroup) {
 
-        Areas.State.Area area = getChild(groupPosition, childPosition);
+        Country.State.Area area = getChild(groupPosition, childPosition);
+
+//        if(UserDataManager.getUAERegion().get(0).getSelectedStates()==null){
+//            selectedAreas = new ArrayList<>();
+//        }else{
+//            selectedAreas = UserDataManager.getUAERegion().get(0).getSelectedStates().get(groupPosition).getSelectedAreas();
+//        }
+
         ViewHolder holder;
 
         if (convertView == null) {
@@ -96,21 +105,26 @@ public class AreaSelectionAdapter extends BaseExpandableListAdapter{
             convertView = inflater.inflate(R.layout.list_item, null);
 
             holder = new ViewHolder();
-            holder.textViewChild = (TextView) convertView.findViewById(R.id.textViewChildItem);
-            holder.areaCheckBox = (SmoothCheckBox) convertView.findViewById(R.id.area_checkBox);
+            holder.textViewChild = convertView.findViewById(R.id.textViewChildItem);
+            holder.areaCheckBox =  convertView.findViewById(R.id.area_checkBox);
+            holder.parent = convertView.findViewById(R.id.row_parent);
 
             convertView.setTag(holder);
-
-            //ButterKnife.bind(this,convertView);
         }else{
-
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.textViewChild.setText(area.getAreaNameEN());
-        holder.areaCheckBox.setOnCheckedChangeListener(new AreaSelectionListener(area));
+        holder.areaCheckBox.setOnCheckedChangeListener(null);
 
-        convertView.setOnClickListener(new AreaSelectionListener(area));
+        holder.areaCheckBox.setChecked(area.isSelected());
+
+
+        holder.textViewChild.setText(area.getAreaNameEN());
+        holder.areaCheckBox.setOnCheckedChangeListener(new AreaSelectionListener(holder,area,
+                                                       groupPosition,childPosition));
+
+        holder.parent.setOnClickListener(new AreaSelectionListener(holder,area,
+                                         groupPosition,childPosition));
 
         return convertView;
     }
@@ -120,37 +134,87 @@ public class AreaSelectionAdapter extends BaseExpandableListAdapter{
         return false;
     }
 
+
+
     private class AreaSelectionListener implements View.OnClickListener,
                   SmoothCheckBox.OnCheckedChangeListener {
-        private Areas.State.Area projectedArea;
 
-        public AreaSelectionListener(Areas.State.Area area) {
+        private final ViewHolder holder;
+        private final int groupPosition;
+        private final int childPosition;
+        private Country.State.Area projectedArea;
+
+        public AreaSelectionListener(ViewHolder holder, Country.State.Area area,
+                                     int groupPosition, int childPosition) {
+            this.holder = holder;
             this.projectedArea = area;
+            this.groupPosition = groupPosition;
+            this.childPosition = childPosition;
         }
 
         @Override
         public void onClick(View view) {
-            //areaCheckBox.setChecked(true);
+            //holder.areaCheckBox.setChecked(true);
         }
 
         @Override
         public void onCheckedChanged(SmoothCheckBox smoothCheckBox, boolean isChecked) {
-            handleSelection(projectedArea,isChecked);
+            handleSelection(projectedArea,isChecked,groupPosition,childPosition);
         }
     }
 
-    private void handleSelection(Areas.State.Area selectedArea, boolean isChecked){
+    private void handleSelection(Country.State.Area selectedArea, boolean isChecked,
+                                 int groupPosition, int childPosition){
+
+
         boolean found = false;
 
-        for(Areas.State.Area area : selectedAreas){
-            if(area.getAreaID()==selectedArea.getAreaID()){
-                found = true;
-                selectedAreas.remove(area);
-            }
+        if(isChecked){
+            country.getStates().get(groupPosition).getAreas().get(childPosition).setIsSelected(true);
+            //getChild(groupPosition,childPosition).setIsSelected(true);
+        }else{
+            country.getStates().get(groupPosition).getAreas().get(childPosition).setIsSelected(false);
+            //getChild(groupPosition,childPosition).setIsSelected(false);
         }
+
+//        for(Country.State.Area area : selectedAreas){
+//            if(area.getAreaNameEN().equalsIgnoreCase(selectedArea.getAreaNameEN())){
+//                found = true;
+//                //selectedAreas.remove(selectedArea);
+//                getChild(groupPosition,childPosition).setIsSelected(false);
+//                break;
+//            }
+//        }
+//
+//        if(!found){
+//            Country.State group = getGroup(groupPosition);
+//
+//            getChild(groupPosition,childPosition).setIsSelected(true);
+//            //selectedAreas.add(selectedArea);
+//        }
     }
 
+    public Country getSelectedAreas() {
+
+
+        return country;
+    }
+
+    public boolean isAreaExists(Country.State.Area area){
+        boolean areaExists = false;
+
+        for(Country.State.Area alreadySelected :selectedAreas){
+
+            if(alreadySelected.getAreaNameEN().equalsIgnoreCase(area.getAreaNameEN())){
+
+                areaExists = true;
+            }
+        }
+
+        return areaExists;
+    }
     public class ViewHolder{
+        RelativeLayout parent;
         TextView textViewChild;
         SmoothCheckBox areaCheckBox;
     }

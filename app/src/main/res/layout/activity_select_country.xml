@@ -26,7 +26,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="10dp">
+                    android:padding="10dp"
+                    android:visibility="gone">
                     <TextView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
@@ -124,13 +125,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:visibility="gone">
+                    android:visibility="visible">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center_vertical"
+                        android:visibility="gone"
                         android:padding="10dp">
+
                         <RelativeLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
@@ -149,8 +153,10 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             android:textSize="@dimen/listing_text_size_large"
-                            android:text="Selected areas"/>
+                            android:text="Selected country"/>
                     </LinearLayout>
+
+                    <!--UAE Selected Row-->
                     <LinearLayout
                         android:id="@+id/uae_selection_result_layout"
                         android:layout_width="match_parent"
@@ -176,15 +182,26 @@
                                 android:textSize="@dimen/listing_text_size_large"
                                 android:textStyle="bold"
                                 android:text="United Arab Emirates"/>
+
                             <TextView
+                                android:id="@+id/txt_uae_area_setup"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:maxLines="1"
                                 android:textSize="@dimen/listing_text_size_large"
-                                android:text="Abu Dhabi - Al Bandar, Al Jawaza Al Jawaza Al Jawaza Al Jawaza"/>
+                                android:text="No Areas Selected - Tap to Select Areas"/>
+
+                            <TextView
+                                android:id="@+id/remove_uae"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:textSize="@dimen/listing_text_size_large"
+                                android:text="Remove UAE From Coverage"/>
                         </LinearLayout>
                     </LinearLayout>
 
+                    <!--Saudi Selected Row-->
                     <LinearLayout
                         android:id="@+id/saudi_selection_result_layout"
                         android:layout_width="match_parent"
@@ -195,10 +212,12 @@
                         android:layout_marginTop="10dp"
                         android:visibility="gone"
                         android:padding="10dp">
+
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:src="@drawable/ic_saudi_map_black"/>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -211,11 +230,19 @@
                                 android:textStyle="bold"
                                 android:text="Saudi Arabia"/>
                             <TextView
+                                android:id="@+id/txt_ksa_area_setup"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:maxLines="1"
                                 android:textSize="@dimen/listing_text_size_large"
-                                android:text="Saudi Arabia - Al Bandar, Al Jawaza Al Jawaza Al Jawaza Al Jawaza"/>
+                                android:text="No Areas Selected- Tap To Select"/>
+                            <TextView
+                                android:id="@+id/remove_ksa"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:textSize="@dimen/listing_text_size_large"
+                                android:text="Remove KSA From Coverage"/>
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -226,7 +253,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/ButtonTheme"
-            android:text="@string/proceed"
+            android:text="Finish"
             android:layout_alignParentBottom="true"/>
     </RelativeLayout>
 
