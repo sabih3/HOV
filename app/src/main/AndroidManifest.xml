@@ -7,7 +7,8 @@
 
     <!-- if you want to load images from a file OR from the internet -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
+
+    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS"/>
 
     <application
         android:name=".AppController"
@@ -17,6 +18,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".activities.SplashScreen">
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN" />-->
@@ -24,23 +26,21 @@
                 <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
-        <activity android:name=".activities.sign_in.SignInActivity" />
-        <activity
-            android:name=".activities.MainActivity"
-            android:configChanges="locale" />
-        <activity android:name=".activities.OrderDetailActivity" />
-        <activity android:name=".activities.product_detail.ProductDetailActivity" />
-        <activity android:name=".activities.SettingsActivity" />
-        <activity android:name=".activities.ProfileActivity" />
-        <activity
-            android:name=".activities.update_profile.UpdateProfileActivity"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".activities.AddNewProductActivity"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".activities.register.RegisterActivity"
-            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".activities.sign_in.SignInActivity"/>
+        <activity android:name=".activities.MainActivity"
+                  android:configChanges="locale"/>
+        <activity android:name=".activities.OrderDetailActivity"/>
+        <activity android:name=".activities.product_detail.ProductDetailActivity"/>
+        <activity android:name=".activities.SettingsActivity"/>
+        <activity android:name=".activities.ProfileActivity"/>
+        <activity android:name=".activities.update_profile.UpdateProfileActivity"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".activities.AddNewProductActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".activities.register.RegisterActivity"
+            android:windowSoftInputMode="adjustResize"/>
+
+        <activity android:name=".activities.country_area_selection.SelectCountryActivity"/>
         <activity android:name=".activities.AreaSelectionScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -48,6 +48,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

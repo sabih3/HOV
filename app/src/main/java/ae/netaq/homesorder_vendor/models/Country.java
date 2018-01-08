@@ -1,5 +1,6 @@
 package ae.netaq.homesorder_vendor.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -40,6 +41,7 @@ public class Areas {
         private int stateID;
         private String stateCode;
         private List<Area> areas;
+        private ArrayList<Area> selectedAreas;
 
         public String getStateNameEN() {
             return stateNameEN;
@@ -61,12 +63,20 @@ public class Areas {
             return areas;
         }
 
+        public void setSelectedAreas(ArrayList<Area> selectedAreas) {
+            this.selectedAreas = selectedAreas;
+        }
+
+        public ArrayList<Area> getSelectedAreas() {
+            return selectedAreas;
+        }
+
         public class Area {
             private String areaNameEN;
             private String areaNameAR;
             private String areaID;
             private String areaCode;
-
+            private boolean isSelected;
 
             public String getAreaNameEN() {
                 return areaNameEN;
@@ -82,6 +92,14 @@ public class Areas {
 
             public String getAreaCode() {
                 return areaCode;
+            }
+
+            public void setIsSelected(boolean isSelected) {
+             this.isSelected = isSelected;
+            }
+
+            public boolean isSelected() {
+                return isSelected;
             }
         }
     }

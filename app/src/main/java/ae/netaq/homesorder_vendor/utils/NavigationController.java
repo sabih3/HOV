@@ -11,6 +11,7 @@ import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.activities.AddNewProductActivity;
 import ae.netaq.homesorder_vendor.activities.MainActivity;
 import ae.netaq.homesorder_vendor.activities.OrderDetailActivity;
+import ae.netaq.homesorder_vendor.activities.country_area_selection.SelectCountryActivity;
 import ae.netaq.homesorder_vendor.activities.product_detail.ProductDetailActivity;
 import ae.netaq.homesorder_vendor.activities.ProfileActivity;
 import ae.netaq.homesorder_vendor.activities.register.RegisterActivity;
@@ -154,6 +155,10 @@ public class NavigationController {
     }
     public static void showUpdateProfileActivity(Context context) {
         Intent intent = new Intent(context, UpdateProfileActivity.class);
+        context.startActivity(intent);
+    }
+    public static void showCountrySelectActivity(Context context) {
+        Intent intent = new Intent(context, SelectCountryActivity.class);
         context.startActivity(intent);
     }
 }
