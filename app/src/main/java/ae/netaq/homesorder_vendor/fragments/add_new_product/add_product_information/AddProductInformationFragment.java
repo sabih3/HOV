@@ -135,6 +135,32 @@ public class AddProductInformationFragment extends Fragment implements Validator
         picker_order_limit.setOnValueChangedListener(new OrderLimitListener());
         picker_handling_time.setOnValueChangedListener(new HandlingTimeListener());
 
+        //setFoodDataInForm();
+        //setFashionDataInForm();
+
+    }
+
+    private void setFoodDataInForm() {
+        productName.setText("Baqlawa8");
+        productNameAr.setText("بقلاوا");
+        productPrice.setText("30.75");
+        productSize.setText("250 Gms,500 Gms");
+        productColor.setText("");
+        picker_order_limit.setValue(5);
+        picker_handling_time.setValue(1);
+        productDescription.setText("This is a description of the food product");
+        productDescriptionAr.setText("سشس  شسشس شسحخهثضخ مثتش خثضخحث ثمناضا");
+    }
+    private void setFashionDataInForm() {
+        productName.setText("Kandura");
+        productNameAr.setText("كندورا");
+        productPrice.setText("500");
+        productSize.setText("S,M,L,XL");
+        productColor.setText("White,Brown,Navy blue");
+        picker_order_limit.setValue(2);
+        picker_handling_time.setValue(5);
+        productDescription.setText("This is a description of the fashion product");
+        productDescriptionAr.setText("سشس  شسشس شسحخهثضخ مثتش خثضخحث ثمناضا");
     }
 
     public void validate(){

@@ -5,11 +5,9 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -35,7 +33,6 @@ import java.util.List;
 import ae.netaq.homesorder_vendor.AppController;
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.constants.Regex;
-import ae.netaq.homesorder_vendor.models.User;
 import ae.netaq.homesorder_vendor.network.model.UserToRegister;
 import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import ae.netaq.homesorder_vendor.utils.ImageUtils;
@@ -283,7 +280,7 @@ public class RegisterActivity extends AppCompatActivity implements
         UIUtils.hideProgressDialog(progressDialog);
         UIUtils.showMessageDialog(this, localizedError,
                 getString(R.string.take_me_to_login),
-                getString(R.string.cancel), new UIUtils.DialogButtonListener() {
+                getString(R.string.dialog_btn_cancel), new UIUtils.DialogButtonListener() {
             @Override
             public void onPositiveButtonClicked() {
                 NavigationController.startActivitySignIn(RegisterActivity.this);
@@ -303,8 +300,8 @@ public class RegisterActivity extends AppCompatActivity implements
         DevicePreferences.getInstance().setPasswordInCache("");
         UIUtils.hideProgressDialog(progressDialog);
         UIUtils.showMessageDialog(this, localizedError,
-                getString(R.string.ok),
-                getString(R.string.cancel), new UIUtils.DialogButtonListener() {
+                getString(R.string.dialog_btn_ok),
+                getString(R.string.dialog_btn_cancel), new UIUtils.DialogButtonListener() {
                     @Override
                     public void onPositiveButtonClicked() {
                         registerVendorName.requestFocus();
@@ -325,7 +322,7 @@ public class RegisterActivity extends AppCompatActivity implements
         DevicePreferences.getInstance().setPasswordInCache("");
         UIUtils.hideProgressDialog(progressDialog);
         UIUtils.showMessageDialog(this, getString(R.string.unable_to_connect_error),
-                getString(R.string.ok),
+                getString(R.string.dialog_btn_ok),
                 "", new UIUtils.DialogButtonListener() {
                     @Override
                     public void onPositiveButtonClicked() {
@@ -343,8 +340,8 @@ public class RegisterActivity extends AppCompatActivity implements
     public void onUnDefinedException(String localizedError) {
         UIUtils.hideProgressDialog(progressDialog);
         UIUtils.showMessageDialog(this, localizedError,
-                getString(R.string.ok),
-                getString(R.string.cancel), new UIUtils.DialogButtonListener() {
+                getString(R.string.dialog_btn_ok),
+                getString(R.string.dialog_btn_cancel), new UIUtils.DialogButtonListener() {
                     @Override
                     public void onPositiveButtonClicked() {
                         registerVendorName.requestFocus();

@@ -101,8 +101,8 @@ public class DevicePreferences {
     public User getUserInfo(){
         Gson gson = new Gson();
         String json = prefs.getString(KEY_USER_INFO, "");
-        User obj = gson.fromJson(json, User.class);
-        return obj;
+        User user = gson.fromJson(json, User.class);
+        return user;
     }
 
     public void setPasswordInCache(String password) {

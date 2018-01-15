@@ -12,6 +12,8 @@ public class Endpoints {
     public static final String USER_REGISTER ="vendor/me/register";
     public static final String USER_LOGIN ="vendor/login";
 
+    public static final String PRODUCT_ADD ="vendor/product/add/{userToken}";
 
 
+    public static final String PRODUCT_UPDATE = "vendor/product/update/{userToken}";
 }

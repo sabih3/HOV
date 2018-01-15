@@ -137,8 +137,8 @@
 <string name="error_msg_1002">This shop name is in use by other vendor.Please try with other.</string>
     <string name="error_msg_2001">Your credentials are incorrect.</string>
     <string name="unable_to_connect_error">Unable to connect with the internet</string>
-    <string name="ok">Ok</string>
-    <string name="cancel">Cancel</string>
+    <string name="dialog_btn_ok">Ok</string>
+    <string name="dialog_btn_cancel">Cancel</string>
     <string name="user_registered_successfully">User Registered Successfully</string>
     <string name="take_me_to_login">Take me to login</string>
     <string name="sign_in_please_wait">Signing In! Please Wait...</string>
@@ -151,6 +151,7 @@
     <string name="select_country">Select Country</string>
     <string name="enter_your_username_email">Enter your Username / Email</string>
     <string name="coverage">Your Coverage</string>
+    <string name="progress_product_upload">Product upload in progress</string>
 
 
 </resources>

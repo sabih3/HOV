@@ -2,6 +2,8 @@ package ae.netaq.homesorder_vendor.models;
 
 import android.net.Uri;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 
 /**
@@ -11,6 +13,8 @@ import java.util.ArrayList;
 public class Product {
 
     private static Product product;
+
+
     private long productID;
     private int targetGroup;
     private int dailyLimit;
@@ -31,12 +35,21 @@ public class Product {
         }
         return product;
     }
-
+    @SerializedName("productname")
     private String productNameEN;
+
+    @SerializedName("productname_arabic")
     private String productNameAR;
+
+    @SerializedName("price")
     private Double productPrice;
+
+    @SerializedName("description")
     private String productDescriptionEN;
+
+    @SerializedName("description_arabic")
     private String productDescriptionAR;
+
     private int mainCategory;
     private ProductCategories.Category subCategory;
     private ProductGroups.Group group;
@@ -224,5 +237,10 @@ public class Product {
 
     public void setSize(String size) {
         this.size = size;
+    }
+
+
+    public synchronized void reset() {
+        product = new Product();
     }
 }

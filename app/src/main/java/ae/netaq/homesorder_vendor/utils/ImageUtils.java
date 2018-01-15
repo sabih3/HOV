@@ -95,7 +95,7 @@ public class ImageUtils {
 
         Bitmap bitmap = getImage(context, uri);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG,100,baos);
+        bitmap.compress(Bitmap.CompressFormat.JPEG,100,baos);
         byte[] bytes = baos.toByteArray();
         String encoded = Base64.encodeToString(bytes, Base64.NO_WRAP);
 

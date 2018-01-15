@@ -1,5 +1,6 @@
 package ae.netaq.homesorder_vendor.activities;
 
+import android.app.ProgressDialog;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import com.badoualy.stepperindicator.StepperIndicator;
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.adapters.FragmentViewPager;
@@ -34,10 +36,12 @@ import ae.netaq.homesorder_vendor.fragments.add_new_product.product_preview.Prod
 import ae.netaq.homesorder_vendor.models.Product;
 import ae.netaq.homesorder_vendor.models.ProductCategories;
 import ae.netaq.homesorder_vendor.models.ProductGroups;
+import ae.netaq.homesorder_vendor.network.model.ResponseAddProduct;
 import ae.netaq.homesorder_vendor.network.services.ProductService;
 import ae.netaq.homesorder_vendor.utils.Common;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
 import ae.netaq.homesorder_vendor.utils.NonSwipeableViewPager;
+import ae.netaq.homesorder_vendor.utils.UIUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -46,7 +50,9 @@ import butterknife.ButterKnife;
  */
 
 public class AddNewProductActivity extends AppCompatActivity implements
-             ChooseCategoryView, AddProductInformationView, AddProductImagesView,
+             ChooseCategoryView,
+             AddProductInformationView,
+             AddProductImagesView,
              ProductPreviewView{
 
     @BindView(R.id.add_product_pager)
@@ -62,6 +68,7 @@ public class AddNewProductActivity extends AppCompatActivity implements
     Button nextBtn;
 
     private FragmentViewPager pagerAdapter;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -78,6 +85,12 @@ public class AddNewProductActivity extends AppCompatActivity implements
 
         initViews();
 
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        progressDialog.dismiss();
     }
 
     @Override
@@ -99,6 +112,8 @@ public class AddNewProductActivity extends AppCompatActivity implements
     }
 
     private void initViews() {
+        progressDialog = new ProgressDialog(this, R.style.ProgressDialogTheme);
+
         pagerAdapter =  NavigationController.getAddNewProductPagerAdapter(getSupportFragmentManager());
         pager.setAdapter(pagerAdapter);
         pager.setOffscreenPageLimit(3);
@@ -210,54 +225,130 @@ public class AddNewProductActivity extends AppCompatActivity implements
 
     @Override
     public void onAddProductRequested() {
-        Product product = Product.getInstance();
-        ProductTable productToPersist = new ProductTable();
-        productToPersist.setProductID(product.getProductID());
-        productToPersist.setParentCategoryID(product.getParentCategoryID());
 
-//        productToPersist.setParentCategoryNameEN(product.getSubCategory().getSubCategoryEN());
-//        productToPersist.setParentCategoryNameAR("");
-        try {
-            productToPersist.setTargetGroup(product.getGroup().getId());
-        }catch (NullPointerException npe){
-            productToPersist.setTargetGroup(-1);
-        }
+        ProductService.getInstance().addProduct(this, new ProductService.ProductAddCallbak() {
+            @Override
+            public void onProcessingImages() {
 
-        productToPersist.setSubCategoryID(product.getSubCategoryID());
-        productToPersist.setSubCategoryNameAR(product.getSubCategory().getSubCategoryAR());
-        productToPersist.setSubCategoryNameEN(product.getSubCategory().getSubCategoryEN());
-        productToPersist.setProductNameEN(product.getProductNameEN());
-        productToPersist.setProductNameAR(product.getProductNameAR());
-        productToPersist.setPerDayOrderLimit(product.getDailyOrderLimit());
-        productToPersist.setHandlingTime(product.getHandlingTime());
-        productToPersist.setProductPrice(product.getProductPrice());
-        productToPersist.setDescriptionAR(product.getProductDescriptionAR());
-        productToPersist.setDescriptionEN(product.getProductDescriptionEN());
-        productToPersist.setColor(product.getColor());
-        productToPersist.setSize(product.getSize());
-        productToPersist.setPerDayOrderLimit(product.getDailyOrderLimit());
-        productToPersist.setHandlingTime(product.getHandlingTime());
-        //productToPersist.setImagesLocalURI(product.getProductImagesUri());
+            }
 
-        long productID = ProductsManager.persistProduct(productToPersist);
+            @Override
+            public void onUploadingProduct() {
+                UIUtils.showProgressDialog(AddNewProductActivity.this,
+                        getString(R.string.progress_product_upload), progressDialog);
+            }
+
+            @Override
+            public void onProductAdded(ResponseAddProduct.Product product) {
+
+                Product.getInstance().reset();
+
+                UIUtils.hideProgressDialog(progressDialog);
+
+                ProductTable productToPersist = new ProductTable();
+                productToPersist.setProductID(product.getProductID());
+                productToPersist.setParentCategoryID(Integer.valueOf(product.getMainCategoryID().get(0)));
+
+                productToPersist.setParentCategoryNameEN(product.getMainCategorynameEN().get(0));
+                productToPersist.setParentCategoryNameAR(product.getMainCategorynameAR().get(0));
+
+                int targetGroupID = -1;
+                try {
+
+                    targetGroupID = Integer.valueOf(product.getTargetGroupID().get(0));
+
+                }catch (Exception exc){
+
+                }
+
+                productToPersist.setTargetGroup(targetGroupID);
+
+                productToPersist.setSubCategoryID(Integer.valueOf(product.getSubCategoryID().get(0)));
+                productToPersist.setSubCategoryNameAR(product.getSubCategoryNameAR().get(0));
+                productToPersist.setSubCategoryNameEN(product.getSubCategoryNameEn().get(0));
+                productToPersist.setProductNameEN(product.getProductNameEN());
+                productToPersist.setProductNameAR(product.getProductNameAR());
+                productToPersist.setPerDayOrderLimit(Integer.valueOf(product.getPerDayOrderLimit()));
+                productToPersist.setHandlingTime(Integer.valueOf(product.getHandlingTime()));
+                productToPersist.setProductPrice(Double.valueOf(product.getPrice()));
+                productToPersist.setDescriptionAR(product.getDescriptionAR());
+                productToPersist.setDescriptionEN(product.getDescriptionEN());
+
+                String productColor = "";
+
+                try {
+                    productColor = product.getColor().get(0);
+                }catch (Exception exc){
+                    productColor = "";
+                }
+
+                productToPersist.setColor(productColor);
+
+                String size = "";
+
+                try {
+                    size = product.getSize().get(0);
+                }catch (Exception exc){
+                    size = "";
+                }
+
+                productToPersist.setSize(size);
 
 
-        ArrayList<byte[]> imagesArray = Product.getInstance().getImagesArray(); // byte array of images
-        //to be used to upload images in backend
-
-        //Local URI Array, to be replaced with absolute URLs of backend
-        ArrayList<Uri> productImagesUri = Product.getInstance().getProductImagesUri();
-        for(Uri uri:productImagesUri){
-            ImageTable productImage = new ImageTable();
-            productImage.setProductID(productID);
-            productImage.setImage(null);
-            productImage.setImageURI(uri.toString());
-
-            ProductsManager.insertImage(productImage);
-        }
+                long localDbID = ProductsManager.persistProduct(productToPersist);
 
 
-        Toast.makeText(this, "Product Added Successfully", Toast.LENGTH_LONG).show();
-        AddNewProductActivity.this.finish();
+
+
+                //Local URI Array, to be replaced with absolute URLs of backend
+                List<String > productImagePaths = product.getMedia();
+                for(String  url: productImagePaths){
+                    ImageTable productImage = new ImageTable();
+                    productImage.setProductID(localDbID);
+                    productImage.setImage(null);
+                    productImage.setImageURI(url);
+
+                    ProductsManager.insertImage(productImage);
+                }
+
+
+                Toast.makeText(AddNewProductActivity.this, "Product Added Successfully",
+                              Toast.LENGTH_LONG).show();
+                AddNewProductActivity.this.finish();
+            }
+
+            @Override
+            public void onProductAddException(String localizedError) {
+                UIUtils.hideProgressDialog(progressDialog);
+
+                UIUtils.showMessageDialog(AddNewProductActivity.this, localizedError,
+                        getString(R.string.dialog_btn_ok), getString(R.string.dialog_btn_cancel),
+                        new UIUtils.DialogButtonListener() {
+                            @Override
+                            public void onPositiveButtonClicked() {
+
+                            }
+
+                            @Override
+                            public void onNegativeButtonClicked() {
+
+                            }
+                        });
+            }
+
+            @Override
+            public void onNetworkFailure() {
+                UIUtils.hideProgressDialog(progressDialog);
+            }
+
+            @Override
+            public void onSessionTimesOut() {
+                //TODO: handle time out
+            }
+
+
+        });
+
+
     }
 }

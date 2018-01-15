@@ -21,15 +21,12 @@ import java.util.List;
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.db.data_manager.OrderDataManager;
 import ae.netaq.homesorder_vendor.models.Order;
-import ae.netaq.homesorder_vendor.models.User;
 import ae.netaq.homesorder_vendor.network.services.OrderService;
-import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
 import ae.netaq.homesorder_vendor.utils.UIUtils;
 import ae.netaq.homesorder_vendor.utils.Utils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import okhttp3.internal.Util;
 
 /**
  * Created by Netaq on 12/17/2017.
@@ -141,8 +138,8 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     public void onLoginFailure(String exception) {
         UIUtils.hideProgressDialog(progressDialog);
         UIUtils.showMessageDialog(this, exception,
-                getString(R.string.ok),
-                getString(R.string.cancel), new UIUtils.DialogButtonListener() {
+                getString(R.string.dialog_btn_ok),
+                getString(R.string.dialog_btn_cancel), new UIUtils.DialogButtonListener() {
                     @Override
                     public void onPositiveButtonClicked() {
                     }
@@ -158,7 +155,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     public void onNetworkFailure() {
         UIUtils.hideProgressDialog(progressDialog);
         UIUtils.showMessageDialog(this, getString(R.string.unable_to_connect_error),
-                getString(R.string.ok),
+                getString(R.string.dialog_btn_ok),
                 "", new UIUtils.DialogButtonListener() {
                     @Override
                     public void onPositiveButtonClicked() {
@@ -176,8 +173,8 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     public void onUnDefinedException(String localizedError) {
         UIUtils.hideProgressDialog(progressDialog);
         UIUtils.showMessageDialog(this, localizedError,
-                getString(R.string.ok),
-                getString(R.string.cancel), new UIUtils.DialogButtonListener() {
+                getString(R.string.dialog_btn_ok),
+                getString(R.string.dialog_btn_cancel), new UIUtils.DialogButtonListener() {
                     @Override
                     public void onPositiveButtonClicked() {
                     }

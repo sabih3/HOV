@@ -52,12 +52,12 @@ public class SimpleProductsRecyclerAdapter extends RecyclerView.Adapter<Products
     @Override
     public void onBindViewHolder(ProductsRecyclerViewHolder holder, int position) {
         ImageTable imageTable = mDataset.get(position).getImagesArray().get(0);
-        Uri imageURI = Uri.parse(imageTable.getImageURI());
+        String imageURL = imageTable.getImageURI();
         final ProductTable product = mDataset.get(position);
 
-        String realPathFromURI = Utils.getPathBasedOnSDK(mContext,imageURI);
+        //String realPathFromURI = Utils.getPathBasedOnSDK(mContext,imageURI);
 
-        Picasso.with(mContext).load("file://"+realPathFromURI).into(holder.productMainImage);
+        Picasso.with(mContext).load(imageURL).into(holder.productMainImage);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

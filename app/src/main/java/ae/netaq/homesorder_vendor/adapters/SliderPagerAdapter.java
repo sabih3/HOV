@@ -64,10 +64,10 @@ public class SliderPagerAdapter extends PagerAdapter {
         ButterKnife.bind(this, myImageLayout);
 
         if(images !=null){
-            Uri imageURI = Uri.parse(images.get(position).getImageURI());
-            String imagePath = Utils.getPathBasedOnSDK(context,imageURI);
+            String imageURL = images.get(position).getImageURI();
+            //String imagePath = Utils.getPathBasedOnSDK(context,imageURI);
             // load from detail
-            picasso.load("file://"+imagePath).resize(500, 400).centerCrop().into(imageView);
+            picasso.load(imageURL).resize(500, 400).centerCrop().into(imageView);
         }
         if(imagesUri != null){
 

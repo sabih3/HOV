@@ -1,7 +1,5 @@
 package ae.netaq.homesorder_vendor.db.data_manager;
 
-import java.util.ArrayList;
-
 import ae.netaq.homesorder_vendor.activities.register.AuthenticationResponse;
 import ae.netaq.homesorder_vendor.models.Country;
 import ae.netaq.homesorder_vendor.models.User;
@@ -32,6 +30,13 @@ public class UserDataManager {
         User.getInstance().setUserToken(token);
 
         DevicePreferences.getInstance().saveUserInfo(User.getInstance());
+    }
+
+
+    public static User getPersistedUser(){
+        User user = DevicePreferences.getInstance().getUserInfo();
+
+        return user;
     }
 
     public static void clearUserData() {
