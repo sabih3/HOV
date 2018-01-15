@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/category_name_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+            <TextView
+                android:id="@+id/tv_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/lightGrey"
+                android:textSize="@dimen/body_font_large"
+                android:text="CATEGORY NAME"/>
+            <!--<me.zhanghai.android.materialratingbar.MaterialRatingBar-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:minHeight="15dp"-->
+            <!--android:maxHeight="15dp"-->
+            <!--android:rating="5"-->
+            <!--android:layout_marginLeft="-3dp"-->
+            <!--android:layout_marginRight="-3dp"-->
+            <!--android:isIndicator="true"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--app:mrb_progressTint="@color/ratingYellow"-->
+            <!--style="@style/Widget.MaterialRatingBar.RatingBar" />-->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/product_title_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/category_name_section"
+            android:padding="10dp">
+            <EditText
+                android:id="@+id/et_prod_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Product Title"
+                android:textStyle="bold"
+                android:textSize="@dimen/body_font_large"
+                android:textColor="@android:color/black"/>
+            <EditText
+                android:id="@+id/et_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="@dimen/listing_text_size_large"
+                android:layout_below="@id/et_prod_title"
+                android:text="50 AED"/>
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/separator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/lightGrey"
+            android:layout_below="@id/product_title_section"
+            android:layout_marginTop="10dp"
+            />
+
+        <LinearLayout
+            android:layout_below="@id/separator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:gravity="center_vertical"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/body_font_large"
+                        android:text="@string/label_size"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="20dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/body_font_large"
+                        android:text="@string/label_color"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="20dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/body_font_large"
+                        android:text="@string/label_target_group"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="20dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/body_font_large"
+                        android:text="@string/label_daily_limit"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="20dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/body_font_large"
+                        android:text="@string/label_handling_time"/>
+
+                </LinearLayout>
+                <!--Values Layout Start-->
+                <LinearLayout
+                    android:id="@+id/prod_values_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+                    <EditText
+                        android:id="@+id/et_size"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/body_font_large"
+                        android:textAllCaps="true"
+                        />
+
+                    <EditText
+                        android:id="@+id/et_color"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/body_font_large"
+                        android:textAllCaps="true"
+                        />
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/edit_spinner_group"
+                        android:layout_marginTop="30dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@drawable/round_rect_shape"
+                        android:popupTheme="@style/SpinnerDropdownTheme"
+                        />
+                    <com.shawnlin.numberpicker.NumberPicker
+                        android:id="@+id/edit_order_limit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        app:np_height="40dp"
+                        app:np_orientation="horizontal"
+                        app:np_dividerColor="@color/shittyGreen"
+                        app:np_max="10"
+                        app:np_min="1"
+                        app:np_selectedTextColor="@color/colorPrimaryDark"
+                        app:np_textColor="@color/colorPrimaryDark"
+                        app:np_value="1" />
+
+                    <com.shawnlin.numberpicker.NumberPicker
+                        android:id="@+id/edit_handling_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:np_height="40dp"
+                        app:np_orientation="horizontal"
+                        app:np_dividerColor="@color/shittyGreen"
+                        app:np_max="10"
+                        app:np_min="1"
+                        app:np_selectedTextColor="@color/colorPrimaryDark"
+                        app:np_textColor="@color/colorPrimaryDark"
+                        app:np_value="1" />
+
+                    <TextView
+                        android:id="@+id/value_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/body_font_large"
+                        android:textAllCaps="true"
+                        />
+
+                </LinearLayout>
+            </LinearLayout>
+            <!--Values Layout End-->
+
+
+            <!--Description Layout Start-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:padding="10dp">
+
+                <!--Label English Desc-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/body_font_large"
+                    android:text="@string/label_desc_en"/>
+                <!--Value English Desc-->
+                <EditText
+                    android:id="@+id/et_desc_en"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/body_font_large"
+                    />
+                <!--Label Arabic Desc-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/body_font_large"
+                    android:text="@string/label_desc_ar"/>
+
+                <!--Value Arabic Desc-->
+                <EditText
+                    android:id="@+id/et_desc_ar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/body_font_large"
+                    />
+            </LinearLayout>
+            <!--Description Layout End-->
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>
