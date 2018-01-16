@@ -16,7 +16,6 @@ import ae.netaq.homesorder_vendor.activities.country_area_selection.AreaSelectio
 import ae.netaq.homesorder_vendor.activities.country_area_selection.SelectCountryActivity;
 import ae.netaq.homesorder_vendor.activities.product_detail.ProductDetailActivity;
 import ae.netaq.homesorder_vendor.activities.ProfileActivity;
-import ae.netaq.homesorder_vendor.activities.product_edit.ProductEdit;
 import ae.netaq.homesorder_vendor.activities.product_edit.ImagesEditActivity;
 import ae.netaq.homesorder_vendor.activities.product_edit.ProductEditActivity;
 import ae.netaq.homesorder_vendor.activities.product_promotion.ProductPromotionActivity;
@@ -150,6 +149,7 @@ public class NavigationController {
 
     public static void startActivitySignIn(Context context){
         Intent intent = new Intent(context, SignInActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         context.startActivity(intent);
     }
 

@@ -60,7 +60,7 @@ public class ProductsManager {
         return productsDao;
     }
 
-    public static long persistProduct(ProductTable product){
+    public static long addProduct(ProductTable product){
         long productID = 0;
         try {
             productID = getProductDao().create(product);

@@ -76,7 +76,7 @@ public class ProductService {
 
 
         Call<ResponseAddProduct> addProductrequest = RestClient.getAdapter().
-                productAdd(remoteProduct,"wkc1qowla0iyfkk8wk24alckyani4rts");
+                productAdd(remoteProduct,"wkc1qowla0iyfkk8wk24alckyani4rt");
 
 
         productAddCallbak.onUploadingProduct();
@@ -92,7 +92,7 @@ public class ProductService {
                     int code = apiError.getCode();
 
                     if(code == 4000){
-                        productAddCallbak.onSessionTimesOut();
+                        productAddCallbak.onAuthTokenExpired();
                     }else{
                         String localizedError = ErrorResolver.getLocalizedError(context,
                                 code);

@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ae.netaq.homesorder_vendor.R;
+import ae.netaq.homesorder_vendor.activities.sign_in.SignInActivity;
 import ae.netaq.homesorder_vendor.adapters.FragmentViewPager;
 import ae.netaq.homesorder_vendor.db.data_manager.ProductsManager;
 import ae.netaq.homesorder_vendor.db.data_manager.tables.ImageTable;
@@ -94,7 +95,8 @@ public class AddNewProductActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
         switch (requestCode){
             case NavigationController.REQUEST_PERMISSION_STORAGE:
                 if(grantResults.length > 0 && grantResults[0]== PackageManager.PERMISSION_GRANTED){
@@ -114,7 +116,8 @@ public class AddNewProductActivity extends AppCompatActivity implements
     private void initViews() {
         progressDialog = new ProgressDialog(this, R.style.ProgressDialogTheme);
 
-        pagerAdapter =  NavigationController.getAddNewProductPagerAdapter(getSupportFragmentManager());
+        pagerAdapter =  NavigationController.
+                        getAddNewProductPagerAdapter(getSupportFragmentManager());
         pager.setAdapter(pagerAdapter);
         pager.setOffscreenPageLimit(3);
         indicator.setViewPager(pager);
@@ -144,16 +147,20 @@ public class AddNewProductActivity extends AppCompatActivity implements
             public void onClick(View v) {
                 switch (pager.getCurrentItem()) {
                     case 1:
-                        ((AddProductInformationFragment) pagerAdapter.getFragment(1)).validate();
+                        ((AddProductInformationFragment)
+                                pagerAdapter.getFragment(1)).validate();
                         break;
                     case 2:
-                        ((AddProductImagesFragment) pagerAdapter.getFragment(2)).validate();
+                        ((AddProductImagesFragment)
+                                pagerAdapter.getFragment(2)).validate();
                         break;
                     case 3:
-                        ((ProductPreviewFragment) pagerAdapter.getFragment(3)).validate();
+                        ((ProductPreviewFragment)
+                                pagerAdapter.getFragment(3)).validate();
                         break;
                     default:
-                        ((ChooseCategoryFragment) pagerAdapter.getFragment(0)).validate();
+                        ((ChooseCategoryFragment)
+                                pagerAdapter.getFragment(0)).validate();
                 }
             }
         });
@@ -182,7 +189,8 @@ public class AddNewProductActivity extends AppCompatActivity implements
 
         pager.setCurrentItem(pager.getCurrentItem()+1, true);
         setButtonTile(pager.getCurrentItem());
-        ((ProductPreviewFragment) pagerAdapter.getFragment(3)).setupProductImageSlider(imagesUri);
+        ((ProductPreviewFragment) pagerAdapter.
+                                  getFragment(3)).setupProductImageSlider(imagesUri);
     }
 
     @Override
@@ -219,7 +227,8 @@ public class AddNewProductActivity extends AppCompatActivity implements
         Product.getInstance().setGroup(group);
 
         pager.setCurrentItem(pager.getCurrentItem()+1, true);
-        ((AddProductInformationFragment) pagerAdapter.getFragment(1)).setSelectedMainCategory(mainCategory);
+        ((AddProductInformationFragment)
+                    pagerAdapter.getFragment(1)).setSelectedMainCategory(mainCategory);
         setButtonTile(pager.getCurrentItem());
     }
 
@@ -295,7 +304,7 @@ public class AddNewProductActivity extends AppCompatActivity implements
                 productToPersist.setSize(size);
 
 
-                long localDbID = ProductsManager.persistProduct(productToPersist);
+                long localDbID = ProductsManager.addProduct(productToPersist);
 
 
 
@@ -342,8 +351,23 @@ public class AddNewProductActivity extends AppCompatActivity implements
             }
 
             @Override
-            public void onSessionTimesOut() {
-                //TODO: handle time out
+            public void onAuthTokenExpired() {
+                UIUtils.hideProgressDialog(progressDialog);
+                UIUtils.showMessageDialog(AddNewProductActivity.this,
+                        "Your session has been timed out, You need to Re login again",
+                        "Okay, take me to login screen",
+                        "Let me stay here", new UIUtils.DialogButtonListener() {
+                            @Override
+                            public void onPositiveButtonClicked() {
+                                AddNewProductActivity.this.finish();
+                                NavigationController.startActivitySignIn(AddNewProductActivity.this);
+                            }
+
+                            @Override
+                            public void onNegativeButtonClicked() {
+
+                            }
+                        });
             }
 
 

@@ -10,6 +10,6 @@ package ae.netaq.homesorder_vendor.interfaces;
 public interface GeneralNetworkListener {
 
     void onNetworkFailure();
-    void onSessionTimesOut();
+    void onAuthTokenExpired();
 
 }
