@@ -1,19 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/option_edit"
-        android:title="Edit" />
+    <group android:checkableBehavior="single"
+        android:id="@+id/first_item">
+        <item android:id="@+id/option_edit"
+            android:title="Edit" />
+    </group>
 
-    <item android:id="@+id/option_promote"
-        android:title="Promote" />
+    <group android:checkableBehavior="single"
+        android:id="@+id/second_item">
+        <item android:id="@+id/option_promote"
+            android:title="Promote" />
+    </group>
 
-    <item android:id="@+id/option_feature"
-        android:title="Set Featured" />
+    <group android:checkableBehavior="single"
+        android:id="@+id/third_item">
+        <item android:id="@+id/option_feature"
+            android:title="Set Featured" />
+    </group>
 
-    <item android:id="@+id/option_activity"
-        android:title="Pause"
-        />
-    <item android:id="@+id/option_remove"
-        android:title="Remove"
-        />
+    <group android:checkableBehavior="single"
+        android:id="@+id/fourth_item">
+        <item android:id="@+id/option_activity"
+            android:title="Pause"
+            />
+    </group>
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/fifth_item">
+        <item android:id="@+id/option_remove"
+            android:title="Remove"
+            />
+    </group>
 </menu>

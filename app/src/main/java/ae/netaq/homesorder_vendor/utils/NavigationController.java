@@ -17,6 +17,9 @@ import ae.netaq.homesorder_vendor.activities.country_area_selection.SelectCountr
 import ae.netaq.homesorder_vendor.activities.product_detail.ProductDetailActivity;
 import ae.netaq.homesorder_vendor.activities.ProfileActivity;
 import ae.netaq.homesorder_vendor.activities.product_edit.ProductEdit;
+import ae.netaq.homesorder_vendor.activities.product_edit.ImagesEditActivity;
+import ae.netaq.homesorder_vendor.activities.product_edit.ProductEditActivity;
+import ae.netaq.homesorder_vendor.activities.product_promotion.ProductPromotionActivity;
 import ae.netaq.homesorder_vendor.activities.register.RegisterActivity;
 import ae.netaq.homesorder_vendor.activities.SettingsActivity;
 import ae.netaq.homesorder_vendor.activities.sign_in.SignInActivity;
@@ -161,6 +164,7 @@ public class NavigationController {
     public static void showUpdateProfileActivity(Context context) {
         Intent intent = new Intent(context, UpdateProfileActivity.class);
         context.startActivity(intent);
+
     }
     public static void showCountrySelectActivity(Context context) {
         Intent intent = new Intent(context, SelectCountryActivity.class);
@@ -179,7 +183,13 @@ public class NavigationController {
     }
 
     public static void showProductEdit(Context context,ProductTable product) {
-        Intent intent = new Intent(context, ProductEdit.class);
+        Intent intent = new Intent(context, ProductEditActivity.class);
+        intent.putExtra(KEY_PRODUCT,product);
+        context.startActivity(intent);
+    }
+
+    public static void showActivityProductPromotion(Context context,ProductTable product) {
+        Intent intent = new Intent(context, ProductPromotionActivity.class);
         intent.putExtra(KEY_PRODUCT,product);
         context.startActivity(intent);
     }

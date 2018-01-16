@@ -55,4 +55,6 @@ dependencies {
     compile 'com.shawnlin:number-picker:2.4.4'
     compile 'jp.wasabeef:recyclerview-animators:2.2.7'
     compile "com.andkulikov:transitionseverywhere:1.7.8"
+    compile 'com.wdullaer:materialdatetimepicker:3.5.0'
+
 }
