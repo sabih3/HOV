@@ -57,7 +57,7 @@ public class SettingsActivity extends AppCompatActivity {
     private void initViews() {
 
         String language = DevicePreferences.isLocaleSetToArabic() ?
-                        getString(R.string.lang_name_eng) : getString(R.string.lang_name_arabic);
+                getString(R.string.lang_name_eng) : getString(R.string.lang_name_arabic);
 
 
         selectedLanguage.setText(language);
