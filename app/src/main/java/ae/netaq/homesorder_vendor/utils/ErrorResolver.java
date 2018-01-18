@@ -30,6 +30,10 @@ public class ErrorResolver {
         String interpretedError ="";
 
         switch (code){
+            case 1000:
+                interpretedError = "The product already exists, Please try be giving a different " +
+                        "name";
+            break;
 
             case 1001:
                 interpretedError = mContext.getString(R.string.error_msg_1001);
@@ -42,6 +46,23 @@ public class ErrorResolver {
             case 2001:
                 interpretedError = mContext.getString(R.string.error_msg_2001);
             break;
+
+            case 4000:
+                interpretedError = "";
+            break;
+
+            case 6000:
+                interpretedError = "The product name already exist please choose another name";
+            break;
+
+            case 6001:
+                interpretedError = "Please choose below size values only";
+            break;
+
+            case 6002:
+                interpretedError = "Please choose below colors only";
+            break;
+
             default:
                 interpretedError = mContext.getString(R.string.error_default);
             break;

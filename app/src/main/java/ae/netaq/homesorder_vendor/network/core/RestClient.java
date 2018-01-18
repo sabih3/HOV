@@ -36,7 +36,6 @@ public class RestClient {
 
         httpClient.addInterceptor(loggingInterceptor);
 
-
         retrofit = new Retrofit.Builder()
                 .baseUrl(Endpoints.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())

@@ -1,12 +1,17 @@
 package ae.netaq.homesorder_vendor.activities.update_profile;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -30,6 +35,7 @@ import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.constants.Regex;
 import ae.netaq.homesorder_vendor.models.User;
 import ae.netaq.homesorder_vendor.utils.DevicePreferences;
+import ae.netaq.homesorder_vendor.utils.NavigationController;
 import ae.netaq.homesorder_vendor.utils.Utils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -97,7 +103,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
 
     private Validator validator;
 
-    private Uri logoUri = null;
+    private String imagePath = "";
 
     private static final int SELECT_PICTURE = 100;
 
@@ -152,10 +158,10 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
     }
 
     private void initViews() {
-        profileUpdateEmail.setText(DevicePreferences.getUserInfo().getUserEmail());
-        profileUpdateVendorName.setText(DevicePreferences.getUserInfo().getVendorName());
-        updateProfilePersonName.setText(DevicePreferences.getUserInfo().getPersonName());
-        profileUpdatePhone.setText(DevicePreferences.getUserInfo().getUserPhone());
+        profileUpdateEmail.setText(DevicePreferences.getInstance().getUserInfo().getUserEmail());
+        profileUpdateVendorName.setText(DevicePreferences.getInstance().getUserInfo().getVendorName());
+        updateProfilePersonName.setText(DevicePreferences.getInstance().getUserInfo().getPersonName());
+        profileUpdatePhone.setText(DevicePreferences.getInstance().getUserInfo().getUserPhone());
 
         profileUpdateEmail.setEnabled(false);
         profileUpdateEmail.setFocusable(false);
@@ -171,7 +177,22 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
                 finish();
             }
         });
-        Picasso.with(this).load("file://"+DevicePreferences.getUserInfo().getProfileImagePath()).into(logoImageView);
+
+        Picasso.with(this).load(DevicePreferences.getInstance().getUserInfo().getLogoURL()).into(logoImageView);
+    }
+
+    private void selectProfilePicture(){
+        int permissionGrant = ContextCompat.checkSelfPermission(this,
+                Manifest.permission.READ_EXTERNAL_STORAGE);
+
+        if(permissionGrant == PackageManager.PERMISSION_GRANTED){
+            openImageChooser();
+        }else{
+            //ask permisssion
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                    NavigationController.REQUEST_PERMISSION_STORAGE);
+        }
     }
 
     public void openImageChooser() {
@@ -197,7 +218,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
             removeErrors();
             validator.validate();
         }else if(view.getId() == R.id.edit_photo_image_view){
-            openImageChooser();
+            selectProfilePicture();
         }
 
     }
@@ -215,28 +236,36 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
         if (resultCode == RESULT_OK) {
             if (data != null) {
                 //For Single image
-                logoUri = data.getData();
-                picasso.load(logoUri).resize(200, 200).centerCrop().into(logoImageView);
+                imagePath = Utils.getPathBasedOnSDK(this,data.getData());
+                picasso.load("file://"+imagePath).resize(200, 200).centerCrop().into(logoImageView);
             }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        if(requestCode == NavigationController.REQUEST_PERMISSION_STORAGE){
+            openImageChooser();
         }
     }
 
     @Override
     public void onValidationSucceeded() {
 
-        if(profileUpdateOldPassword.getText().toString().equals(DevicePreferences.getUserInfo().getUserPassword())){
+        if(profileUpdateOldPassword.getText().toString().equals(DevicePreferences.getInstance().getUserInfo().getUserPassword())){
             User.getInstance().setUserEmail(profileUpdateEmail.getText().toString());
             User.getInstance().setPersonName(updateProfilePersonName.getText().toString());
             User.getInstance().setUserPhone(profileUpdatePhone.getText().toString());
             User.getInstance().setVendorName(profileUpdateVendorName.getText().toString());
             User.getInstance().setUserPassword(profileUpdateOldPassword.getText().toString());
-            if(logoUri!=null){
-                User.getInstance().setLogoUri(logoUri);
-
+            if(imagePath!=""){
+                User.getInstance().setProfileImagePath(imagePath);
             }else{
-                User.getInstance().setLogoUri(DevicePreferences.getUserInfo().getLogoUri());
+                User.getInstance().setLogoUri(DevicePreferences.getInstance().getUserInfo().getLogoUri());
+                User.getInstance().setProfileImagePath(DevicePreferences.getInstance().getUserInfo().getProfileImagePath());
             }
-            DevicePreferences.saveUserInfo(User.getInstance());
+            DevicePreferences.getInstance().saveUserInfo(User.getInstance());
             Utils.showToast(this,"Profile Updated Successfully");
         }else{
             profileUpdateOldPasswordLayout.setError(getString(R.string.wrong_password_error));

@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
@@ -20,11 +21,10 @@ import java.util.List;
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.db.data_manager.OrderDataManager;
 import ae.netaq.homesorder_vendor.models.Order;
-import ae.netaq.homesorder_vendor.models.User;
 import ae.netaq.homesorder_vendor.network.services.OrderService;
-import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
 import ae.netaq.homesorder_vendor.utils.UIUtils;
+import ae.netaq.homesorder_vendor.utils.Utils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -43,6 +43,10 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
     @BindView(R.id.sign_in_username_layout)
     TextInputLayout et_username_layout;
+
+    @BindView(R.id.forget_pass_text_view)
+    TextView forgetPassword;
+
     @NotEmpty
     @BindView(R.id.sign_in_username)
     EditText et_userName;
@@ -74,6 +78,8 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
         registerLayout.setOnClickListener(this);
 
+        forgetPassword.setOnClickListener(this);
+
         presenter = new SignInPresenter(this,this);
 
         progressDialog = new ProgressDialog(this, R.style.ProgressDialogTheme);
@@ -88,6 +94,18 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
             validator.validate();
         }else if(view.getId() == R.id.sign_in_register_now){
             NavigationController.startActivityRegister(SignInActivity.this);
+        }else if(view.getId() == R.id.forget_pass_text_view){
+            UIUtils.showForgetPasswordDialog(this, "Forget Password", new UIUtils.ForgetPasswordListener() {
+                @Override
+                public void onPositiveButtonClicked(String username) {
+                    Utils.showToast(SignInActivity.this,username);
+                }
+
+                @Override
+                public void onNegativeButtonClicked() {
+
+                }
+            });
         }
 
     }
@@ -95,10 +113,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
     //SignInPresenter.requestLogin
     @Override
-    public void onLoggedIn(String token) {
-
-        User.getInstance().setUserToken(token);
-        DevicePreferences.getInstance().saveUserInfo(User.getInstance());
+    public void onLoggedIn() {
 
         OrderService.getAllOrders(this,new OrderService.OrderFetchListener() {
             @Override
@@ -121,18 +136,16 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     //SignInPresenter.requestLogin
     @Override
     public void onLoginFailure(String exception) {
-        //TODO (2): Handle UI for exception
         UIUtils.hideProgressDialog(progressDialog);
         UIUtils.showMessageDialog(this, exception,
-                getString(R.string.ok),
-                getString(R.string.cancel), new UIUtils.DialogButtonListener() {
+                getString(R.string.dialog_btn_ok),
+                getString(R.string.dialog_btn_cancel), new UIUtils.DialogButtonListener() {
                     @Override
                     public void onPositiveButtonClicked() {
                     }
 
                     @Override
                     public void onNegativeButtonClicked() {
-
                     }
                 });
     }
@@ -140,10 +153,9 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     //SignInPresenter.requestLogin
     @Override
     public void onNetworkFailure() {
-        //TODO (3): Handle UI for exception
         UIUtils.hideProgressDialog(progressDialog);
         UIUtils.showMessageDialog(this, getString(R.string.unable_to_connect_error),
-                getString(R.string.ok),
+                getString(R.string.dialog_btn_ok),
                 "", new UIUtils.DialogButtonListener() {
                     @Override
                     public void onPositiveButtonClicked() {
@@ -159,11 +171,10 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     //SignInPresenter.requestLogin
     @Override
     public void onUnDefinedException(String localizedError) {
-        //TODO (4): Handle UI for exception
         UIUtils.hideProgressDialog(progressDialog);
         UIUtils.showMessageDialog(this, localizedError,
-                getString(R.string.ok),
-                getString(R.string.cancel), new UIUtils.DialogButtonListener() {
+                getString(R.string.dialog_btn_ok),
+                getString(R.string.dialog_btn_cancel), new UIUtils.DialogButtonListener() {
                     @Override
                     public void onPositiveButtonClicked() {
                     }

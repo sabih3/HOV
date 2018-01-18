@@ -1,0 +1,88 @@
+{
+		"countryNameEN":"Saudia Arabia",
+		"countryNameAR":"",
+		"countryID":2,
+		"countryCode":"SA",
+    
+    "states":[
+      {
+       "stateNameEN":"Jeddah",
+       "stateNameAR":"جدة",
+       "stateID":1,
+       "stateCode":"",
+       
+         "areas":[
+           {
+            "areaNameEN":"70 street",
+            "areaNameAR":"شارع 70",
+            "areaID":"",
+            "areaCode":""
+           },
+           {
+            "areaNameEN":"Abraj",
+            "areaNameAR":"ابراج",
+            "areaID":"",
+            "areaCode":""
+           },
+           {
+            "areaNameEN":"Abruq Ar-Roghama",
+            "areaNameAR":"ابرق ال رغامة",
+            "areaID":"",
+            "areaCode":""
+           },
+           {
+            "areaNameEN":"Adel",
+            "areaNameAR":"عدل",
+            "areaID":"",
+            "areaCode":""
+           },
+           {
+            "areaNameEN":"Al Ain Al Aziziyah",
+            "areaNameAR":"العين ال عزيزية",
+            "areaID":"",
+            "areaCode":""
+           }         
+         ]
+      },
+      {
+        
+       "stateNameEN":"Riyadh",
+       "stateNameAR":"",
+       "stateID":2,
+       "stateCode":"",
+         "areas":[
+             {
+              "areaNameEN":"Al Mather",
+              "areaNameAR":"المعزر",
+              "areaID":"",
+              "areaCode":""
+             },
+             {
+              "areaNameEN":"Al Qusour",
+              "areaNameAR":"ال قصور",
+              "areaID":"",
+              "areaCode":""
+             },
+             {
+              "areaNameEN":"40 street",
+              "areaNameAR":"شارع 40",
+              "areaID":"",
+              "areaCode":""
+             },
+             {
+              "areaNameEN":"60 street",
+              "areaNameAR":"شارع 60",
+              "areaID":"",
+              "areaCode":""
+             },
+             {
+              "areaNameEN":"Abu Al Asoad Street",
+              "areaNameAR":"شارع ابو الاسود",
+              "areaID":"",
+              "areaCode":""
+             }         
+           ]
+      }
+      
+      ]
+}

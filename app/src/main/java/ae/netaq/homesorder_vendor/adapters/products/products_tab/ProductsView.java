@@ -11,4 +11,6 @@ import ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable;
 public interface ProductsView {
 
     void onProductsFetched(List<ProductTable> allProducts);
+    void showProgress();
+    void onException();
 }

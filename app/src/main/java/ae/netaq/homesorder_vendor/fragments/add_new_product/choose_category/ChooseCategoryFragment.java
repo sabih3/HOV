@@ -73,6 +73,8 @@ public class ChooseCategoryFragment extends Fragment implements View.OnClickList
     public ChooseCategoryFragment() {
     }
 
+    private static int CATEGORY_FOOD = 41;
+    private static int CATEGORY_FASHION = 47;
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -220,14 +222,14 @@ public class ChooseCategoryFragment extends Fragment implements View.OnClickList
     public void validate(){
         if(foodCheckBox.isChecked()){
             if(categoriesSpinnerFood.getSelectedItemPosition() != 0){
-                mCallback.onCategoryChosen(0,category,null);
+                mCallback.onCategoryChosen(CATEGORY_FOOD,category,null);
             }else{
                 Utils.showToast(getActivity(), getString(R.string.choose_subcategory_error));
             }
         }else if(fashionCheckbox.isChecked()){
             if(categoriesSpinnerFashion.getSelectedItemPosition() != 0 &&
                     groupSpinnerFashion.getSelectedItemPosition()!= 0){
-                mCallback.onCategoryChosen(1,category,group);
+                mCallback.onCategoryChosen(CATEGORY_FASHION,category,group);
             }else{
                 Utils.showToast(getActivity(), getString(R.string.choose_group_category_error));
             }

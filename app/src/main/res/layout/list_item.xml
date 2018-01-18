@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/row_parent"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+
+    android:background="@color/colorPrimary">
+
+    <LinearLayout
+        android:id="@+id/text_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViewChildItem"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginLeft="60dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:text="Al Bander"
+            android:gravity="center_vertical"
+            />
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_below="@id/text_layout"
+        android:layout_width="match_parent"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_height="0.5dp"
+        android:background="@color/lightGrey"/>
+
+    <cn.refactor.library.SmoothCheckBox
+        android:id="@+id/area_checkBox"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        app:color_checked="@color/colorAccent"
+        />
+
+</RelativeLayout>

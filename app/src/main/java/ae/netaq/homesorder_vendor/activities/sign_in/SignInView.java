@@ -8,6 +8,6 @@ import ae.netaq.homesorder_vendor.activities.GeneralView;
 
 public interface SignInView extends GeneralView{
 
-    void onLoggedIn(String token);
+    void onLoggedIn();
     void onLoginFailure(String failureMessage);
 }

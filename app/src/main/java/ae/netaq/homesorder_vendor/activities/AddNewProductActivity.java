@@ -1,5 +1,6 @@
 package ae.netaq.homesorder_vendor.activities;
 
+import android.app.ProgressDialog;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,8 +17,10 @@ import com.badoualy.stepperindicator.StepperIndicator;
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import ae.netaq.homesorder_vendor.R;
+import ae.netaq.homesorder_vendor.activities.sign_in.SignInActivity;
 import ae.netaq.homesorder_vendor.adapters.FragmentViewPager;
 import ae.netaq.homesorder_vendor.db.data_manager.ProductsManager;
 import ae.netaq.homesorder_vendor.db.data_manager.tables.ImageTable;
@@ -34,9 +37,12 @@ import ae.netaq.homesorder_vendor.fragments.add_new_product.product_preview.Prod
 import ae.netaq.homesorder_vendor.models.Product;
 import ae.netaq.homesorder_vendor.models.ProductCategories;
 import ae.netaq.homesorder_vendor.models.ProductGroups;
+import ae.netaq.homesorder_vendor.network.model.ResponseAddProduct;
+import ae.netaq.homesorder_vendor.network.services.ProductService;
 import ae.netaq.homesorder_vendor.utils.Common;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
 import ae.netaq.homesorder_vendor.utils.NonSwipeableViewPager;
+import ae.netaq.homesorder_vendor.utils.UIUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -45,7 +51,9 @@ import butterknife.ButterKnife;
  */
 
 public class AddNewProductActivity extends AppCompatActivity implements
-             ChooseCategoryView, AddProductInformationView, AddProductImagesView,
+             ChooseCategoryView,
+             AddProductInformationView,
+             AddProductImagesView,
              ProductPreviewView{
 
     @BindView(R.id.add_product_pager)
@@ -61,6 +69,7 @@ public class AddNewProductActivity extends AppCompatActivity implements
     Button nextBtn;
 
     private FragmentViewPager pagerAdapter;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -80,7 +89,14 @@ public class AddNewProductActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    protected void onStop() {
+        super.onStop();
+        progressDialog.dismiss();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
         switch (requestCode){
             case NavigationController.REQUEST_PERMISSION_STORAGE:
                 if(grantResults.length > 0 && grantResults[0]== PackageManager.PERMISSION_GRANTED){
@@ -98,7 +114,10 @@ public class AddNewProductActivity extends AppCompatActivity implements
     }
 
     private void initViews() {
-        pagerAdapter =  NavigationController.getAddNewProductPagerAdapter(getSupportFragmentManager());
+        progressDialog = new ProgressDialog(this, R.style.ProgressDialogTheme);
+
+        pagerAdapter =  NavigationController.
+                        getAddNewProductPagerAdapter(getSupportFragmentManager());
         pager.setAdapter(pagerAdapter);
         pager.setOffscreenPageLimit(3);
         indicator.setViewPager(pager);
@@ -128,16 +147,20 @@ public class AddNewProductActivity extends AppCompatActivity implements
             public void onClick(View v) {
                 switch (pager.getCurrentItem()) {
                     case 1:
-                        ((AddProductInformationFragment) pagerAdapter.getFragment(1)).validate();
+                        ((AddProductInformationFragment)
+                                pagerAdapter.getFragment(1)).validate();
                         break;
                     case 2:
-                        ((AddProductImagesFragment) pagerAdapter.getFragment(2)).validate();
+                        ((AddProductImagesFragment)
+                                pagerAdapter.getFragment(2)).validate();
                         break;
                     case 3:
-                        ((ProductPreviewFragment) pagerAdapter.getFragment(3)).validate();
+                        ((ProductPreviewFragment)
+                                pagerAdapter.getFragment(3)).validate();
                         break;
                     default:
-                        ((ChooseCategoryFragment) pagerAdapter.getFragment(0)).validate();
+                        ((ChooseCategoryFragment)
+                                pagerAdapter.getFragment(0)).validate();
                 }
             }
         });
@@ -166,7 +189,8 @@ public class AddNewProductActivity extends AppCompatActivity implements
 
         pager.setCurrentItem(pager.getCurrentItem()+1, true);
         setButtonTile(pager.getCurrentItem());
-        ((ProductPreviewFragment) pagerAdapter.getFragment(3)).setupProductImageSlider(imagesUri);
+        ((ProductPreviewFragment) pagerAdapter.
+                                  getFragment(3)).setupProductImageSlider(imagesUri);
     }
 
     @Override
@@ -203,61 +227,87 @@ public class AddNewProductActivity extends AppCompatActivity implements
         Product.getInstance().setGroup(group);
 
         pager.setCurrentItem(pager.getCurrentItem()+1, true);
-        ((AddProductInformationFragment) pagerAdapter.getFragment(1)).setSelectedMainCategory(mainCategory);
+        ((AddProductInformationFragment)
+                    pagerAdapter.getFragment(1)).setSelectedMainCategory(mainCategory);
         setButtonTile(pager.getCurrentItem());
     }
 
     @Override
     public void onAddProductRequested() {
-        Product product = Product.getInstance();
 
-        ProductTable productToPersist = new ProductTable();
-        productToPersist.setProductID(product.getProductID());
-        productToPersist.setParentCategoryID(product.getParentCategoryID());
+        ProductService.getInstance().addProduct(this, new ProductService.ProductAddCallbak() {
+            @Override
+            public void onProcessingImages() {
 
-//        productToPersist.setParentCategoryNameEN(product.getSubCategory().getSubCategoryEN());
-//        productToPersist.setParentCategoryNameAR("");
-        try {
-            productToPersist.setTargetGroup(product.getGroup().getId());
-        }catch (NullPointerException npe){
-            productToPersist.setTargetGroup(-1);
-        }
+            }
 
-        productToPersist.setSubCategoryID(product.getSubCategoryID());
-        productToPersist.setSubCategoryNameAR(product.getSubCategory().getSubCategoryAR());
-        productToPersist.setSubCategoryNameEN(product.getSubCategory().getSubCategoryEN());
-        productToPersist.setProductNameEN(product.getProductNameEN());
-        productToPersist.setProductNameAR(product.getProductNameAR());
-        productToPersist.setPerDayOrderLimit(product.getDailyOrderLimit());
-        productToPersist.setHandlingTime(product.getHandlingTime());
-        productToPersist.setProductPrice(product.getProductPrice());
-        productToPersist.setDescriptionAR(product.getProductDescriptionAR());
-        productToPersist.setDescriptionEN(product.getProductDescriptionEN());
-        productToPersist.setColor(product.getColor());
-        productToPersist.setSize(product.getSize());
-        productToPersist.setPerDayOrderLimit(product.getDailyOrderLimit());
-        productToPersist.setHandlingTime(product.getHandlingTime());
-        //productToPersist.setImagesLocalURI(product.getProductImagesUri());
+            @Override
+            public void onUploadingProduct() {
+                UIUtils.showProgressDialog(AddNewProductActivity.this,
+                        getString(R.string.progress_product_upload), progressDialog);
+            }
 
-        long productID = ProductsManager.persistProduct(productToPersist);
+            @Override
+            public void onProductAdded(ResponseAddProduct.Product product) {
+
+                Product.getInstance().reset();
+
+                UIUtils.hideProgressDialog(progressDialog);
+
+                ProductsManager.insertRemoteProduct(product);
+
+                Toast.makeText(AddNewProductActivity.this, "Product Added Successfully",
+                              Toast.LENGTH_LONG).show();
+                AddNewProductActivity.this.finish();
+            }
+
+            @Override
+            public void onProductAddException(String localizedError) {
+                UIUtils.hideProgressDialog(progressDialog);
+
+                UIUtils.showMessageDialog(AddNewProductActivity.this, localizedError,
+                        getString(R.string.dialog_btn_ok), getString(R.string.dialog_btn_cancel),
+                        new UIUtils.DialogButtonListener() {
+                            @Override
+                            public void onPositiveButtonClicked() {
+
+                            }
+
+                            @Override
+                            public void onNegativeButtonClicked() {
+
+                            }
+                        });
+            }
+
+            @Override
+            public void onNetworkFailure() {
+                UIUtils.hideProgressDialog(progressDialog);
+            }
+
+            @Override
+            public void onAuthTokenExpired() {
+                UIUtils.hideProgressDialog(progressDialog);
+                UIUtils.showMessageDialog(AddNewProductActivity.this,
+                        "Your session has been timed out, You need to Re login again",
+                        "Okay, take me to login screen",
+                        "Let me stay here", new UIUtils.DialogButtonListener() {
+                            @Override
+                            public void onPositiveButtonClicked() {
+                                AddNewProductActivity.this.finish();
+                                NavigationController.startActivitySignIn(AddNewProductActivity.this);
+                            }
+
+                            @Override
+                            public void onNegativeButtonClicked() {
+
+                            }
+                        });
+            }
 
 
-        ArrayList<byte[]> imagesArray = Product.getInstance().getImagesArray(); // byte array of images
-        //to be used to upload images in backend
-
-        //Local URI Array, to be replaced with absolute URLs of backend
-        ArrayList<Uri> productImagesUri = Product.getInstance().getProductImagesUri();
-        for(Uri uri:productImagesUri){
-            ImageTable productImage = new ImageTable();
-            productImage.setProductID(productID);
-            productImage.setImage(null);
-            productImage.setImageURI(uri.toString());
-
-            ProductsManager.insertImage(productImage);
-        }
+        });
 
 
-        Toast.makeText(this, "Product Added Successfully", Toast.LENGTH_LONG).show();
-        AddNewProductActivity.this.finish();
     }
 }

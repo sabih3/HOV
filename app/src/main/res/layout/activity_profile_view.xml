@@ -27,7 +27,7 @@
             android:layout_marginBottom="7dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="60dp"
             android:backgroundTint="@android:color/white">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -39,15 +39,12 @@
                 android:paddingTop="60dp"
                 android:orientation="vertical">
                 <TextView
-                    android:id="@+id/name"
+                    android:id="@+id/profile_view_person_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Micheal Castro"
                     android:textSize="22sp"
                     android:textStyle="bold" />
-
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -69,18 +66,17 @@
                             android:text="@string/name"/>
 
                         <TextView
-                            android:id="@+id/person_name"
+                            android:id="@+id/profile_view_vendor_email"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
-                            android:textSize="@dimen/listing_text_size_large"
-                            android:text="Micheal Castro" />
+                            android:textSize="@dimen/listing_text_size_large"/>
 
                     </RelativeLayout>
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
+                        android:layout_height="0.5dp"
                         android:background="@color/lightGrey" />
 
                     <RelativeLayout
@@ -97,26 +93,47 @@
                             android:text="@string/phone_number" />
 
                         <TextView
-                            android:id="@+id/person_phone"
+                            android:id="@+id/profile_view_vendor_phone"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
-                            android:textSize="@dimen/listing_text_size_large"
-                            android:text="+971-528796288" />
+                            android:textSize="@dimen/listing_text_size_large"/>
 
                     </RelativeLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="0.5dp"
                         android:background="@color/lightGrey" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginTop="15dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:textSize="@dimen/listing_text_size_large"
+                            android:textColor="@color/lightGrey"
+                            android:text="@string/vendor_name" />
+
+                        <TextView
+                            android:id="@+id/profile_view_vendor_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:textSize="@dimen/listing_text_size_large" />
+
+                    </RelativeLayout>
                 </LinearLayout>
             </LinearLayout>
         </android.support.v7.widget.CardView>
         </LinearLayout>
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:id="@+id/profile_view_vendor_profile_image"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:src="@drawable/ic_person_white_24px"
             android:background="@drawable/round_background"
             android:layout_alignParentTop="true"

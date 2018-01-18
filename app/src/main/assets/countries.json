@@ -1,0 +1,16 @@
+[
+	{
+		"countryNameEN": "United Arab Emirates",
+		"countryNameAR": "",
+		"countryID": 1,
+		"countryCode": "AE"
+	},
+
+	{
+		"countryNameEN":"Saudia Arabia",
+		"countryNameAR":"",
+		"countryID":2,
+		"countryCode":"SA"
+
+	}
+]

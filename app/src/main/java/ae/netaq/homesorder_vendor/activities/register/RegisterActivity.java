@@ -5,11 +5,9 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -17,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,13 +27,15 @@ import com.mobsandgeeks.saripaar.annotation.Password;
 import com.mobsandgeeks.saripaar.annotation.Pattern;
 import com.squareup.picasso.Picasso;
 
+import java.io.IOException;
 import java.util.List;
 
 import ae.netaq.homesorder_vendor.AppController;
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.constants.Regex;
-import ae.netaq.homesorder_vendor.models.User;
+import ae.netaq.homesorder_vendor.network.model.UserToRegister;
 import ae.netaq.homesorder_vendor.utils.DevicePreferences;
+import ae.netaq.homesorder_vendor.utils.ImageUtils;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
 import ae.netaq.homesorder_vendor.utils.UIUtils;
 import ae.netaq.homesorder_vendor.utils.Utils;
@@ -49,6 +50,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class RegisterActivity extends AppCompatActivity implements
         View.OnClickListener,
         Validator.ValidationListener,RegisterView{
+
+    private static final String TAG = "RegisterActivity";
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -149,13 +152,225 @@ public class RegisterActivity extends AppCompatActivity implements
     private void initViews() {
 
         setTextWatchers();
-
+        //setDummyValuesForTest();
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
+    }
+
+
+
+    @Override
+    public void onClick(View view) {
+
+        if(view.getId() == R.id.edit_photo_image_view){
+            openImageChooser();
+        }else if(view.getId() == R.id.register_btn){
+            removeErrors();
+            validator.setValidationMode(Validator.Mode.BURST);
+            validator.validate();
+        }
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        if(requestCode == NavigationController.REQUEST_PERMISSION_STORAGE){
+            Intent intent = new Intent();
+            intent.setType("image/*");
+            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+            intent.setAction(Intent.ACTION_OPEN_DOCUMENT);
+            intent.addCategory(Intent.CATEGORY_OPENABLE);
+
+            startActivityForResult(Intent.createChooser(intent, getString(R.string.select_pictures)),
+                    SELECT_PICTURE);
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            if (data != null) {
+                logoImageUri = data.getData();
+                imagePath = Utils.getPathBasedOnSDK(this,logoImageUri);
+
+                picasso.load("file://"+imagePath).resize(200, 200).centerCrop().into(logoImageView);
+
+            }
+        }
+    }
+
+
+
+    @Override
+    public void onValidationSucceeded() {
+        String encodedString = "";
+
+        if(logoImageUri!=null){
+            try {
+                encodedString = ImageUtils.getEncodedString(this, logoImageUri);
+            } catch (IOException e) {
+                Log.e(TAG,e.toString());
+            }
+        }
+
+        UserToRegister user = new UserToRegister();
+        user.setEmail(registerEmail.getText().toString());
+        user.setName(registerPersonName.getText().toString());
+        user.setPassword(registerPassword.getText().toString().trim());
+        user.setPhone(registerPhone.getText().toString());
+        user.setVendorName(registerVendorName.getText().toString());
+        user.setDevideID("1212");
+        user.setProfileImage(encodedString);
+
+        //request network to register user
+        DevicePreferences.getInstance().setPasswordInCache(registerPassword.getText().toString().trim());
+        presenter.registerUser(user);
+        UIUtils.showProgressDialog(this, getString(R.string.registering_please_wait), progressDialog);
+
+    }
+
+    @Override
+    public void onValidationFailed(List<ValidationError> errors) {
+        for(int i = 0 ; i<errors.size() ; i++) {
+            if (errors.get(i).getView().getId() == R.id.register_email) {
+                registerEmail.requestFocus();
+                registerEmailLayout.setError(errors.get(i).getFailedRules().get(0).getMessage(this));
+            } else if (errors.get(i).getView().getId() == R.id.register_password) {
+                registerPassword.requestFocus();
+                registerPasswordLayout.setError(errors.get(i).getFailedRules().get(0).getMessage(this));
+            } else if (errors.get(i).getView().getId() == R.id.register_retype_password) {
+                registerRetypePassword.requestFocus();
+                registerRetypePasswordLayout.setError(errors.get(i).getFailedRules().get(0).getMessage(this));
+            }else if (errors.get(i).getView().getId() == R.id.register_person_name) {
+                registerPersonName.requestFocus();
+                registerPersonNameLayout.setError(errors.get(i).getCollatedErrorMessage(this));
+            }else if (errors.get(i).getView().getId() == R.id.register_phone) {
+                registerPhone.requestFocus();
+                registerPhoneLayout.setError(errors.get(i).getFailedRules().get(0).getMessage(this));
+            } else if (errors.get(i).getView().getId() == R.id.register_shop_name) {
+                registerVendorName.requestFocus();
+                registerVendorNameLayout.setError(errors.get(i).getCollatedErrorMessage(this));
+            }
+        }
+    }
+
+    /** =====================Call backs related to Network Requests ============================
+     */
+
+    //RegisterPresenter.registerUser
+    @Override
+    public void onRegistrationSuccess() {
+        UIUtils.hideProgressDialog(progressDialog);
+        Utils.showToast(this, getString(R.string.user_registered_successfully));
+        NavigationController.showMainActivity(RegisterActivity.this);
+        RegisterActivity.this.finish();
+
+    }
+
+    //RegisterPresenter.registerUser
+    @Override
+    public void onEmailTaken(String localizedError) {
+        DevicePreferences.getInstance().setPasswordInCache("");
+
+        UIUtils.hideProgressDialog(progressDialog);
+        UIUtils.showMessageDialog(this, localizedError,
+                getString(R.string.take_me_to_login),
+                getString(R.string.dialog_btn_cancel), new UIUtils.DialogButtonListener() {
+            @Override
+            public void onPositiveButtonClicked() {
+                NavigationController.startActivitySignIn(RegisterActivity.this);
+                finish();
+            }
+
+            @Override
+            public void onNegativeButtonClicked() {
+
+            }
+        });
+    }
+
+    //RegisterPresenter.registerUser
+    @Override
+    public void onVendorNameTaken(String localizedError) {
+        DevicePreferences.getInstance().setPasswordInCache("");
+        UIUtils.hideProgressDialog(progressDialog);
+        UIUtils.showMessageDialog(this, localizedError,
+                getString(R.string.dialog_btn_ok),
+                getString(R.string.dialog_btn_cancel), new UIUtils.DialogButtonListener() {
+                    @Override
+                    public void onPositiveButtonClicked() {
+                        registerVendorName.requestFocus();
+                    }
+
+                    @Override
+                    public void onNegativeButtonClicked() {
+
+                    }
+                });
+    }
+
+
+
+    //RegisterPresenter.registerUser
+    @Override
+    public void onNetworkFailure() {
+        DevicePreferences.getInstance().setPasswordInCache("");
+        UIUtils.hideProgressDialog(progressDialog);
+        UIUtils.showMessageDialog(this, getString(R.string.unable_to_connect_error),
+                getString(R.string.dialog_btn_ok),
+                "", new UIUtils.DialogButtonListener() {
+                    @Override
+                    public void onPositiveButtonClicked() {
+                    }
+
+                    @Override
+                    public void onNegativeButtonClicked() {
+
+                    }
+                });
+    }
+
+    //RegisterPresenter.registerUser
+    @Override
+    public void onUnDefinedException(String localizedError) {
+        UIUtils.hideProgressDialog(progressDialog);
+        UIUtils.showMessageDialog(this, localizedError,
+                getString(R.string.dialog_btn_ok),
+                getString(R.string.dialog_btn_cancel), new UIUtils.DialogButtonListener() {
+                    @Override
+                    public void onPositiveButtonClicked() {
+                        registerVendorName.requestFocus();
+                    }
+
+                    @Override
+                    public void onNegativeButtonClicked() {
+
+                    }
+                });
+    }
+
+    /** =========================Network Call backs block end=================================**/
+
+
+    private void setDummyValuesForTest() {
+        String EMAIL = "ahmed10@vendor.com";
+        String VENDOR_NAME = "ahmed10";
+
+        String PASSWORD = "Pass@123";
+        String NAME = "Ahmed";
+        String PHONE  ="0524741150";
+
+        registerEmail.setText(EMAIL);
+        registerPassword.setText(PASSWORD);
+        registerRetypePassword.setText(PASSWORD);
+        registerPersonName.setText(NAME);
+        registerPhone.setText(PHONE);
+        registerVendorName.setText(VENDOR_NAME);
     }
 
     private void setTextWatchers() {
@@ -291,50 +506,9 @@ public class RegisterActivity extends AppCompatActivity implements
         registerVendorNameLayout.setError(null);
     }
 
-    @Override
-    public void onClick(View view) {
-
-        if(view.getId() == R.id.edit_photo_image_view){
-            openImageChooser();
-        }else if(view.getId() == R.id.register_btn){
-            removeErrors();
-            validator.setValidationMode(Validator.Mode.BURST);
-            validator.validate();
-        }
-
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
-                                           @NonNull int[] grantResults) {
-        if(requestCode == NavigationController.REQUEST_PERMISSION_STORAGE){
-            Intent intent = new Intent();
-            intent.setType("image/*");
-            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-            intent.setAction(Intent.ACTION_OPEN_DOCUMENT);
-            intent.addCategory(Intent.CATEGORY_OPENABLE);
-
-            startActivityForResult(Intent.createChooser(intent, getString(R.string.select_pictures)),
-                    SELECT_PICTURE);
-        }
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
-            if (data != null) {
-                logoImageUri = data.getData();
-                imagePath = Utils.getPathBasedOnSDK(this,logoImageUri);
-
-                picasso.load("file://"+imagePath).resize(200, 200).centerCrop().into(logoImageView);
-
-            }
-        }
-    }
-
     public void openImageChooser() {
         int permissionGrant = ContextCompat.checkSelfPermission(this,
-                              Manifest.permission.READ_EXTERNAL_STORAGE);
+                Manifest.permission.READ_EXTERNAL_STORAGE);
 
         if(permissionGrant == PackageManager.PERMISSION_GRANTED){
             Intent intent = new Intent();
@@ -344,154 +518,13 @@ public class RegisterActivity extends AppCompatActivity implements
             intent.addCategory(Intent.CATEGORY_OPENABLE);
 
             startActivityForResult(Intent.createChooser(intent, getString(R.string.select_pictures)),
-                                                        SELECT_PICTURE);
+                    SELECT_PICTURE);
         }else{
             //ask permisssion
             ActivityCompat.requestPermissions(this,
-                                              new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-                                              NavigationController.REQUEST_PERMISSION_STORAGE);
+                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                    NavigationController.REQUEST_PERMISSION_STORAGE);
         }
     }
-
-    @Override
-    public void onValidationSucceeded() {
-        User.getInstance().setUserEmail(registerEmail.getText().toString());
-        User.getInstance().setUserPassword(registerPassword.getText().toString());
-        User.getInstance().setPersonName(registerPersonName.getText().toString());
-        User.getInstance().setUserPhone(registerPhone.getText().toString());
-        User.getInstance().setVendorName(registerVendorName.getText().toString());
-        User.getInstance().setProfileImagePath(imagePath);
-
-
-        //request network to register user
-        presenter.registerUser();
-        UIUtils.showProgressDialog(this, getString(R.string.registering_please_wait), progressDialog);
-
-    }
-
-    @Override
-    public void onValidationFailed(List<ValidationError> errors) {
-        for(int i = 0 ; i<errors.size() ; i++) {
-            if (errors.get(i).getView().getId() == R.id.register_email) {
-                registerEmail.requestFocus();
-                registerEmailLayout.setError(errors.get(i).getFailedRules().get(0).getMessage(this));
-            } else if (errors.get(i).getView().getId() == R.id.register_password) {
-                registerPassword.requestFocus();
-                registerPasswordLayout.setError(errors.get(i).getFailedRules().get(0).getMessage(this));
-            } else if (errors.get(i).getView().getId() == R.id.register_retype_password) {
-                registerRetypePassword.requestFocus();
-                registerRetypePasswordLayout.setError(errors.get(i).getFailedRules().get(0).getMessage(this));
-            }else if (errors.get(i).getView().getId() == R.id.register_person_name) {
-                registerPersonName.requestFocus();
-                registerPersonNameLayout.setError(errors.get(i).getCollatedErrorMessage(this));
-            }else if (errors.get(i).getView().getId() == R.id.register_phone) {
-                registerPhone.requestFocus();
-                registerPhoneLayout.setError(errors.get(i).getFailedRules().get(0).getMessage(this));
-            } else if (errors.get(i).getView().getId() == R.id.register_shop_name) {
-                registerVendorName.requestFocus();
-                registerVendorNameLayout.setError(errors.get(i).getCollatedErrorMessage(this));
-            }
-        }
-    }
-
-    /** =====================Call backs related to Network Requests ============================
-     * @param token**/
-
-    //RegisterPresenter.registerUser
-    @Override
-    public void onRegistrationSuccess(String token) {
-        User.getInstance().setUserToken(token);
-        DevicePreferences.saveUserInfo(User.getInstance());
-
-        UIUtils.hideProgressDialog(progressDialog);
-        Utils.showToast(this, getString(R.string.user_registered_successfully));
-        NavigationController.showMainActivity(RegisterActivity.this);
-        RegisterActivity.this.finish();
-
-    }
-
-    //RegisterPresenter.registerUser
-    @Override
-    public void onEmailTaken(String localizedError) {
-        //TODO (1) : Handle Email Taken on view
-        UIUtils.hideProgressDialog(progressDialog);
-        UIUtils.showMessageDialog(this, localizedError,
-                getString(R.string.take_me_to_login),
-                getString(R.string.cancel), new UIUtils.DialogButtonListener() {
-            @Override
-            public void onPositiveButtonClicked() {
-                NavigationController.startActivitySignIn(RegisterActivity.this);
-                finish();
-            }
-
-            @Override
-            public void onNegativeButtonClicked() {
-
-            }
-        });
-    }
-
-    //RegisterPresenter.registerUser
-    @Override
-    public void onVendorNameTaken(String localizedError) {
-       //TODO (2) : Handle Vendor Name Taken on view
-        UIUtils.hideProgressDialog(progressDialog);
-        UIUtils.showMessageDialog(this, localizedError,
-                getString(R.string.ok),
-                getString(R.string.cancel), new UIUtils.DialogButtonListener() {
-                    @Override
-                    public void onPositiveButtonClicked() {
-                        registerVendorName.requestFocus();
-                    }
-
-                    @Override
-                    public void onNegativeButtonClicked() {
-
-                    }
-                });
-    }
-
-
-
-    //RegisterPresenter.registerUser
-    @Override
-    public void onNetworkFailure() {
-        //TODO (3) : Handle Network Failure
-        UIUtils.hideProgressDialog(progressDialog);
-        UIUtils.showMessageDialog(this, getString(R.string.unable_to_connect_error),
-                getString(R.string.ok),
-                "", new UIUtils.DialogButtonListener() {
-                    @Override
-                    public void onPositiveButtonClicked() {
-                    }
-
-                    @Override
-                    public void onNegativeButtonClicked() {
-
-                    }
-                });
-    }
-
-    //RegisterPresenter.registerUser
-    @Override
-    public void onUnDefinedException(String localizedError) {
-        //TODO (4) : Handle Undefined Exception on view
-        UIUtils.hideProgressDialog(progressDialog);
-        UIUtils.showMessageDialog(this, localizedError,
-                getString(R.string.ok),
-                getString(R.string.cancel), new UIUtils.DialogButtonListener() {
-                    @Override
-                    public void onPositiveButtonClicked() {
-                        registerVendorName.requestFocus();
-                    }
-
-                    @Override
-                    public void onNegativeButtonClicked() {
-
-                    }
-                });
-    }
-
-    /** =========================Network Call backs block end=================================**/
 }
 

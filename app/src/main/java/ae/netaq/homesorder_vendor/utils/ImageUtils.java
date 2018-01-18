@@ -88,10 +88,16 @@ public class ImageUtils {
     }
 
     public static String getEncodedString(Context context,Uri uri) throws IOException {
-        InputStream is = context.getContentResolver().openInputStream(uri);
-        byte[] inputData = getBytes(is);
-        is.close();
-        String encoded = Base64.encodeToString(inputData, Base64.DEFAULT);
+//        InputStream is = context.getContentResolver().openInputStream(uri);
+//        byte[] inputData = getBytes(is);
+//        is.close();
+//        String encoded = Base64.encodeToString(inputData, Base64.DEFAULT);
+
+        Bitmap bitmap = getImage(context, uri);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG,100,baos);
+        byte[] bytes = baos.toByteArray();
+        String encoded = Base64.encodeToString(bytes, Base64.NO_WRAP);
 
         return encoded;
     }

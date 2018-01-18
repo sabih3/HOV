@@ -18,10 +18,10 @@
     <string name="preview">اطلاع</string>
     <string name="order_detail">بيانات الطلب</string>
     <string name="product_detail">بيانات المنتج</string>
-    <string name="product_name">اسم المنتج</string>
+    <string name="hint_product_name_en">اسم المنتج</string>
     <string name="choose_category">اختر الفئة:</string>
     <string name="choose_sub_category">اختر الفئة الفرعية:</string>
-    <string name="description">الوصف</string>
+    <string name="hint_description_en">الوصف</string>
     <string name="price">السعر</string>
     <string name="add_photo"><u>اضافة صورة</u></string>
     <string name="product_price_required_error">سعر المنتج مطلوب</string>
@@ -35,14 +35,14 @@
     <string name="select_one_category_error">من فضلك اختر فئة واحدة</string>
     <string name="choose_group_category_error">من فضلك اختر الفئة الفرعية والمجموعة للمتابعة</string>
     <string name="valid_price_error">السعر المدخل غير صالح</string>
-    <string name="product_name_ar">اسم المنتج(عربى)</string>
+    <string name="hint_product_name_ar">اسم المنتج(عربى)</string>
     <string name="settings">الاعدادات</string>
     <string name="label_language">الغة</string>
     <string name="handling_time_days">وقت معالجة الطلب (بالأيام)</string>
     <string name="order_limit_per_day">الحد المسموح للطلبات (يوميا)</string>
-    <string name="description_ar">الوصف(عربى)</string>
-    <string name="color">اللون</string>
-    <string name="size">بحجم</string>
+    <string name="hint_description_ar">الوصف(عربى)</string>
+    <string name="hint_color">اللون</string>
+    <string name="hint_product_size">بحجم</string>
     <string name="name">اسم المستخدم</string>
     <string name="forgot_password">هل نسيت كلمة المرور؟</string>
     <string name="password">كلمه السر</string>
@@ -137,12 +137,21 @@
 <string name="error_msg_1002">This shop name is in use by other vendor.Please try with other.</string>
     <string name="error_msg_2001">Your credentials are incorrect.</string>
     <string name="unable_to_connect_error">Unable to connect with the internet</string>
-    <string name="ok">Ok</string>
-    <string name="cancel">Cancel</string>
+    <string name="dialog_btn_ok">Ok</string>
+    <string name="dialog_btn_cancel">Cancel</string>
     <string name="user_registered_successfully">User Registered Successfully</string>
     <string name="take_me_to_login">Take me to login</string>
     <string name="sign_in_please_wait">Signing In! Please Wait...</string>
     <string name="registering_please_wait">Registering! Please Wait...</string>
+    <string name="confirmation_log_out">Do you really want to log out ?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="vendor_name">Vendor Name</string>
+    <string name="proceed">Proceed</string>
+    <string name="select_country">Select Country</string>
+    <string name="enter_your_username_email">Enter your Username / Email</string>
+    <string name="coverage">Your Coverage</string>
+    <string name="progress_product_upload">Product upload in progress</string>
     <string name="edit_product">Edit Product</string>
     <string name="original_price">Original Price:</string>
     <string name="discounted_price">Discounted Price:</string>
@@ -151,6 +160,9 @@
     <string name="end_date">End Date:</string>
     <string name="promote">Promote</string>
     <string name="promotion">Promotion</string>
+    <string name="product_name_ar_required">Product name in arabic is required</string>
+    <string name="validation_error_size">Please provide available sizes, for eg: S,M,L,XL or 250 gms, 500 gms or 1 Ltr, 2 Ltr etc</string>
+    <string name="btn_update_product">تحديث</string>
 
 
 </resources>

@@ -39,31 +39,41 @@ public class AddProductInformationFragment extends Fragment implements Validator
     @BindView(R.id.add_product_information_product_name)
     EditText productName;
 
+    @NotEmpty(messageResId  = R.string.product_name_ar_required)
+    @Order(2)
     @BindView(R.id.add_product_information_product_name_arabic)
     EditText productNameAr;
 
     @NotEmpty(sequence = 1, messageResId  = R.string.product_price_required_error)
     @Pattern(sequence = 2, regex = "[0-9]+(\\.[0-9][0-9]?)?", messageResId = R.string.valid_price_error)
-    @Order(2)
+    @Order(3)
     @BindView(R.id.add_product_information_product_price)
     EditText productPrice;
 
-    @NotEmpty(messageResId  = R.string.product_description_required_error)
-    @Order(3)
-    @BindView(R.id.add_product_information_product_description)
-    EditText productDescription;
-
-    @BindView(R.id.add_product_information_product_description_arabic)
-    EditText productDescriptionAr;
-
+    @NotEmpty(messageResId  = R.string.validation_error_size)
+    @Order(4)
     @BindView(R.id.add_product_information_product_size)
     EditText productSize;
 
+    @Order(5)
     @BindView(R.id.add_product_information_product_color)
     EditText productColor;
+    @NotEmpty(messageResId  = R.string.product_description_required_error)
+
+    @Order(6)
+    @BindView(R.id.add_product_information_product_description)
+    EditText productDescription;
+
+    @Order(7)
+    @BindView(R.id.add_product_information_product_description_arabic)
+    EditText productDescriptionAr;
+
 
     @BindView(R.id.add_product_information_product_name_layout)
     TextInputLayout productNameLayout;
+
+    @BindView(R.id.add_product_information_product_name_layout_arabic)
+    TextInputLayout productNameARLayout;
 
     @BindView(R.id.add_product_information_product_price_layout)
     TextInputLayout productPriceLayout;
@@ -135,6 +145,32 @@ public class AddProductInformationFragment extends Fragment implements Validator
         picker_order_limit.setOnValueChangedListener(new OrderLimitListener());
         picker_handling_time.setOnValueChangedListener(new HandlingTimeListener());
 
+        //setFoodDataInForm();
+        //setFashionDataInForm();
+
+    }
+
+    private void setFoodDataInForm() {
+        productName.setText("Baqlawa8");
+        productNameAr.setText("بقلاوا");
+        productPrice.setText("30.75");
+        productSize.setText("250 Gms,500 Gms");
+        productColor.setText("");
+        picker_order_limit.setValue(5);
+        picker_handling_time.setValue(1);
+        productDescription.setText("This is a description of the food product");
+        productDescriptionAr.setText("سشس  شسشس شسحخهثضخ مثتش خثضخحث ثمناضا");
+    }
+    private void setFashionDataInForm() {
+        productName.setText("Kandura");
+        productNameAr.setText("كندورا");
+        productPrice.setText("500");
+        productSize.setText("S,M,L,XL");
+        productColor.setText("White,Brown,Navy blue");
+        picker_order_limit.setValue(2);
+        picker_handling_time.setValue(5);
+        productDescription.setText("This is a description of the fashion product");
+        productDescriptionAr.setText("سشس  شسشس شسحخهثضخ مثتش خثضخحث ثمناضا");
     }
 
     public void validate(){
@@ -191,7 +227,15 @@ public class AddProductInformationFragment extends Fragment implements Validator
             if (errors.get(i).getView().getId() == R.id.add_product_information_product_name) {
                 productName.requestFocus();
                 productNameLayout.setError(errors.get(i).getCollatedErrorMessage(getActivity()));
-            } else if (errors.get(i).getView().getId() == R.id.add_product_information_product_description) {
+            }else if (errors.get(i).getView().getId() == R.id.add_product_information_product_name_arabic){
+                productNameAr.requestFocus();
+                productNameARLayout.setError(errors.get(i).getCollatedErrorMessage(getActivity()));
+
+            }else if(errors.get(i).getView()==productSize){
+                productSize.requestFocus();
+                productSizeLayout.setError(errors.get(i).getCollatedErrorMessage(getActivity()));
+            }
+            else if (errors.get(i).getView().getId() == R.id.add_product_information_product_description) {
                 productDescription.requestFocus();
                 productDescriptionLayout.setError(errors.get(i).getCollatedErrorMessage(getActivity()));
             } else if (errors.get(i).getView().getId() == R.id.add_product_information_product_price) {

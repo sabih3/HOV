@@ -16,6 +16,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.util.List;
 
 import ae.netaq.homesorder_vendor.R;
@@ -23,6 +27,7 @@ import ae.netaq.homesorder_vendor.adapters.products.products_tab.ProductsPresent
 import ae.netaq.homesorder_vendor.adapters.products.products_tab.ProductsView;
 import ae.netaq.homesorder_vendor.adapters.products.products_tab.SimpleProductsRecyclerAdapter;
 import ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable;
+import ae.netaq.homesorder_vendor.event_bus.ProductUpdatedEvent;
 import ae.netaq.homesorder_vendor.utils.Common;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
 import butterknife.BindView;
@@ -75,15 +80,44 @@ public class SimpleProductsFragment extends Fragment implements
     @Override
     public void onResume() {
         super.onResume();
+        EventBus.getDefault().register(this);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshListener());
+        presenter = new ProductsPresenter(this);
+        presenter.fetchProducts(getContext());
+
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onProductUpdatedEvent(ProductUpdatedEvent productUpdatedEvent){
         presenter = new ProductsPresenter(this);
         presenter.fetchProducts(getContext());
     }
 
     @Override
     public void onProductsFetched(List<ProductTable> allProducts) {
+        swipeRefreshLayout.setRefreshing(false);
         List<ProductTable> productList = allProducts;
         setProductsInList(allProducts);
 
+    }
+
+    @Override
+    public void showProgress() {
+        swipeRefreshLayout.setRefreshing(true);
+    }
+
+
+    @Override
+    public void onException() {
+        //TODO: Handle exception of product list
+        swipeRefreshLayout.setRefreshing(false);
     }
 
     private void setProductsInList(List<ProductTable> allProducts){
@@ -129,5 +163,12 @@ public class SimpleProductsFragment extends Fragment implements
 
         }
         return false;
+    }
+
+    private class SwipeRefreshListener implements SwipeRefreshLayout.OnRefreshListener {
+        @Override
+        public void onRefresh() {
+            presenter.fetchProducts(getActivity());
+        }
     }
 }

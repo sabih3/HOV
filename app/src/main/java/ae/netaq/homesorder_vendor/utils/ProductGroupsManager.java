@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.List;
 
+import ae.netaq.homesorder_vendor.activities.product_edit.ProductEditActivity;
 import ae.netaq.homesorder_vendor.models.ProductGroups;
 
 /**
@@ -46,6 +47,12 @@ public class ProductGroupsManager {
         return gson.fromJson(jsonString, ProductGroups.class);
     }
 
+    /**Get product Group based on ID
+     *
+     * @param context
+     * @param id
+     * @return
+     */
     public static ProductGroups.Group getProductGroup(Context context, int id) {
         String jsonString = JSONUtils.loadJSONFromAsset(context, FILENAME_PRODUCT_GROUPS);
 
@@ -68,6 +75,13 @@ public class ProductGroupsManager {
         return group;
     }
 
+    public static ProductGroups.Group getGroupByPosition(Context context, int groupPosition){
+        ProductGroups.Group group = getProductGroups(context,
+                ProductGroupsManager.FILENAME_PRODUCT_GROUPS).getGroups().get(groupPosition);
+
+        return group;
+    }
+
     public static String getLocaleBasedName(Context context,int id){
         String groupName = "";
 
@@ -80,5 +94,26 @@ public class ProductGroupsManager {
 
         return groupName;
 
+    }
+
+    public static int getproductGroupPosition(Context context, ProductGroups.Group groupToFind) {
+        String jsonString = JSONUtils.loadJSONFromAsset(context, FILENAME_PRODUCT_GROUPS);
+
+        Gson gson = new Gson();
+
+        ProductGroups productGroups = gson.fromJson(jsonString, ProductGroups.class);
+        List<ProductGroups.Group> groups = productGroups.getGroups();
+        int groupPosition = 0;
+
+        for(int i=0;i<groups.size();i++){
+            if(groups.get(i).getId()==groupToFind.getId()){
+
+                groupPosition = i;
+                break;
+            }
+
+        }
+
+        return groupPosition;
     }
 }

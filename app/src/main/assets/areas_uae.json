@@ -1,0 +1,102 @@
+{
+
+    "countryNameEN":"United Arab Emirates",
+    "countryNameAR":"",
+    "countryID":1,
+    "countryCode":"AE",
+    
+    "states":[
+      {
+       "stateNameEN":"Abu Dhabi",
+       "stateNameAR":"أبو ظبي",
+       "stateID":1,
+       "stateCode":"AUH",
+       
+         "areas":[
+           {
+             "areaNameEN":"All Abu Dhabi",
+             "areaNameAR":"",
+             "areaID":"",
+             "areaCode":""
+           },
+
+           {
+            "areaNameEN":"Al Adla",
+            "areaNameAR":"ال عدلا",
+            "areaID":"",
+            "areaCode":""
+           },
+           {
+            "areaNameEN":"Al Aman",
+            "areaNameAR":"ال امان",
+            "areaID":"",
+            "areaCode":""
+           },
+           {
+            "areaNameEN":"Al Bahya",
+            "areaNameAR":"الباهية",
+            "areaID":"",
+            "areaCode":""
+           },
+           {
+            "areaNameEN":"Al Bander",
+            "areaNameAR":"البندر",
+            "areaID":"",
+            "areaCode":""
+           },
+           {
+            "areaNameEN":"Al Dafra",
+            "areaNameAR":"الدفرة",
+            "areaID":"",
+            "areaCode":""
+           }         
+         ]
+      },
+      {
+        
+       "stateNameEN":"Dubai",
+       "stateNameAR":"دبي",
+       "stateID":2,
+       "stateCode":"",
+         "areas":[
+              {
+               "areaNameEN":"All Dubai",
+               "areaNameAR":"",
+               "areaID":"",
+               "areaCode":""
+              },
+             {
+              "areaNameEN":"Abu Hail",
+              "areaNameAR":"ابو هيل",
+              "areaID":"",
+              "areaCode":""
+             },
+             {
+              "areaNameEN":"Academic City",
+              "areaNameAR":"مدينة اكاديمية",
+              "areaID":"",
+              "areaCode":""
+             },
+             {
+              "areaNameEN":"Al Awir",
+              "areaNameAR":"العوير",
+              "areaID":"",
+              "areaCode":""
+             },
+             {
+              "areaNameEN":"Al Bada'a",
+              "areaNameAR":"ال بدع",
+              "areaID":"",
+              "areaCode":""
+             },
+             {
+              "areaNameEN":"Al Baraha",
+              "areaNameAR":"البراحة",
+              "areaID":"",
+              "areaCode":""
+             }         
+           ]
+      }
+      
+      ]
+}

@@ -17,6 +17,7 @@ public class DevicePreferences {
     private static final String LANGUAGE_PREF_KEY = "lang";
     private static final String KEY_ARABIC_LOCALE = "key_locale";
     private static final String KEY_USER_INFO = "user_info";
+    private static final String KEY_CACHED_PWD = "key_pwd";
 
 
     private static DevicePreferences instance;
@@ -89,7 +90,7 @@ public class DevicePreferences {
         return localeSetToArabic;
     }
 
-    public static void saveUserInfo(User user){
+    public void saveUserInfo(User user){
         SharedPreferences.Editor editor = prefs.edit();
         Gson gson = new Gson();
         String json = gson.toJson(user);
@@ -97,11 +98,22 @@ public class DevicePreferences {
         editor.commit();
     }
 
-    public static User getUserInfo(){
+    public User getUserInfo(){
         Gson gson = new Gson();
         String json = prefs.getString(KEY_USER_INFO, "");
-        User obj = gson.fromJson(json, User.class);
-        return obj;
+        User user = gson.fromJson(json, User.class);
+        return user;
     }
 
+    public void setPasswordInCache(String password) {
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(KEY_CACHED_PWD,password);
+        editor.commit();
+    }
+
+    public String getCachedPassword(){
+        String cachedPwd = "";
+        cachedPwd = prefs.getString(KEY_CACHED_PWD,"");
+        return cachedPwd;
+    }
 }

@@ -7,7 +7,7 @@ import ae.netaq.homesorder_vendor.activities.GeneralView;
  */
 
 public interface RegisterView extends GeneralView {
-    void onRegistrationSuccess(String token);
+    void onRegistrationSuccess();
     void onEmailTaken(String localizedError);
     void onVendorNameTaken(String localizedError);
 

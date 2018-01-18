@@ -6,11 +6,13 @@
     android:orientation="vertical"
     android:background="@color/colorPrimary">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="10dp">
+
 
             <TextView
                 android:id="@+id/tv_category"
@@ -19,16 +21,34 @@
                 android:textColor="@color/lightGrey"
                 android:textSize="@dimen/body_font_large"
                 android:text="CATEGORY NAME"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/et_prod_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Product Title"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/body_font_large"
+                    android:theme="@style/TextInputTheme"
+                    android:textColor="@android:color/black"/>
 
-            <EditText
-                android:id="@+id/et_prod_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Product Title"
-                android:textStyle="bold"
-                android:textSize="@dimen/body_font_large"
-                android:theme="@style/TextInputTheme"
-                android:textColor="@android:color/black"/>
+                <EditText
+                    android:id="@+id/et_prod_title_ar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/et_prod_title"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textDirection="rtl"
+                    android:text="Product Title Arabic"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/body_font_large"
+                    android:theme="@style/TextInputTheme"
+                    android:textColor="@android:color/black"
+                    />
+            </RelativeLayout>
             <EditText
                 android:id="@+id/et_price"
                 android:layout_width="wrap_content"
@@ -37,6 +57,10 @@
                 android:textSize="@dimen/listing_text_size_large"
                 android:theme="@style/TextInputTheme"
                 android:text="50 AED"/>
+            <TextView
+                android:id="@+id/tv_product_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <View
@@ -110,22 +134,26 @@
 
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/layout_target_group"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginTop="10dp"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:visibility="gone">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
                         android:layout_weight="1"
                         android:textSize="@dimen/listing_text_size_large"
-                        android:text="@string/label_handling_time"/>
+                        android:text="@string/label_target_group"
+                        />
                     <android.support.v7.widget.AppCompatSpinner
                         android:id="@+id/edit_spinner_group"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
+
                         android:layout_weight="1"
                         android:background="@drawable/round_rect_shape"
                         android:popupTheme="@style/SpinnerDropdownTheme"
@@ -142,7 +170,8 @@
                         android:textColor="@android:color/black"
                         android:layout_weight="1"
                         android:textSize="@dimen/listing_text_size_large"
-                        android:text="@string/label_target_group"/>
+                        android:text="@string/label_handling_time"
+                        />
                     <com.shawnlin.numberpicker.NumberPicker
                         android:id="@+id/edit_order_limit"
                         android:layout_width="match_parent"
@@ -204,8 +233,8 @@
                 <EditText
                     android:id="@+id/et_desc_en"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
+                    android:layout_height="60dp"
+                    android:textColor="@android:color/black"
                     android:textSize="@dimen/body_font_large"
                     />
                 <!--Label Arabic Desc-->
@@ -221,11 +250,11 @@
                 <EditText
                     android:id="@+id/et_desc_ar"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
+                    android:textColor="@android:color/black"
                     android:textSize="@dimen/body_font_large"
                     />
             </LinearLayout>
             <!--Description Layout End-->
         </LinearLayout>
-
 </LinearLayout>

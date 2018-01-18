@@ -26,4 +26,11 @@
             android:title="@string/profile" />
     </group>
 
+    <group android:checkableBehavior="single"
+        android:id="@+id/sixth_item">
+        <item
+            android:id="@+id/covergae_setup"
+            android:title="@string/coverage" />
+    </group>
+
 </menu>
