@@ -51,6 +51,10 @@
         <activity android:name=".activities.AreaSelectionUAE"></activity>
         <activity android:name=".activities.country_area_selection.AreaSelectionKSA"></activity>
         <activity android:name=".activities.product_promotion.ProductPromotionActivity"/>
+
+        <service
+            android:name=".network.services.ProductUpdateService"
+            android:exported="false" />
     </application>
 
 </manifest>

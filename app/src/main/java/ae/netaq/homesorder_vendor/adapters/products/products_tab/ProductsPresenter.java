@@ -7,7 +7,6 @@ import java.util.List;
 
 import ae.netaq.homesorder_vendor.db.data_manager.ProductsManager;
 import ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable;
-import ae.netaq.homesorder_vendor.fragments.products.products_tab.SimpleProductsFragment;
 
 /**
  * Created by sabih on 13-Dec-17.
@@ -22,10 +21,13 @@ public class ProductsPresenter {
     }
 
     public void fetchProducts(Context context) {
+        productsView.showProgress();
+
         try {
             List<ProductTable> allProducts = ProductsManager.getAllProducts();
             productsView.onProductsFetched(allProducts);
         } catch (SQLException e) {
+            productsView.onException();
             //TODO:Handle exception in view
 
         }

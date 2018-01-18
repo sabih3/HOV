@@ -81,4 +81,10 @@ public class SignInPresenter {
             }
         });
     }
+
+
+    public void requestForgetPassword(){
+        
+        RestClient.getAdapter().forgetPwd("");
+    }
 }

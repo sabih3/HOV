@@ -1,12 +1,13 @@
 package ae.netaq.homesorder_vendor.network.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by sabih on 10-Jan-18.
  */
 
-public class RemoteProduct {
+public class RemoteProduct implements Serializable{
 
     private String productname;
     private String productname_arabic;
@@ -20,6 +21,7 @@ public class RemoteProduct {
     private String[] size;
     private ArrayList<String> category;
     private ArrayList<String > images;
+    private long productID;
 
 
     public void setProductname(String productname) {
@@ -68,5 +70,13 @@ public class RemoteProduct {
 
     public void setImages(ArrayList<String> images) {
         this.images = images;
+    }
+
+    public void setProductID(long productID) {
+        this.productID = productID;
+    }
+
+    public long getProductID() {
+        return productID;
     }
 }

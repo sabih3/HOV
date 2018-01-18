@@ -35,5 +35,7 @@ public interface ServicesInterface {
     Call<ResponseAddProduct> productUpdate(@Body RemoteProduct product,
                                            @Path(value = "userToken") String token);
 
-    
+
+    @POST(Endpoints.USER_FORGET_PWD)
+    void forgetPwd(String userEmail);
 }

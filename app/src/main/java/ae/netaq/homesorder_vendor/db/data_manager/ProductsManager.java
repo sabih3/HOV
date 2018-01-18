@@ -15,6 +15,7 @@ import ae.netaq.homesorder_vendor.db.data_manager.tables.ImageTable;
 import ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable;
 import ae.netaq.homesorder_vendor.models.Product;
 import ae.netaq.homesorder_vendor.models.Products;
+import ae.netaq.homesorder_vendor.network.model.ResponseAddProduct;
 import ae.netaq.homesorder_vendor.utils.JSONUtils;
 
 /**
@@ -107,7 +108,7 @@ public class ProductsManager {
 
 
         for(ProductTable product :persistedproducts ){
-            long productID = product.getId();
+            long productID = product.getProductID();
             Dao<ImageTable, Integer> imageDao = getImageDao();
 
             List<ImageTable> imageTables = imageDao.
@@ -117,5 +118,136 @@ public class ProductsManager {
         }
 
         return persistedproducts;
+    }
+
+    public static void insertRemoteProduct(ResponseAddProduct.Product product) {
+        ProductTable productToPersist = new ProductTable();
+        productToPersist.setProductID(product.getProductID());
+        productToPersist.setParentCategoryID(Integer.valueOf(product.getMainCategoryID().get(0)));
+
+        productToPersist.setParentCategoryNameEN(product.getMainCategorynameEN().get(0));
+        productToPersist.setParentCategoryNameAR(product.getMainCategorynameAR().get(0));
+
+        int targetGroupID = -1;
+        try {
+
+            targetGroupID = Integer.valueOf(product.getTargetGroupID().get(0));
+
+        }catch (Exception exc){
+
+        }
+
+        productToPersist.setTargetGroup(targetGroupID);
+
+        productToPersist.setSubCategoryID(Integer.valueOf(product.getSubCategoryID().get(0)));
+        productToPersist.setSubCategoryNameAR(product.getSubCategoryNameAR().get(0));
+        productToPersist.setSubCategoryNameEN(product.getSubCategoryNameEn().get(0));
+        productToPersist.setProductNameEN(product.getProductNameEN());
+        productToPersist.setProductNameAR(product.getProductNameAR());
+        productToPersist.setPerDayOrderLimit(Integer.valueOf(product.getPerDayOrderLimit()));
+        productToPersist.setHandlingTime(Integer.valueOf(product.getHandlingTime()));
+        productToPersist.setProductPrice(Double.valueOf(product.getPrice()));
+        productToPersist.setDescriptionAR(product.getDescriptionAR());
+        productToPersist.setDescriptionEN(product.getDescriptionEN());
+
+        String productColor = "";
+
+        try {
+            productColor = product.getColor().get(0);
+        }catch (Exception exc){
+            productColor = "";
+        }
+
+        productToPersist.setColor(productColor);
+
+        String size = "";
+
+        try {
+            size = product.getSize().get(0);
+        }catch (Exception exc){
+            size = "";
+        }
+
+        productToPersist.setSize(size);
+
+
+        long localDbID = ProductsManager.addProduct(productToPersist);
+
+        //Local URI Array, to be replaced with absolute URLs of backend
+        List<String > productImagePaths = product.getMedia();
+        for(String  url: productImagePaths){
+            ImageTable productImage = new ImageTable();
+            productImage.setProductID(product.getProductID());
+            productImage.setImage(null);
+            productImage.setImageURI(url);
+
+            ProductsManager.insertImage(productImage);
+        }
+    }
+
+    public static void updateExistingProduct(ResponseAddProduct.Product product){
+        try {
+            List<ProductTable> productTables = getProductDao().queryForEq(ProductTable.
+                                               ColumnNames.PRODUCT_ID,
+                                               product.getProductID());
+
+            ProductTable productToUpdate = productTables.get(0);
+
+            //ProductTable productToPersist = new ProductTable();
+            //productToPersist.setProductID(product.getProductID());
+            productToUpdate.setParentCategoryID(Integer.valueOf(product.getMainCategoryID().get(0)));
+
+            productToUpdate.setParentCategoryNameEN(product.getMainCategorynameEN().get(0));
+            productToUpdate.setParentCategoryNameAR(product.getMainCategorynameAR().get(0));
+
+            int targetGroupID = -1;
+            try {
+
+                targetGroupID = Integer.valueOf(product.getTargetGroupID().get(0));
+
+            }catch (Exception exc){
+
+            }
+
+            productToUpdate.setTargetGroup(targetGroupID);
+
+            productToUpdate.setSubCategoryID(Integer.valueOf(product.getSubCategoryID().get(0)));
+            productToUpdate.setSubCategoryNameAR(product.getSubCategoryNameAR().get(0));
+            productToUpdate.setSubCategoryNameEN(product.getSubCategoryNameEn().get(0));
+            productToUpdate.setProductNameEN(product.getProductNameEN());
+            productToUpdate.setProductNameAR(product.getProductNameAR());
+            productToUpdate.setPerDayOrderLimit(Integer.valueOf(product.getPerDayOrderLimit()));
+            productToUpdate.setHandlingTime(Integer.valueOf(product.getHandlingTime()));
+            productToUpdate.setProductPrice(Double.valueOf(product.getPrice()));
+            productToUpdate.setDescriptionAR(product.getDescriptionAR());
+            productToUpdate.setDescriptionEN(product.getDescriptionEN());
+
+            String productColor = "";
+
+            try {
+                productColor = product.getColor().get(0);
+            }catch (Exception exc){
+                productColor = "";
+            }
+
+            productToUpdate.setColor(productColor);
+
+            String size = "";
+
+            try {
+                size = product.getSize().get(0);
+            }catch (Exception exc){
+                size = "";
+            }
+
+            productToUpdate.setSize(size);
+
+            getProductDao().update(productToUpdate);
+        } catch (SQLException e) {
+
+        }
+
+
+
     }
 }

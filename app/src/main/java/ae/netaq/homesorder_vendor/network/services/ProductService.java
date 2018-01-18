@@ -39,7 +39,8 @@ public class ProductService {
         return instance;
     }
 
-    public static void addProduct(final Context context, final ProductAddCallbak productAddCallbak) {
+    public static void addProduct(final Context context,
+                                  final ProductAddCallbak productAddCallbak) {
 
         RemoteProduct remoteProduct = new RemoteProduct();
         String productNameEN = Product.getInstance().getProductNameEN();
@@ -76,7 +77,7 @@ public class ProductService {
 
 
         Call<ResponseAddProduct> addProductrequest = RestClient.getAdapter().
-                productAdd(remoteProduct,"wkc1qowla0iyfkk8wk24alckyani4rt");
+                productAdd(remoteProduct,"mogqx1uf5n1bfejv5llfsyta9hco3ncf");
 
 
         productAddCallbak.onUploadingProduct();

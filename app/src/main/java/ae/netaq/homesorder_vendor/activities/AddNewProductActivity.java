@@ -254,72 +254,7 @@ public class AddNewProductActivity extends AppCompatActivity implements
 
                 UIUtils.hideProgressDialog(progressDialog);
 
-                ProductTable productToPersist = new ProductTable();
-                productToPersist.setProductID(product.getProductID());
-                productToPersist.setParentCategoryID(Integer.valueOf(product.getMainCategoryID().get(0)));
-
-                productToPersist.setParentCategoryNameEN(product.getMainCategorynameEN().get(0));
-                productToPersist.setParentCategoryNameAR(product.getMainCategorynameAR().get(0));
-
-                int targetGroupID = -1;
-                try {
-
-                    targetGroupID = Integer.valueOf(product.getTargetGroupID().get(0));
-
-                }catch (Exception exc){
-
-                }
-
-                productToPersist.setTargetGroup(targetGroupID);
-
-                productToPersist.setSubCategoryID(Integer.valueOf(product.getSubCategoryID().get(0)));
-                productToPersist.setSubCategoryNameAR(product.getSubCategoryNameAR().get(0));
-                productToPersist.setSubCategoryNameEN(product.getSubCategoryNameEn().get(0));
-                productToPersist.setProductNameEN(product.getProductNameEN());
-                productToPersist.setProductNameAR(product.getProductNameAR());
-                productToPersist.setPerDayOrderLimit(Integer.valueOf(product.getPerDayOrderLimit()));
-                productToPersist.setHandlingTime(Integer.valueOf(product.getHandlingTime()));
-                productToPersist.setProductPrice(Double.valueOf(product.getPrice()));
-                productToPersist.setDescriptionAR(product.getDescriptionAR());
-                productToPersist.setDescriptionEN(product.getDescriptionEN());
-
-                String productColor = "";
-
-                try {
-                    productColor = product.getColor().get(0);
-                }catch (Exception exc){
-                    productColor = "";
-                }
-
-                productToPersist.setColor(productColor);
-
-                String size = "";
-
-                try {
-                    size = product.getSize().get(0);
-                }catch (Exception exc){
-                    size = "";
-                }
-
-                productToPersist.setSize(size);
-
-
-                long localDbID = ProductsManager.addProduct(productToPersist);
-
-
-
-
-                //Local URI Array, to be replaced with absolute URLs of backend
-                List<String > productImagePaths = product.getMedia();
-                for(String  url: productImagePaths){
-                    ImageTable productImage = new ImageTable();
-                    productImage.setProductID(localDbID);
-                    productImage.setImage(null);
-                    productImage.setImageURI(url);
-
-                    ProductsManager.insertImage(productImage);
-                }
-
+                ProductsManager.insertRemoteProduct(product);
 
                 Toast.makeText(AddNewProductActivity.this, "Product Added Successfully",
                               Toast.LENGTH_LONG).show();
