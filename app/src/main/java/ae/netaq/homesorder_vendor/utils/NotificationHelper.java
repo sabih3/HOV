@@ -13,15 +13,17 @@ public class NotificationHelper {
 
     public static void showProgressNotification(Context context,
                                                 boolean showProgress,
-                                                long productID){
+                                                long productID,
+                                                String title,
+                                                String desc){
         final Notification.Builder mBuilder;
 
         if(showProgress){
             final NotificationManager mNotifyManager = (NotificationManager)
                     context.getSystemService(Context.NOTIFICATION_SERVICE);
             mBuilder = new Notification.Builder(context);
-            mBuilder.setContentTitle("Product Update")
-                    .setContentText("Updating Product")
+            mBuilder.setContentTitle(title)
+                    .setContentText(desc)
                     .setSmallIcon(android.R.drawable.stat_notify_sync)
                     .setLargeIcon(BitmapFactory.decodeResource(context.getResources(),
                             android.R.drawable.stat_notify_sync))
@@ -36,14 +38,29 @@ public class NotificationHelper {
             final NotificationManager mNotifyManager = (NotificationManager)
                     context.getSystemService(Context.NOTIFICATION_SERVICE);
             mBuilder = new Notification.Builder(context);
-            mBuilder.setContentTitle("Product Update")
-                    .setContentText("Updated Product Successfully")
+            mBuilder.setContentTitle(title)
+                    .setContentText(desc)
                     .setSmallIcon(android.R.drawable.stat_sys_upload_done);
 
             // Issues the notification
             mNotifyManager.notify((int) productID, mBuilder.build());
         }
 
+    }
+
+    public static void showExceptionNotification(Context context,int notificationID,
+                                                 String title,String desc){
+        Notification.Builder mBuilder;
+        mBuilder = new Notification.Builder(context);
+        NotificationManager mNotifyManager = (NotificationManager)
+                context.getSystemService(Context.NOTIFICATION_SERVICE);
+        mBuilder = new Notification.Builder(context);
+        mBuilder.setContentTitle(title)
+                .setContentText(desc)
+                .setSmallIcon(android.R.drawable.stat_notify_error);
+
+        // Issues the notification
+        mNotifyManager.notify((int) notificationID, mBuilder.build());
     }
 }
 
