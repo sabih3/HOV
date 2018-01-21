@@ -14,7 +14,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
+
+import org.greenrobot.eventbus.EventBus;
+
 import ae.netaq.homesorder_vendor.R;
+import ae.netaq.homesorder_vendor.event_bus.ShowColorFieldEvent;
 import ae.netaq.homesorder_vendor.models.ProductCategories;
 import ae.netaq.homesorder_vendor.models.ProductGroups;
 import ae.netaq.homesorder_vendor.utils.ProductCategoriesManager;
@@ -220,22 +224,32 @@ public class ChooseCategoryFragment extends Fragment implements View.OnClickList
     }
     //Will trigger AddNewProductActivity.onCategoryChosen()
     public void validate(){
+        int selectedMainCategory = 0;
         if(foodCheckBox.isChecked()){
             if(categoriesSpinnerFood.getSelectedItemPosition() != 0){
-                mCallback.onCategoryChosen(CATEGORY_FOOD,category,null);
+                selectedMainCategory = CATEGORY_FOOD;
+                group = null;
             }else{
                 Utils.showToast(getActivity(), getString(R.string.choose_subcategory_error));
             }
         }else if(fashionCheckbox.isChecked()){
             if(categoriesSpinnerFashion.getSelectedItemPosition() != 0 &&
                     groupSpinnerFashion.getSelectedItemPosition()!= 0){
-                mCallback.onCategoryChosen(CATEGORY_FASHION,category,group);
+                selectedMainCategory = CATEGORY_FASHION;
             }else{
                 Utils.showToast(getActivity(), getString(R.string.choose_group_category_error));
             }
+
+
         }else{
             Utils.showToast(getActivity(), getString(R.string.choose_main_category_error));
         }
+
+        mCallback.onCategoryChosen(selectedMainCategory,category,group);
+        if(selectedMainCategory == CATEGORY_FOOD){
+            EventBus.getDefault().post(new ShowColorFieldEvent());
+        }
+
     }
 
     @Override

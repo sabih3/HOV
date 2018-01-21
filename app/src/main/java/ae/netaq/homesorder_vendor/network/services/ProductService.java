@@ -67,11 +67,16 @@ public class ProductService {
         remoteProduct.setOrderlimitperday(String.valueOf(dailyOrderLimit));
         remoteProduct.setHandlingtime(String.valueOf(handlingTime));
 
-        if(!color.isEmpty()){
-            remoteProduct.setColor(new String[]{color});
-        }
+//        if(color.isEmpty()){
+//            remoteProduct.setColor(new String[]{});
+//        }
+//        else{
+//            remoteProduct.setColor(new String[]{color});
+//        }
 
+        remoteProduct.setColor(new String[]{color});
         remoteProduct.setSize(new String[]{size});
+        remoteProduct.setWeight(new String[]{});
         remoteProduct.setCategory(category);
         remoteProduct.setImages(getByteConvertedImages(context));
 
