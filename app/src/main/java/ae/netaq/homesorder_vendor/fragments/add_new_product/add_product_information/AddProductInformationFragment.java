@@ -19,9 +19,15 @@ import com.mobsandgeeks.saripaar.annotation.Order;
 import com.mobsandgeeks.saripaar.annotation.Pattern;
 import com.shawnlin.numberpicker.NumberPicker;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.util.List;
 
 import ae.netaq.homesorder_vendor.R;
+import ae.netaq.homesorder_vendor.event_bus.ShowColorFieldEvent;
+import ae.netaq.homesorder_vendor.models.Product;
 import ae.netaq.homesorder_vendor.utils.Common;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -120,6 +126,7 @@ public class AddProductInformationFragment extends Fragment implements Validator
                              @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.add_information_fragment, container, false);
+        EventBus.getDefault().register(this);
         ButterKnife.bind(this, view);
 
         initViews();
@@ -132,6 +139,14 @@ public class AddProductInformationFragment extends Fragment implements Validator
 
         return view;
 
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void showColorField(ShowColorFieldEvent onFashionCategoryChosen) {
+        productColorLayout.setVisibility(View.GONE);
+        productColor.setVisibility(View.GONE);
+        getView().requestLayout();
+        //getView().invalidate();
     }
 
     private void initViews() {

@@ -29,9 +29,7 @@ public class ResponseAddProduct {
     }
 
     public class Product {
-        @SerializedName("Color")
         public ArrayList<String> color;
-        @SerializedName("Size")
         public List<String> size;
         public int productID;
         public String productNameEN;

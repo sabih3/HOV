@@ -16,7 +16,7 @@ public class RemoteProduct implements Serializable{
     private String description_arabic;
     private String orderlimitperday;
     private String handlingtime;
-    private String weight;
+    private String[] weight;
     private String[] color;
     private String[] size;
     private ArrayList<String> category;
@@ -52,7 +52,7 @@ public class RemoteProduct implements Serializable{
         this.handlingtime = handlingtime;
     }
 
-    public void setWeight(String weight) {
+    public void setWeight(String[] weight) {
         this.weight = weight;
     }
 
