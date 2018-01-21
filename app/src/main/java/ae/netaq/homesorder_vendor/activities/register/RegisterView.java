@@ -10,6 +10,4 @@ public interface RegisterView extends GeneralView {
     void onRegistrationSuccess();
     void onEmailTaken(String localizedError);
     void onVendorNameTaken(String localizedError);
-
-
 }

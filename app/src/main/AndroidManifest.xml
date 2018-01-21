@@ -36,7 +36,7 @@
         <activity android:name=".activities.ProfileActivity" />
         <activity
             android:name=".activities.update_profile.UpdateProfileActivity"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity android:name=".activities.product_edit.ImagesEditActivity"/>
         <activity
             android:name=".activities.AddNewProductActivity"

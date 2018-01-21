@@ -1,6 +1,8 @@
 package ae.netaq.homesorder_vendor.activities.update_profile;
 
 import android.Manifest;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -17,8 +19,10 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
@@ -34,8 +38,10 @@ import ae.netaq.homesorder_vendor.AppController;
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.constants.Regex;
 import ae.netaq.homesorder_vendor.models.User;
+import ae.netaq.homesorder_vendor.network.model.NetworkUser;
 import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
+import ae.netaq.homesorder_vendor.utils.UIUtils;
 import ae.netaq.homesorder_vendor.utils.Utils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,7 +51,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * Created by Netaq on 12/20/2017.
  */
 
-public class UpdateProfileActivity extends AppCompatActivity implements View.OnClickListener, Validator.ValidationListener{
+public class UpdateProfileActivity extends AppCompatActivity implements View.OnClickListener, Validator.ValidationListener, UpdateProfileActivityView{
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -107,7 +113,9 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
 
     private static final int SELECT_PICTURE = 100;
 
-    private Picasso picasso;
+    private ProgressDialog progressDialog;
+
+    private UpdateProfileActivityPresenter updateProfileActivityPresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -118,6 +126,8 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
         toolbar.setTitle(R.string.update_profile);
         setSupportActionBar(toolbar);
 
+        updateProfileActivityPresenter = new UpdateProfileActivityPresenter(this, this);
+
         validator = new Validator(this);
         validator.setValidationListener(this);
 
@@ -125,7 +135,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
 
         editPhotoImageView.setOnClickListener(this);
 
-        picasso = AppController.get(this).getPicasso();
+        progressDialog = new ProgressDialog(this, R.style.ProgressDialogTheme);
 
         initViews();
 
@@ -204,6 +214,14 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
         startActivityForResult(Intent.createChooser(intent, getString(R.string.select_pictures)), SELECT_PICTURE);
     }
 
+    private void hideKeyboard(){
+        View view = this.getCurrentFocus();
+        if(view!=null){
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
+
     @Override
     public void onClick(View view) {
 
@@ -237,7 +255,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
             if (data != null) {
                 //For Single image
                 imagePath = Utils.getPathBasedOnSDK(this,data.getData());
-                picasso.load("file://"+imagePath).resize(200, 200).centerCrop().into(logoImageView);
+                Picasso.with(UpdateProfileActivity.this).load("file://"+imagePath).resize(200, 200).centerCrop().into(logoImageView);
             }
         }
     }
@@ -254,7 +272,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
     public void onValidationSucceeded() {
 
         if(profileUpdateOldPassword.getText().toString().equals(DevicePreferences.getInstance().getUserInfo().getUserPassword())){
-            User.getInstance().setUserEmail(profileUpdateEmail.getText().toString());
+           /* User.getInstance().setUserEmail(profileUpdateEmail.getText().toString());
             User.getInstance().setPersonName(updateProfilePersonName.getText().toString());
             User.getInstance().setUserPhone(profileUpdatePhone.getText().toString());
             User.getInstance().setVendorName(profileUpdateVendorName.getText().toString());
@@ -266,9 +284,25 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
                 User.getInstance().setProfileImagePath(DevicePreferences.getInstance().getUserInfo().getProfileImagePath());
             }
             DevicePreferences.getInstance().saveUserInfo(User.getInstance());
-            Utils.showToast(this,"Profile Updated Successfully");
+            Utils.showToast(this,"Profile Updated Successfully");*/
+
+            hideKeyboard();
+            UIUtils.showProgressDialog(this,"Updating User! Please Wait..", progressDialog);
+
+            NetworkUser networkUser = new NetworkUser();
+            networkUser.setEmail(User.getInstance().getUserEmail());
+            networkUser.setName(updateProfilePersonName.getText().toString());
+            networkUser.setPassword(profileUpdateNewPassword.getText().toString().trim());
+            networkUser.setPhone(profileUpdatePhone.getText().toString());
+            networkUser.setVendorName(User.getInstance().getVendorName());
+            networkUser.setDevideID("1212");
+            networkUser.setProfileImage(null);
+
+            updateProfileActivityPresenter.requestUpdateUser(networkUser);
+
         }else{
             profileUpdateOldPasswordLayout.setError(getString(R.string.wrong_password_error));
+            hideKeyboard();
         }
 
     }
@@ -293,5 +327,52 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
                 profileUpdateConfirmNewPasswordLayout.setError(errors.get(i).getFailedRules().get(0).getMessage(this));
             }
         }
+        hideKeyboard();
+    }
+
+    @Override
+    public void onProfileUpdated() {
+        UIUtils.hideProgressDialog(progressDialog);
+        Toast.makeText(this, "Profile Updated Successfully", Toast.LENGTH_SHORT).show();
+        finish();
+    }
+
+    @Override
+    public void onProfileUpdateFailure(String errorMessage) {
+        UIUtils.hideProgressDialog(progressDialog);
+        UIUtils.showMessageDialog(this, errorMessage,
+                getString(R.string.dialog_btn_ok),
+                getString(R.string.dialog_btn_cancel), new UIUtils.DialogButtonListener() {
+                    @Override
+                    public void onPositiveButtonClicked() {
+                    }
+
+                    @Override
+                    public void onNegativeButtonClicked() {
+
+                    }
+                });
+    }
+
+    @Override
+    public void onNetworkFailure() {
+        UIUtils.hideProgressDialog(progressDialog);
+        UIUtils.showMessageDialog(this, getString(R.string.unable_to_connect_error),
+                getString(R.string.dialog_btn_ok),
+                "", new UIUtils.DialogButtonListener() {
+                    @Override
+                    public void onPositiveButtonClicked() {
+                    }
+
+                    @Override
+                    public void onNegativeButtonClicked() {
+
+                    }
+                });
+    }
+
+    @Override
+    public void onUnDefinedException(String localizedError) {
+
     }
 }

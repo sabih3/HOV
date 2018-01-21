@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by sabih on 21-Dec-17.
  */
 
-public class UserToRegister {
+public class NetworkUser {
 
     private String email;
     private String username;

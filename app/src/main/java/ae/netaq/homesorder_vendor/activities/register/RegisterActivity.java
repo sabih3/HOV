@@ -33,7 +33,7 @@ import java.util.List;
 import ae.netaq.homesorder_vendor.AppController;
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.constants.Regex;
-import ae.netaq.homesorder_vendor.network.model.UserToRegister;
+import ae.netaq.homesorder_vendor.network.model.NetworkUser;
 import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import ae.netaq.homesorder_vendor.utils.ImageUtils;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
@@ -218,7 +218,7 @@ public class RegisterActivity extends AppCompatActivity implements
             }
         }
 
-        UserToRegister user = new UserToRegister();
+        NetworkUser user = new NetworkUser();
         user.setEmail(registerEmail.getText().toString());
         user.setName(registerPersonName.getText().toString());
         user.setPassword(registerPassword.getText().toString().trim());

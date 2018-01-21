@@ -3,14 +3,11 @@ package ae.netaq.homesorder_vendor.activities.register;
 import android.content.Context;
 
 import ae.netaq.homesorder_vendor.db.data_manager.UserDataManager;
-import ae.netaq.homesorder_vendor.models.User;
 import ae.netaq.homesorder_vendor.network.core.ErrorUtils;
 import ae.netaq.homesorder_vendor.network.core.ResponseCodes;
 import ae.netaq.homesorder_vendor.network.core.RestClient;
 import ae.netaq.homesorder_vendor.network.model.APIError;
-import ae.netaq.homesorder_vendor.network.model.GeneralResponse;
-import ae.netaq.homesorder_vendor.network.model.UserToRegister;
-import ae.netaq.homesorder_vendor.utils.DevicePreferences;
+import ae.netaq.homesorder_vendor.network.model.NetworkUser;
 import ae.netaq.homesorder_vendor.utils.ErrorResolver;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,18 +27,18 @@ public class RegisterPresenter {
         this.viewListener = registerView;
     }
 
-    public void registerUser(UserToRegister userToRegister) {
-//        UserToRegister user = new UserToRegister();
-//        user.setEmail(User.getInstance().getUserEmail());
-//        user.setName(User.getInstance().getPersonName());
-//        user.setPassword(User.getInstance().getUserPassword());
-//        user.setPhone(User.getInstance().getUserPhone());
-//        user.setVendorName(User.getInstance().getVendorName());
+    public void registerUser(final NetworkUser user) {
+//        NetworkUser user = new NetworkUser();
+//        user.setEmail(NetworkUser.getInstance().getUserEmail());
+//        user.setName(NetworkUser.getInstance().getPersonName());
+//        user.setPassword(NetworkUser.getInstance().getUserPassword());
+//        user.setPhone(NetworkUser.getInstance().getUserPhone());
+//        user.setVendorName(NetworkUser.getInstance().getVendorName());
 //        user.setDevideID("1212");
-//        user.setProfileImage(User.getInstance().getLogoString());
+//        user.setProfileImage(NetworkUser.getInstance().getLogoString());
 
 
-        Call<AuthenticationResponse> registerRequest = RestClient.getAdapter().registerUser(userToRegister);
+        Call<AuthenticationResponse> registerRequest = RestClient.getAdapter().registerUser(user);
 
         registerRequest.enqueue(new Callback<AuthenticationResponse>() {
             @Override
@@ -50,7 +47,7 @@ public class RegisterPresenter {
                     //No App Server exception
                     if(response.body().getCode()== ResponseCodes.SUCCESS){
 
-                        UserDataManager.persistUser(response);
+                        UserDataManager.persistUser(response, user.getPassword());
 
 
                         viewListener.onRegistrationSuccess();

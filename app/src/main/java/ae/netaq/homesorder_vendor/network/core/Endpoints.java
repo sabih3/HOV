@@ -17,4 +17,6 @@ public class Endpoints {
 
     public static final String PRODUCT_UPDATE = "vendor/product/update/{userToken}";
     public static final String USER_FORGET_PWD = "vendor/forgotpassword";
+
+    public static final String USER_PROFILE_UPDATE = "vendor/me/update/{userToken}";
 }

@@ -144,11 +144,21 @@
                 android:hint="@string/old_password"
                 android:inputType="textPassword"
                 android:maxLines="1"
+                android:imeOptions="actionDone"
                 android:layoutDirection="ltr"
                 android:theme="@style/TextInputTheme"
                 android:textColor="@android:color/black"
                 android:backgroundTint="@color/lightGrey"/>
         </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Change Password"
+            android:textSize="16sp"
+            android:layout_margin="3dp"
+            android:textColor="@color/lightGrey"
+            android:textStyle="bold"/>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/update_profile_new_password_layout"

@@ -4,12 +4,14 @@ import android.content.Context;
 
 import ae.netaq.homesorder_vendor.activities.register.AuthenticationResponse;
 import ae.netaq.homesorder_vendor.db.data_manager.UserDataManager;
+import ae.netaq.homesorder_vendor.models.User;
 import ae.netaq.homesorder_vendor.network.core.ErrorUtils;
 import ae.netaq.homesorder_vendor.network.core.ResponseCodes;
 import ae.netaq.homesorder_vendor.network.core.RestClient;
 import ae.netaq.homesorder_vendor.network.model.APIError;
 import ae.netaq.homesorder_vendor.network.model.GeneralResponse;
 import ae.netaq.homesorder_vendor.network.model.Login;
+import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import ae.netaq.homesorder_vendor.utils.ErrorResolver;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,7 +37,7 @@ public class SignInPresenter {
      * @param userName
      * @param password
      */
-    public void requestLogin(String userName, String password) {
+    public void requestLogin(String userName, final String password) {
         Login login = new Login();
         login.setUsername(userName);
         login.setPassword(password);
@@ -48,7 +50,7 @@ public class SignInPresenter {
                 if(response.body() != null){
                     //No App Server exception
                     if(response.body().getCode()== ResponseCodes.SUCCESS){
-                        UserDataManager.persistUser(response);
+                        UserDataManager.persistUser(response, password);
                         viewListener.onLoggedIn();
                     }
                 }

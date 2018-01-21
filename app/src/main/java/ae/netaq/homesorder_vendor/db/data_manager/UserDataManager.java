@@ -13,7 +13,7 @@ import retrofit2.Response;
 public class UserDataManager {
 
 
-    public static void persistUser(Response<AuthenticationResponse> response) {
+    public static void persistUser(Response<AuthenticationResponse> response, String password) {
         String token = response.body().getToken();
         String personName = response.body().getProfile().getUsername();
         String email = response.body().getProfile().getEmail();
@@ -28,6 +28,17 @@ public class UserDataManager {
         User.getInstance().setUserPhone(phoneNumber);
         User.getInstance().setVendorName(vendorName);
         User.getInstance().setUserToken(token);
+        User.getInstance().setUserPassword(password);
+
+        DevicePreferences.getInstance().saveUserInfo(User.getInstance());
+
+    }
+
+    public static void persistUpdatedUser(Response<AuthenticationResponse> response) {
+
+
+        User.getInstance().setPersonName(response.body().getProfile().getUsername());
+        User.getInstance().setUserPhone(response.body().getProfile().getPhoneNumber());
 
         DevicePreferences.getInstance().saveUserInfo(User.getInstance());
     }
