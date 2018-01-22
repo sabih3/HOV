@@ -243,6 +243,7 @@ public class ProductEditActivity extends AppCompatActivity implements View.OnCli
                         String imageBinary = ImageUtils.getEncodedString(ProductEditActivity.
                                         this, Uri.parse(image.getImageURI()));
                         imagesList.add(imageBinary);
+                        continue;
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -253,26 +254,30 @@ public class ProductEditActivity extends AppCompatActivity implements View.OnCli
                 if(URLUtil.isNetworkUrl(image.getImageURI())){
 
                     //download the image, and set extracted binary in array list
+                    Picasso.with(ProductEditActivity.this).load(product.getImagesArray().get(0).getImageURI()).into(new Target() {
+                        @Override
+                        public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                            try {
+                                ImageUtils.getEncodedString(ProductEditActivity.this,bitmap);
+                            } catch (IOException e) {
+                                //todo: Handle exception
+                            }
+                        }
+
+                        @Override
+                        public void onBitmapFailed(Drawable errorDrawable) {
+
+                        }
+
+                        @Override
+                        public void onPrepareLoad(Drawable placeHolderDrawable) {
+
+                        }
+                    });
                 }
             }
-            remoteProduct.setImages(imagesList);
 
-//            Picasso.with(ProductEditActivity.this).load(product.getImagesArray().get(0).getImageURI()).into(new Target() {
-//                @Override
-//                public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
-//
-//                }
-//
-//                @Override
-//                public void onBitmapFailed(Drawable errorDrawable) {
-//
-//                }
-//
-//                @Override
-//                public void onPrepareLoad(Drawable placeHolderDrawable) {
-//
-//                }
-//            });
+            remoteProduct.setImages(imagesList);
 
             Intent intent = new Intent(ProductEditActivity.this, ProductUpdateService.class);
             intent.putExtra(KEY_UPDATE_PRODUCT,remoteProduct);
@@ -283,7 +288,7 @@ public class ProductEditActivity extends AppCompatActivity implements View.OnCli
         }
     }
 
-    private class Target implements com.squareup.picasso.Target{
+    private class PicassoTarget implements com.squareup.picasso.Target{
 
         @Override
         public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {

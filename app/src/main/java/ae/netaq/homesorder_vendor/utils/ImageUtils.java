@@ -102,6 +102,15 @@ public class ImageUtils {
         return encoded;
     }
 
+    public static String getEncodedString(Context context,Bitmap bitmap) throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG,100,baos);
+        byte[] bytes = baos.toByteArray();
+        String encodedString = Base64.encodeToString(bytes, Base64.NO_WRAP);
+
+        return encodedString;
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static String getRealPathFromURI_API19(Context context, Uri uri){
         String filePath = "";
