@@ -232,7 +232,7 @@ public class ProductEditActivity extends AppCompatActivity implements View.OnCli
 
 
             remoteProduct.setCategory(category);
-            ArrayList<String> imagesList = new ArrayList<>();
+            final ArrayList<String> imagesList = new ArrayList<>();
 
 
             List<ImageTable> imagesArray = product.getImagesArray();
@@ -258,7 +258,8 @@ public class ProductEditActivity extends AppCompatActivity implements View.OnCli
                         @Override
                         public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
                             try {
-                                ImageUtils.getEncodedString(ProductEditActivity.this,bitmap);
+                                String encodedString = ImageUtils.getEncodedString(ProductEditActivity.this, bitmap);
+                                imagesList.add(encodedString);
                             } catch (IOException e) {
                                 //todo: Handle exception
                             }
