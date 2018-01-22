@@ -214,7 +214,8 @@ public class ProductEditActivity extends AppCompatActivity implements View.OnCli
             remoteProduct.setProductname_arabic(productTitleAR);
             remoteProduct.setPrice(productPrice);
             remoteProduct.setSize(new String[]{productSize});
-            remoteProduct.setColor(new String[]{"blue"});
+            remoteProduct.setColor(new String[]{productColor});
+            remoteProduct.setWeight(new String[]{});
             remoteProduct.setHandlingtime(String.valueOf(handlingTime));
             remoteProduct.setOrderlimitperday(String.valueOf(orderLimit));
             remoteProduct.setDescription(descriptionEN);
