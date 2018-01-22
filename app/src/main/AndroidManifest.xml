@@ -45,6 +45,7 @@
             android:name=".activities.register.RegisterActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".activities.product_edit.ProductEditActivity"
+            android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan"/>
 
         <activity android:name=".activities.country_area_selection.SelectCountryActivity" />

@@ -50,12 +50,19 @@ public class ProductUpdateService extends IntentService{
                 if(response.isSuccessful()){
                     NotificationHelper.showProgressNotification(ProductUpdateService.this,
                                                                 false,
-                                                                 productToUpdate.getProductID());
+                                                                 productToUpdate.getProductID(),
+                                                                "Product Update",
+                                                                "Updated Product Successfully");
                     ProductsManager.updateExistingProduct(response.body().getProduct());
                     EventBus.getDefault().post(new ProductUpdatedEvent());
 
                 }else{
-                    //notify user about this
+                    NotificationHelper.showExceptionNotification(ProductUpdateService.this,
+                            (int) productToUpdate.getProductID(),
+                            "Failed to update product",
+                            "Weight field");
+
+                    //EventBus.getDefault().post(new ProductUpdatedEvent());
                 }
 
             }
@@ -67,42 +74,10 @@ public class ProductUpdateService extends IntentService{
         });
 
         NotificationHelper.showProgressNotification(this,true,
-                                                    productToUpdate.getProductID());
+                                                    productToUpdate.getProductID(),
+                                                    "Product Update",
+                                                    "Updating Product");
 
     }
 
-    /**
-    private void showProgressNotification(Context context, boolean showProgress, long productID) {
-        final int id = 1;
-        final Notification.Builder mBuilder;
-
-        if(showProgress){
-            final NotificationManager mNotifyManager = (NotificationManager)
-                    getSystemService(Context.NOTIFICATION_SERVICE);
-            mBuilder = new Notification.Builder(this);
-            mBuilder.setContentTitle("Product Update")
-                    .setContentText("Updating Product")
-                    .setSmallIcon(android.R.drawable.stat_notify_sync)
-                    .setLargeIcon(BitmapFactory.decodeResource(this.getResources(),
-                                 android.R.drawable.stat_notify_sync))
-                    .setOngoing(true)
-                    .setOnlyAlertOnce(true);
-
-
-            mBuilder.setProgress(0, 0, true);
-            // Issues the notification
-            mNotifyManager.notify((int) productID, mBuilder.build());
-        }else{
-            final NotificationManager mNotifyManager = (NotificationManager)
-                    getSystemService(Context.NOTIFICATION_SERVICE);
-            mBuilder = new Notification.Builder(this);
-            mBuilder.setContentTitle("Product Update")
-                    .setContentText("Updated Product Successfully")
-                    .setSmallIcon(android.R.drawable.stat_sys_upload_done);
-
-            // Issues the notification
-            mNotifyManager.notify((int) productID, mBuilder.build());
-        }
-
-    }**/
 }

@@ -115,7 +115,7 @@ public class ImagesEditActivity extends AppCompatActivity implements View.OnClic
                         imageTable.setImage(null);
                         imageTable.setImageURI(uri.toString());
                         imagesArray.add(imageTable);
-                        ProductsManager.insertImage(imageTable);
+
                     }
                 }
 
@@ -127,7 +127,7 @@ public class ImagesEditActivity extends AppCompatActivity implements View.OnClic
                     imageTable.setImage(null);
                     imageTable.setImageURI(uri.toString());
                     imagesArray.add(imageTable);
-                    ProductsManager.insertImage(imageTable);
+
 
                 }
                 editImagesRecyclerAdapter.notifyDataSetChanged();
@@ -157,7 +157,8 @@ public class ImagesEditActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View view) {
         if(view.getId() == R.id.edit_product_images_btn){
-            product.setImagesArray(imagesArray);
+            //product.setImagesArray(imagesArray);
+            //NavigationController.showProductEdit(ImagesEditActivity.this,product);
             Intent intent = new Intent();
             intent.putExtra(NavigationController.KEY_PRODUCT, product);
             setResult(RESULT_OK, intent);
