@@ -28,9 +28,9 @@ public class UpdateProfileActivityPresenter {
         this.viewListener = viewListener;
     }
 
-    public void requestUpdateUser(NetworkUser user){
+    public void requestUpdateUser(NetworkUser user, String userToken){
 
-        Call<AuthenticationResponse> userUpdateRequest = RestClient.getAdapter().userUpdate(user, User.getInstance().getUserToken());
+        Call<AuthenticationResponse> userUpdateRequest = RestClient.getAdapter().userUpdate(user, userToken);
 
         userUpdateRequest.enqueue(new Callback<AuthenticationResponse>() {
             @Override

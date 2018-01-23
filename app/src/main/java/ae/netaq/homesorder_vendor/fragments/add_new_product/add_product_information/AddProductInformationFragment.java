@@ -64,12 +64,13 @@ public class AddProductInformationFragment extends Fragment implements Validator
     @Order(5)
     @BindView(R.id.add_product_information_product_color)
     EditText productColor;
-    @NotEmpty(messageResId  = R.string.product_description_required_error)
 
+    @NotEmpty(messageResId  = R.string.product_description_required_error)
     @Order(6)
     @BindView(R.id.add_product_information_product_description)
     EditText productDescription;
 
+    @NotEmpty(messageResId  = R.string.product_description_arabic_required_error)
     @Order(7)
     @BindView(R.id.add_product_information_product_description_arabic)
     EditText productDescriptionAr;
@@ -98,6 +99,9 @@ public class AddProductInformationFragment extends Fragment implements Validator
 
     @BindView(R.id.picker_handling_time)
     NumberPicker picker_handling_time;
+
+    @BindView(R.id.add_product_information_product_description_layout_arabic)
+    TextInputLayout productDescriptionARLayout;
 
     private AddProductInformationView mCallback;
 
@@ -203,8 +207,10 @@ public class AddProductInformationFragment extends Fragment implements Validator
 
     private void removeErrors() {
         productNameLayout.setError(null);
+        productNameARLayout.setError(null);
         productPriceLayout.setError(null);
         productDescriptionLayout.setError(null);
+        productDescriptionARLayout.setError(null);
     }
 
     @Override
@@ -249,13 +255,16 @@ public class AddProductInformationFragment extends Fragment implements Validator
             }else if(errors.get(i).getView()==productSize){
                 productSize.requestFocus();
                 productSizeLayout.setError(errors.get(i).getCollatedErrorMessage(getActivity()));
-            }
-            else if (errors.get(i).getView().getId() == R.id.add_product_information_product_description) {
+            }else if (errors.get(i).getView().getId() == R.id.add_product_information_product_description) {
                 productDescription.requestFocus();
                 productDescriptionLayout.setError(errors.get(i).getCollatedErrorMessage(getActivity()));
-            } else if (errors.get(i).getView().getId() == R.id.add_product_information_product_price) {
+            }else if (errors.get(i).getView().getId() == R.id.add_product_information_product_price) {
                 productPrice.requestFocus();
                 productPriceLayout.setError(errors.get(i).getFailedRules().get(0).getMessage(getActivity()));
+            }else if (errors.get(i).getView().getId() == R.id.add_product_information_product_description_arabic){
+                productDescriptionAr.requestFocus();
+                productDescriptionARLayout.setError(errors.get(i).getCollatedErrorMessage(getActivity()));
+
             }
         }
     }

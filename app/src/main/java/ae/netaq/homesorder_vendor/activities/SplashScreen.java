@@ -153,8 +153,7 @@ public class SplashScreen extends AppCompatActivity implements Animation.Animati
         }else{
 
             
-            if(UserDataManager.getPersistedUser().getUserEmail() == null){
-
+            if(DevicePreferences.getUserInfo() == null){
                 NavigationController.startActivitySignIn(SplashScreen.this);
                 finish();
             }else{

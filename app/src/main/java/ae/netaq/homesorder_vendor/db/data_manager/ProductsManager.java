@@ -243,6 +243,26 @@ public class ProductsManager {
             productToUpdate.setSize(size);
 
             getProductDao().update(productToUpdate);
+
+            List<ImageTable> imageTables = getImageDao().queryForEq(ProductTable.
+                            ColumnNames.PRODUCT_ID,
+                    product.getProductID());
+
+            ImageTable imageTable = imageTables.get(0);
+            getImageDao().delete(imageTable);
+
+            //Local URI Array, to be replaced with absolute URLs of backend
+            List<String > productImagePaths = product.getMedia();
+            for(String  url: productImagePaths){
+                ImageTable productImage = new ImageTable();
+                productImage.setProductID(product.getProductID());
+                productImage.setImage(null);
+                productImage.setImageURI(url);
+
+                ProductsManager.insertImage(productImage);
+            }
+
+
         } catch (SQLException e) {
 
         }

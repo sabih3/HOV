@@ -5,7 +5,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -32,14 +31,18 @@ import com.mobsandgeeks.saripaar.annotation.Password;
 import com.mobsandgeeks.saripaar.annotation.Pattern;
 import com.squareup.picasso.Picasso;
 
+import org.greenrobot.eventbus.EventBus;
+
+import java.io.IOException;
 import java.util.List;
 
-import ae.netaq.homesorder_vendor.AppController;
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.constants.Regex;
-import ae.netaq.homesorder_vendor.models.User;
+import ae.netaq.homesorder_vendor.db.data_manager.UserDataManager;
+import ae.netaq.homesorder_vendor.event_bus.ProfileUpdatedEvent;
 import ae.netaq.homesorder_vendor.network.model.NetworkUser;
 import ae.netaq.homesorder_vendor.utils.DevicePreferences;
+import ae.netaq.homesorder_vendor.utils.ImageUtils;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
 import ae.netaq.homesorder_vendor.utils.UIUtils;
 import ae.netaq.homesorder_vendor.utils.Utils;
@@ -117,9 +120,12 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
 
     private UpdateProfileActivityPresenter updateProfileActivityPresenter;
 
+    private String profileImageBinary;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_update_profile);
         ButterKnife.bind(this);
 
@@ -168,10 +174,10 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
     }
 
     private void initViews() {
-        profileUpdateEmail.setText(DevicePreferences.getInstance().getUserInfo().getUserEmail());
-        profileUpdateVendorName.setText(DevicePreferences.getInstance().getUserInfo().getVendorName());
-        updateProfilePersonName.setText(DevicePreferences.getInstance().getUserInfo().getPersonName());
-        profileUpdatePhone.setText(DevicePreferences.getInstance().getUserInfo().getUserPhone());
+        profileUpdateEmail.setText(UserDataManager.getPersistedUser().getUserEmail());
+        profileUpdateVendorName.setText(UserDataManager.getPersistedUser().getVendorName());
+        updateProfilePersonName.setText(UserDataManager.getPersistedUser().getPersonName());
+        profileUpdatePhone.setText(UserDataManager.getPersistedUser().getUserPhone());
 
         profileUpdateEmail.setEnabled(false);
         profileUpdateEmail.setFocusable(false);
@@ -188,7 +194,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
             }
         });
 
-        Picasso.with(this).load(DevicePreferences.getInstance().getUserInfo().getLogoURL()).into(logoImageView);
+        Picasso.with(this).load(DevicePreferences.getInstance().getUserInfo().getProfileImagePath()).into(logoImageView);
     }
 
     private void selectProfilePicture(){
@@ -256,6 +262,12 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
                 //For Single image
                 imagePath = Utils.getPathBasedOnSDK(this,data.getData());
                 Picasso.with(UpdateProfileActivity.this).load("file://"+imagePath).resize(200, 200).centerCrop().into(logoImageView);
+
+                try {
+                    profileImageBinary = ImageUtils.getEncodedString(UpdateProfileActivity.this, data.getData());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -272,33 +284,20 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
     public void onValidationSucceeded() {
 
         if(profileUpdateOldPassword.getText().toString().equals(DevicePreferences.getInstance().getUserInfo().getUserPassword())){
-           /* User.getInstance().setUserEmail(profileUpdateEmail.getText().toString());
-            User.getInstance().setPersonName(updateProfilePersonName.getText().toString());
-            User.getInstance().setUserPhone(profileUpdatePhone.getText().toString());
-            User.getInstance().setVendorName(profileUpdateVendorName.getText().toString());
-            User.getInstance().setUserPassword(profileUpdateOldPassword.getText().toString());
-            if(imagePath!=""){
-                User.getInstance().setProfileImagePath(imagePath);
-            }else{
-                User.getInstance().setLogoUri(DevicePreferences.getInstance().getUserInfo().getLogoUri());
-                User.getInstance().setProfileImagePath(DevicePreferences.getInstance().getUserInfo().getProfileImagePath());
-            }
-            DevicePreferences.getInstance().saveUserInfo(User.getInstance());
-            Utils.showToast(this,"Profile Updated Successfully");*/
 
             hideKeyboard();
             UIUtils.showProgressDialog(this,"Updating User! Please Wait..", progressDialog);
 
             NetworkUser networkUser = new NetworkUser();
-            networkUser.setEmail(User.getInstance().getUserEmail());
+            networkUser.setEmail(UserDataManager.getPersistedUser().getUserEmail());
             networkUser.setName(updateProfilePersonName.getText().toString());
             networkUser.setPassword(profileUpdateNewPassword.getText().toString().trim());
             networkUser.setPhone(profileUpdatePhone.getText().toString());
-            networkUser.setVendorName(User.getInstance().getVendorName());
+            networkUser.setVendorName(UserDataManager.getPersistedUser().getVendorName());
             networkUser.setDevideID("1212");
-            networkUser.setProfileImage(null);
+            networkUser.setProfileImage(profileImageBinary);
 
-            updateProfileActivityPresenter.requestUpdateUser(networkUser);
+            updateProfileActivityPresenter.requestUpdateUser(networkUser, DevicePreferences.getInstance().getUserInfo().getUserToken());
 
         }else{
             profileUpdateOldPasswordLayout.setError(getString(R.string.wrong_password_error));
@@ -334,6 +333,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
     public void onProfileUpdated() {
         UIUtils.hideProgressDialog(progressDialog);
         Toast.makeText(this, "Profile Updated Successfully", Toast.LENGTH_SHORT).show();
+        EventBus.getDefault().post(new ProfileUpdatedEvent());
         finish();
     }
 

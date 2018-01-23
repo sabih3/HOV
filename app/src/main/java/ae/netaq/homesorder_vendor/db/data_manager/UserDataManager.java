@@ -24,7 +24,7 @@ public class UserDataManager {
 
         User.getInstance().setPersonName(personName);
         User.getInstance().setUserEmail(email);
-        User.getInstance().setLogoURL(image);
+        User.getInstance().setProfileImagePath(image);
         User.getInstance().setUserPhone(phoneNumber);
         User.getInstance().setVendorName(vendorName);
         User.getInstance().setUserToken(token);
@@ -39,6 +39,7 @@ public class UserDataManager {
 
         User.getInstance().setPersonName(response.body().getProfile().getUsername());
         User.getInstance().setUserPhone(response.body().getProfile().getPhoneNumber());
+        User.getInstance().setProfileImagePath(response.body().getProfile().getImage());
 
         DevicePreferences.getInstance().saveUserInfo(User.getInstance());
     }

@@ -49,13 +49,13 @@ public class AppController extends Application{
 
         Common.setAppLocaleToArabic(this,preferredLocale); // set preferred lcoale
 
-        User cachedUser = DevicePreferences.getInstance().getUserInfo();
+        /*User cachedUser = DevicePreferences.getInstance().getUserInfo();
 
         Country uaeRegion = CountryDataManager.getUAERegion(this);
         Country ksaRegion = CountryDataManager.getKSARegion(this);
 
         UserDataManager.persistUAERegion(uaeRegion);
-        UserDataManager.persistKSARegion(ksaRegion);
+        UserDataManager.persistKSARegion(ksaRegion);*/
 
 
     }

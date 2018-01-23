@@ -90,7 +90,7 @@ public class DevicePreferences {
         return localeSetToArabic;
     }
 
-    public void saveUserInfo(User user){
+    public static void saveUserInfo(User user){
         SharedPreferences.Editor editor = prefs.edit();
         Gson gson = new Gson();
         String json = gson.toJson(user);
@@ -98,7 +98,7 @@ public class DevicePreferences {
         editor.commit();
     }
 
-    public User getUserInfo(){
+    public static User getUserInfo(){
         Gson gson = new Gson();
         String json = prefs.getString(KEY_USER_INFO, "");
         User user = gson.fromJson(json, User.class);

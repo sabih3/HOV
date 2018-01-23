@@ -1,16 +1,9 @@
-package ae.netaq.homesorder_vendor.network.services;
+package ae.netaq.homesorder_vendor.activities.product_edit;
 
-import android.app.IntentService;
-import android.app.Notification;
-import android.app.NotificationManager;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.BitmapFactory;
-import android.support.annotation.Nullable;
 
 import org.greenrobot.eventbus.EventBus;
 
-import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.db.data_manager.ProductsManager;
 import ae.netaq.homesorder_vendor.event_bus.ProductUpdatedEvent;
 import ae.netaq.homesorder_vendor.network.core.RestClient;
@@ -25,21 +18,18 @@ import retrofit2.Response;
  * Created by sabih on 16-Jan-18.
  */
 
-public class ProductUpdateService extends IntentService{
+public class ProductEditPresenter {
 
-    public static String KEY_UPDATE_PRODUCT = "updateProductKey";
 
-    public ProductUpdateService() {
-        super(ProductUpdateService.class.getName());
+    private final Context mContext;
+    private ProductEditView productUpdateView;
+
+    public ProductEditPresenter(Context mContext, ProductEditView productUpdateView) {
+        this.mContext = mContext;
+        this.productUpdateView = productUpdateView;
     }
 
-    @Override
-    protected void onHandleIntent(@Nullable Intent intent) {
-        RemoteProduct productToUpdate = (RemoteProduct) intent.getSerializableExtra(KEY_UPDATE_PRODUCT);
-        updateProduct(productToUpdate);
-    }
-
-    private void updateProduct(final RemoteProduct productToUpdate) {
+    public void updateProduct(final RemoteProduct productToUpdate) {
         Call<ResponseAddProduct> updateProductRequest = RestClient.getAdapter().
                                  productUpdate(productToUpdate, "mogqx1uf5n1bfejv5llfsyta9hco3ncf");
 
@@ -48,19 +38,21 @@ public class ProductUpdateService extends IntentService{
             @Override
             public void onResponse(Call<ResponseAddProduct> call, Response<ResponseAddProduct> response) {
                 if(response.isSuccessful()){
-                    NotificationHelper.showProgressNotification(ProductUpdateService.this,
+                    NotificationHelper.showProgressNotification(mContext,
                                                                 false,
                                                                  productToUpdate.getProductID(),
                                                                 "Product Update",
                                                                 "Updated Product Successfully");
                     ProductsManager.updateExistingProduct(response.body().getProduct());
                     EventBus.getDefault().post(new ProductUpdatedEvent());
+                    productUpdateView.onProductUpdateSuccess();
 
                 }else{
-                    NotificationHelper.showExceptionNotification(ProductUpdateService.this,
+                    NotificationHelper.showExceptionNotification(mContext,
                             (int) productToUpdate.getProductID(),
                             "Failed to update product",
                             "Weight field");
+                    productUpdateView.onProductUpdateFailure();
 
                     //EventBus.getDefault().post(new ProductUpdatedEvent());
                 }
@@ -69,11 +61,12 @@ public class ProductUpdateService extends IntentService{
 
             @Override
             public void onFailure(Call<ResponseAddProduct> call, Throwable t) {
+                productUpdateView.onProductUpdateFailure();
 
             }
         });
 
-        NotificationHelper.showProgressNotification(this,true,
+        NotificationHelper.showProgressNotification(mContext,true,
                                                     productToUpdate.getProductID(),
                                                     "Product Update",
                                                     "Updating Product");

@@ -1,9 +1,13 @@
 package ae.netaq.homesorder_vendor.activities.product_edit;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Looper;
+import android.os.StrictMode;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,15 +18,20 @@ import android.webkit.URLUtil;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.shawnlin.numberpicker.NumberPicker;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.RequestCreator;
 import com.squareup.picasso.Target;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,18 +43,17 @@ import ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable;
 import ae.netaq.homesorder_vendor.models.Product;
 import ae.netaq.homesorder_vendor.models.ProductGroups;
 import ae.netaq.homesorder_vendor.network.model.RemoteProduct;
-import ae.netaq.homesorder_vendor.network.services.ProductUpdateService;
 import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import ae.netaq.homesorder_vendor.utils.ImageUtils;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
+import ae.netaq.homesorder_vendor.utils.NotificationHelper;
 import ae.netaq.homesorder_vendor.utils.ProductGroupsManager;
+import ae.netaq.homesorder_vendor.utils.UIUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import me.relex.circleindicator.CircleIndicator;
 
-import static ae.netaq.homesorder_vendor.network.services.ProductUpdateService.KEY_UPDATE_PRODUCT;
-
-public class ProductEditActivity extends AppCompatActivity implements View.OnClickListener{
+public class ProductEditActivity extends AppCompatActivity implements View.OnClickListener, ProductEditView{
 
 
     @BindView(R.id.toolbar) Toolbar toolbar;
@@ -72,12 +80,22 @@ public class ProductEditActivity extends AppCompatActivity implements View.OnCli
     private ProductTable product;
     private int updatedTargetGroupID = 0;
 
+    private ProgressDialog progressDialog;
+
+    private ProductEditPresenter productEditPresenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_edit);
         ButterKnife.bind(this);
         btnEditImages.setOnClickListener(this);
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
+        productEditPresenter = new ProductEditPresenter(this, this);
+
+        progressDialog = new ProgressDialog(this, R.style.ProgressDialogTheme);
 
         product = (ProductTable) getIntent().getSerializableExtra(NavigationController.KEY_PRODUCT);
         setupProductImages(product.getImagesArray());
@@ -194,9 +212,20 @@ public class ProductEditActivity extends AppCompatActivity implements View.OnCli
         }
     }
 
+    @Override
+    public void onProductUpdateSuccess() {
+        Toast.makeText(this,"Product Updated Successfully!", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onProductUpdateFailure() {
+        Toast.makeText(this,"Product Update Failed! Please try again.", Toast.LENGTH_SHORT).show();
+    }
+
     private class UpdateButtonListener implements View.OnClickListener {
         @Override
         public void onClick(View view) {
+
             String productTitle = etProductTitle.getText().toString();
             String productTitleAR = etProductTitleAR.getText().toString();
             String productPrice = etProductPrice.getText().toString();
@@ -207,7 +236,7 @@ public class ProductEditActivity extends AppCompatActivity implements View.OnCli
             String descriptionEN = editDescEN.getText().toString();
             String descriptionAR = editDescAR.getText().toString();
 
-            RemoteProduct remoteProduct = new RemoteProduct();
+            final RemoteProduct remoteProduct = new RemoteProduct();
 
             remoteProduct.setProductID(product.getProductID());
             remoteProduct.setProductname(productTitle);
@@ -233,64 +262,69 @@ public class ProductEditActivity extends AppCompatActivity implements View.OnCli
 
 
             remoteProduct.setCategory(category);
-            final ArrayList<String> imagesList = new ArrayList<>();
+
+            UIUtils.showProgressDialog(ProductEditActivity.this, "Processing Images",progressDialog);
+
+            Thread mThread = new Thread() {
+                @Override
+                public void run() {
+
+                    final ArrayList<String> imagesList = new ArrayList<>();
 
 
-            List<ImageTable> imagesArray = product.getImagesArray();
+                    List<ImageTable> imagesArray = product.getImagesArray();
 
-            for(ImageTable image : imagesArray){
-                if(URLUtil.isContentUrl(image.getImageURI())){
-                    try {
-                        String imageBinary = ImageUtils.getEncodedString(ProductEditActivity.
-                                        this, Uri.parse(image.getImageURI()));
-                        imagesList.add(imageBinary);
-                        continue;
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    //Extract the binary and set in images Array List
-
-
-                }
-                if(URLUtil.isNetworkUrl(image.getImageURI())){
-
-                    //download the image, and set extracted binary in array list
-                    Picasso.with(ProductEditActivity.this).load(product.getImagesArray().get(0).getImageURI()).into(new Target() {
-                        @Override
-                        public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                    for(ImageTable image : imagesArray){
+                        if(URLUtil.isContentUrl(image.getImageURI())){
                             try {
-                                String encodedString = ImageUtils.getEncodedString(ProductEditActivity.this, bitmap);
-                                imagesList.add(encodedString);
+                                String imageBinary = ImageUtils.getEncodedString(ProductEditActivity.
+                                        this, Uri.parse(image.getImageURI()));
+                                imagesList.add(imageBinary);
+                                continue;
                             } catch (IOException e) {
-                                //todo: Handle exception
+                                e.printStackTrace();
                             }
+                            //Extract the binary and set in images Array List
                         }
+                        if(URLUtil.isNetworkUrl(image.getImageURI())){
 
-                        @Override
-                        public void onBitmapFailed(Drawable errorDrawable) {
+                            Bitmap imageBitmap = null;
 
+                            try {
+                                URL url = new URL(image.getImageURI());
+                                imageBitmap = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+                            } catch(IOException e) {
+                                System.out.println(e);
+                            }
+
+                            String encodedString = null;
+                            try {
+                                encodedString = ImageUtils.getEncodedString(ProductEditActivity.this, imageBitmap);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
+                            imagesList.add(encodedString);
                         }
+                    }
 
-                        @Override
-                        public void onPrepareLoad(Drawable placeHolderDrawable) {
+                    remoteProduct.setImages(imagesList);
 
-                        }
-                    });
+                    productEditPresenter.updateProduct(remoteProduct);
+
+                    progressDialog.dismiss();
+
+                    ProductEditActivity.this.finish();
                 }
-            }
+            };
 
-            remoteProduct.setImages(imagesList);
-
-            Intent intent = new Intent(ProductEditActivity.this, ProductUpdateService.class);
-            intent.putExtra(KEY_UPDATE_PRODUCT,remoteProduct);
-            startService(intent);
-
-            ProductEditActivity.this.finish();
+            mThread.start();
 
         }
     }
 
-    private class PicassoTarget implements com.squareup.picasso.Target{
+
+   /* private class PicassoTarget implements com.squareup.picasso.Target{
 
         @Override
         public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
@@ -306,5 +340,5 @@ public class ProductEditActivity extends AppCompatActivity implements View.OnCli
         public void onPrepareLoad(Drawable placeHolderDrawable) {
 
         }
-    }
+    }*/
 }

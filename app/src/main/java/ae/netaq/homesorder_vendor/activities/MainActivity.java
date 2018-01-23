@@ -27,6 +27,7 @@ import ae.netaq.homesorder_vendor.AppController;
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.db.data_manager.UserDataManager;
 import ae.netaq.homesorder_vendor.event_bus.LanguageChangeEvent;
+import ae.netaq.homesorder_vendor.event_bus.ProfileUpdatedEvent;
 import ae.netaq.homesorder_vendor.fragments.featured.FeaturedFragment;
 import ae.netaq.homesorder_vendor.fragments.orders.OrdersFragment;
 import ae.netaq.homesorder_vendor.fragments.products.ProductsFragment;
@@ -58,6 +59,8 @@ public class MainActivity extends AppCompatActivity implements
     FloatingActionButton addProductFab;
 
     private CircleImageView profilePhoto;
+
+    private TextView tvPersonName;
 
     private ImageView settingsBtn;
 
@@ -95,6 +98,8 @@ public class MainActivity extends AppCompatActivity implements
 
         profilePhoto = navigationView.getHeaderView(0).findViewById(R.id.profile_image);
 
+        tvPersonName = navigationView.getHeaderView(0).findViewById(R.id.drawer_tv_person_name);
+
         settingsBtn.setOnClickListener(this);
 
         updateProfileBtn.setOnClickListener(this);
@@ -116,21 +121,10 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void setProfilePhoto() {
-        CircleImageView profilePhoto = navigationView.getHeaderView(0).
-                                       findViewById(R.id.profile_image);
-
-        if(DevicePreferences.getInstance().getUserInfo()!=null){
-            try {
-                Picasso.with(this).load(DevicePreferences.getInstance().getUserInfo().getLogoURL())
-                        .placeholder(R.drawable.ic_person_white_24px).into(profilePhoto);
-            }catch (Exception exc){
-
-            }
-
+        if(UserDataManager.getPersistedUser().getProfileImagePath()!=null){
+            Picasso.with(this).load(UserDataManager.getPersistedUser().getProfileImagePath()).placeholder(R.drawable.ic_person_white_24px).into(profilePhoto);
         }
-
-        TextView tvPersonName = navigationView.getHeaderView(0).findViewById(R.id.drawer_tv_person_name);
-        tvPersonName.setText(DevicePreferences.getInstance().getUserInfo().getPersonName());
+        tvPersonName.setText(UserDataManager.getPersistedUser().getPersonName());
     }
 
     private void setUpToolBar() {
@@ -291,5 +285,11 @@ public class MainActivity extends AppCompatActivity implements
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onLanguageChanged(LanguageChangeEvent languageChangeEvent){
         configChanges = true;
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onProfileUpdated(ProfileUpdatedEvent profileUpdatedEvent){
+        Picasso.with(MainActivity.this).load(UserDataManager.getPersistedUser().getProfileImagePath()).into(profilePhoto);
+        tvPersonName.setText(UserDataManager.getPersistedUser().getPersonName());
     }
 }
