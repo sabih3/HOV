@@ -43,6 +43,7 @@ import ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable;
 import ae.netaq.homesorder_vendor.models.Product;
 import ae.netaq.homesorder_vendor.models.ProductGroups;
 import ae.netaq.homesorder_vendor.network.model.RemoteProduct;
+import ae.netaq.homesorder_vendor.utils.Common;
 import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import ae.netaq.homesorder_vendor.utils.ImageUtils;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
@@ -271,7 +272,6 @@ public class ProductEditActivity extends AppCompatActivity implements View.OnCli
 
                     final ArrayList<String> imagesList = new ArrayList<>();
 
-
                     List<ImageTable> imagesArray = product.getImagesArray();
 
                     for(ImageTable image : imagesArray){
@@ -308,37 +308,25 @@ public class ProductEditActivity extends AppCompatActivity implements View.OnCli
                         }
                     }
 
-                    remoteProduct.setImages(imagesList);
+                    if(imagesList.size()>0){
+                        remoteProduct.setImages(imagesList);
 
-                    productEditPresenter.updateProduct(remoteProduct);
+                        productEditPresenter.updateProduct(remoteProduct);
 
-                    progressDialog.dismiss();
+                        progressDialog.dismiss();
 
-                    ProductEditActivity.this.finish();
+                        ProductEditActivity.this.finish();
+                    }else{
+                        progressDialog.dismiss();
+                    }
                 }
             };
 
             mThread.start();
 
+            if(product.getImagesArray().size()<=0){
+                Toast.makeText(ProductEditActivity.this, "Please select at least 1 image to continue", Toast.LENGTH_SHORT).show();
+            }
         }
     }
-
-
-   /* private class PicassoTarget implements com.squareup.picasso.Target{
-
-        @Override
-        public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
-
-        }
-
-        @Override
-        public void onBitmapFailed(Drawable errorDrawable) {
-
-        }
-
-        @Override
-        public void onPrepareLoad(Drawable placeHolderDrawable) {
-
-        }
-    }*/
 }
