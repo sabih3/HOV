@@ -15,6 +15,9 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import org.greenrobot.eventbus.EventBus;
@@ -54,6 +57,9 @@ public class SimpleProductsFragment extends Fragment implements
     @BindView(R.id.sync_layout)
     RelativeLayout syncLayout;
 
+    @BindView(R.id.sync_image_view)
+    ImageView syncImage;
+
     private ProductsPresenter presenter;
     private ProductTable productToEdit;
 
@@ -81,7 +87,9 @@ public class SimpleProductsFragment extends Fragment implements
     }
 
     private void initViews() {
-
+        /*Animation rotation = AnimationUtils.loadAnimation(getContext(), R.anim.rotate_anim);
+        rotation.setRepeatCount(Animation.INFINITE);
+        syncImage.startAnimation(rotation);*/
     }
 
     @Override

@@ -1,8 +1,6 @@
 package ae.netaq.homesorder_vendor.db.data_manager;
 
 import ae.netaq.homesorder_vendor.network.model.AuthenticationResponse;
-import ae.netaq.homesorder_vendor.activities.register.AuthenticationResponse;
-import ae.netaq.homesorder_vendor.db.DBHelper;
 import ae.netaq.homesorder_vendor.db.DBManager;
 import ae.netaq.homesorder_vendor.models.Country;
 import ae.netaq.homesorder_vendor.models.User;
