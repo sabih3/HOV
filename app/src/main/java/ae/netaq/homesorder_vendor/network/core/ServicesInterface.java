@@ -1,10 +1,14 @@
 package ae.netaq.homesorder_vendor.network.core;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import ae.netaq.homesorder_vendor.activities.register.AuthenticationResponse;
 import ae.netaq.homesorder_vendor.network.model.Login;
 import ae.netaq.homesorder_vendor.network.model.RemoteProduct;
 import ae.netaq.homesorder_vendor.network.model.ResponseAddProduct;
 import ae.netaq.homesorder_vendor.network.model.NetworkUser;
+import ae.netaq.homesorder_vendor.network.model.ResponseOrderList;
 import ae.netaq.homesorder_vendor.network.model.ResponseProductList;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -44,5 +48,7 @@ public interface ServicesInterface {
     @GET(Endpoints.PRODUCT_LIST)
     Call<ResponseProductList> getProductList(@Path(value = "userToken") String token);
 
+    @GET(Endpoints.ORDER_LIST_NEW)
+    Call<List<ResponseOrderList>> getNewOrders(@Path(value = "userToken")String token);
 
 }

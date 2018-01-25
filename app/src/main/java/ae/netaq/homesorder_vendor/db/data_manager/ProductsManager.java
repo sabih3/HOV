@@ -120,7 +120,7 @@ public class ProductsManager {
         return persistedproducts;
     }
 
-    public static void insertRemoteProduct(ResponseAddProduct.Product product) {
+    public static void insertRemoteProduct(ResponseAddProduct.Product product) throws Exception {
         ProductTable productToPersist = new ProductTable();
         productToPersist.setProductID(product.getProductID());
         productToPersist.setParentCategoryID(Integer.valueOf(product.getMainCategoryID().get(0)));
@@ -130,18 +130,41 @@ public class ProductsManager {
 
         int targetGroupID = -1;
         try {
-
             targetGroupID = Integer.valueOf(product.getTargetGroupID().get(0));
-
         }catch (Exception exc){
 
         }
 
         productToPersist.setTargetGroup(targetGroupID);
 
-        productToPersist.setSubCategoryID(Integer.valueOf(product.getSubCategoryID().get(0)));
-        productToPersist.setSubCategoryNameAR(product.getSubCategoryNameAR().get(0));
-        productToPersist.setSubCategoryNameEN(product.getSubCategoryNameEn().get(0));
+        int subCategoryID = -1;
+        try {
+            productToPersist.setSubCategoryID(Integer.valueOf(product.getSubCategoryID().get(0)));
+        }catch (Exception exc){
+
+        }
+
+        productToPersist.setSubCategoryID(subCategoryID);
+
+        String subCategoryAR="";
+        try {
+            productToPersist.setSubCategoryNameAR(product.getSubCategoryNameAR().get(0));
+        }catch (Exception exc){
+
+        }
+
+        productToPersist.setSubCategoryNameAR(subCategoryAR);
+
+        String subCategoryEN = "";
+
+        try {
+            productToPersist.setSubCategoryNameEN(product.getSubCategoryNameEn().get(0));
+        }catch (Exception exc){
+
+        }
+
+        productToPersist.setSubCategoryNameEN(subCategoryEN);
+
         productToPersist.setProductNameEN(product.getProductNameEN());
         productToPersist.setProductNameAR(product.getProductNameAR());
         productToPersist.setPerDayOrderLimit(Integer.valueOf(product.getPerDayOrderLimit()));

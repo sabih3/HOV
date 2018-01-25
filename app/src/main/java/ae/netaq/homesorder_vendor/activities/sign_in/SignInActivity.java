@@ -118,22 +118,8 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     public void onLoggedIn() {
 
         startProductSyncService();
-        OrderService.getAllOrders(this,new OrderService.OrderFetchListener() {
-            @Override
-            public void onOrdersFetched(ArrayList<Order> orders) {
-
-                OrderDataManager.persistAllOrders(orders, new OrderDataManager.OrderPersistenceListener() {
-                    @Override
-                    public void onOrdersPersisted() {
-
-                        NavigationController.showMainActivity(SignInActivity.this);
+        NavigationController.showMainActivity(SignInActivity.this);
                         finish();
-
-                    }
-                });
-            }
-
-        });
     }
 
     private void startProductSyncService() {

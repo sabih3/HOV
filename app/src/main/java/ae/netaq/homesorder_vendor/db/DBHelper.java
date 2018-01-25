@@ -14,12 +14,12 @@ import java.sql.SQLException;
 import ae.netaq.homesorder_vendor.db.data_manager.tables.CustomerTable;
 import ae.netaq.homesorder_vendor.db.data_manager.tables.ImageTable;
 import ae.netaq.homesorder_vendor.db.data_manager.tables.OrderTable;
+import ae.netaq.homesorder_vendor.db.data_manager.tables.OrderedProducts;
 import ae.netaq.homesorder_vendor.db.data_manager.tables.OrderedProductsTable;
 import ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable;
 import ae.netaq.homesorder_vendor.db.data_manager.tables.ShippingInfoTable;
 import ae.netaq.homesorder_vendor.models.Customer;
 import ae.netaq.homesorder_vendor.models.Order;
-import ae.netaq.homesorder_vendor.models.OrderedProducts;
 import ae.netaq.homesorder_vendor.models.Product;
 import ae.netaq.homesorder_vendor.models.ShippingInfo;
 
@@ -39,12 +39,10 @@ public class DBHelper extends OrmLiteSqliteOpenHelper{
 
     private static final Class<?> [] TABLES = {
             OrderTable.class,
-            CustomerTable.class,
+            /**CustomerTable.class,**/
             ProductTable.class,
-            OrderedProductsTable.class,
-            ShippingInfoTable.class,
-            ImageTable.class
-            /**OrderedProducts.class**/
+            ImageTable.class,
+            OrderedProducts.class
     };
 
     public DBHelper(Context context) {

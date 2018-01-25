@@ -11,6 +11,7 @@ import java.util.List;
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.adapters.orders.viewholder.NewOrderHolder;
 import ae.netaq.homesorder_vendor.db.data_manager.tables.OrderTable;
+import ae.netaq.homesorder_vendor.network.model.ResponseOrderList;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
 
 /**
@@ -19,7 +20,7 @@ import ae.netaq.homesorder_vendor.utils.NavigationController;
 
 public class NewOrdersRecyclerAdapter extends RecyclerView.Adapter<NewOrderHolder>{
 
-    private List<OrderTable> mDataset;
+    private List<ResponseOrderList> mDataset;
     private Context mContext;
     private OptionButtonClickListener optionButtonListener;
 
@@ -27,7 +28,7 @@ public class NewOrdersRecyclerAdapter extends RecyclerView.Adapter<NewOrderHolde
         this.optionButtonListener = optionButtonListener;
     }
 
-    public NewOrdersRecyclerAdapter(List<OrderTable> mDataset) {
+    public NewOrdersRecyclerAdapter(List<ResponseOrderList> mDataset) {
         this.mDataset = mDataset;
     }
 
@@ -44,10 +45,10 @@ public class NewOrdersRecyclerAdapter extends RecyclerView.Adapter<NewOrderHolde
 
     @Override
     public void onBindViewHolder(NewOrderHolder holder, int position) {
-        OrderTable orderTable = mDataset.get(position);
-        final long orderID = orderTable.getOrderID();
-        String address = orderTable.getAddress();
-        String name = orderTable.getName();
+        ResponseOrderList order = mDataset.get(position);
+        final long orderID = order.getOrderID();
+        String address = order.getCustomer().get(0).getAddress();
+        String name = order.getCustomer().get(0).getName();
 
         holder.orderId.setText(String.valueOf(orderID));
         holder.customerAddress.setText(address);

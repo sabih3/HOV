@@ -60,7 +60,13 @@ public class ProductsSyncService extends IntentService{
                     if(response.body().getItems().size()!=0){
                         ArrayList<ResponseAddProduct.Product> products = response.body().getItems();
                         for(ResponseAddProduct.Product product : products){
-                            ProductsManager.insertRemoteProduct(product);
+                            try {
+                                ProductsManager.insertRemoteProduct(product);
+                            } catch (Exception e) {
+                                NotificationHelper.dismissProgressNotification(ProductsSyncService.this,
+                                        -1);
+                                EventBus.getDefault().post(new ProductSyncFailedEvent());
+                            }
                         }
 
                     }
