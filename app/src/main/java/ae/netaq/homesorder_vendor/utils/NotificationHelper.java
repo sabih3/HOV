@@ -5,6 +5,8 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.graphics.BitmapFactory;
 
+import ae.netaq.homesorder_vendor.network.services.ProductsSyncService;
+
 /**
  * Created by sabih on 17-Jan-18.
  */
@@ -24,9 +26,9 @@ public class NotificationHelper {
             mBuilder = new Notification.Builder(context);
             mBuilder.setContentTitle(title)
                     .setContentText(desc)
-                    .setSmallIcon(android.R.drawable.stat_notify_sync)
+                    .setSmallIcon(android.R.drawable.ic_popup_sync)
                     .setLargeIcon(BitmapFactory.decodeResource(context.getResources(),
-                            android.R.drawable.stat_notify_sync))
+                            android.R.drawable.ic_popup_sync))
                     .setOngoing(true)
                     .setOnlyAlertOnce(true);
 
@@ -61,6 +63,13 @@ public class NotificationHelper {
 
         // Issues the notification
         mNotifyManager.notify((int) notificationID, mBuilder.build());
+    }
+
+    public static void dismissProgressNotification(Context context, int notificationID) {
+        NotificationManager mNotifyManager = (NotificationManager)
+                context.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        mNotifyManager.cancel(notificationID);
     }
 }
 

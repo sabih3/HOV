@@ -5,6 +5,7 @@ import android.content.Context;
 import org.greenrobot.eventbus.EventBus;
 
 import ae.netaq.homesorder_vendor.db.data_manager.ProductsManager;
+import ae.netaq.homesorder_vendor.db.data_manager.UserDataManager;
 import ae.netaq.homesorder_vendor.event_bus.ProductUpdatedEvent;
 import ae.netaq.homesorder_vendor.network.core.RestClient;
 import ae.netaq.homesorder_vendor.network.model.RemoteProduct;
@@ -31,7 +32,8 @@ public class ProductEditPresenter {
 
     public void updateProduct(final RemoteProduct productToUpdate) {
         Call<ResponseAddProduct> updateProductRequest = RestClient.getAdapter().
-                                 productUpdate(productToUpdate, "mogqx1uf5n1bfejv5llfsyta9hco3ncf");
+                                 productUpdate(productToUpdate,
+                                 UserDataManager.getPersistedUser().getUserToken());
 
 
         updateProductRequest.enqueue(new Callback<ResponseAddProduct>() {
@@ -44,6 +46,7 @@ public class ProductEditPresenter {
                                                                 "Product Update",
                                                                 "Updated Product Successfully");
                     ProductsManager.updateExistingProduct(response.body().getProduct());
+                    //Event will be posted on SimpleProductsFragment.onProductUpdatedEvent
                     EventBus.getDefault().post(new ProductUpdatedEvent());
                     productUpdateView.onProductUpdateSuccess();
 

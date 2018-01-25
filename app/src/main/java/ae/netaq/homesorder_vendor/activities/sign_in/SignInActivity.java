@@ -1,6 +1,7 @@
 package ae.netaq.homesorder_vendor.activities.sign_in;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
@@ -22,6 +23,7 @@ import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.db.data_manager.OrderDataManager;
 import ae.netaq.homesorder_vendor.models.Order;
 import ae.netaq.homesorder_vendor.network.services.OrderService;
+import ae.netaq.homesorder_vendor.network.services.ProductsSyncService;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
 import ae.netaq.homesorder_vendor.utils.UIUtils;
 import ae.netaq.homesorder_vendor.utils.Utils;
@@ -115,6 +117,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onLoggedIn() {
 
+        startProductSyncService();
         OrderService.getAllOrders(this,new OrderService.OrderFetchListener() {
             @Override
             public void onOrdersFetched(ArrayList<Order> orders) {
@@ -131,6 +134,11 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
             }
 
         });
+    }
+
+    private void startProductSyncService() {
+        Intent intent = new Intent(this, ProductsSyncService.class);
+        startService(intent);
     }
 
     //SignInPresenter.requestLogin

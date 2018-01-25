@@ -33,7 +33,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper{
 
     private static String TAG = DBHelper.class.getSimpleName();
     private static String DATABASE_NAME = "vendor-db";
-    private static int DATABASE_VERSION = 3;
+    private static int DATABASE_VERSION = 1;
 
 
 
@@ -44,6 +44,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper{
             OrderedProductsTable.class,
             ShippingInfoTable.class,
             ImageTable.class
+            /**OrderedProducts.class**/
     };
 
     public DBHelper(Context context) {
@@ -53,41 +54,14 @@ public class DBHelper extends OrmLiteSqliteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase database, ConnectionSource connectionSource) {
 
-        try {
-            TableUtils.createTable(connectionSource,TABLES[0]);
-        } catch (SQLException e) {
-            Log.e(TAG,"Error in Table create with table name:"+TABLES[0].getSimpleName());
+        for(int i=0;i<=TABLES.length-1;i++){
+            try {
+                TableUtils.createTable(connectionSource,TABLES[i]);
+            } catch (SQLException e) {
+                Log.e(TAG,"Error in Table create with table name:"+TABLES[i].getSimpleName());
+            }
         }
 
-        try {
-            TableUtils.createTable(connectionSource,TABLES[1]);
-        } catch (SQLException e) {
-            Log.e(TAG,"Error in Table create with table name:"+TABLES[1].getSimpleName());
-        }
-
-        try {
-            TableUtils.createTable(connectionSource,TABLES[2]);
-        } catch (SQLException e) {
-            Log.e(TAG,"Error in Table create with table name:"+TABLES[2].getSimpleName());
-        }
-
-        try {
-            TableUtils.createTable(connectionSource,TABLES[3]);
-        } catch (SQLException e) {
-            Log.e(TAG,"Error in Table create with table name:"+TABLES[3].getSimpleName());
-        }
-
-        try {
-            TableUtils.createTable(connectionSource,TABLES[4]);
-        } catch (SQLException e) {
-            Log.e(TAG,"Error in Table create with table name:"+TABLES[4].getSimpleName());
-        }
-
-        try {
-            TableUtils.createTable(connectionSource,TABLES[5]);
-        } catch (SQLException e) {
-            Log.e(TAG,"Error in Table create with table name:"+TABLES[5].getSimpleName());
-        }
     }
 
     @Override
@@ -95,77 +69,42 @@ public class DBHelper extends OrmLiteSqliteOpenHelper{
                           int oldVersion, int newVersion) {
 
         if(newVersion > oldVersion){
-            try {
-                TableUtils.dropTable(connectionSource,TABLES[0],false);
-            } catch (SQLException e) {
-                Log.e(TAG,"Error in Table Drop with table name:"+TABLES[0].getSimpleName());
+            for(int i=0;i<=TABLES.length-1;i++){
+                try {
+                    TableUtils.dropTable(connectionSource,TABLES[i],false);
+                } catch (SQLException e) {
+                    Log.e(TAG,"Error in Table Drop with table name:"+TABLES[0].getSimpleName());
+                }
             }
 
-            try {
-                TableUtils.dropTable(connectionSource,TABLES[1],false);
-            } catch (SQLException e) {
-                Log.e(TAG,"Error in Table Drop with table name:"+TABLES[1].getSimpleName());
+            for(int i=0;i<=TABLES.length-1;i++){
+                try {
+                    TableUtils.createTable(connectionSource,TABLES[i]);
+                } catch (SQLException e) {
+                    Log.e(TAG,"Error in Table create with table name:"+TABLES[i].getSimpleName());
+                }
             }
 
-            try {
-                TableUtils.dropTable(connectionSource,TABLES[2],false);
-            } catch (SQLException e) {
-                Log.e(TAG,"Error in Table Drop with table name:"+TABLES[2].getSimpleName());
-            }
 
-            try {
-                TableUtils.dropTable(connectionSource,TABLES[3],false);
-            } catch (SQLException e) {
-                Log.e(TAG,"Error in Table Drop with table name:"+TABLES[3].getSimpleName());
-            }
 
-            try {
-                TableUtils.dropTable(connectionSource,TABLES[4],false);
-            } catch (SQLException e) {
-                Log.e(TAG,"Error in Table Drop with table name:"+TABLES[4].getSimpleName());
-            }
+        }
+    }
 
-            try {
-                TableUtils.dropTable(connectionSource,TABLES[5],false);
-            } catch (SQLException e) {
-                Log.e(TAG,"Error in Table Drop with table name:"+TABLES[5].getSimpleName());
-            }
-
-            try {
-                TableUtils.createTable(connectionSource,TABLES[0]);
-            } catch (SQLException e) {
-                Log.e(TAG,"Error in Table Upgrade with table name:"+TABLES[0].getSimpleName());
-            }
-
-            try {
-                TableUtils.createTable(connectionSource,TABLES[1]);
-            } catch (SQLException e) {
-                Log.e(TAG,"Error in Table create with table name:"+TABLES[1].getSimpleName());
-            }
-
-            try {
-                TableUtils.createTable(connectionSource,TABLES[2]);
-            } catch (SQLException e) {
-                Log.e(TAG,"Error in Table create with table name:"+TABLES[2].getSimpleName());
-            }
-
-            try {
-                TableUtils.createTable(connectionSource,TABLES[3]);
-            } catch (SQLException e) {
-                Log.e(TAG,"Error in Table create with table name:"+TABLES[3].getSimpleName());
-            }
-
-            try {
-                TableUtils.createTable(connectionSource,TABLES[4]);
-            } catch (SQLException e) {
-                Log.e(TAG,"Error in Table create with table name:"+TABLES[4].getSimpleName());
-            }
-
-            try {
-                TableUtils.createTable(connectionSource,TABLES[5]);
-            } catch (SQLException e) {
-                Log.e(TAG,"Error in Table create with table name:"+TABLES[5].getSimpleName());
-            }
+    public void clearDBData() {
+        try {
+            TableUtils.dropTable(connectionSource,ProductTable.class,true);
+        } catch (SQLException e) {
+            Log.e(TAG,"Error in clearing Products records");
+        }
+        try {
+            TableUtils.dropTable(connectionSource,ImageTable.class,true);
+        } catch (SQLException e) {
+            Log.e(TAG,"Error in clearing Images records");
+        }
+        try {
+            TableUtils.dropTable(connectionSource,OrderTable.class,true);
+        } catch (SQLException e) {
+            Log.e(TAG,"Error in clearing Orders records");
         }
     }
 }

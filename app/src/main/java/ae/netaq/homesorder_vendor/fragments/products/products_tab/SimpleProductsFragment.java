@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -27,6 +28,9 @@ import ae.netaq.homesorder_vendor.adapters.products.products_tab.ProductsPresent
 import ae.netaq.homesorder_vendor.adapters.products.products_tab.ProductsView;
 import ae.netaq.homesorder_vendor.adapters.products.products_tab.SimpleProductsRecyclerAdapter;
 import ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable;
+import ae.netaq.homesorder_vendor.event_bus.ProductSyncFailedEvent;
+import ae.netaq.homesorder_vendor.event_bus.ProductSyncFinishEvent;
+import ae.netaq.homesorder_vendor.event_bus.ProductSyncInProgressEvent;
 import ae.netaq.homesorder_vendor.event_bus.ProductUpdatedEvent;
 import ae.netaq.homesorder_vendor.utils.Common;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
@@ -47,6 +51,9 @@ public class SimpleProductsFragment extends Fragment implements
     @BindView(R.id.swipe_refresh_layout)
     SwipeRefreshLayout swipeRefreshLayout;
 
+    @BindView(R.id.sync_layout)
+    RelativeLayout syncLayout;
+
     private ProductsPresenter presenter;
     private ProductTable productToEdit;
 
@@ -62,7 +69,7 @@ public class SimpleProductsFragment extends Fragment implements
     @Override
     public View onCreateView(LayoutInflater inflater,
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.listing_layout, container, false);
+        View view = inflater.inflate(R.layout.listing_layout_products, container, false);
         ButterKnife.bind(this, view);
         Common.changeViewWithLocale(getContext(),view);
         initViews();
@@ -94,10 +101,36 @@ public class SimpleProductsFragment extends Fragment implements
         EventBus.getDefault().unregister(this);
     }
 
+    //Event Dispatched from ProductEditPresenter.updateProduct
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onProductUpdatedEvent(ProductUpdatedEvent productUpdatedEvent){
         presenter = new ProductsPresenter(this);
         presenter.fetchProducts(getContext());
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onProductsSyncInProgressEvent(ProductSyncInProgressEvent syncInProgressEvent){
+        //Product Sync in Progress
+        //Event Received from ProductSyncService.retrieveProductList
+        //show Sync In Progress in UI
+        syncLayout.setVisibility(View.VISIBLE);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onProductSyncFinishedEvent(ProductSyncFinishEvent syncFinishEvent){
+        //Product Sync Finished
+        //Event Received from ProductSyncService.retrieveProductList
+        // Hide Sync in Progress from UI
+        syncLayout.setVisibility(View.GONE);
+        presenter.fetchProducts(getActivity());
+
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onProductSyncFailedEvent(ProductSyncFailedEvent syncFailedEvent){
+        //Product Sync Failed
+        //Event Received from ProductSyncService.retrieveProductList
+        //hide sync icon, show information to refresh
     }
 
     @Override
@@ -168,7 +201,11 @@ public class SimpleProductsFragment extends Fragment implements
     private class SwipeRefreshListener implements SwipeRefreshLayout.OnRefreshListener {
         @Override
         public void onRefresh() {
-            presenter.fetchProducts(getActivity());
+
+            //TODO: Hard Sync Products
+            //Call Network to Hard Sync Products
+            //presenter.fetchProducts(getActivity());
+            swipeRefreshLayout.setRefreshing(false);
         }
     }
 }

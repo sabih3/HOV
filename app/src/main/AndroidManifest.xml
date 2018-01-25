@@ -55,7 +55,7 @@
         <activity android:name=".activities.product_promotion.ProductPromotionActivity"/>
 
         <service
-            android:name=".activities.product_edit.ProductEditPresenter"
+            android:name=".network.services.ProductsSyncService"
             android:exported="false" />
     </application>
 
