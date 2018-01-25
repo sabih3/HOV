@@ -53,10 +53,8 @@
         <activity android:name=".activities.AreaSelectionUAE"></activity>
         <activity android:name=".activities.country_area_selection.AreaSelectionKSA"></activity>
         <activity android:name=".activities.product_promotion.ProductPromotionActivity"/>
-
-        <service
-            android:name=".activities.product_edit.ProductEditPresenter"
-            android:exported="false" />
+        <activity android:name=".activities.bank_information.BankInformationActivity"/>
+        <activity android:name=".activities.delivery_setup.DeliverySetupActvity"/>
     </application>
 
 </manifest>

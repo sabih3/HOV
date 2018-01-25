@@ -1,6 +1,8 @@
 package ae.netaq.homesorder_vendor.network.core;
 
-import ae.netaq.homesorder_vendor.activities.register.AuthenticationResponse;
+import ae.netaq.homesorder_vendor.network.model.AuthenticationResponse;
+import ae.netaq.homesorder_vendor.network.model.ForgetPasswordParams;
+import ae.netaq.homesorder_vendor.network.model.GeneralResponse;
 import ae.netaq.homesorder_vendor.network.model.Login;
 import ae.netaq.homesorder_vendor.network.model.RemoteProduct;
 import ae.netaq.homesorder_vendor.network.model.ResponseAddProduct;
@@ -37,5 +39,5 @@ public interface ServicesInterface {
                                            @Path(value = "userToken") String token);
 
     @POST(Endpoints.USER_FORGET_PWD)
-    void forgetPwd(String userEmail);
+    Call<GeneralResponse> forgetPwd(@Body ForgetPasswordParams params);
 }

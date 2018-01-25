@@ -7,12 +7,14 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -144,32 +146,52 @@ public class UIUtils {
 
     public static void showForgetPasswordDialog(Activity context, String title, final ForgetPasswordListener forgetPasswordListener){
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.AlertDialogTheme);
-        builder.setTitle(title);
-
         View viewInflated = LayoutInflater.from(context).inflate(R.layout.forget_password_layout, (ViewGroup) context.findViewById(android.R.id.content), false);
 
         final EditText input = (EditText) viewInflated.findViewById(R.id.forget_password_username);
 
-        builder.setView(viewInflated);
+        final TextInputLayout textInputLayout = (TextInputLayout) viewInflated.findViewById(R.id.sforget_password_username_layout);
 
-        // Set up the buttons
-        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+        final AlertDialog  alertDialog = new AlertDialog.Builder(context, R.style.AlertDialogTheme)
+                .setTitle(title).setView(viewInflated).setCancelable(false)
+                .setPositiveButton(android.R.string.ok,null)
+                .setNegativeButton(android.R.string.cancel,null).create();
+
+
+        alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+
             @Override
-            public void onClick(DialogInterface dialog, int which) {
-                forgetPasswordListener.onPositiveButtonClicked(input.getText().toString());
-                dialog.dismiss();
+            public void onShow(DialogInterface dialogInterface) {
+
+                Button button = ((AlertDialog) alertDialog).getButton(AlertDialog.BUTTON_POSITIVE);
+                Button buttonNegative = ((AlertDialog) alertDialog).getButton(AlertDialog.BUTTON_NEGATIVE);
+                button.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View view) {
+                        // TODO Do something
+
+                        if(input.getText().length() == 0){
+                            textInputLayout.setError("This field is required");
+                        }else{
+                            textInputLayout.setError(null);
+                            forgetPasswordListener.onPositiveButtonClicked(input.getText().toString());
+                            alertDialog.dismiss();
+                        }
+                    }
+                });
+
+                buttonNegative.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        forgetPasswordListener.onNegativeButtonClicked();
+                        alertDialog.cancel();
+                    }
+                });
             }
         });
-        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                forgetPasswordListener.onNegativeButtonClicked();
-                dialog.cancel();
-            }
-        });
 
-        builder.show();
+        alertDialog.show();
 
     }
 

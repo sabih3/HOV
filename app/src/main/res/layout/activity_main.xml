@@ -12,6 +12,7 @@
     <include
         layout="@layout/app_bar_main"/>
 
+
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
@@ -25,17 +26,24 @@
         app:menu="@menu/nav_drawer_items"
         >
 
-        <Button
-            android:id="@+id/sign_out_btn"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginBottom="15dp"
-            style="@style/ButtonTheme"
-            android:text="Sign Out"
-            />
+            android:layout_height="55dp"
+            android:background="@color/colorPrimary"
+            android:layout_gravity="bottom">
+
+            <Button
+                android:id="@+id/sign_out_btn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                style="@style/ButtonTheme"
+                android:text="Sign Out"
+                />
+
+        </RelativeLayout>
 
     </android.support.design.widget.NavigationView>
 

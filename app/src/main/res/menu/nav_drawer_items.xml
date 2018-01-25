@@ -8,29 +8,48 @@
             android:title="@string/orders" />
     </group>
     <group android:checkableBehavior="single"
-        android:id="@+id/third_item">
+        android:id="@+id/second_item">
         <item
             android:id="@+id/nav_products_item"
             android:title="@string/products" />
     </group>
     <group android:checkableBehavior="single"
-        android:id="@+id/fourth_item">
+        android:id="@+id/third_item">
         <item
             android:id="@+id/nav_featured_item"
             android:title="@string/featured" />
     </group>
     <group android:checkableBehavior="single"
-        android:id="@+id/fifth_item">
+        android:id="@+id/fourth_item">
         <item
             android:id="@+id/nav_profile_item"
             android:title="@string/profile" />
     </group>
 
     <group android:checkableBehavior="single"
-        android:id="@+id/sixth_item">
+        android:id="@+id/fifth_item">
         <item
             android:id="@+id/covergae_setup"
             android:title="@string/coverage" />
     </group>
 
+    <group android:checkableBehavior="single"
+        android:id="@+id/sixth_item">
+        <item
+            android:id="@+id/nav_bank_information"
+            android:title="Bank Information" />
+    </group>
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/seventh_item">
+        <item
+            android:id="@+id/nav_delivery_setup"
+            android:title="Delivery Setup" />
+    </group>
+
+    <item
+        android:id="@+id/footer_spacer_2"
+        android:checkable="false"
+        android:enabled="false"
+        android:title="" />
 </menu>

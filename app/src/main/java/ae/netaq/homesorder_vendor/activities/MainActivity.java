@@ -31,8 +31,6 @@ import ae.netaq.homesorder_vendor.event_bus.ProfileUpdatedEvent;
 import ae.netaq.homesorder_vendor.fragments.featured.FeaturedFragment;
 import ae.netaq.homesorder_vendor.fragments.orders.OrdersFragment;
 import ae.netaq.homesorder_vendor.fragments.products.ProductsFragment;
-import ae.netaq.homesorder_vendor.models.User;
-import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
 import ae.netaq.homesorder_vendor.utils.UIUtils;
 import butterknife.BindView;
@@ -214,11 +212,22 @@ public class MainActivity extends AppCompatActivity implements
                 case R.id.covergae_setup:
                     NavigationController.showCountrySelectActivity(MainActivity.this);
                     position = 4;
+                    break;
+
+                case R.id.nav_bank_information:
+                    NavigationController.showBankInformationActivity(MainActivity.this);
+                    position = 5;
+                    break;
+
+                case R.id.nav_delivery_setup:
+                    NavigationController.showDeliverySetupActivity(MainActivity.this);
+                    position = 6;
+                    break;
                 default:
                     fragmentClass = OrdersFragment.class;
             }
-            //Check that if the profile item is selected or not, if yes then do nothing.
-            if(position!=3){
+            //Check that if selected item is supposed to open an activity, if yes then do nothing.
+            if(position<3){
                 if(navItemIndex == position){
                     fragmentClass = null;
                     drawer.closeDrawers();
