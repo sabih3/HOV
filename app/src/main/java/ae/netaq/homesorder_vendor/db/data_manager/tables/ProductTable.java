@@ -37,10 +37,11 @@ import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.Col
 @DatabaseTable(tableName = TABLE_NAME)
 public class ProductTable implements Serializable{
 
-
-
     @DatabaseField(generatedId = true,columnName = ColumnNames.ID)
     public long id;
+
+    @DatabaseField
+    public long orderID;
 
     @DatabaseField(columnName = PRODUCT_ID)
     public long productID;
@@ -102,9 +103,6 @@ public class ProductTable implements Serializable{
     private List<ImageTable> imagesArray;
 
     private ArrayList<Uri> imagesLocalURI;
-
-
-
 
     public long getId() {
         return id;

@@ -6,6 +6,7 @@ import android.net.Uri;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import ae.netaq.homesorder_vendor.db.data_manager.UserDataManager;
 import ae.netaq.homesorder_vendor.interfaces.GeneralNetworkListener;
 import ae.netaq.homesorder_vendor.models.Product;
 import ae.netaq.homesorder_vendor.models.ProductGroups;
@@ -25,19 +26,6 @@ import retrofit2.Response;
  */
 
 public class ProductService {
-
-    private static ProductService instance;
-
-    private ProductService(){
-
-    }
-
-    public static ProductService getInstance() {
-        if(instance == null){
-            instance = new ProductService();
-        }
-        return instance;
-    }
 
     public static void addProduct(final Context context,
                                   final ProductAddCallbak productAddCallbak) {
@@ -82,7 +70,7 @@ public class ProductService {
 
 
         Call<ResponseAddProduct> addProductrequest = RestClient.getAdapter().
-                productAdd(remoteProduct,"mogqx1uf5n1bfejv5llfsyta9hco3ncf");
+                productAdd(remoteProduct, UserDataManager.getPersistedUser().getUserToken());
 
 
         productAddCallbak.onUploadingProduct();

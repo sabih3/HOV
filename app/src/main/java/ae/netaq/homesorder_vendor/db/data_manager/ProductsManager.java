@@ -192,9 +192,6 @@ public class ProductsManager {
                                                product.getProductID());
 
             ProductTable productToUpdate = productTables.get(0);
-
-            //ProductTable productToPersist = new ProductTable();
-            //productToPersist.setProductID(product.getProductID());
             productToUpdate.setParentCategoryID(Integer.valueOf(product.getMainCategoryID().get(0)));
 
             productToUpdate.setParentCategoryNameEN(product.getMainCategorynameEN().get(0));
@@ -248,10 +245,13 @@ public class ProductsManager {
                             ColumnNames.PRODUCT_ID,
                     product.getProductID());
 
-            ImageTable imageTable = imageTables.get(0);
-            getImageDao().delete(imageTable);
+            if(!imageTables.isEmpty()){
+                for(ImageTable previousImage: imageTables){
+                    getImageDao().delete(previousImage);
+                }
+            }
 
-            //Local URI Array, to be replaced with absolute URLs of backend
+            //Images with Absolute paths
             List<String > productImagePaths = product.getMedia();
             for(String  url: productImagePaths){
                 ImageTable productImage = new ImageTable();

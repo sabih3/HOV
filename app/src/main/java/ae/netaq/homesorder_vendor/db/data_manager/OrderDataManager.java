@@ -114,7 +114,8 @@ public class OrderDataManager {
         return orders;
     }
 
-    public static void persistAllOrders(ArrayList<Order> orders, OrderPersistenceListener orderPersistenceListener) {
+    public static void persistAllOrders(ArrayList<Order> orders,
+                                        OrderPersistenceListener orderPersistenceListener) {
         for(Order order:orders){
 
             if(existsInDB(order)){

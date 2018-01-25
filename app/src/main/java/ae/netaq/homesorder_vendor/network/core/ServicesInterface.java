@@ -7,8 +7,10 @@ import ae.netaq.homesorder_vendor.network.model.Login;
 import ae.netaq.homesorder_vendor.network.model.RemoteProduct;
 import ae.netaq.homesorder_vendor.network.model.ResponseAddProduct;
 import ae.netaq.homesorder_vendor.network.model.NetworkUser;
+import ae.netaq.homesorder_vendor.network.model.ResponseProductList;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
@@ -40,4 +42,9 @@ public interface ServicesInterface {
 
     @POST(Endpoints.USER_FORGET_PWD)
     Call<GeneralResponse> forgetPwd(@Body ForgetPasswordParams params);
+
+    @GET(Endpoints.PRODUCT_LIST)
+    Call<ResponseProductList> getProductList(@Path(value = "userToken") String token);
+
+
 }

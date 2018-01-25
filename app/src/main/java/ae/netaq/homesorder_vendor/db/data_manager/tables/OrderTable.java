@@ -1,7 +1,11 @@
 package ae.netaq.homesorder_vendor.db.data_manager.tables;
 
+import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
+
+import java.util.ArrayList;
 
 import ae.netaq.homesorder_vendor.models.Customer;
 
@@ -22,7 +26,7 @@ import static ae.netaq.homesorder_vendor.db.data_manager.tables.OrderTable.Colum
 public class OrderTable {
 
     @DatabaseField(generatedId = true,columnName = ColumnNames.ID)
-    private long id;
+    public long id;
 
     @DatabaseField(columnName = ColumnNames.ORDER_ID)
     public long orderID;
@@ -62,6 +66,11 @@ public class OrderTable {
 
     @DatabaseField(columnName = COLUMN_SHIPPING_NOTES)
     public String shippingNotes;
+
+    @DatabaseField(columnName = "base_shipping_amount")
+    public long baseShippingAmount;
+
+    public ArrayList<OrderedProducts> items;
 
     public long getId() {
         return id;
@@ -173,6 +182,22 @@ public class OrderTable {
 
     public void setShippingNotes(String shippingNotes) {
         this.shippingNotes = shippingNotes;
+    }
+
+    public long getBaseShippingAmount() {
+        return baseShippingAmount;
+    }
+
+    public ArrayList<OrderedProducts> getItems() {
+        return items;
+    }
+
+    public void setBaseShippingAmount(long baseShippingAmount) {
+        this.baseShippingAmount = baseShippingAmount;
+    }
+
+    public void setItems(ArrayList<OrderedProducts> items) {
+        this.items = items;
     }
 
     public interface ColumnNames{

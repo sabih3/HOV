@@ -235,7 +235,7 @@ public class AddNewProductActivity extends AppCompatActivity implements
     @Override
     public void onAddProductRequested() {
 
-        ProductService.getInstance().addProduct(this, new ProductService.ProductAddCallbak() {
+        ProductService.addProduct(this, new ProductService.ProductAddCallbak() {
             @Override
             public void onProcessingImages() {
 
