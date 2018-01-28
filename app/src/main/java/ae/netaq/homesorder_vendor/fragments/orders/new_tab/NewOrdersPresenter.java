@@ -6,8 +6,15 @@ import java.sql.SQLException;
 import java.util.List;
 
 import ae.netaq.homesorder_vendor.db.data_manager.OrderDataManager;
+import ae.netaq.homesorder_vendor.db.data_manager.UserDataManager;
 import ae.netaq.homesorder_vendor.db.data_manager.tables.OrderTable;
 import ae.netaq.homesorder_vendor.models.Orders;
+import ae.netaq.homesorder_vendor.network.core.RestClient;
+import ae.netaq.homesorder_vendor.network.model.APIError;
+import ae.netaq.homesorder_vendor.network.model.ResponseOrderList;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Netaq on 11/22/2017.
@@ -22,14 +29,45 @@ public class NewOrdersPresenter {
     }
 
     public void getNewOrdersList(Context context){
-        List<OrderTable> newOrdersList = null;
-        try {
-            newOrdersList = OrderDataManager.getNewOrdersList(context);
-            newOrdersView.onNewOrdersFetched(newOrdersList);
-        } catch (SQLException e) {
-            //Todo: handle exception here for view
-            e.printStackTrace();
-        }
+
+
+        Call<List<ResponseOrderList>> newOrdersRequest = RestClient.getAdapter().
+                getNewOrders(UserDataManager.getPersistedUser().getUserToken());
+        newOrdersView.showProgress();
+        newOrdersRequest.enqueue(new Callback<List<ResponseOrderList>>() {
+            @Override
+            public void onResponse(Call<List<ResponseOrderList>> call, Response<List<ResponseOrderList>> response) {
+                newOrdersView.hideProgress();
+                if(response.isSuccessful()){
+                    if(response.body().isEmpty()){
+
+                        newOrdersView.showEmptyDataView();
+                    }else{
+                        newOrdersView.onNewOrdersFetched(response.body());
+                    }
+                }else{
+                    //Todo (1): code 3001 for token expired exception
+                    //Todo (2):Extract other codes and return them on view
+                    //extract
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<ResponseOrderList>> call, Throwable t) {
+                newOrdersView.hideProgress();
+
+            }
+        });
+
+
+//        List<OrderTable> newOrdersList = null;
+//        try {
+//            newOrdersList = OrderDataManager.getNewOrdersList(context);
+//            newOrdersView.onNewOrdersFetched(newOrdersList);
+//        } catch (SQLException e) {
+//            //Todo: handle exception here for view
+//            e.printStackTrace();
+//        }
 
     }
 }

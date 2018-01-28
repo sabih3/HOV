@@ -254,7 +254,11 @@ public class AddNewProductActivity extends AppCompatActivity implements
 
                 UIUtils.hideProgressDialog(progressDialog);
 
-                ProductsManager.insertRemoteProduct(product);
+                try {
+                    ProductsManager.insertRemoteProduct(product);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
                 Toast.makeText(AddNewProductActivity.this, "Product Added Successfully",
                               Toast.LENGTH_LONG).show();

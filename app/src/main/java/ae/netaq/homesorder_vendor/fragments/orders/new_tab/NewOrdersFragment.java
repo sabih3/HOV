@@ -18,8 +18,8 @@ import java.util.List;
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.adapters.orders.new_tab.NewOrdersRecyclerAdapter;
 import ae.netaq.homesorder_vendor.db.data_manager.OrderDataManager;
-import ae.netaq.homesorder_vendor.db.data_manager.tables.OrderTable;
 import ae.netaq.homesorder_vendor.event_bus.OrderMovedToProcess;
+import ae.netaq.homesorder_vendor.network.model.ResponseOrderList;
 import ae.netaq.homesorder_vendor.utils.Common;
 import ae.netaq.homesorder_vendor.utils.OrderManagementUtils;
 import butterknife.BindView;
@@ -70,13 +70,28 @@ public class NewOrdersFragment extends Fragment implements NewOrdersView,
 
 
     @Override
-    public void onNewOrdersFetched(List<OrderTable> orders) {
+    public void onNewOrdersFetched(List<ResponseOrderList> orders) {
 
         NewOrdersRecyclerAdapter newOrdersRecyclerAdapter = new NewOrdersRecyclerAdapter(orders);
         newOrdersRecyclerAdapter.setOptionButtonListener(this);
         newOrdersRecycler.setLayoutManager(new LinearLayoutManager(getContext(),
                                            LinearLayoutManager.VERTICAL,false));
         newOrdersRecycler.setAdapter(newOrdersRecyclerAdapter);
+    }
+
+    @Override
+    public void showProgress() {
+        swipeRefreshLayout.setRefreshing(true);
+    }
+
+    @Override
+    public void hideProgress() {
+        swipeRefreshLayout.setRefreshing(false);
+    }
+
+    @Override
+    public void showEmptyDataView() {
+
     }
 
     @Override
@@ -95,5 +110,15 @@ public class NewOrdersFragment extends Fragment implements NewOrdersView,
                 }
             }
         });
+    }
+
+    @Override
+    public void onNetworkFailure() {
+
+    }
+
+    @Override
+    public void onUnDefinedException(String localizedError) {
+
     }
 }
