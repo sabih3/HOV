@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#ffffff</color>
     <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#44CE00</color>
+    <color name="colorAccent">#F03E32</color>
     <color name="shittyRed">#F03E32</color>
     <color name="shittyGreen">#F03E32</color>
     <color name="shittyDarkGreen">#39ac00</color>
