@@ -22,26 +22,38 @@
         android:background="@android:color/white"
         android:theme="@style/NavigationViewTheme"
         app:itemTextColor="@android:color/black"
-        app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/nav_drawer_items"
         >
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:background="@color/colorPrimary"
-            android:layout_gravity="bottom">
+            android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/sign_out_btn"
+            <include layout="@layout/nav_header_main"/>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_centerInParent="true"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                style="@style/ButtonTheme"
-                android:text="Sign Out"
-                />
+                android:layout_height="match_parent"
+                android:layout_marginTop="225dp"
+                android:orientation="vertical">
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/menu_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+                <Button
+                    android:id="@+id/sign_out_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    style="@style/ButtonTheme"
+                    android:text="@string/sign_out"
+                    />
+
+            </LinearLayout>
+
 
         </RelativeLayout>
 

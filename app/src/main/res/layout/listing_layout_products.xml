@@ -17,20 +17,22 @@
                 android:id="@+id/sync_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:visibility="gone"
                 android:layout_marginBottom="100dp">
                 <TextView
+                    android:id="@+id/sync_text_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/sync_image_view"
                     android:layout_centerInParent="true"
                     android:textColor="@color/colorPrimaryDark"
-                    android:text="Syncing Failed!"/>
+                    android:text="Syncing!"/>
                 <ImageView
                     android:id="@+id/sync_image_view"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/ic_sync_problem"
+                    android:src="@drawable/ic_sync"
                     android:layout_centerHorizontal="true"/>
             </RelativeLayout>
             <android.support.v7.widget.RecyclerView

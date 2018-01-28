@@ -5,10 +5,6 @@ import java.util.List;
 import ae.netaq.homesorder_vendor.network.model.AuthenticationResponse;
 import ae.netaq.homesorder_vendor.network.model.ForgetPasswordParams;
 import ae.netaq.homesorder_vendor.network.model.GeneralResponse;
-import java.util.ArrayList;
-import java.util.List;
-
-import ae.netaq.homesorder_vendor.activities.register.AuthenticationResponse;
 import ae.netaq.homesorder_vendor.network.model.Login;
 import ae.netaq.homesorder_vendor.network.model.RemoteProduct;
 import ae.netaq.homesorder_vendor.network.model.ResponseAddProduct;
