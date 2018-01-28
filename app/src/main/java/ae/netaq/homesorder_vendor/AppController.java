@@ -64,7 +64,4 @@ public class AppController extends Application{
         return picasso;
     }
 
-    public HomesOrderServices getHomesOrderServices() {
-        return homesOrderServices;
-    }
 }
