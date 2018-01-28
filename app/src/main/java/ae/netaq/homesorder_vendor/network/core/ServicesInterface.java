@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ae.netaq.homesorder_vendor.activities.register.AuthenticationResponse;
+import ae.netaq.homesorder_vendor.network.model.GeneralResponse;
 import ae.netaq.homesorder_vendor.network.model.Login;
 import ae.netaq.homesorder_vendor.network.model.RemoteProduct;
 import ae.netaq.homesorder_vendor.network.model.ResponseAddProduct;
@@ -50,5 +51,21 @@ public interface ServicesInterface {
 
     @GET(Endpoints.ORDER_LIST_NEW)
     Call<List<ResponseOrderList>> getNewOrders(@Path(value = "userToken")String token);
+
+    @GET(Endpoints.ORDER_LIST_PROCESSING)
+    Call<List<ResponseOrderList>> getProcessingOrders(@Path(value = "userToken")String token);
+
+
+    @GET(Endpoints.ORDER_UPDATE_PROCESSING)
+    Call<GeneralResponse> updateOrderProcessing(@Path("orderID") long orderID,
+                                                @Path("userToken") String token);
+
+    @GET(Endpoints.ORDER_UPDATE_READY)
+    Call<GeneralResponse> updateOrderAsReady(@Path("orderID") long orderID,
+                                             @Path("userToken") String token);
+
+
+
+
 
 }

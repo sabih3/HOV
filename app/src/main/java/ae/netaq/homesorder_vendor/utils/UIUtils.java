@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import ae.netaq.homesorder_vendor.R;
 
@@ -96,6 +97,10 @@ public class UIUtils {
         TextView tv = view.findViewById(android.support.design.R.id.snackbar_text);
         tv.setTextColor(Color.WHITE);
         snackBar.show();
+    }
+
+    public static void showToast(Context context, String resolvedError) {
+        Toast.makeText(context,resolvedError,Toast.LENGTH_LONG).show();
     }
 
     public interface SnackBarActionListener{

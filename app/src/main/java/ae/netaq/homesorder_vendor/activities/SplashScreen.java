@@ -151,28 +151,13 @@ public class SplashScreen extends AppCompatActivity implements Animation.Animati
                 }, 100);
             }
         }else{
-
-            
             if(DevicePreferences.getUserInfo() == null){
                 NavigationController.startActivitySignIn(SplashScreen.this);
                 finish();
             }else{
-                OrderService.getAllOrders(this,new OrderService.OrderFetchListener() {
-                    @Override
-                    public void onOrdersFetched(ArrayList<Order> orders) {
+                NavigationController.showMainActivity(SplashScreen.this);
+                finish();
 
-                        OrderDataManager.persistAllOrders(orders, new OrderDataManager.OrderPersistenceListener() {
-                            @Override
-                            public void onOrdersPersisted() {
-
-                                NavigationController.showMainActivity(SplashScreen.this);
-                                finish();
-
-                            }
-                        });
-                    }
-
-                });
             }
         }
     }

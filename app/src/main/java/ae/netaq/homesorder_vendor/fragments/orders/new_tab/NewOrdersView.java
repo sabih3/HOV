@@ -17,4 +17,8 @@ public interface NewOrdersView extends GeneralView{
     void hideProgress();
 
     void showEmptyDataView();
+
+    void onOrderUpdatedSuccessfully();
+
+    void onOrderUpdateException(String resolvedError);
 }

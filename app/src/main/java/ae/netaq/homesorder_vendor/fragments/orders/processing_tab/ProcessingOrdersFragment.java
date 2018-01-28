@@ -6,9 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -26,6 +24,7 @@ import ae.netaq.homesorder_vendor.db.data_manager.tables.OrderTable;
 import ae.netaq.homesorder_vendor.event_bus.OrderMoveToReady;
 import ae.netaq.homesorder_vendor.event_bus.OrderMovedToProcess;
 import ae.netaq.homesorder_vendor.utils.OrderManagementUtils;
+import ae.netaq.homesorder_vendor.utils.UIUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -70,37 +69,17 @@ public class ProcessingOrdersFragment extends Fragment implements ProcessingOrde
 
         processingOrdersPresenter = new ProcessingOrdersPresenter(this);
         processingOrdersPresenter.getProcessingOrdersList(getActivity());
-        //registerForContextMenu(processingOrdersRecycler);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshListener());
         return view;
     }
 
-//    @Override
-//    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-//        super.onCreateContextMenu(menu, v, menuInfo);
-//        getActivity().getMenuInflater().inflate(R.menu.menu_order_process,menu);
-//    }
-//
-//    @Override
-//    public boolean onContextItemSelected(MenuItem item) {
-//
-//        switch(item.getItemId()){
-//
-//            case R.id.move_to_ready:
-//
-//
-//                return true;
-//        }
-//
-//
-//
-//        return super.onContextItemSelected(item);
-//    }
 
     //NewOrderFragment.onContextItemSelected
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onOrderMovedToProcessing(OrderMovedToProcess orderStatusChangeEvent){
         processingOrdersPresenter.getProcessingOrdersList(getActivity());
     }
+
     @Override
     public void onProcessingOrdersFetched(List<OrderTable> orders) {
         ProcessingOrdersRecyclerAdapter processingOrdersRecyclerAdapter =
@@ -113,21 +92,85 @@ public class ProcessingOrdersFragment extends Fragment implements ProcessingOrde
     }
 
     @Override
+    public void showProgress() {
+        swipeRefreshLayout.setRefreshing(true);
+    }
+
+    @Override
+    public void hideProgress() {
+        swipeRefreshLayout.setRefreshing(false);
+    }
+
+    @Override
+    public void showEmptyView() {
+        //TODO: show empty view for Processing Order Fragment
+    }
+
+    @Override
+    public void onProductsSynced() {
+        processingOrdersPresenter.getProcessingOrdersList(getActivity());
+    }
+
+    @Override
+    public void onOrderUpdateSuccessfully() {
+        try {
+            OrderDataManager.updateOrder(orderID,
+                    OrderDataManager.STATUS_READY);
+            processingOrdersPresenter.getProcessingOrdersList(getContext());
+            EventBus.getDefault().post(new OrderMoveToReady());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public void onOrderUpdateException(String resolvedError) {
+        UIUtils.showToast(getContext(),resolvedError);
+    }
+
+    @Override
     public void onOptionButtonSelected(final long orderID) {
         this.orderID = orderID;
         OrderManagementUtils.showDialogForProcessing(getContext(),
                 new OrderManagementUtils.StageSelectListener() {
             @Override
             public void onStageSelected() {
-                try {
-                    OrderDataManager.updateOrder(orderID,
-                            OrderDataManager.STATUS_READY);
-                    processingOrdersPresenter.getProcessingOrdersList(getContext());
-                    EventBus.getDefault().post(new OrderMoveToReady());
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+
+                //Show Dialog, Do this work in confirmation YES
+                UIUtils.showMessageDialog(getContext(), getString(R.string.confirmation_update_order_ready), getString(R.string.dialog_btn_ok),
+                        getString(R.string.dialog_btn_cancel), new UIUtils.DialogButtonListener() {
+                    @Override
+                    public void onPositiveButtonClicked() {
+                        processingOrdersPresenter.updateOrderAsReady(orderID);
+                    }
+
+                    @Override
+                    public void onNegativeButtonClicked() {
+                        //Nothing needed, dialog will be dismissed automatically
+                    }
+                });
+
+
+
             }
         });
+    }
+
+    @Override
+    public void onNetworkFailure() {
+        swipeRefreshLayout.setRefreshing(false);
+    }
+
+    @Override
+    public void onUnDefinedException(String localizedError) {
+
+    }
+
+    private class SwipeRefreshListener implements SwipeRefreshLayout.OnRefreshListener {
+        @Override
+        public void onRefresh() {
+            processingOrdersPresenter.syncProcessingOrders();
+        }
     }
 }

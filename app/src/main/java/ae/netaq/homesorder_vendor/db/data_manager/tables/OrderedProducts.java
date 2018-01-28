@@ -26,7 +26,7 @@ public class OrderedProducts {
     public String nameAR;
 
     @DatabaseField(columnName = ColumnNames.COLUMN_PRICE)
-    public long price;
+    public Double price;
 
     @DatabaseField(columnName = ColumnNames.COLUMN_MAIN_CATEGORY_EN)
     public String mainCategoryEN;
@@ -50,10 +50,10 @@ public class OrderedProducts {
     public String previewImage;
 
     @DatabaseField(columnName = ColumnNames.COLUMN_QUANTITY)
-    public String desiredQuantity;
+    public int desiredQuantity;
 
     @DatabaseField(columnName = ColumnNames.COLUMN_OFFER_PRICE)
-    public long offerPrice;
+    public Double offerPrice;
 
     @DatabaseField(columnName = ColumnNames.COLUMN_ORDERED_SIZE)
     public String desiredSize;
@@ -66,6 +66,158 @@ public class OrderedProducts {
 
     @DatabaseField(columnName = ColumnNames.COLUMN_COMMENTS)
     public String itemComments;
+
+    public long getOrderID() {
+        return orderID;
+    }
+
+    public void setOrderID(long orderID) {
+        this.orderID = orderID;
+    }
+
+    public long getProductID() {
+        return productID;
+    }
+
+    public void setProductID(long productID) {
+        this.productID = productID;
+    }
+
+    public String getSKU() {
+        return SKU;
+    }
+
+    public void setSKU(String SKU) {
+        this.SKU = SKU;
+    }
+
+    public String getNameEN() {
+        return nameEN;
+    }
+
+    public void setNameEN(String nameEN) {
+        this.nameEN = nameEN;
+    }
+
+    public String getNameAR() {
+        return nameAR;
+    }
+
+    public void setNameAR(String nameAR) {
+        this.nameAR = nameAR;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public String getMainCategoryEN() {
+        return mainCategoryEN;
+    }
+
+    public void setMainCategoryEN(String mainCategoryEN) {
+        this.mainCategoryEN = mainCategoryEN;
+    }
+
+    public String getMainCategoryAR() {
+        return mainCategoryAR;
+    }
+
+    public void setMainCategoryAR(String mainCategoryAR) {
+        this.mainCategoryAR = mainCategoryAR;
+    }
+
+    public String getSubCategoryEN() {
+        return subCategoryEN;
+    }
+
+    public void setSubCategoryEN(String subCategoryEN) {
+        this.subCategoryEN = subCategoryEN;
+    }
+
+    public String getSubCategoryAR() {
+        return subCategoryAR;
+    }
+
+    public void setSubCategoryAR(String subCategoryAR) {
+        this.subCategoryAR = subCategoryAR;
+    }
+
+    public String getTargetGroupEN() {
+        return targetGroupEN;
+    }
+
+    public void setTargetGroupEN(String targetGroupEN) {
+        this.targetGroupEN = targetGroupEN;
+    }
+
+    public String getTargetGroupAR() {
+        return targetGroupAR;
+    }
+
+    public void setTargetGroupAR(String targetGroupAR) {
+        this.targetGroupAR = targetGroupAR;
+    }
+
+    public String getPreviewImage() {
+        return previewImage;
+    }
+
+    public void setPreviewImage(String previewImage) {
+        this.previewImage = previewImage;
+    }
+
+    public int getDesiredQuantity() {
+        return desiredQuantity;
+    }
+
+    public void setDesiredQuantity(int desiredQuantity) {
+        this.desiredQuantity = desiredQuantity;
+    }
+
+    public Double getOfferPrice() {
+        return offerPrice;
+    }
+
+    public void setOfferPrice(Double offerPrice) {
+        this.offerPrice = offerPrice;
+    }
+
+    public String getDesiredSize() {
+        return desiredSize;
+    }
+
+    public void setDesiredSize(String desiredSize) {
+        this.desiredSize = desiredSize;
+    }
+
+    public String getDesiredColor() {
+        return desiredColor;
+    }
+
+    public void setDesiredColor(String desiredColor) {
+        this.desiredColor = desiredColor;
+    }
+
+    public String getDesiredWeight() {
+        return desiredWeight;
+    }
+
+    public void setDesiredWeight(String desiredWeight) {
+        this.desiredWeight = desiredWeight;
+    }
+
+    public String getItemComments() {
+        return itemComments;
+    }
+
+    public void setItemComments(String itemComments) {
+        this.itemComments = itemComments;
+    }
 
     public interface ColumnNames{
         String TABLE_NAME = "Ordered_Products";

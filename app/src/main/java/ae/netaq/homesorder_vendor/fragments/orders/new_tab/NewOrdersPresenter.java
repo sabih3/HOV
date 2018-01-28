@@ -11,6 +11,7 @@ import ae.netaq.homesorder_vendor.db.data_manager.tables.OrderTable;
 import ae.netaq.homesorder_vendor.models.Orders;
 import ae.netaq.homesorder_vendor.network.core.RestClient;
 import ae.netaq.homesorder_vendor.network.model.APIError;
+import ae.netaq.homesorder_vendor.network.model.GeneralResponse;
 import ae.netaq.homesorder_vendor.network.model.ResponseOrderList;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -69,5 +70,30 @@ public class NewOrdersPresenter {
 //            e.printStackTrace();
 //        }
 
+    }
+
+    public void updateOrderAsProcessing(long orderID) {
+        Call<GeneralResponse> updateAsProcessingRequest = RestClient.getAdapter().updateOrderProcessing(orderID,
+                UserDataManager.getPersistedUser().getUserToken());
+        newOrdersView.showProgress();
+        updateAsProcessingRequest.enqueue(new Callback<GeneralResponse>() {
+            @Override
+            public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
+                newOrdersView.hideProgress();
+                if(response.isSuccessful()){
+                    newOrdersView.onOrderUpdatedSuccessfully();
+                }else{
+                    String resolvedError = "Your order cannot be updated this time";
+                    newOrdersView.onOrderUpdateException(resolvedError);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<GeneralResponse> call, Throwable t) {
+                //TODO: handle network failure properly
+                newOrdersView.hideProgress();
+                newOrdersView.onNetworkFailure();
+            }
+        });
     }
 }
