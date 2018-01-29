@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.activities.AddNewProductActivity;
-import ae.netaq.homesorder_vendor.activities.AreaSelectionUAE;
+import ae.netaq.homesorder_vendor.activities.country_area_selection.AreaSelectionUAE;
 import ae.netaq.homesorder_vendor.activities.MainActivity;
 import ae.netaq.homesorder_vendor.activities.OrderDetailActivity;
 import ae.netaq.homesorder_vendor.activities.bank_information.BankInformationActivity;
@@ -18,7 +18,6 @@ import ae.netaq.homesorder_vendor.activities.country_area_selection.SelectCountr
 import ae.netaq.homesorder_vendor.activities.delivery_setup.DeliverySetupActvity;
 import ae.netaq.homesorder_vendor.activities.product_detail.ProductDetailActivity;
 import ae.netaq.homesorder_vendor.activities.ProfileActivity;
-import ae.netaq.homesorder_vendor.activities.product_edit.ImagesEditActivity;
 import ae.netaq.homesorder_vendor.activities.product_edit.ProductEditActivity;
 import ae.netaq.homesorder_vendor.activities.product_promotion.ProductPromotionActivity;
 import ae.netaq.homesorder_vendor.activities.register.RegisterActivity;
@@ -38,7 +37,6 @@ import ae.netaq.homesorder_vendor.fragments.orders.processing_tab.ProcessingOrde
 import ae.netaq.homesorder_vendor.fragments.orders.ready_tab.ReadyOrdersFragment;
 import ae.netaq.homesorder_vendor.fragments.products.products_tab.SimpleProductsFragment;
 import ae.netaq.homesorder_vendor.fragments.products.promotions_tab.PromotionProductsFragment;
-import ae.netaq.homesorder_vendor.models.Country;
 
 /**
  * Created by Netaq on 11/21/2017.

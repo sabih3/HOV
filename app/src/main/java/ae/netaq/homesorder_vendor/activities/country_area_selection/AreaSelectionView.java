@@ -1,4 +1,4 @@
-package ae.netaq.homesorder_vendor.activities;
+package ae.netaq.homesorder_vendor.activities.country_area_selection;
 
 import ae.netaq.homesorder_vendor.models.Country;
 

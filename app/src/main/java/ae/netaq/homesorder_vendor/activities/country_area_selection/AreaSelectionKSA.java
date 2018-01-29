@@ -12,9 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ae.netaq.homesorder_vendor.R;
-import ae.netaq.homesorder_vendor.activities.AreaSelectionPresenter;
 import ae.netaq.homesorder_vendor.adapters.AreaSelectionAdapter;
-import ae.netaq.homesorder_vendor.adapters.AreaSelectionKSAAdapter;
 import ae.netaq.homesorder_vendor.db.data_manager.UserDataManager;
 import ae.netaq.homesorder_vendor.event_bus.KSAAreaSelectionEvent;
 import ae.netaq.homesorder_vendor.models.Country;

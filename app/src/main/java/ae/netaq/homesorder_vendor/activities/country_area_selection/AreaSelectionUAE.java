@@ -1,4 +1,4 @@
-package ae.netaq.homesorder_vendor.activities;
+package ae.netaq.homesorder_vendor.activities.country_area_selection;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,7 +19,7 @@ import ae.netaq.homesorder_vendor.models.Country;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class AreaSelectionUAE extends AppCompatActivity implements AreaSelectionView{
+public class AreaSelectionUAE extends AppCompatActivity implements AreaSelectionView {
 
     @BindView(R.id.area_list)
     ExpandableListView areaList;
