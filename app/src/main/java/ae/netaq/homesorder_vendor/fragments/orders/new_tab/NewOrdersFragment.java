@@ -22,6 +22,7 @@ import ae.netaq.homesorder_vendor.event_bus.OrderMovedToProcess;
 import ae.netaq.homesorder_vendor.network.model.ResponseOrderList;
 import ae.netaq.homesorder_vendor.utils.Common;
 import ae.netaq.homesorder_vendor.utils.OrderManagementUtils;
+import ae.netaq.homesorder_vendor.utils.UIUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -95,19 +96,34 @@ public class NewOrdersFragment extends Fragment implements NewOrdersView,
     }
 
     @Override
+    public void onOrderUpdatedSuccessfully() {
+        try {
+            OrderDataManager.updateOrder(orderID,OrderDataManager.STATUS_PROCESSING);
+            newOrdersPresenter.getNewOrdersList(getActivity());
+            EventBus.getDefault().post(new OrderMovedToProcess());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onOrderUpdateException(String resolvedError) {
+        UIUtils.showToast(getContext(),resolvedError);
+    }
+
+    @Override
     public void onOptionButtonSelected(final long orderID) {
         this.orderID = orderID;
         OrderManagementUtils.showDialogForNew(getContext(),
                              new OrderManagementUtils.StageSelectListener() {
             @Override
             public void onStageSelected() {
-                try {
-                    OrderDataManager.updateOrder(orderID,OrderDataManager.STATUS_PROCESSING);
-                    newOrdersPresenter.getNewOrdersList(getActivity());
-                    EventBus.getDefault().post(new OrderMovedToProcess());
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+
+                String confirmationMessageForProcessing =
+                        getString(R.string.confirmation_update_order_processing);
+
+                newOrdersPresenter.updateOrderAsProcessing(orderID);
+
             }
         });
     }

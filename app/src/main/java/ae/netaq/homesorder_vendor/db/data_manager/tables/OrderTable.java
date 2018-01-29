@@ -1,13 +1,9 @@
 package ae.netaq.homesorder_vendor.db.data_manager.tables;
 
-import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 
 import java.util.ArrayList;
-
-import ae.netaq.homesorder_vendor.models.Customer;
 
 import static ae.netaq.homesorder_vendor.db.data_manager.tables.OrderTable.ColumnNames.COLUMN_CUSTOMER_ADDRESS;
 import static ae.netaq.homesorder_vendor.db.data_manager.tables.OrderTable.ColumnNames.COLUMN_CUSTOMER_EMAIL;
@@ -32,13 +28,13 @@ public class OrderTable {
     public long orderID;
 
     @DatabaseField(columnName = ColumnNames.ORDER_STATUS)
-    public int orderStatus;
+    public String orderStatus;
 
     @DatabaseField(columnName = ColumnNames.ORDER_AMOUNT)
     public double orderTotal;
 
     @DatabaseField(columnName = ColumnNames.PAYMENT_MODE)
-    public int payment_mode;
+    public String payment_mode;
 
     @DatabaseField(columnName = ColumnNames.ORDER_DATE)
     public String orderDate;
@@ -50,7 +46,7 @@ public class OrderTable {
     public String comments;
 
     @DatabaseField(columnName = COLUMN_CUSTOMER_ID)
-    public long customerID;
+    public String customerID;
 
     @DatabaseField(columnName = COLUMN_CUSTOMER_NAME)
     public String name;
@@ -88,11 +84,11 @@ public class OrderTable {
         this.orderID = orderID;
     }
 
-    public int getOrderStatus() {
+    public String getOrderStatus() {
         return orderStatus;
     }
 
-    public void setOrderStatus(int orderStatus) {
+    public void setOrderStatus(String orderStatus) {
         this.orderStatus = orderStatus;
     }
 
@@ -104,11 +100,11 @@ public class OrderTable {
         this.orderTotal = orderTotal;
     }
 
-    public int getPayment_mode() {
+    public String getPayment_mode() {
         return payment_mode;
     }
 
-    public void setPayment_mode(int payment_mode) {
+    public void setPayment_mode(String payment_mode) {
         this.payment_mode = payment_mode;
     }
 
@@ -136,11 +132,11 @@ public class OrderTable {
         this.comments = comments;
     }
 
-    public long getCustomerID() {
+    public String getCustomerID() {
         return customerID;
     }
 
-    public void setCustomerID(long customerID) {
+    public void setCustomerID(String customerID) {
         this.customerID = customerID;
     }
 

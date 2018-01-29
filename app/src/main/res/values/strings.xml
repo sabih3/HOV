@@ -138,4 +138,6 @@
     <string name="btn_update_product">Update</string>
     <string name="product_description_arabic_required_error">Product description in arabic is required</string>
     <string name="sign_out">Sign Out</string>
+    <string name="confirmation_update_order_ready">Are you sure to update this order as Ready ?</string>
+    <string name="confirmation_update_order_processing">Are you sure to update this order as Processing ?</string>
 </resources>

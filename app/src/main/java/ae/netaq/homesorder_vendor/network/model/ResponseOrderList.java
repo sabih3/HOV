@@ -11,7 +11,7 @@ public class ResponseOrderList {
 
     public int orderID;
     public String orderStatus;
-    public int orderTotal;
+    public Double orderTotal;
     public String payment_mode;
     public String orderDate;
     public String comments;
@@ -19,9 +19,9 @@ public class ResponseOrderList {
     public String currencycode;
     public List<Item> items;
     public String dueDate;
-    public int amount_ordered;
-    public int base_shipping_amount;
-    public int base_amount_ordered;
+    public Double amount_ordered;
+    public Double base_shipping_amount;
+    public Double base_amount_ordered;
     public int order_id;
 
     public int getOrderID() {
@@ -32,7 +32,7 @@ public class ResponseOrderList {
         return orderStatus;
     }
 
-    public int getOrderTotal() {
+    public Double getOrderTotal() {
         return orderTotal;
     }
 
@@ -64,15 +64,15 @@ public class ResponseOrderList {
         return dueDate;
     }
 
-    public int getAmount_ordered() {
+    public Double getAmount_ordered() {
         return amount_ordered;
     }
 
-    public int getBase_shipping_amount() {
+    public Double getBase_shipping_amount() {
         return base_shipping_amount;
     }
 
-    public int getBase_amount_ordered() {
+    public Double getBase_amount_ordered() {
         return base_amount_ordered;
     }
 
@@ -84,7 +84,7 @@ public class ResponseOrderList {
         public int productID;
         public String productNameEN;
         public String productNameAR;
-        public int price;
+        public Double price;
         public String perDayOrderLimit;
         public String handlingTime;
         public String descriptionEN;
@@ -104,7 +104,7 @@ public class ResponseOrderList {
         public int qty_ordered;
         public List<Option> options;
         public String comments;
-        public int offerPrice;
+        public Double offerPrice;
 
         public int getProductID() {
             return productID;
@@ -118,7 +118,7 @@ public class ResponseOrderList {
             return productNameAR;
         }
 
-        public int getPrice() {
+        public Double getPrice() {
             return price;
         }
 
@@ -198,7 +198,7 @@ public class ResponseOrderList {
             return comments;
         }
 
-        public int getOfferPrice() {
+        public Double getOfferPrice() {
             return offerPrice;
         }
     }

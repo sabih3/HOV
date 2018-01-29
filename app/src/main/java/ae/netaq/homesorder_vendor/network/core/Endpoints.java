@@ -24,17 +24,19 @@ public class Endpoints {
 
     public static final String PRODUCT_LIST = "vendor/me/product/{userToken}";
 
+    public static final String ORDER_LIST_ALL = "vendor/me/order/{userToken}";
+
     public static final String ORDER_LIST_NEW = "vendor/me/order/{userToken}/0";
 
     public static final String ORDER_LIST_PROCESSING = "vendor/me/order/{userToken}/1";
 
     public static final String ORDER_LIST_READY = "vendor/me/order/{userToken}/2";
 
-    public static final String ORDER_LIST_DISPATCHED ="";
+    public static final String ORDER_LIST_DISPATCHED ="";// Get Completed Orders API url here
 
-    public static final String ORDER_UPDATE_PROCESSING = "";
+    public static final String ORDER_UPDATE_PROCESSING = "vendor/me/order/{orderID}/changestatus/1/{userToken}";
 
-    public static final String ORDER_UPDATE_READY ="";
+    public static final String ORDER_UPDATE_READY ="vendor/me/order/{orderID}/changestatus/2/{userToken}";
 
     public static final String ORDER_UPDATE_DISPATCHED = "";
 
