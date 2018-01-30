@@ -13,6 +13,7 @@ import java.util.List;
 
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.adapters.AreaSelectionAdapter;
+import ae.netaq.homesorder_vendor.db.data_manager.CountryDataManager;
 import ae.netaq.homesorder_vendor.db.data_manager.UserDataManager;
 import ae.netaq.homesorder_vendor.event_bus.KSAAreaSelectionEvent;
 import ae.netaq.homesorder_vendor.models.Country;
@@ -35,7 +36,7 @@ public class AreaSelectionKSA extends AppCompatActivity {
         setContentView(R.layout.area_selection_saudia);
 
         ButterKnife.bind(this);
-        Country ksaRegion = UserDataManager.getKSARegion();
+        Country ksaRegion = CountryDataManager.getKSARegion(this);
 
         loadRegionDataInList(ksaRegion);
 
@@ -51,7 +52,6 @@ public class AreaSelectionKSA extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             Country country = areaListAdapter.getSelectedAreas();
-            UserDataManager.persistKSARegion(country);
 
             List<Country.State> selectedStates = new ArrayList<>();
             ArrayList<Country.State.Area> userSelectedAreas;

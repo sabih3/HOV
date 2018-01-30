@@ -40,9 +40,4 @@ public class CountryDataManager {
         public static String KSA = "KSA";
 
     }
-
-    private static class FILENAMES{
-
-        private static String FILE_UAE = "areas_uae.json";
-    }
 }

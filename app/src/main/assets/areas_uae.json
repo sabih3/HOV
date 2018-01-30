@@ -1,1 +1,4016 @@
-{"countryNameEN":"United Arab Emirates","countryNameAR":"","countryID":"229","countryCode":"AE","states":[{"stateNameEN":"Abu Dhabi","stateNameAR":"\u0623\u0628\u0648 \u0638\u0628\u064a","stateID":"3796","countryID":"229","areas":[{"areaNameEN":"All Abu Dhabi","areaNameAR":"\u0643\u0644 \u0623\u0628\u0648 \u0638\u0628\u064a","areaID":"1","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Adla ","areaNameAR":"\u0627\u0644\u0639\u062f\u0644\u0629 ","areaID":"2","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Aman","areaNameAR":"\u0627\u0644\u0623\u0645\u0627\u0646","areaID":"3","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Bahya","areaNameAR":"\u0627\u0644\u0628\u0627\u0647\u064a\u0629","areaID":"4","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Bandar","areaNameAR":"\u0627\u0644\u0628\u0646\u062f\u0631","areaID":"5","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Dafrah","areaNameAR":"\u0627\u0644\u0638\u0641\u0631\u0629","areaID":"6","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Etihad","areaNameAR":"\u0627\u0644\u0627\u062a\u062d\u0627\u062f","areaID":"7","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Falah City","areaNameAR":"\u0645\u062f\u064a\u0646\u0629 \u0627\u0644\u0641\u0644\u0627\u062d","areaID":"8","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Hosn","areaNameAR":"\u0627\u0644\u062d\u0635\u0646","areaID":"9","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Karamah","areaNameAR":"\u0627\u0644\u0643\u0631\u0627\u0645\u0629","areaID":"10","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Khalidiyah","areaNameAR":"\u0627\u0644\u062e\u0627\u0644\u062f\u064a\u0629","areaID":"11","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Khubeirah","areaNameAR":"\u0627\u0644\u062e\u0628\u064a\u0631\u0629","areaID":"12","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Mafraq","areaNameAR":"\u0627\u0644\u0645\u0641\u0631\u0642 ","areaID":"13","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Manhal","areaNameAR":"\u0627\u0644\u0645\u0646\u0647\u0644 ","areaID":"14","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Maqta","areaNameAR":"\u0627\u0644\u0645\u0642\u0637\u0639","areaID":"15","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Markaziyah","areaNameAR":"\u0627\u0644\u0645\u0631\u0643\u0632\u064a\u0629","areaID":"16","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Markaziyah West","areaNameAR":"\u0627\u0644\u0645\u0631\u0643\u0632\u064a\u0629 \u0627\u0644\u063a\u0631\u0628\u064a\u0629","areaID":"17","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Maryah Island","areaNameAR":"\u062c\u0632\u064a\u0631\u0629 \u0627\u0644\u0645\u0627\u0631\u064a\u0647","areaID":"18","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Mina","areaNameAR":"\u0627\u0644\u0645\u064a\u0646\u0627\u0621","areaID":"19","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Muneera","areaNameAR":"\u0627\u0644\u0645\u0646\u064a\u0631\u0629","areaID":"20","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Muntazah","areaNameAR":"\u0627\u0644\u0645\u0646\u062a\u0632\u0629","areaID":"21","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Musalla","areaNameAR":"\u0627\u0644\u0645\u0635\u0644\u0649","areaID":"22","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Mushrif","areaNameAR":"\u0627\u0644\u0645\u0634\u0631\u0641","areaID":"23","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Muzoon","areaNameAR":"\u0627\u0644\u0645\u0632\u0648\u0646","areaID":"24","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Nahyan","areaNameAR":"\u0627\u0644 \u0646\u0647\u064a\u0627\u0646","areaID":"25","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Raha","areaNameAR":"\u0627\u0644\u0631\u0627\u062d\u0629","areaID":"26","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Rahba","areaNameAR":"\u0627\u0644\u0631\u062d\u0628\u0629","areaID":"27","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Ras Al Akhdar","areaNameAR":"\u0627\u0644\u0631\u0623\u0633 \u0627\u0644\u0623\u062e\u0636\u0631","areaID":"28","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Reef","areaNameAR":"\u0627\u0644\u0631\u064a\u0641","areaID":"29","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Rowdah","areaNameAR":"\u0627\u0644\u0631\u0648\u0636\u0629","areaID":"30","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Safarrat","areaNameAR":"\u0627\u0644\u0633\u0641\u0627\u0631\u0627\u062a","areaID":"31","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Samha","areaNameAR":"\u0627\u0644\u0633\u0645\u062d\u0629 ","areaID":"32","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Shamkha","areaNameAR":"\u0627\u0644\u0634\u0627\u0645\u062e\u0629","areaID":"33","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Shawamekh","areaNameAR":"\u0627\u0644\u0634\u0648\u0627\u0645\u062e","areaID":"34","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Wahdah","areaNameAR":"\u0627\u0644\u0648\u062d\u062f\u0629","areaID":"35","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Wathba ","areaNameAR":"\u0627\u0644\u0648\u062b\u0628\u0629","areaID":"36","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Zaab","areaNameAR":"\u0627\u0644\u0632\u0639\u0627\u0628","areaID":"37","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Zafranah","areaNameAR":"\u0627\u0644\u0632\u0639\u0641\u0631\u0627\u0646\u0629","areaID":"38","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Zahraa","areaNameAR":"\u0627\u0644\u0632\u0647\u0631\u0627\u0621","areaID":"39","stateID":"3796","countryID":"229"},{"areaNameEN":"Al Zeina","areaNameAR":"\u0627\u0644\u0632\u064a\u0646\u0629","areaID":"40","stateID":"3796","countryID":"229"},{"areaNameEN":"Bain Al Jesrain","areaNameAR":"\u0628\u064a\u0646 \u0627\u0644\u062c\u0633\u0631\u064a\u0646","areaID":"41","stateID":"3796","countryID":"229"},{"areaNameEN":"Bani Yas","areaNameAR":"\u0628\u0646\u064a \u064a\u0627\u0633","areaID":"42","stateID":"3796","countryID":"229"},{"areaNameEN":"Belghailam","areaNameAR":"\u0628\u0644\u063a\u064a\u0644\u0645","areaID":"43","stateID":"3796","countryID":"229"},{"areaNameEN":"BreakWater","areaNameAR":"\u0643\u0627\u0633\u0631 \u0627\u0644\u0623\u0645\u0648\u0627\u062c","areaID":"44","stateID":"3796","countryID":"229"},{"areaNameEN":"Capital Centre","areaNameAR":"\u0643\u0627\u0628\u064a\u062a\u0627\u0644 \u0633\u0646\u062a\u0631","areaID":"45","stateID":"3796","countryID":"229"},{"areaNameEN":"Dhow Harbour","areaNameAR":"\u0645\u064a\u0646\u0627\u0621 \u062f\u0627\u0648","areaID":"46","stateID":"3796","countryID":"229"},{"areaNameEN":"Hydra City","areaNameAR":"\u0645\u062f\u064a\u0646\u0629 \u0647\u064a\u062f\u0631\u0627","areaID":"47","stateID":"3796","countryID":"229"},{"areaNameEN":"Khor Al Bateen","areaNameAR":"\u062e\u0648\u0631 \u0627\u0644\u0628\u0637\u064a\u0646","areaID":"48","stateID":"3796","countryID":"229"},{"areaNameEN":"Lulu Island","areaNameAR":"\u062c\u0632\u064a\u0631\u0629 \u0627\u0644\u0644\u0624\u0644\u0624","areaID":"49","stateID":"3796","countryID":"229"},{"areaNameEN":"Madinat Khalifa - A","areaNameAR":"\u0645\u062f\u064a\u0646\u0629 \u062e\u0644\u064a\u0641\u0629","areaID":"50","stateID":"3796","countryID":"229"},{"areaNameEN":"Madinat Khalifa - B","areaNameAR":"\u0645\u062f\u064a\u0646\u0629 \u062e\u0644\u064a\u0641\u0629 \u0628","areaID":"51","stateID":"3796","countryID":"229"},{"areaNameEN":"Madinat Khalifa - C","areaNameAR":"\u0645\u062f\u064a\u0646\u0629 \u062e\u0644\u064a\u0641\u0629 \u062c","areaID":"52","stateID":"3796","countryID":"229"},{"areaNameEN":"Madinat Zayed","areaNameAR":"\u0645\u062f\u064a\u0646\u0629 \u0632\u0627\u064a\u062f","areaID":"53","stateID":"3796","countryID":"229"},{"areaNameEN":"Masdar City","areaNameAR":"\u0645\u062f\u064a\u0646\u0629 \u0645\u0635\u062f\u0631 ","areaID":"54","stateID":"3796","countryID":"229"},{"areaNameEN":"Mohammed Bin Zayed City","areaNameAR":"\u0645\u062f\u064a\u0646\u0629 \u0645\u062d\u0645\u062f \u0628\u0646 \u0632\u0627\u064a\u062f","areaID":"55","stateID":"3796","countryID":"229"},{"areaNameEN":"Mussafah Industrial city","areaNameAR":"\u0645\u062f\u064a\u0646\u0629 \u0645\u0635\u0641\u062d \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629","areaID":"56","stateID":"3796","countryID":"229"},{"areaNameEN":"New Shahama","areaNameAR":"\u0627\u0644\u0634\u0647\u0627\u0645\u0629 \u0627\u0644\u062c\u062f\u064a\u062f\u0629","areaID":"57","stateID":"3796","countryID":"229"},{"areaNameEN":"Port Zayed","areaNameAR":"\u0645\u064a\u0646\u0627\u0621 \u0632\u0627\u064a\u062f","areaID":"58","stateID":"3796","countryID":"229"},{"areaNameEN":"Qasr El Bahr","areaNameAR":"\u0642\u0635\u0631 \u0627\u0644\u0628\u062d\u0631","areaID":"59","stateID":"3796","countryID":"229"},{"areaNameEN":"Qasr El Shantie","areaNameAR":"\u0642\u0635\u0631 \u0627\u0644\u0634\u0627\u0637\u0626","areaID":"60","stateID":"3796","countryID":"229"},{"areaNameEN":"Reem Island","areaNameAR":"\u062c\u0632\u064a\u0631\u0629 \u0627\u0644\u0631\u064a\u0645","areaID":"61","stateID":"3796","countryID":"229"},{"areaNameEN":"Saadiyat Island","areaNameAR":"\u062c\u0632\u064a\u0631\u0629 \u0633\u0639\u062f\u064a\u0627\u062a","areaID":"62","stateID":"3796","countryID":"229"},{"areaNameEN":"Sas Al Nakhl Island","areaNameAR":"\u062c\u0632\u064a\u0631\u0648 \u0633\u0627\u0633 \u0627\u0644\u0646\u062e\u0644","areaID":"63","stateID":"3796","countryID":"229"},{"areaNameEN":"Shahama","areaNameAR":"\u0627\u0644\u0634\u0647\u0627\u0645\u0629","areaID":"64","stateID":"3796","countryID":"229"},{"areaNameEN":"Tourist Club Area","areaNameAR":"\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u0646\u0627\u062f\u0649 \u0627\u0644\u0633\u064a\u0627\u062d\u0649","areaID":"65","stateID":"3796","countryID":"229"},{"areaNameEN":"Yas Island","areaNameAR":"\u062c\u0632\u064a\u0631\u0629 \u064a\u0627\u0633","areaID":"66","stateID":"3796","countryID":"229"},{"areaNameEN":"Zayed Sports City","areaNameAR":"\u0627\u0644\u0645\u062f\u064a\u0646\u0629 \u0627\u0644\u0631\u064a\u0627\u0636\u064a\u0629","areaID":"67","stateID":"3796","countryID":"229"}]},{"stateNameEN":"Ajman","stateNameAR":"\u0639\u062c\u0645\u0627\u0646","stateID":"3797","countryID":"229","areas":[{"areaNameEN":"All Ajman","areaNameAR":"\u0643\u0644 \u0639\u062c\u0645\u0627\u0646","areaID":"340","stateID":"3797","countryID":"229"},{"areaNameEN":"Ajman City Center","areaNameAR":"\u0639\u062c\u0645\u0627\u0646 \u0633\u064a\u062a\u064a \u0633\u0646\u062a\u0631","areaID":"341","stateID":"3797","countryID":"229"},{"areaNameEN":"Ajman Corniche","areaNameAR":"\u0643\u0648\u0631\u0646\u064a\u0634 \u0639\u062c\u0645\u0627\u0646","areaID":"342","stateID":"3797","countryID":"229"},{"areaNameEN":"Ajman Free Zone","areaNameAR":"\u0645\u0646\u0637\u0642\u0629 \u0639\u062c\u0645\u0627\u0646 \u0627\u0644\u062d\u0631\u0629","areaID":"343","stateID":"3797","countryID":"229"},{"areaNameEN":"Ajman Pearl","areaNameAR":"\u0644\u0624\u0644\u0624\u0629 \u0639\u062c\u0645\u0627\u0646","areaID":"344","stateID":"3797","countryID":"229"},{"areaNameEN":"Ajman University","areaNameAR":"\u062c\u0627\u0645\u0639\u0629 \u0639\u062c\u0645\u0627\u0646","areaID":"345","stateID":"3797","countryID":"229"},{"areaNameEN":"Al Bustan","areaNameAR":"\u0627\u0644\u0628\u0633\u062a\u0627\u0646","areaID":"346","stateID":"3797","countryID":"229"},{"areaNameEN":"Al Butain","areaNameAR":"\u0627\u0644\u0628\u0637\u064a\u0646","areaID":"347","stateID":"3797","countryID":"229"},{"areaNameEN":"Al Hamidiya","areaNameAR":"\u0627\u0644\u062d\u0645\u064a\u062f\u064a\u0629","areaID":"348","stateID":"3797","countryID":"229"},{"areaNameEN":"Al Helio","areaNameAR":"\u0627\u0644\u062d\u0644\u064a\u0648","areaID":"349","stateID":"3797","countryID":"229"},{"areaNameEN":"Al Jurf 1","areaNameAR":"Al Jurf 1","areaID":"350","stateID":"3797","countryID":"229"},{"areaNameEN":"Al Jurf 2","areaNameAR":"Al Jurf 2","areaID":"351","stateID":"3797","countryID":"229"},{"areaNameEN":"Al Mushairef","areaNameAR":"\u0627\u0644\u0645\u0634\u064a\u0631\u0641","areaID":"352","stateID":"3797","countryID":"229"},{"areaNameEN":"Al Nakhil","areaNameAR":"\u0627\u0644\u0646\u062e\u064a\u0644","areaID":"353","stateID":"3797","countryID":"229"},{"areaNameEN":"Al Nakhil 1","areaNameAR":"\u0627\u0644\u0646\u062e\u064a\u0644 1","areaID":"354","stateID":"3797","countryID":"229"},{"areaNameEN":"Al Nakhil 2","areaNameAR":"\u0627\u0644\u0646\u062e\u064a\u0644 2","areaID":"355","stateID":"3797","countryID":"229"},{"areaNameEN":"Al Nuaimia 1","areaNameAR":"\u0627\u0644\u0646\u0639\u064a\u0645\u064a\u0629 1","areaID":"356","stateID":"3797","countryID":"229"},{"areaNameEN":"Al Nuaimia 2","areaNameAR":"\u0627\u0644\u0646\u0639\u064a\u0645\u064a\u0629 2","areaID":"357","stateID":"3797","countryID":"229"},{"areaNameEN":"Al Rashidiya 1","areaNameAR":"\u0627\u0644\u0631\u0627\u0634\u064a\u062f\u064a\u0629 1","areaID":"358","stateID":"3797","countryID":"229"},{"areaNameEN":"Al Rashidiya 2","areaNameAR":"\u0627\u0644\u0631\u0627\u0634\u064a\u062f\u064a\u0629 2","areaID":"359","stateID":"3797","countryID":"229"},{"areaNameEN":"Al Rashidiya 3","areaNameAR":"\u0627\u0644\u0631\u0627\u0634\u064a\u062f\u064a\u0629 3","areaID":"360","stateID":"3797","countryID":"229"},{"areaNameEN":"Al Rumailah","areaNameAR":"\u0627\u0644\u0631\u0645\u064a\u0644\u0629","areaID":"361","stateID":"3797","countryID":"229"},{"areaNameEN":"Al Zahra","areaNameAR":"\u0627\u0644\u0632\u0647\u0631\u0627\u0621","areaID":"362","stateID":"3797","countryID":"229"},{"areaNameEN":"Al Zawarah","areaNameAR":"\u0627\u0644\u0632\u0648\u0631\u0627\u0621","areaID":"363","stateID":"3797","countryID":"229"},{"areaNameEN":"Al Zora","areaNameAR":"\u0627\u0644\u0632\u0648\u0631\u0629","areaID":"364","stateID":"3797","countryID":"229"},{"areaNameEN":"Emirates City","areaNameAR":"\u0645\u062f\u064a\u0646\u0629 \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a","areaID":"365","stateID":"3797","countryID":"229"},{"areaNameEN":"Emirates City Extension","areaNameAR":"\u0627\u0645\u062a\u062f\u0627\u062f \u0645\u062f\u064a\u0646\u0629 \u0627\u0644\u0627\u0645\u0627\u0631\u0627\u062a","areaID":"366","stateID":"3797","countryID":"229"},{"areaNameEN":"Garden City","areaNameAR":"\u062c\u0627\u0631\u062f\u064a\u0646 \u0633\u064a\u062a\u064a","areaID":"367","stateID":"3797","countryID":"229"},{"areaNameEN":"Ittihad Village","areaNameAR":"\u0642\u0631\u064a\u0629 \u0627\u0644\u0623\u062a\u062d\u0627\u062f ","areaID":"368","stateID":"3797","countryID":"229"},{"areaNameEN":"Masfout","areaNameAR":"\u0645\u0635\u0641\u0648\u062a","areaID":"369","stateID":"3797","countryID":"229"}]},{"stateNameEN":"Dubai","stateNameAR":"\u062f\u0628\u064a","stateID":"3798","countryID":"229","areas":[{"areaNameEN":"All Dubai","areaNameAR":"\u0643\u0644 \u062f\u0628\u064a","areaID":"68","stateID":"3798","countryID":"229"},{"areaNameEN":"Abu Hail","areaNameAR":"\u0627\u0628\u0648 \u0647\u064a\u0644","areaID":"69","stateID":"3798","countryID":"229"},{"areaNameEN":"Academic City","areaNameAR":"\u0645\u062f\u064a\u0646\u0629 \u0627\u0643\u0627\u062f\u064a\u0645\u064a\u0629","areaID":"70","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Awir","areaNameAR":"\u0627\u0644\u0639\u0648\u064a\u0631","areaID":"71","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Bada a","areaNameAR":"\u0627\u0644\u0628\u062f\u0639","areaID":"72","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Baraha","areaNameAR":"\u0627\u0644\u0628\u0631\u0627\u062d\u0629","areaID":"73","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Barari","areaNameAR":"\u0627\u0644\u0628\u0631\u0627\u0631\u064a","areaID":"74","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Barsha 1","areaNameAR":"\u0627\u0644\u0628\u0631\u0634\u0627\u0621 1","areaID":"75","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Barsha 2","areaNameAR":"\u0627\u0644\u0628\u0631\u0634\u0627\u0621 2","areaID":"76","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Barsha 3","areaNameAR":"\u0627\u0644\u0628\u0631\u0634\u0627\u0621 3","areaID":"77","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Barsha South","areaNameAR":"\u0627\u0644\u0628\u0631\u0634\u0627\u0621 \u062c\u0646\u0648\u0628","areaID":"78","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Buteen","areaNameAR":"\u0627\u0644\u0628\u0637\u064a\u0646","areaID":"79","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Dhagaya","areaNameAR":"\u0627\u0644\u0636\u063a\u0627\u064a\u0629","areaID":"80","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Furjan","areaNameAR":"\u0627\u0644\u0641\u0631\u062c\u0627\u0646","areaID":"81","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Garhoud","areaNameAR":"\u0627\u0644\u0642\u0631\u0647\u0648\u062f","areaID":"82","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Hamriya","areaNameAR":"\u0627\u0644\u062d\u0645\u0631\u064a\u0629","areaID":"83","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Hudaiba","areaNameAR":"\u0627\u0644\u062d\u0636\u064a\u0628\u0629","areaID":"84","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Jaddaf","areaNameAR":"\u0627\u0644\u062c\u062f\u0627\u0641","areaID":"85","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Jaffiliya","areaNameAR":"\u0627\u0644\u062c\u0627\u0641\u0644\u064a\u0629","areaID":"86","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Karama","areaNameAR":"\u0627\u0644\u0643\u0631\u0627\u0645\u0629","areaID":"87","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Khabaisi","areaNameAR":"\u0627\u0644\u062e\u0628\u0627\u0626\u0633\u064a","areaID":"88","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Khawaneej 1","areaNameAR":"\u0627\u0644\u062e\u0648\u0627\u0646\u064a\u062c 1","areaID":"89","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Khawaneej 2","areaNameAR":"\u0627\u0644\u062e\u0648\u0627\u0646\u064a\u062c 2","areaID":"90","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Kifaf","areaNameAR":"\u0627\u0644\u0643\u0641\u0627\u0641","areaID":"91","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Mamzar","areaNameAR":"\u0627\u0644\u0645\u0645\u0632\u0631","areaID":"92","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Manara","areaNameAR":"\u0627\u0644\u0645\u0646\u0627\u0631\u0629","areaID":"93","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Mankhool","areaNameAR":"\u0627\u0644\u0645\u0646\u062e\u0648\u0644","areaID":"94","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Merkad","areaNameAR":"\u0627\u0644\u0645\u0631\u0643\u0627\u0636","areaID":"95","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Mina","areaNameAR":"\u0627\u0644\u0645\u064a\u0646\u0627\u0621","areaID":"96","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Mizhar 1","areaNameAR":"\u0627\u0644\u0645\u0632\u0647\u0631 1","areaID":"97","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Mizhar 2","areaNameAR":"\u0627\u0644\u0645\u0632\u0647\u0631 2","areaID":"98","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Muraqqabat","areaNameAR":"\u0627\u0644\u0645\u0631\u0642\u0628\u0627\u062a","areaID":"99","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Murar","areaNameAR":"\u0627\u0644\u0645\u0631\u0631","areaID":"100","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Mushrif","areaNameAR":"\u0627\u0644\u0645\u0634\u0631\u0641","areaID":"101","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Muteena","areaNameAR":"\u0627\u0644\u0645\u0637\u064a\u0646\u0629","areaID":"102","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Nahda 1","areaNameAR":"\u0627\u0644\u0646\u0647\u062f\u0629 1","areaID":"103","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Nahda 2","areaNameAR":"\u0627\u0644\u0646\u0647\u062f\u0629 2","areaID":"104","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Quoz 1","areaNameAR":"\u0627\u0644\u0642\u0648\u0632 1","areaID":"105","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Quoz 2","areaNameAR":"\u0627\u0644\u0642\u0648\u0632 2","areaID":"106","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Quoz 3","areaNameAR":"\u0627\u0644\u0642\u0648\u0632 3","areaID":"107","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Quoz 4","areaNameAR":"\u0627\u0644\u0642\u0648\u0632 4","areaID":"108","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Quoz Industrial Area 1","areaNameAR":"\u0627\u0644\u0642\u0648\u0632 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 1","areaID":"109","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Quoz Industrial Area 2","areaNameAR":"\u0627\u0644\u0642\u0648\u0632 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 2","areaID":"110","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Quoz Industrial Area 3","areaNameAR":"\u0627\u0644\u0642\u0648\u0632 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 3","areaID":"111","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Quoz Industrial Area 4","areaNameAR":"\u0627\u0644\u0642\u0648\u0632 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 4","areaID":"112","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Qusais 1","areaNameAR":"\u0627\u0644\u0642\u0635\u064a\u0635 1","areaID":"113","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Qusais 2","areaNameAR":"\u0627\u0644\u0642\u0635\u064a\u0635 2","areaID":"114","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Qusais 3","areaNameAR":"\u0627\u0644\u0642\u0635\u064a\u0635 3","areaID":"115","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Qusais Industrial Area 1","areaNameAR":"\u0627\u0644\u0642\u0635\u064a\u0635 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 1","areaID":"116","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Qusais Industrial Area 2","areaNameAR":"\u0627\u0644\u0642\u0635\u064a\u0635 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 2","areaID":"117","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Qusais Industrial Area 3","areaNameAR":"\u0627\u0644\u0642\u0635\u064a\u0635 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 3","areaID":"118","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Qusais Industrial Area 4","areaNameAR":"\u0627\u0644\u0642\u0635\u064a\u0635 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 4","areaID":"119","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Qusais Industrial Area 5","areaNameAR":"\u0627\u0644\u0642\u0635\u064a\u0635 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 5","areaID":"120","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Raffa","areaNameAR":"\u0627\u0644\u0631\u0641\u0627\u0639\u0629","areaID":"121","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Ras","areaNameAR":"\u0627\u0644\u0631\u0627\u0633","areaID":"122","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Rashidiya","areaNameAR":"\u0627\u0644\u0631\u0627\u0634\u062f\u064a\u0629","areaID":"123","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Rigga","areaNameAR":"\u0627\u0644\u0631\u0642\u0629","areaID":"124","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Sabkha","areaNameAR":"\u0627\u0644\u0633\u0628\u062e\u0629","areaID":"125","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Safa","areaNameAR":"\u0627\u0644\u0635\u0641\u0627","areaID":"126","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Safa 2","areaNameAR":"\u0627\u0644\u0635\u0641\u0627 2","areaID":"127","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Satwa","areaNameAR":"\u0627\u0644\u0633\u0637\u0648\u0629","areaID":"128","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Shindagha","areaNameAR":"\u0627\u0644\u0634\u0646\u062f\u063a\u0629","areaID":"129","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Souq Al Kabeer","areaNameAR":"\u0627\u0644\u0633\u0648\u0642 \u0627\u0644\u0643\u0628\u064a\u0631","areaID":"130","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Sufouh 1","areaNameAR":"\u0627\u0644\u0635\u0641\u0648\u062d 1","areaID":"131","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Sufouh 2","areaNameAR":"\u0627\u0644\u0635\u0641\u0648\u062d 2","areaID":"132","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Twar 1","areaNameAR":"\u0627\u0644\u0637\u0648\u0627\u0631 1","areaID":"133","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Twar 2","areaNameAR":"\u0627\u0644\u0637\u0648\u0627\u0631 2","areaID":"134","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Twar 3","areaNameAR":"\u0627\u0644\u0637\u0648\u0627\u0631 3","areaID":"135","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Waheda","areaNameAR":"\u0627\u0644\u0648\u062d\u064a\u062f\u0629","areaID":"136","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Warqa 1","areaNameAR":"\u0627\u0644\u0648\u0631\u0642\u0627\u0621 1","areaID":"137","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Warqa 2","areaNameAR":"\u0627\u0644\u0648\u0631\u0642\u0627\u0621 2","areaID":"138","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Warqa 3","areaNameAR":"\u0627\u0644\u0648\u0631\u0642\u0627\u0621 3","areaID":"139","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Warqa 4","areaNameAR":"\u0627\u0644\u0648\u0631\u0642\u0627\u0621 4","areaID":"140","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Warqa 5","areaNameAR":"\u0627\u0644\u0648\u0631\u0642\u0627\u0621 5","areaID":"141","stateID":"3798","countryID":"229"},{"areaNameEN":"Al Wasl","areaNameAR":"\u0627\u0644\u0648\u0635\u0644","areaID":"142","stateID":"3798","countryID":"229"},{"areaNameEN":"Arabian Ranches","areaNameAR":"\u0627\u0644\u0645\u0631\u0627\u0628\u0639 \u0627\u0644\u0639\u0631\u0628\u064a\u0629","areaID":"143","stateID":"3798","countryID":"229"},{"areaNameEN":"Arabian Ranches 2","areaNameAR":"\u0627\u0644\u0645\u0631\u0627\u0628\u0639 \u0627\u0644\u0639\u0631\u0628\u064a\u0629 2","areaID":"144","stateID":"3798","countryID":"229"},{"areaNameEN":"Barsha Heights - TECOM","areaNameAR":"\u0627\u0628\u0631\u0627\u062c \u0627\u0644\u0628\u0631\u0634\u0627\u0621- \u062a\u064a\u0643\u0648\u0645","areaID":"145","stateID":"3798","countryID":"229"},{"areaNameEN":"Bukadra","areaNameAR":"\u0628\u0648 \u0643\u062f\u0631\u0629","areaID":"146","stateID":"3798","countryID":"229"},{"areaNameEN":"Business Bay","areaNameAR":"\u0627\u0644\u062e\u0644\u064a\u062c \u0627\u0644\u062a\u062c\u0627\u0631\u0649","areaID":"147","stateID":"3798","countryID":"229"},{"areaNameEN":"Corniche Deira","areaNameAR":"\u0643\u0648\u0631\u0646\u064a\u0634 \u062f\u064a\u0631\u0629","areaID":"148","stateID":"3798","countryID":"229"},{"areaNameEN":"DIFC","areaNameAR":"\u0627\u0644\u0645\u0631\u0643\u0632 \u0627\u0644\u0645\u0627\u0644\u0649 ","areaID":"149","stateID":"3798","countryID":"229"},{"areaNameEN":"Discovery Gardens","areaNameAR":"\u062d\u062f\u0627\u0626\u0642 \u062f\u064a\u0633\u0643\u0641\u0631\u064a ","areaID":"150","stateID":"3798","countryID":"229"},{"areaNameEN":"Downtown Burj Khalifa","areaNameAR":"\u0628\u0631\u062c \u062e\u0644\u064a\u0641\u0629","areaID":"151","stateID":"3798","countryID":"229"},{"areaNameEN":"Downtown Jabel Ali","areaNameAR":"\u062c\u0628\u0644 \u0639\u0644\u0649 \u062f\u0627\u0648\u0646 \u062a\u0627\u0648\u0646","areaID":"152","stateID":"3798","countryID":"229"},{"areaNameEN":"Dubai Airport Freezone","areaNameAR":"\u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u062d\u0631\u0629 \u0628\u0645\u0637\u0627\u0631 \u062f\u0628\u0649","areaID":"153","stateID":"3798","countryID":"229"},{"areaNameEN":"Dubai Cargo Village","areaNameAR":"\u0642\u0631\u064a\u0629 \u062f\u0628\u0649 \u0644\u0644\u0634\u062d\u0646","areaID":"154","stateID":"3798","countryID":"229"},{"areaNameEN":"Dubai Design District","areaNameAR":"\u0645\u0646\u0637\u0642\u0629 \u062f\u0628\u064a \u0644\u0644\u062a\u0635\u0645\u064a\u0645","areaID":"155","stateID":"3798","countryID":"229"},{"areaNameEN":"Dubai Falcon City","areaNameAR":"\u062f\u0628\u0649 \u0641\u0627\u0644\u0643\u0648\u0646 \u0633\u064a\u062a\u0649","areaID":"156","stateID":"3798","countryID":"229"},{"areaNameEN":"Dubai Festival City","areaNameAR":"\u062f\u0628\u064a \u0641\u0633\u062a\u064a\u0641\u0627\u0644 \u0633\u064a\u062a\u064a","areaID":"157","stateID":"3798","countryID":"229"},{"areaNameEN":"Dubai Healthcare City","areaNameAR":"\u0645\u062f\u064a\u0646\u0629 \u062f\u0628\u0649 \u0627\u0644\u0637\u0628\u064a\u0629","areaID":"158","stateID":"3798","countryID":"229"},{"areaNameEN":"Dubai International Airport","areaNameAR":"\u0645\u0637\u0627\u0631 \u062f\u0628\u0649 \u0627\u0644\u062f\u0648\u0644\u0649","areaID":"159","stateID":"3798","countryID":"229"},{"areaNameEN":"Dubai Internet City - DIC","areaNameAR":"\u0645\u062f\u064a\u0646\u0629 \u062f\u0628\u0649 \u0644\u0644\u0627\u0646\u062a\u0631\u0646\u062a","areaID":"160","stateID":"3798","countryID":"229"},{"areaNameEN":"Dubai Investments Park 1","areaNameAR":"\u0645\u062c\u0645\u0639 \u062f\u0628\u0649 \u0644\u0644\u0627\u0633\u062a\u062b\u0645\u0627\u0631 1","areaID":"161","stateID":"3798","countryID":"229"},{"areaNameEN":"Dubai Investments Park 2","areaNameAR":"\u0645\u062c\u0645\u0639 \u062f\u0628\u0649 \u0644\u0644\u0627\u0633\u062a\u062b\u0645\u0627\u0631 2","areaID":"162","stateID":"3798","countryID":"229"},{"areaNameEN":"Dubai Marina","areaNameAR":"\u0645\u0631\u0633\u0649 \u062f\u0628\u0649","areaID":"163","stateID":"3798","countryID":"229"},{"areaNameEN":"Dubai Maritime City","areaNameAR":"\u0645\u062f\u064a\u0646\u0629 \u062f\u0628\u0649 \u0627\u0644\u0645\u0644\u0627\u062d\u064a\u0629","areaID":"164","stateID":"3798","countryID":"229"},{"areaNameEN":"Dubai Media City","areaNameAR":"\u0645\u062f\u064a\u0646\u0629 \u062f\u0628\u0649 \u0644\u0644\u0627\u0639\u0644\u0627\u0645","areaID":"165","stateID":"3798","countryID":"229"},{"areaNameEN":"Dubai Motor City","areaNameAR":"\u0645\u0648\u062a\u0648\u0631 \u0633\u064a\u062a\u0649","areaID":"166","stateID":"3798","countryID":"229"},{"areaNameEN":"Dubai Silicon Oasis","areaNameAR":"\u0648\u0627\u062d\u0629 \u062f\u0628\u064a \u0627\u0644\u0633\u064a\u0644\u064a\u0643\u0648\u0646","areaID":"167","stateID":"3798","countryID":"229"},{"areaNameEN":"Dubai Sports City","areaNameAR":"\u0645\u062f\u064a\u0646\u0629 \u062f\u0628\u0649 \u0627\u0644\u0631\u064a\u0627\u0636\u064a\u0629","areaID":"168","stateID":"3798","countryID":"229"},{"areaNameEN":"Dubai Studio City","areaNameAR":"\u0645\u062f\u064a\u0646\u0629 \u062f\u0628\u064a \u0644\u0644\u0627\u0633\u062a\u0648\u062f\u064a\u0648\u0647\u0627\u062a","areaID":"169","stateID":"3798","countryID":"229"},{"areaNameEN":"Dubai Techno Park","areaNameAR":"\u0645\u062c\u0645\u0639 \u0627\u0644\u062a\u0642\u0646\u064a\u0629 \u0628\u062f\u0628\u064a","areaID":"170","stateID":"3798","countryID":"229"},{"areaNameEN":"Dubai World Central - DWC","areaNameAR":"\u062f\u0628\u064a \u0648\u0631\u0644\u062f \u0633\u0646\u062a\u0631\u0627\u0644","areaID":"171","stateID":"3798","countryID":"229"},{"areaNameEN":"Dubai World Trade Center - DWTC","areaNameAR":"\u0645\u0631\u0643\u0632 \u062f\u0628\u064a \u0627\u0644\u062a\u062c\u0627\u0631\u064a \u0627\u0644\u0639\u0627\u0644\u0645\u0649","areaID":"172","stateID":"3798","countryID":"229"},{"areaNameEN":"Emirates Hills","areaNameAR":"\u062a\u0644\u0627\u0644 \u0627\u0644\u0627\u0645\u0627\u0631\u0627\u062a","areaID":"173","stateID":"3798","countryID":"229"},{"areaNameEN":"Gardens","areaNameAR":"\u062c\u0627\u0631\u062f\u0646\u0632","areaID":"174","stateID":"3798","countryID":"229"},{"areaNameEN":"Global Village","areaNameAR":"\u0627\u0644\u0642\u0631\u064a\u0629 \u0627\u0644\u0639\u0627\u0644\u0645\u064a\u0629","areaID":"175","stateID":"3798","countryID":"229"},{"areaNameEN":"Green Community Motor City","areaNameAR":"\u062c\u0631\u064a\u0646 \u0643\u0648\u0645\u064a\u0648\u0646\u064a\u062a\u064a \u0645\u0648\u062a\u0648\u0631 \u0633\u064a\u062a\u064a","areaID":"176","stateID":"3798","countryID":"229"},{"areaNameEN":"Hor Al Anz","areaNameAR":"\u0647\u0648\u0631 \u0627\u0644\u0639\u0646\u0632","areaID":"177","stateID":"3798","countryID":"229"},{"areaNameEN":"Hor Al Anz East","areaNameAR":"\u0647\u0648\u0631 \u0627\u0644\u0639\u0646\u0632 \u0634\u0631\u0642","areaID":"178","stateID":"3798","countryID":"229"},{"areaNameEN":"Ibn Batutta Mall","areaNameAR":"\u0627\u0628\u0646 \u0628\u0637\u0648\u0637\u0629 \u0645\u0648\u0644","areaID":"179","stateID":"3798","countryID":"229"},{"areaNameEN":"IMPZ","areaNameAR":"\u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u0639\u0627\u0644\u0645\u064a\u0629 \u0644\u0644\u0627\u0646\u062a\u0627\u062c \u0627\u0644\u0627\u0639\u0644\u0627\u0645\u064a","areaID":"180","stateID":"3798","countryID":"229"},{"areaNameEN":"International City","areaNameAR":"\u0627\u0644\u0645\u062f\u064a\u0646\u0629 \u0627\u0644\u062f\u0648\u0644\u064a\u0629","areaID":"181","stateID":"3798","countryID":"229"},{"areaNameEN":"Jebel Ali 1","areaNameAR":"\u062c\u0628\u0644 \u0639\u0644\u064a 1 ","areaID":"182","stateID":"3798","countryID":"229"},{"areaNameEN":"Jebel Ali 2","areaNameAR":"\u062c\u0628\u0644 \u0639\u0644\u064a 2 ","areaID":"183","stateID":"3798","countryID":"229"},{"areaNameEN":"Jebel Ali Freezone","areaNameAR":"\u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u062d\u0631\u0629 \u0628\u062c\u0628\u0644 \u0639\u0644\u0649 ","areaID":"184","stateID":"3798","countryID":"229"},{"areaNameEN":"Jebel Ali Freezone Extension","areaNameAR":"\u062a\u0648\u0633\u0639\u0629 \u0645\u0646\u0637\u0642\u0629 \u062c\u0628\u0644 \u0639\u0644\u064a \u0627\u0644\u062d\u0631\u0629","areaID":"185","stateID":"3798","countryID":"229"},{"areaNameEN":"Jebel Ali Industrial Area","areaNameAR":"\u0645\u0646\u0637\u0642\u0629 \u062c\u0628\u0644 \u0639\u0644\u0649 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629","areaID":"186","stateID":"3798","countryID":"229"},{"areaNameEN":"Jumeirah 1","areaNameAR":"\u0627\u0644\u062c\u0645\u064a\u0631\u0627 1","areaID":"187","stateID":"3798","countryID":"229"},{"areaNameEN":"Jumeirah 2","areaNameAR":"\u0627\u0644\u062c\u0645\u064a\u0631\u0627 2","areaID":"188","stateID":"3798","countryID":"229"},{"areaNameEN":"Jumeirah 3","areaNameAR":"\u0627\u0644\u062c\u0645\u064a\u0631\u0627 3","areaID":"189","stateID":"3798","countryID":"229"},{"areaNameEN":"Jumeirah Beach Residence - JBR","areaNameAR":"\u062c\u0645\u064a\u0631\u0627 \u0628\u064a\u062a\u0634 \u0631\u064a\u0632\u064a\u062f\u0646\u0633","areaID":"190","stateID":"3798","countryID":"229"},{"areaNameEN":"Jumeirah Golf Estates","areaNameAR":"\u0645\u0644\u0627\u0639\u0628 \u0627\u0644\u062c\u0645\u064a\u0631\u0629 \u0644\u0644\u062c\u0648\u0644\u0641","areaID":"191","stateID":"3798","countryID":"229"},{"areaNameEN":"Jumeirah Islands","areaNameAR":"\u062c\u0632\u0631 \u062c\u0645\u064a\u0631\u0627","areaID":"192","stateID":"3798","countryID":"229"},{"areaNameEN":"Jumeirah Lakes Towers - JLT","areaNameAR":"\u0627\u0628\u0631\u0627\u062c \u0628\u062d\u064a\u0631\u0627\u062a \u0627\u0644\u062c\u0645\u064a\u0631\u0627","areaID":"193","stateID":"3798","countryID":"229"},{"areaNameEN":"Jumeirah Park","areaNameAR":"\u062c\u0645\u064a\u0631\u0627 \u0628\u0627\u0631\u0643","areaID":"194","stateID":"3798","countryID":"229"},{"areaNameEN":"Jumeirah Village Circle - JVC","areaNameAR":"\u062c\u0646\u0648\u0628 \u0642\u0631\u064a\u0629 \u062c\u0645\u064a\u0631\u0627","areaID":"195","stateID":"3798","countryID":"229"},{"areaNameEN":"Jumeirah Village Triangle - JVT","areaNameAR":"\u0645\u062b\u0644\u062b \u0642\u0631\u064a\u0629 \u0627\u0644\u062c\u0645\u064a\u0631\u0627 ","areaID":"196","stateID":"3798","countryID":"229"},{"areaNameEN":"Knowledge Village","areaNameAR":"\u0642\u0631\u064a\u0629 \u0627\u0644\u0645\u0639\u0631\u0641\u0629","areaID":"197","stateID":"3798","countryID":"229"},{"areaNameEN":"Layan Community","areaNameAR":"\u0644\u064a\u0627\u0646 \u0643\u0648\u0645\u064a\u0646\u064a\u062a\u064a","areaID":"198","stateID":"3798","countryID":"229"},{"areaNameEN":"Liwan","areaNameAR":"\u0644\u064a\u0648\u0627\u0646","areaID":"199","stateID":"3798","countryID":"229"},{"areaNameEN":"Meadows","areaNameAR":"\u0627\u0644\u0645\u0631\u0648\u062c","areaID":"200","stateID":"3798","countryID":"229"},{"areaNameEN":"Meydan South","areaNameAR":"\u0645\u064a\u062f\u0627\u0646 \u062c\u0646\u0648\u0628","areaID":"201","stateID":"3798","countryID":"229"},{"areaNameEN":"Mira Community","areaNameAR":"\u0645\u064a\u0631\u0627 \u0643\u0648\u0645\u064a\u0648\u0646\u064a\u062a\u064a","areaID":"202","stateID":"3798","countryID":"229"},{"areaNameEN":"Mirdif","areaNameAR":"\u0645\u0631\u062f\u0641","areaID":"203","stateID":"3798","countryID":"229"},{"areaNameEN":"Mudon","areaNameAR":"\u0645\u0648\u062f\u0648\u0646","areaID":"204","stateID":"3798","countryID":"229"},{"areaNameEN":"Muhaisnah 1","areaNameAR":"\u0645\u062d\u064a\u0635\u0646\u0629 1","areaID":"205","stateID":"3798","countryID":"229"},{"areaNameEN":"Muhaisnah 2","areaNameAR":"\u0645\u062d\u064a\u0635\u0646\u0629 2","areaID":"206","stateID":"3798","countryID":"229"},{"areaNameEN":"Muhaisnah 3","areaNameAR":"\u0645\u062d\u064a\u0635\u0646\u0629 3","areaID":"207","stateID":"3798","countryID":"229"},{"areaNameEN":"Muhaisnah 4","areaNameAR":"\u0645\u062d\u064a\u0635\u0646\u0629 4","areaID":"208","stateID":"3798","countryID":"229"},{"areaNameEN":"Nad Al Sheba 1","areaNameAR":"\u0646\u062f \u0627\u0644\u0634\u0628\u0627 1","areaID":"209","stateID":"3798","countryID":"229"},{"areaNameEN":"Nad Al Sheba 2","areaNameAR":"\u0646\u062f \u0627\u0644\u0634\u0628\u0627 \u0627\u0644\u062b\u0627\u0646\u064a\u0629","areaID":"210","stateID":"3798","countryID":"229"},{"areaNameEN":"Nad Al Sheba 3","areaNameAR":"\u0646\u062f \u0627\u0644\u0634\u0628\u0627 \u0627\u0644\u062b\u0627\u0644\u062b\u0629","areaID":"211","stateID":"3798","countryID":"229"},{"areaNameEN":"Nad Al Sheba 4","areaNameAR":"\u0646\u062f \u0627\u0644\u0634\u0628\u0627 \u0627\u0644\u0631\u0627\u0628\u0639\u0629","areaID":"212","stateID":"3798","countryID":"229"},{"areaNameEN":"Nadd Al Hamar","areaNameAR":"\u0646\u062f \u0627\u0644\u062d\u0645\u0631","areaID":"213","stateID":"3798","countryID":"229"},{"areaNameEN":"Nadd Al Shamma","areaNameAR":"\u0646\u062f \u0627\u0644\u0634\u0645\u0627","areaID":"214","stateID":"3798","countryID":"229"},{"areaNameEN":"Naif","areaNameAR":"\u0646\u0627\u064a\u0641","areaID":"215","stateID":"3798","countryID":"229"},{"areaNameEN":"Oud Al Muteena","areaNameAR":"\u0639\u0648\u062f \u0627\u0644\u0645\u0637\u064a\u0646\u0629","areaID":"216","stateID":"3798","countryID":"229"},{"areaNameEN":"Oud Metha","areaNameAR":"\u0639\u0648\u062f \u0645\u064a\u062b\u0627\u0621","areaID":"217","stateID":"3798","countryID":"229"},{"areaNameEN":"Port Rashid","areaNameAR":"\u0645\u064a\u0646\u0627\u0621 \u0631\u0627\u0634\u062f","areaID":"218","stateID":"3798","countryID":"229"},{"areaNameEN":"Port Saeed","areaNameAR":"\u0645\u064a\u0646\u0627\u0621 \u0633\u0639\u064a\u062f","areaID":"219","stateID":"3798","countryID":"229"},{"areaNameEN":"Ras Al Khor","areaNameAR":"\u0631\u0623\u0633 \u0627\u0644\u062e\u0648\u0631","areaID":"220","stateID":"3798","countryID":"229"},{"areaNameEN":"Ras Al Khor Indsutrial Area 1","areaNameAR":"\u0645\u0646\u0637\u0642\u0629 \u0631\u0623\u0633 \u0627\u0644\u062e\u0648\u0631 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 1","areaID":"221","stateID":"3798","countryID":"229"},{"areaNameEN":"Ras Al Khor Indsutrial Area 2","areaNameAR":"\u0645\u0646\u0637\u0642\u0629 \u0631\u0623\u0633 \u0627\u0644\u062e\u0648\u0631 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 2","areaID":"222","stateID":"3798","countryID":"229"},{"areaNameEN":"Ras Al Khor Indsutrial Area 3","areaNameAR":"\u0645\u0646\u0637\u0642\u0629 \u0631\u0623\u0633 \u0627\u0644\u062e\u0648\u0631 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 3","areaID":"223","stateID":"3798","countryID":"229"},{"areaNameEN":"Remraam","areaNameAR":"\u0631\u0645\u0631\u0627\u0645","areaID":"224","stateID":"3798","countryID":"229"},{"areaNameEN":"Rigga Al Buteen","areaNameAR":"\u0631\u0642\u0629 \u0627\u0644\u0628\u0637\u064a\u0646","areaID":"225","stateID":"3798","countryID":"229"},{"areaNameEN":"Springs","areaNameAR":"\u0627\u0644\u064a\u0646\u0627\u0628\u064a\u0639","areaID":"226","stateID":"3798","countryID":"229"},{"areaNameEN":"The Greens","areaNameAR":"\u0627\u0644\u0631\u0648\u0636\u0629","areaID":"227","stateID":"3798","countryID":"229"},{"areaNameEN":"The Lakes","areaNameAR":"\u0627\u0644\u0628\u062d\u064a\u0631\u0627\u062a","areaID":"228","stateID":"3798","countryID":"229"},{"areaNameEN":"The Palm Deira","areaNameAR":"\u0646\u062e\u0644\u0629 \u062f\u064a\u0631\u0629","areaID":"229","stateID":"3798","countryID":"229"},{"areaNameEN":"The Palm Jebel Ali","areaNameAR":"\u0646\u062e\u0644\u0629 \u062c\u0628\u0644 \u0639\u0644\u064a","areaID":"230","stateID":"3798","countryID":"229"},{"areaNameEN":"The Palm Jumeirah","areaNameAR":"\u0646\u062e\u0644\u0629 \u0627\u0644\u062c\u0645\u064a\u0631\u0627","areaID":"231","stateID":"3798","countryID":"229"},{"areaNameEN":"The Skycourts","areaNameAR":"\u0633\u0643\u0627\u064a \u0643\u0648\u0631\u062a\u0633","areaID":"232","stateID":"3798","countryID":"229"},{"areaNameEN":"The Sustainable City","areaNameAR":"\u0627\u0644\u0645\u062f\u064a\u0646\u0629 \u0627\u0644\u0645\u0633\u062a\u062f\u0627\u0645\u0629","areaID":"233","stateID":"3798","countryID":"229"},{"areaNameEN":"The Villa","areaNameAR":"\u0630\u0627 \u0641\u064a\u0644\u0627","areaID":"234","stateID":"3798","countryID":"229"},{"areaNameEN":"Um Al Sheif","areaNameAR":"\u0623\u0645 \u0627\u0644\u0634\u064a\u0641","areaID":"235","stateID":"3798","countryID":"229"},{"areaNameEN":"Umm Hurair 1","areaNameAR":"\u0627\u0645 \u0647\u0631\u064a\u0631 \u0627\u0644\u0627\u0648\u0644\u0649 ","areaID":"236","stateID":"3798","countryID":"229"},{"areaNameEN":"Umm Hurair 2","areaNameAR":"\u0627\u0645 \u0647\u0631\u064a\u0631 \u0627\u0644\u062b\u0627\u0646\u064a\u0647","areaID":"237","stateID":"3798","countryID":"229"},{"areaNameEN":"Umm Ramool","areaNameAR":"\u0623\u0645 \u0631\u0645\u0648\u0644","areaID":"238","stateID":"3798","countryID":"229"},{"areaNameEN":"Umm Suqeim 1","areaNameAR":"\u0623\u0645 \u0633\u0642\u064a\u0645 1","areaID":"239","stateID":"3798","countryID":"229"},{"areaNameEN":"Umm Suqeim 2","areaNameAR":"\u0623\u0645 \u0633\u0642\u064a\u0645 2","areaID":"240","stateID":"3798","countryID":"229"},{"areaNameEN":"Umm Suqeim 3","areaNameAR":"\u0623\u0645 \u0633\u0642\u064a\u0645 3","areaID":"241","stateID":"3798","countryID":"229"},{"areaNameEN":"Wadi Alamardi","areaNameAR":"\u0648\u0627\u062f\u0649 \u0627\u0644\u0639\u0645\u0631\u062f\u064a","areaID":"242","stateID":"3798","countryID":"229"},{"areaNameEN":"Warsan 1","areaNameAR":"\u0648\u0631\u0633\u0627\u0646 1","areaID":"243","stateID":"3798","countryID":"229"},{"areaNameEN":"Warsan 2","areaNameAR":"\u0648\u0631\u0633\u0627\u0646 2","areaID":"244","stateID":"3798","countryID":"229"},{"areaNameEN":"Waterfront","areaNameAR":"\u0648\u0627\u062a\u0631\u0641\u0631\u0648\u0646\u062a","areaID":"245","stateID":"3798","countryID":"229"},{"areaNameEN":"Za abeel 1","areaNameAR":"\u0632\u0639\u0628\u064a\u0644 1","areaID":"246","stateID":"3798","countryID":"229"},{"areaNameEN":"Za abeel 2","areaNameAR":"\u0632\u0639\u0628\u064a\u0644 2","areaID":"247","stateID":"3798","countryID":"229"}]},{"stateNameEN":"Ras al-Khaymah","stateNameAR":"\u0631\u0623\u0633 \u0627\u0644\u062e\u064a\u0645\u0629","stateID":"3799","countryID":"229","areas":[{"areaNameEN":"All Ras Al Khaima","areaNameAR":"\u0643\u0644 \u0631\u0623\u0633 \u0627\u0644\u062e\u064a\u0645\u0629","areaID":"436","stateID":"3799","countryID":"229"},{"areaNameEN":"Al Dhait North","areaNameAR":"\u0627\u0644\u0638\u064a\u062a \u0627\u0644\u0634\u0645\u0627\u0644\u064a","areaID":"437","stateID":"3799","countryID":"229"},{"areaNameEN":"Al Dhait South","areaNameAR":"\u0627\u0644\u0638\u064a\u062a \u0627\u0644\u062c\u0646\u0648\u0628\u064a","areaID":"438","stateID":"3799","countryID":"229"},{"areaNameEN":"Al Hamra Free Zone","areaNameAR":"\u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u062d\u0631\u0629 \u0628\u0627\u0644\u062d\u0645\u0631\u0627","areaID":"439","stateID":"3799","countryID":"229"},{"areaNameEN":"Al Hamra Industrial Area","areaNameAR":"\u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 \u0628\u0627\u0644\u062d\u0645\u0631\u0627","areaID":"440","stateID":"3799","countryID":"229"},{"areaNameEN":"Al Hamra Village","areaNameAR":"\u0642\u0631\u064a\u0629 \u0627\u0644\u062d\u0645\u0631\u0627","areaID":"441","stateID":"3799","countryID":"229"},{"areaNameEN":"Al Jazeerah Al Hamra","areaNameAR":"\u062c\u0632\u064a\u0631\u0629 \u0627\u0644\u062d\u0645\u0631\u0627","areaID":"442","stateID":"3799","countryID":"229"},{"areaNameEN":"Al Jesser Area","areaNameAR":"\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u062c\u0633\u0631","areaID":"443","stateID":"3799","countryID":"229"},{"areaNameEN":"Al Juwais Area","areaNameAR":"\u0627\u0644\u063a\u0648\u0627\u0635","areaID":"444","stateID":"3799","countryID":"229"},{"areaNameEN":"Al Mairid","areaNameAR":"\u0627\u0644\u0645\u0639\u064a\u0631\u064a\u0636","areaID":"445","stateID":"3799","countryID":"229"},{"areaNameEN":"Al Marjan Island","areaNameAR":"\u062c\u0632\u064a\u0631\u0629 \u0627\u0644\u0645\u0631\u062c\u0627\u0646","areaID":"446","stateID":"3799","countryID":"229"},{"areaNameEN":"Al Nakheel Area","areaNameAR":"\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u0646\u062e\u064a\u0644","areaID":"447","stateID":"3799","countryID":"229"},{"areaNameEN":"Al Uraibi","areaNameAR":"\u0627\u0644\u0639\u0631\u064a\u0628\u064a","areaID":"448","stateID":"3799","countryID":"229"},{"areaNameEN":"Burairaat","areaNameAR":"\u0628\u0631\u064a\u0631\u0627\u062a","areaID":"449","stateID":"3799","countryID":"229"},{"areaNameEN":"Dafan Al Khor","areaNameAR":"\u062f\u0627\u0641\u0646 \u0627\u0644\u062e\u0648\u0631","areaID":"450","stateID":"3799","countryID":"229"},{"areaNameEN":"Dafan Al Nakheel","areaNameAR":"\u062f\u0641\u0627\u0646 \u0627\u0644\u0646\u062e\u064a\u0644","areaID":"451","stateID":"3799","countryID":"229"},{"areaNameEN":"Digdagga","areaNameAR":"\u062f\u0642\u062f\u0627\u0642\u0629","areaID":"452","stateID":"3799","countryID":"229"},{"areaNameEN":"Ghalilah","areaNameAR":"\u063a\u0627\u0644\u064a\u0644\u0629","areaID":"453","stateID":"3799","countryID":"229"},{"areaNameEN":"Hamrania","areaNameAR":"\u0627\u0644\u062d\u0645\u0631\u0627\u0646\u064a\u0629","areaID":"454","stateID":"3799","countryID":"229"},{"areaNameEN":"Khatt","areaNameAR":"\u062e\u0637","areaID":"455","stateID":"3799","countryID":"229"},{"areaNameEN":"Khazam","areaNameAR":"\u062e\u0632\u0627\u0645","areaID":"456","stateID":"3799","countryID":"229"},{"areaNameEN":"Mamoora","areaNameAR":"\u0627\u0644\u0645\u0639\u0645\u0648\u0631\u0629","areaID":"457","stateID":"3799","countryID":"229"},{"areaNameEN":"Mina Al arab","areaNameAR":"\u0645\u064a\u0646\u0627\u0621 \u0627\u0644\u0639\u0631\u0628","areaID":"458","stateID":"3799","countryID":"229"},{"areaNameEN":"Rams","areaNameAR":"\u0627\u0644\u0631\u0645\u0633","areaID":"459","stateID":"3799","countryID":"229"},{"areaNameEN":"Ras Al Selaab Area","areaNameAR":"\u0631\u0627\u0633 \u0627\u0644\u0633\u0644\u0627\u0628","areaID":"460","stateID":"3799","countryID":"229"},{"areaNameEN":"Refa`ah","areaNameAR":"\u0627\u0644\u0631\u0641\u0627\u0639\u0629","areaID":"461","stateID":"3799","countryID":"229"},{"areaNameEN":"Seih Al Araibi Area","areaNameAR":"\u0633\u064a\u062d \u0627\u0644\u0639\u0631\u064a\u0628\u064a","areaID":"462","stateID":"3799","countryID":"229"},{"areaNameEN":"Shareesha","areaNameAR":"\u0627\u0644\u0634\u0631\u064a\u0634\u0629","areaID":"463","stateID":"3799","countryID":"229"},{"areaNameEN":"Sidroh","areaNameAR":"\u0633\u064a\u062f\u0648\u0631\u0647","areaID":"464","stateID":"3799","countryID":"229"},{"areaNameEN":"Suhaim Area","areaNameAR":"\u0633\u0647\u064a\u0645","areaID":"465","stateID":"3799","countryID":"229"}]},{"stateNameEN":"Sharjah","stateNameAR":"\u0627\u0644\u0634\u0627\u0631\u0642\u0629","stateID":"3800","countryID":"229","areas":[{"areaNameEN":"All Sharjah","areaNameAR":"\u0643\u0644 \u0627\u0644\u0634\u0627\u0631\u0642\u0629","areaID":"248","stateID":"3800","countryID":"229"},{"areaNameEN":"Abu Shagara","areaNameAR":"\u0627\u0628\u0648 \u0634\u063a\u0627\u0631\u0629","areaID":"249","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Muntazah","areaNameAR":"\u0627\u0644\u0645\u0646\u062a\u0632\u0629","areaID":"250","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Abar","areaNameAR":"\u0627\u0644\u0622\u0628\u0627\u0631","areaID":"251","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Azra","areaNameAR":"\u0627\u0644\u0639\u0632\u0631\u0629","areaID":"252","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Bataeh","areaNameAR":"\u0627\u0644\u0628\u0637\u0627\u0626\u062d","areaID":"253","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Darari","areaNameAR":"\u0627\u0644\u062f\u0631\u0627\u0631\u0649","areaID":"254","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Dhaid","areaNameAR":"\u0627\u0644\u0630\u064a\u062f","areaID":"255","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Elyash","areaNameAR":"\u0627\u0644\u064a\u0627\u0634","areaID":"256","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Falaj","areaNameAR":"\u0627\u0644\u0641\u0644\u062c","areaID":"257","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Fayha","areaNameAR":"\u0627\u0644\u0641\u064a\u062d\u0627\u0621","areaID":"258","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Fisht","areaNameAR":"\u0627\u0644\u0641\u0634\u062a","areaID":"259","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Ghaphia","areaNameAR":"\u0627\u0644\u063a\u0627\u0641\u064a\u0629","areaID":"260","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Gharayen","areaNameAR":"\u0627\u0644\u0642\u0631\u0627\u0626\u0646","areaID":"261","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Ghubaiba","areaNameAR":"\u0627\u0644\u063a\u0628\u064a\u0628\u0629","areaID":"262","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Ghuwair","areaNameAR":"\u0627\u0644\u063a\u0648\u064a\u0631","areaID":"263","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Goaz","areaNameAR":"\u0627\u0644\u0642\u0648\u0632","areaID":"264","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Hazana","areaNameAR":"\u0627\u0644\u062d\u0632\u0627\u0646\u0629","areaID":"265","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Homaa","areaNameAR":"\u0627\u0644\u062d\u0648\u0645\u0629","areaID":"266","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Jazzat","areaNameAR":"\u0627\u0644\u062c\u0632\u0627\u062a","areaID":"267","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Jubail","areaNameAR":"\u0627\u0644\u062c\u0628\u064a\u0644","areaID":"268","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Juraina","areaNameAR":"\u0627\u0644\u062c\u0631\u064a\u0646\u0629","areaID":"269","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Khaledia Suburb","areaNameAR":"\u0636\u0627\u062d\u064a\u0629 \u0627\u0644\u062e\u0627\u0644\u062f\u064a\u0629","areaID":"270","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Khan","areaNameAR":"\u0627\u0644\u062e\u0627\u0646","areaID":"271","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Khezamia","areaNameAR":"\u0627\u0644\u062e\u0632\u0627\u0645\u064a\u0629","areaID":"272","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Layyah","areaNameAR":"\u0627\u0644\u0644\u064a\u0629","areaID":"273","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Mahatta","areaNameAR":"\u0627\u0644\u0645\u062d\u0637\u0629","areaID":"274","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Majaz 1","areaNameAR":"\u0627\u0644\u0645\u062c\u0627\u0632 1","areaID":"275","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Majaz 2","areaNameAR":"\u0627\u0644\u0645\u062c\u0627\u0632 2","areaID":"276","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Majaz 3","areaNameAR":"\u0627\u0644\u0645\u062c\u0627\u0632 3","areaID":"277","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Mamzar","areaNameAR":"\u0627\u0644\u0645\u0645\u0632\u0631","areaID":"278","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Manakh","areaNameAR":"\u0627\u0644\u0645\u0646\u0627\u062e","areaID":"279","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Mansura","areaNameAR":"\u0627\u0644\u0645\u0646\u0635\u0648\u0631\u0629","areaID":"280","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Mareija","areaNameAR":"\u0627\u0644\u0645\u0631\u064a\u062c\u0629","areaID":"281","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Mirgab","areaNameAR":"\u0627\u0644\u0645\u0631\u0642\u0627\u0628","areaID":"282","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Mujarah","areaNameAR":"\u0627\u0644\u0645\u062c\u0631\u0629","areaID":"283","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Musalla","areaNameAR":"\u0627\u0644\u0645\u0635\u0644\u0649","areaID":"284","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Nabba","areaNameAR":"\u0627\u0644\u0646\u0628\u0627","areaID":"285","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Nad","areaNameAR":"\u0627\u0644\u0646\u0648\u062f","areaID":"286","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Nahda","areaNameAR":"\u0627\u0644\u0646\u0647\u062f\u0629","areaID":"287","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Nasserya","areaNameAR":"\u0627\u0644\u0646\u0627\u0635\u0631\u064a\u0629","areaID":"288","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Nekhailat","areaNameAR":"\u0627\u0644\u0646\u062e\u064a\u0644\u0627\u062a","areaID":"289","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Noof","areaNameAR":"\u0627\u0644\u0646\u0648\u0641","areaID":"290","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Qadisia","areaNameAR":"\u0627\u0644\u0642\u0627\u062f\u0633\u064a\u0629","areaID":"291","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Qasimia","areaNameAR":"\u0627\u0644\u0642\u0627\u0633\u0645\u064a\u0629","areaID":"292","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Qulayaa","areaNameAR":"\u0627\u0644\u0642\u0644\u064a\u0639\u0629","areaID":"293","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Rahmania","areaNameAR":"\u0627\u0644\u0631\u062d\u0645\u0627\u0646\u064a\u0629","areaID":"294","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Ramaqia","areaNameAR":"\u0627\u0644\u0631\u0645\u0627\u0642\u064a\u0629","areaID":"295","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Ramla East","areaNameAR":"\u0634\u0631\u0642 \u0627\u0644\u0631\u0645\u0644\u0629","areaID":"296","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Ramla West","areaNameAR":"\u063a\u0631\u0628 \u0627\u0644\u0631\u0645\u0644\u0629","areaID":"297","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Ramtha","areaNameAR":"\u0627\u0644\u0631\u0645\u062b\u0627\u0621","areaID":"298","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Rifah","areaNameAR":"\u0627\u0644\u0631\u0641\u0627\u0639\u0629","areaID":"299","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Riffa","areaNameAR":"\u0627\u0644\u0631\u0641\u0627\u0639","areaID":"300","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Sabkha","areaNameAR":"\u0627\u0644\u0635\u0628\u062e\u0629","areaID":"301","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Seef","areaNameAR":"\u0627\u0644\u0633\u064a\u0641","areaID":"302","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Shahba","areaNameAR":"\u0627\u0644\u0634\u0647\u0628\u0627\u0621","areaID":"303","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Shuwaihen","areaNameAR":"\u0627\u0644\u0634\u0648\u064a\u0647\u064a\u0646","areaID":"304","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Soor","areaNameAR":"\u0627\u0644\u0633\u0648\u0631","areaID":"305","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Sweihat","areaNameAR":"\u0627\u0644\u0633\u0648\u064a\u062d\u0627\u062a","areaID":"306","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Taawun","areaNameAR":"\u0627\u0644\u062a\u0639\u0627\u0648\u0646","areaID":"307","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Talaa","areaNameAR":"\u0627\u0644\u0637\u0644\u0627\u0639","areaID":"308","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Tarfa","areaNameAR":"\u0627\u0644\u0637\u0631\u0641\u0627","areaID":"309","stateID":"3800","countryID":"229"},{"areaNameEN":"Al Yarmook","areaNameAR":"\u0627\u0644\u064a\u0631\u0645\u0648\u0643","areaID":"310","stateID":"3800","countryID":"229"},{"areaNameEN":"Bu Danig","areaNameAR":"\u0628\u0648 \u062f\u0627\u0646\u062c","areaID":"311","stateID":"3800","countryID":"229"},{"areaNameEN":"Bu Tina","areaNameAR":"\u0628\u0648\u0637\u064a\u0646\u0629","areaID":"312","stateID":"3800","countryID":"229"},{"areaNameEN":"Dasman","areaNameAR":"\u062f\u0633\u0645\u0627\u0646","areaID":"313","stateID":"3800","countryID":"229"},{"areaNameEN":"Industrial Area 1","areaNameAR":"\u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 1","areaID":"314","stateID":"3800","countryID":"229"},{"areaNameEN":"Industrial Area 10","areaNameAR":"\u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 10","areaID":"315","stateID":"3800","countryID":"229"},{"areaNameEN":"Industrial Area 11","areaNameAR":"\u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 11","areaID":"316","stateID":"3800","countryID":"229"},{"areaNameEN":"Industrial Area 12","areaNameAR":"\u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 12","areaID":"317","stateID":"3800","countryID":"229"},{"areaNameEN":"Industrial Area 13","areaNameAR":"\u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 13","areaID":"318","stateID":"3800","countryID":"229"},{"areaNameEN":"Industrial Area 15","areaNameAR":"\u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 15","areaID":"319","stateID":"3800","countryID":"229"},{"areaNameEN":"Industrial Area 17","areaNameAR":"\u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 17","areaID":"320","stateID":"3800","countryID":"229"},{"areaNameEN":"Industrial Area 18","areaNameAR":"\u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 18","areaID":"321","stateID":"3800","countryID":"229"},{"areaNameEN":"Industrial Area 2","areaNameAR":"\u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 2","areaID":"322","stateID":"3800","countryID":"229"},{"areaNameEN":"Industrial Area 3","areaNameAR":"\u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 3","areaID":"323","stateID":"3800","countryID":"229"},{"areaNameEN":"Industrial Area 4","areaNameAR":"\u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 4","areaID":"324","stateID":"3800","countryID":"229"},{"areaNameEN":"Industrial Area 5","areaNameAR":"\u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 5","areaID":"325","stateID":"3800","countryID":"229"},{"areaNameEN":"Industrial Area 6","areaNameAR":"\u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 6","areaID":"326","stateID":"3800","countryID":"229"},{"areaNameEN":"Industrial Area 7","areaNameAR":"\u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 7","areaID":"327","stateID":"3800","countryID":"229"},{"areaNameEN":"Industrial Area 8","areaNameAR":"\u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 8","areaID":"328","stateID":"3800","countryID":"229"},{"areaNameEN":"Industrial Area 9","areaNameAR":"\u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 9","areaID":"329","stateID":"3800","countryID":"229"},{"areaNameEN":"Khor Fakkan","areaNameAR":"\u062e\u0648\u0631\u0641\u0643\u0627\u0646 ","areaID":"330","stateID":"3800","countryID":"229"},{"areaNameEN":"Maysaloon","areaNameAR":"\u0645\u064a\u0633\u0644\u0648\u0646","areaID":"331","stateID":"3800","countryID":"229"},{"areaNameEN":"Muwafjah","areaNameAR":"\u0645\u0648\u0627\u0641\u062c\u0629","areaID":"332","stateID":"3800","countryID":"229"},{"areaNameEN":"Muwaileh Commercial","areaNameAR":"\u0645\u0648\u064a\u0644\u062d \u0627\u0644\u062a\u062c\u0627\u0631\u064a\u0629","areaID":"333","stateID":"3800","countryID":"229"},{"areaNameEN":"Rolla","areaNameAR":"\u0627\u0644\u0631\u0648\u0644\u0629","areaID":"334","stateID":"3800","countryID":"229"},{"areaNameEN":"Saif Zone","areaNameAR":"\u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u062d\u0631\u0629 \u0628\u0645\u0637\u0627\u0631 \u0627\u0644\u0634\u0627\u0631\u0642\u0629 \u0627\u0644\u062f\u0648\u0644\u064a","areaID":"335","stateID":"3800","countryID":"229"},{"areaNameEN":"Samnan","areaNameAR":"\u0633\u0645\u0646\u0627\u0646","areaID":"336","stateID":"3800","countryID":"229"},{"areaNameEN":"Sharqan","areaNameAR":"\u0634\u0631\u0642\u0627\u0646","areaID":"337","stateID":"3800","countryID":"229"},{"areaNameEN":"Um Altaraffa","areaNameAR":"\u0623\u0645 \u0637\u0631\u0627\u0641\u0629","areaID":"338","stateID":"3800","countryID":"229"},{"areaNameEN":"University of Sharjah","areaNameAR":"\u062c\u0627\u0645\u0639\u0629 \u0627\u0644\u0634\u0627\u0631\u0642\u0629","areaID":"339","stateID":"3800","countryID":"229"}]},{"stateNameEN":"Umm al Quwain","stateNameAR":"\u0623\u0645 \u0627\u0644\u0642\u064a\u0648\u064a\u0646","stateID":"3802","countryID":"229","areas":[{"areaNameEN":"All Umm Al-Quwain","areaNameAR":"\u0643\u0644 \u0627\u0645 \u0627\u0644\u0642\u0648\u064a\u0646","areaID":"466","stateID":"3802","countryID":"229"},{"areaNameEN":"Al Aahad","areaNameAR":"\u0627\u0644\u0627\u062d\u062f","areaID":"467","stateID":"3802","countryID":"229"},{"areaNameEN":"Al Abrab","areaNameAR":"\u0627\u0644\u0627\u0628\u0631\u0628","areaID":"468","stateID":"3802","countryID":"229"},{"areaNameEN":"Al Dar Al Baidah","areaNameAR":"\u0627\u0644\u062f\u0627\u0631 \u0627\u0644\u0628\u064a\u0636\u0627\u0621","areaID":"469","stateID":"3802","countryID":"229"},{"areaNameEN":"Al Haditha","areaNameAR":"\u0627\u0644\u062d\u062f\u064a\u062b\u0629","areaID":"470","stateID":"3802","countryID":"229"},{"areaNameEN":"Al Hawiyah","areaNameAR":"\u0627\u0644\u062d\u0648\u0627\u064a\u0629","areaID":"471","stateID":"3802","countryID":"229"},{"areaNameEN":"Al Humrah - A","areaNameAR":"\u0627\u0644\u062d\u0645\u0631\u0629- 1","areaID":"472","stateID":"3802","countryID":"229"},{"areaNameEN":"Al Humrah - B","areaNameAR":"\u0627\u0644\u062d\u0645\u0631\u0629- 2","areaID":"473","stateID":"3802","countryID":"229"},{"areaNameEN":"Al Humrah - C","areaNameAR":"\u0627\u0644\u062d\u0645\u0631\u0629- 3","areaID":"474","stateID":"3802","countryID":"229"},{"areaNameEN":"Al Humrah - D","areaNameAR":"\u0627\u0644\u062d\u0645\u0631\u0629- 4","areaID":"475","stateID":"3802","countryID":"229"},{"areaNameEN":"Al Khor","areaNameAR":"\u0627\u0644\u062e\u0648\u0631","areaID":"476","stateID":"3802","countryID":"229"},{"areaNameEN":"Al Limgadhar","areaNameAR":"\u0627\u0644\u0644\u0645\u063a\u062f\u0631","areaID":"477","stateID":"3802","countryID":"229"},{"areaNameEN":"Al Maidan","areaNameAR":"\u0627\u0644\u0645\u064a\u062f\u0627\u0646","areaID":"478","stateID":"3802","countryID":"229"},{"areaNameEN":"Al Raas - A","areaNameAR":"\u0627\u0644\u0631\u0627\u0633- 1","areaID":"479","stateID":"3802","countryID":"229"},{"areaNameEN":"Al Raas - B","areaNameAR":"\u0627\u0644\u0631\u0627\u0633- 2","areaID":"480","stateID":"3802","countryID":"229"},{"areaNameEN":"Al Raas - C","areaNameAR":"\u0627\u0644\u0631\u0627\u0633- 3","areaID":"481","stateID":"3802","countryID":"229"},{"areaNameEN":"Al Ramlah","areaNameAR":"\u0627\u0644\u0631\u0645\u0644\u0629","areaID":"482","stateID":"3802","countryID":"229"},{"areaNameEN":"Al Raudah","areaNameAR":"\u0627\u0644\u0631\u0648\u0636\u0629","areaID":"483","stateID":"3802","countryID":"229"},{"areaNameEN":"Al Riqqah","areaNameAR":"\u0627\u0644\u0631\u0642\u0629","areaID":"484","stateID":"3802","countryID":"229"},{"areaNameEN":"Al Salamah - A","areaNameAR":"\u0627\u0644\u0633\u0644\u0627\u0645\u0629- 1","areaID":"485","stateID":"3802","countryID":"229"},{"areaNameEN":"Al Salamah - B","areaNameAR":"\u0627\u0644\u0633\u0644\u0627\u0645\u0629- 2","areaID":"486","stateID":"3802","countryID":"229"},{"areaNameEN":"Al Salamah - C","areaNameAR":"\u0627\u0644\u0633\u0644\u0627\u0645\u0629- 3","areaID":"487","stateID":"3802","countryID":"229"},{"areaNameEN":"Defence Camp","areaNameAR":"\u0645\u062e\u064a\u0645 \u0627\u0644\u062f\u0641\u0627\u0639","areaID":"488","stateID":"3802","countryID":"229"},{"areaNameEN":"Green Belt","areaNameAR":"\u0627\u0644\u062d\u0632\u0627\u0645 \u0627\u0644\u0627\u062e\u0636\u0631","areaID":"489","stateID":"3802","countryID":"229"},{"areaNameEN":"Industrial Area","areaNameAR":"\u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629","areaID":"490","stateID":"3802","countryID":"229"},{"areaNameEN":"Old Town Area","areaNameAR":"\u0627\u0644\u0645\u062f\u064a\u0646\u0629 \u0627\u0644\u0642\u062f\u064a\u0645\u0629","areaID":"491","stateID":"3802","countryID":"229"},{"areaNameEN":"Umm Al Quwain Marina","areaNameAR":"\u0645\u0627\u0631\u064a\u0646\u0627 \u0627\u0645 \u0627\u0644\u0642\u0648\u064a\u0646","areaID":"492","stateID":"3802","countryID":"229"}]},{"stateNameEN":"Fujairah","stateNameAR":"\u0627\u0644\u0641\u062c\u064a\u0631\u0629","stateID":"3803","countryID":"229","areas":[{"areaNameEN":"All Fujairah","areaNameAR":"\u0643\u0644 \u0627\u0644\u0641\u062c\u064a\u0631\u0629","areaID":"405","stateID":"3803","countryID":"229"},{"areaNameEN":"Al Bedia ","areaNameAR":"\u0627\u0644\u0628\u062f\u064a\u0629","areaID":"406","stateID":"3803","countryID":"229"},{"areaNameEN":"Al Buthna ","areaNameAR":"\u0627\u0644\u0628\u062b\u0646\u0629","areaID":"407","stateID":"3803","countryID":"229"},{"areaNameEN":"Al Farfar","areaNameAR":"\u0627\u0644\u0641\u0631\u0641\u0627\u0631","areaID":"408","stateID":"3803","countryID":"229"},{"areaNameEN":"Al Faseel","areaNameAR":"\u0627\u0644\u0641\u0635\u064a\u0644 ","areaID":"409","stateID":"3803","countryID":"229"},{"areaNameEN":"Al Gurfa","areaNameAR":"\u0627\u0644\u063a\u0631\u0641\u0629","areaID":"410","stateID":"3803","countryID":"229"},{"areaNameEN":"Al Hala ","areaNameAR":"\u0627\u0644\u062d\u0644\u0627","areaID":"411","stateID":"3803","countryID":"229"},{"areaNameEN":"Al Heel ","areaNameAR":"\u0627\u0644\u062d\u064a\u0644 ","areaID":"412","stateID":"3803","countryID":"229"},{"areaNameEN":"Al Ittihad","areaNameAR":"\u0627\u0644\u0627\u062a\u062d\u0627\u062f ","areaID":"413","stateID":"3803","countryID":"229"},{"areaNameEN":"Al Mahatta","areaNameAR":"\u0627\u0644\u0645\u062d\u0637\u0629","areaID":"414","stateID":"3803","countryID":"229"},{"areaNameEN":"Al Owaid","areaNameAR":"\u0627\u0644\u0639\u0648\u064a\u062f","areaID":"415","stateID":"3803","countryID":"229"},{"areaNameEN":"Al Taween","areaNameAR":"\u0627\u0644\u0637\u0648\u064a\u064a\u0646","areaID":"416","stateID":"3803","countryID":"229"},{"areaNameEN":"Albeledah","areaNameAR":"\u0627\u0644\u0628\u0644\u064a\u062f\u0629","areaID":"417","stateID":"3803","countryID":"229"},{"areaNameEN":"Anajaimat","areaNameAR":"\u0627\u0644\u0646\u062c\u0645\u0627\u062a","areaID":"418","stateID":"3803","countryID":"229"},{"areaNameEN":"Awhala ","areaNameAR":"\u0623\u0648\u062d\u0644\u0629","areaID":"419","stateID":"3803","countryID":"229"},{"areaNameEN":"Daba","areaNameAR":"\u062f\u0628\u0627","areaID":"420","stateID":"3803","countryID":"229"},{"areaNameEN":"Dedna","areaNameAR":"\u0636\u062f\u0646\u0627 ","areaID":"421","stateID":"3803","countryID":"229"},{"areaNameEN":"Fujairah Free Trade Zone","areaNameAR":"\u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u062a\u062c\u0627\u0631\u064a\u0629 \u0627\u0644\u062d\u0631\u0629 \u0627\u0644\u0641\u062c\u064a\u0631\u0629","areaID":"422","stateID":"3803","countryID":"229"},{"areaNameEN":"Fujairah Intl Airport","areaNameAR":"\u0645\u0637\u0627\u0631 \u0627\u0644\u0641\u062c\u064a\u0631\u0629 ","areaID":"423","stateID":"3803","countryID":"229"},{"areaNameEN":"Fujairah Port","areaNameAR":"\u0645\u064a\u0646\u0627\u0621 \u0627\u0644\u0641\u062c\u064a\u0631\u0629","areaID":"424","stateID":"3803","countryID":"229"},{"areaNameEN":"Halefaath","areaNameAR":"\u0627\u0644\u062d\u0644\u064a\u0641\u0627\u062a","areaID":"425","stateID":"3803","countryID":"229"},{"areaNameEN":"Industrial Area","areaNameAR":"\u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629","areaID":"426","stateID":"3803","countryID":"229"},{"areaNameEN":"Madhab","areaNameAR":"\u0645\u0630\u0647\u0628 ","areaID":"427","stateID":"3803","countryID":"229"},{"areaNameEN":"Masafi","areaNameAR":"\u0645\u0633\u0627\u0641\u064a","areaID":"428","stateID":"3803","countryID":"229"},{"areaNameEN":"Merashid","areaNameAR":"\u0645\u0631\u0634\u062f","areaID":"429","stateID":"3803","countryID":"229"},{"areaNameEN":"Mirbah","areaNameAR":"\u0645\u0631\u0628\u062d","areaID":"430","stateID":"3803","countryID":"229"},{"areaNameEN":"Old Fujairah City","areaNameAR":"\u0627\u0644\u0641\u062c\u064a\u0631\u0629 \u0627\u0644\u0642\u062f\u064a\u0645\u0629 ","areaID":"431","stateID":"3803","countryID":"229"},{"areaNameEN":"Rughaylat","areaNameAR":"\u0627\u0644\u0631\u063a\u064a\u0644\u0627\u062a","areaID":"432","stateID":"3803","countryID":"229"},{"areaNameEN":"Rumailah","areaNameAR":"\u0627\u0644\u0631\u0645\u064a\u0644\u0629 ","areaID":"433","stateID":"3803","countryID":"229"},{"areaNameEN":"Sakamkam","areaNameAR":"\u0633\u0643\u0645\u0643\u0645","areaID":"434","stateID":"3803","countryID":"229"},{"areaNameEN":"Sharm ","areaNameAR":"\u0634\u0631\u0645","areaID":"435","stateID":"3803","countryID":"229"}]},{"stateNameEN":"Al Ain","stateNameAR":"\u0627\u0644\u0639\u064a\u0646","stateID":"3804","countryID":"229","areas":[{"areaNameEN":"All Al Ain","areaNameAR":"\u0643\u0644 \u0627\u0644\u0639\u064a\u0646","areaID":"370","stateID":"3804","countryID":"229"},{"areaNameEN":"Abu Samrah","areaNameAR":"\u0623\u064a\u0648 \u0633\u0645\u0631\u0629","areaID":"371","stateID":"3804","countryID":"229"},{"areaNameEN":"Al Agabiyya","areaNameAR":"\u0627\u0644\u0639\u0642\u0627\u0628\u064a\u0629","areaID":"372","stateID":"3804","countryID":"229"},{"areaNameEN":"Al Ain International Airport","areaNameAR":"\u0645\u0637\u0627\u0631 \u0627\u0644\u0639\u064a\u0646 \u0627\u0644\u062f\u0648\u0644\u064a","areaID":"373","stateID":"3804","countryID":"229"},{"areaNameEN":"Al Ain Mall","areaNameAR":"\u0627\u0644\u0639\u064a\u0646 \u0645\u0648\u0644","areaID":"374","stateID":"3804","countryID":"229"},{"areaNameEN":"Al Ain Oasis Villas","areaNameAR":"\u0641\u0644\u0644 \u0648\u0627\u062d\u0629 \u0627\u0644\u0639\u064a\u0646","areaID":"375","stateID":"3804","countryID":"229"},{"areaNameEN":"Al Bateen","areaNameAR":"\u0627\u0644\u0628\u0637\u064a\u0646","areaID":"376","stateID":"3804","countryID":"229"},{"areaNameEN":"Al Foaa","areaNameAR":"\u0627\u0644\u0641\u0648\u0639\u0647","areaID":"377","stateID":"3804","countryID":"229"},{"areaNameEN":"Al Hili","areaNameAR":"\u0647\u064a\u0644\u064a","areaID":"378","stateID":"3804","countryID":"229"},{"areaNameEN":"Al Jahili","areaNameAR":"\u0627\u0644\u062c\u0647\u064a\u0644\u064a","areaID":"379","stateID":"3804","countryID":"229"},{"areaNameEN":"Al Jimi","areaNameAR":"\u0627\u0644\u062c\u064a\u0645\u064a","areaID":"380","stateID":"3804","countryID":"229"},{"areaNameEN":"Al Khabisi","areaNameAR":"\u0627\u0644\u062e\u0628\u064a\u0635\u064a","areaID":"381","stateID":"3804","countryID":"229"},{"areaNameEN":"Al Maqam","areaNameAR":"\u0627\u0644\u0645\u0642\u0627\u0645","areaID":"382","stateID":"3804","countryID":"229"},{"areaNameEN":"Al Marakhaniya","areaNameAR":"\u0627\u0644\u0645\u0631\u062e\u0627\u0646\u064a\u0629","areaID":"383","stateID":"3804","countryID":"229"},{"areaNameEN":"Al Masoudi","areaNameAR":"\u0627\u0644\u0645\u0633\u0639\u0648\u062f\u064a","areaID":"384","stateID":"3804","countryID":"229"},{"areaNameEN":"Al Murabaa","areaNameAR":"\u0627\u0644\u0645\u0631\u0628\u0639\u0629","areaID":"385","stateID":"3804","countryID":"229"},{"areaNameEN":"Al Mutarad","areaNameAR":"\u0627\u0644\u0645\u0637\u0627\u0631\u062f","areaID":"386","stateID":"3804","countryID":"229"},{"areaNameEN":"Al Mutawaa","areaNameAR":"\u0627\u0644\u0645\u0637\u0627\u0648\u0639\u0629","areaID":"387","stateID":"3804","countryID":"229"},{"areaNameEN":"Al Qattara","areaNameAR":"\u0627\u0644\u0642\u0637\u0627\u0631\u0629","areaID":"388","stateID":"3804","countryID":"229"},{"areaNameEN":"Al Sarooj","areaNameAR":"\u0627\u0644\u0635\u0627\u0631\u0648\u062c","areaID":"389","stateID":"3804","countryID":"229"},{"areaNameEN":"Al Shabiya","areaNameAR":"\u0627\u0644\u0634\u0639\u064a\u0628\u0629","areaID":"390","stateID":"3804","countryID":"229"},{"areaNameEN":"Al Towayya","areaNameAR":"\u0627\u0644\u0637\u0648\u064a\u0629","areaID":"391","stateID":"3804","countryID":"229"},{"areaNameEN":"Al Yahar","areaNameAR":"\u0627\u0644\u064a\u062d\u0631","areaID":"392","stateID":"3804","countryID":"229"},{"areaNameEN":"Al Zakher","areaNameAR":"\u0627\u0644\u0632\u0627\u062e\u0631","areaID":"393","stateID":"3804","countryID":"229"},{"areaNameEN":"Alain Al Fiyada","areaNameAR":"\u0627\u0644\u0639\u064a\u0646 \u0627\u0644\u0641\u0627\u064a\u0636\u0629","areaID":"394","stateID":"3804","countryID":"229"},{"areaNameEN":"Asharej","areaNameAR":"\u0639\u0634\u0627\u0631\u062c","areaID":"395","stateID":"3804","countryID":"229"},{"areaNameEN":"Bedda Bn Ammar","areaNameAR":"\u0628\u062f\u0639 \u0628\u0646 \u0639\u0645\u0627\u0631","areaID":"396","stateID":"3804","countryID":"229"},{"areaNameEN":"Falaj Hazzaa","areaNameAR":"\u0641\u0644\u062c \u0647\u0632\u0627\u0639","areaID":"397","stateID":"3804","countryID":"229"},{"areaNameEN":"Industrial Area","areaNameAR":"\u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629","areaID":"398","stateID":"3804","countryID":"229"},{"areaNameEN":"Manazaf","areaNameAR":"\u0645\u0646\u0627\u0632\u0641","areaID":"399","stateID":"3804","countryID":"229"},{"areaNameEN":"Mubzara","areaNameAR":"\u0645\u0628\u0632\u0631\u0629","areaID":"400","stateID":"3804","countryID":"229"},{"areaNameEN":"Neima","areaNameAR":"\u0646\u0639\u0645\u0629","areaID":"401","stateID":"3804","countryID":"229"},{"areaNameEN":"Tawam","areaNameAR":"\u062a\u0648\u0627\u0645","areaID":"402","stateID":"3804","countryID":"229"},{"areaNameEN":"UAE University 1","areaNameAR":"\u062c\u0627\u0645\u0639\u0629 \u0627\u0644\u0627\u0645\u0627\u0631\u0627\u062a 1","areaID":"403","stateID":"3804","countryID":"229"},{"areaNameEN":"UAE University 2","areaNameAR":"\u062c\u0627\u0645\u0639\u0629 \u0627\u0644\u0627\u0645\u0627\u0631\u0627\u062a 2 ","areaID":"404","stateID":"3804","countryID":"229"}]}]}
+{
+  "countryID": 1,
+  "countryCode": "AE",
+  "countryNameEN": "United Arab Emirates",
+  "countryNameAR": "الإمارات العربية المتحدة",
+  "states": [
+    {
+      "stateID": 3796,
+      "countryID": 1,
+      "stateNameEN": "Abu Dhabi",
+      "stateNameAR": "أبو ظبي",
+      "stateCode": "",
+      "areas": [
+        {
+          "areaID": 1,
+          "areaNameEN": "All Abu Dhabi",
+          "areaNameAR": "كل أبو ظبي",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 2,
+          "areaNameEN": "Al Adla ",
+          "areaNameAR": "العدلة ",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 3,
+          "areaNameEN": "Al Aman",
+          "areaNameAR": "الأمان",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 4,
+          "areaNameEN": "Al Bahya",
+          "areaNameAR": "الباهية",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 5,
+          "areaNameEN": "Al Bandar",
+          "areaNameAR": "البندر",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 6,
+          "areaNameEN": "Al Dafrah",
+          "areaNameAR": "الظفرة",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 7,
+          "areaNameEN": "Al Etihad",
+          "areaNameAR": "الاتحاد",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 8,
+          "areaNameEN": "Al Falah City",
+          "areaNameAR": "مدينة الفلاح",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 9,
+          "areaNameEN": "Al Hosn",
+          "areaNameAR": "الحصن",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 10,
+          "areaNameEN": "Al Karamah",
+          "areaNameAR": "الكرامة",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 11,
+          "areaNameEN": "Al Khalidiyah",
+          "areaNameAR": "الخالدية",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 12,
+          "areaNameEN": "Al Khubeirah",
+          "areaNameAR": "الخبيرة",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 13,
+          "areaNameEN": "Al Mafraq",
+          "areaNameAR": "المفرق ",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 14,
+          "areaNameEN": "Al Manhal",
+          "areaNameAR": "المنهل ",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 15,
+          "areaNameEN": "Al Maqta",
+          "areaNameAR": "المقطع",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 16,
+          "areaNameEN": "Al Markaziyah",
+          "areaNameAR": "المركزية",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 17,
+          "areaNameEN": "Al Markaziyah West",
+          "areaNameAR": "المركزية الغربية",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 18,
+          "areaNameEN": "Al Maryah Island",
+          "areaNameAR": "جزيرة الماريه",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 19,
+          "areaNameEN": "Al Mina",
+          "areaNameAR": "الميناء",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 20,
+          "areaNameEN": "Al Muneera",
+          "areaNameAR": "المنيرة",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 21,
+          "areaNameEN": "Al Muntazah",
+          "areaNameAR": "المنتزة",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 22,
+          "areaNameEN": "Al Musalla",
+          "areaNameAR": "المصلى",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 23,
+          "areaNameEN": "Al Mushrif",
+          "areaNameAR": "المشرف",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 24,
+          "areaNameEN": "Al Muzoon",
+          "areaNameAR": "المزون",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 25,
+          "areaNameEN": "Al Nahyan",
+          "areaNameAR": "ال نهيان",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 26,
+          "areaNameEN": "Al Raha",
+          "areaNameAR": "الراحة",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 27,
+          "areaNameEN": "Al Rahba",
+          "areaNameAR": "الرحبة",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 28,
+          "areaNameEN": "Al Ras Al Akhdar",
+          "areaNameAR": "الرأس الأخضر",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 29,
+          "areaNameEN": "Al Reef",
+          "areaNameAR": "الريف",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 30,
+          "areaNameEN": "Al Rowdah",
+          "areaNameAR": "الروضة",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 31,
+          "areaNameEN": "Al Safarrat",
+          "areaNameAR": "السفارات",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 32,
+          "areaNameEN": "Al Samha",
+          "areaNameAR": "السمحة ",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 33,
+          "areaNameEN": "Al Shamkha",
+          "areaNameAR": "الشامخة",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 34,
+          "areaNameEN": "Al Shawamekh",
+          "areaNameAR": "الشوامخ",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 35,
+          "areaNameEN": "Al Wahdah",
+          "areaNameAR": "الوحدة",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 36,
+          "areaNameEN": "Al Wathba ",
+          "areaNameAR": "الوثبة",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 37,
+          "areaNameEN": "Al Zaab",
+          "areaNameAR": "الزعاب",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 38,
+          "areaNameEN": "Al Zafranah",
+          "areaNameAR": "الزعفرانة",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 39,
+          "areaNameEN": "Al Zahraa",
+          "areaNameAR": "الزهراء",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 40,
+          "areaNameEN": "Al Zeina",
+          "areaNameAR": "الزينة",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 41,
+          "areaNameEN": "Bain Al Jesrain",
+          "areaNameAR": "بين الجسرين",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 42,
+          "areaNameEN": "Bani Yas",
+          "areaNameAR": "بني ياس",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 43,
+          "areaNameEN": "Belghailam",
+          "areaNameAR": "بلغيلم",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 44,
+          "areaNameEN": "BreakWater",
+          "areaNameAR": "كاسر الأمواج",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 45,
+          "areaNameEN": "Capital Centre",
+          "areaNameAR": "كابيتال سنتر",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 46,
+          "areaNameEN": "Dhow Harbour",
+          "areaNameAR": "ميناء داو",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 47,
+          "areaNameEN": "Hydra City",
+          "areaNameAR": "مدينة هيدرا",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 48,
+          "areaNameEN": "Khor Al Bateen",
+          "areaNameAR": "خور البطين",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 49,
+          "areaNameEN": "Lulu Island",
+          "areaNameAR": "جزيرة اللؤلؤ",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 50,
+          "areaNameEN": "Madinat Khalifa - A",
+          "areaNameAR": "مدينة خليفة",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 51,
+          "areaNameEN": "Madinat Khalifa - B",
+          "areaNameAR": "مدينة خليفة ب",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 52,
+          "areaNameEN": "Madinat Khalifa - C",
+          "areaNameAR": "مدينة خليفة ج",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 53,
+          "areaNameEN": "Madinat Zayed",
+          "areaNameAR": "مدينة زايد",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 54,
+          "areaNameEN": "Masdar City",
+          "areaNameAR": "مدينة مصدر ",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 55,
+          "areaNameEN": "Mohammed Bin Zayed City",
+          "areaNameAR": "مدينة محمد بن زايد",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 56,
+          "areaNameEN": "Mussafah Industrial city",
+          "areaNameAR": "مدينة مصفح الصناعية",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 57,
+          "areaNameEN": "New Shahama",
+          "areaNameAR": "الشهامة الجديدة",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 58,
+          "areaNameEN": "Port Zayed",
+          "areaNameAR": "ميناء زايد",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 59,
+          "areaNameEN": "Qasr El Bahr",
+          "areaNameAR": "قصر البحر",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 60,
+          "areaNameEN": "Qasr El Shantie",
+          "areaNameAR": "قصر الشاطئ",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 61,
+          "areaNameEN": "Reem Island",
+          "areaNameAR": "جزيرة الريم",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 62,
+          "areaNameEN": "Saadiyat Island",
+          "areaNameAR": "جزيرة سعديات",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 63,
+          "areaNameEN": "Sas Al Nakhl Island",
+          "areaNameAR": "جزيرو ساس النخل",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 64,
+          "areaNameEN": "Shahama",
+          "areaNameAR": "الشهامة",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 65,
+          "areaNameEN": "Tourist Club Area",
+          "areaNameAR": "منطقة النادى السياحى",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 66,
+          "areaNameEN": "Yas Island",
+          "areaNameAR": "جزيرة ياس",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        },
+        {
+          "areaID": 67,
+          "areaNameEN": "Zayed Sports City",
+          "areaNameAR": "المدينة الرياضية",
+          "areaCode": "",
+          "stateID": 3796,
+          "countryID": 1
+        }
+      ]
+    },
+    {
+      "stateID": 3797,
+      "countryID": 1,
+      "stateNameEN": "Ajman",
+      "stateNameAR": "عجمان",
+      "stateCode": "",
+      "areas": [
+        {
+          "areaID": 340,
+          "areaNameEN": "All Ajman",
+          "areaNameAR": "كل عجمان",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 341,
+          "areaNameEN": "Ajman City Center",
+          "areaNameAR": "عجمان سيتي سنتر",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 342,
+          "areaNameEN": "Ajman Corniche",
+          "areaNameAR": "كورنيش عجمان",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 343,
+          "areaNameEN": "Ajman Free Zone",
+          "areaNameAR": "منطقة عجمان الحرة",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 344,
+          "areaNameEN": "Ajman Pearl",
+          "areaNameAR": "لؤلؤة عجمان",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 345,
+          "areaNameEN": "Ajman University",
+          "areaNameAR": "جامعة عجمان",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 346,
+          "areaNameEN": "Al Bustan",
+          "areaNameAR": "البستان",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 347,
+          "areaNameEN": "Al Butain",
+          "areaNameAR": "البطين",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 348,
+          "areaNameEN": "Al Hamidiya",
+          "areaNameAR": "الحميدية",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 349,
+          "areaNameEN": "Al Helio",
+          "areaNameAR": "الحليو",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 350,
+          "areaNameEN": "Al Jurf 1",
+          "areaNameAR": "Al Jurf 1",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 351,
+          "areaNameEN": "Al Jurf 2",
+          "areaNameAR": "Al Jurf 2",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 352,
+          "areaNameEN": "Al Mushairef",
+          "areaNameAR": "المشيرف",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 353,
+          "areaNameEN": "Al Nakhil",
+          "areaNameAR": "النخيل",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 354,
+          "areaNameEN": "Al Nakhil 1",
+          "areaNameAR": "النخيل 1",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 355,
+          "areaNameEN": "Al Nakhil 2",
+          "areaNameAR": "النخيل 2",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 356,
+          "areaNameEN": "Al Nuaimia 1",
+          "areaNameAR": "النعيمية 1",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 357,
+          "areaNameEN": "Al Nuaimia 2",
+          "areaNameAR": "النعيمية 2",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 358,
+          "areaNameEN": "Al Rashidiya 1",
+          "areaNameAR": "الراشيدية 1",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 359,
+          "areaNameEN": "Al Rashidiya 2",
+          "areaNameAR": "الراشيدية 2",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 360,
+          "areaNameEN": "Al Rashidiya 3",
+          "areaNameAR": "الراشيدية 3",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 361,
+          "areaNameEN": "Al Rumailah",
+          "areaNameAR": "الرميلة",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 362,
+          "areaNameEN": "Al Zahra",
+          "areaNameAR": "الزهراء",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 363,
+          "areaNameEN": "Al Zawarah",
+          "areaNameAR": "الزوراء",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 364,
+          "areaNameEN": "Al Zora",
+          "areaNameAR": "الزورة",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 365,
+          "areaNameEN": "Emirates City",
+          "areaNameAR": "مدينة الإمارات",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 366,
+          "areaNameEN": "Emirates City Extension",
+          "areaNameAR": "امتداد مدينة الامارات",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 367,
+          "areaNameEN": "Garden City",
+          "areaNameAR": "جاردين سيتي",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 368,
+          "areaNameEN": "Ittihad Village",
+          "areaNameAR": "قرية الأتحاد ",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        },
+        {
+          "areaID": 369,
+          "areaNameEN": "Masfout",
+          "areaNameAR": "مصفوت",
+          "areaCode": "",
+          "stateID": 3797,
+          "countryID": 1
+        }
+      ]
+    },
+    {
+      "stateID": 3798,
+      "countryID": 1,
+      "stateNameEN": "Dubai",
+      "stateNameAR": "دبي",
+      "stateCode": "",
+      "areas": [
+        {
+          "areaID": 68,
+          "areaNameEN": "All Dubai",
+          "areaNameAR": "كل دبي",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 69,
+          "areaNameEN": "Abu Hail",
+          "areaNameAR": "ابو هيل",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 70,
+          "areaNameEN": "Academic City",
+          "areaNameAR": "مدينة اكاديمية",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 71,
+          "areaNameEN": "Al Awir",
+          "areaNameAR": "العوير",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 72,
+          "areaNameEN": "Al Bada a",
+          "areaNameAR": "البدع",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 73,
+          "areaNameEN": "Al Baraha",
+          "areaNameAR": "البراحة",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 74,
+          "areaNameEN": "Al Barari",
+          "areaNameAR": "البراري",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 75,
+          "areaNameEN": "Al Barsha 1",
+          "areaNameAR": "البرشاء 1",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 76,
+          "areaNameEN": "Al Barsha 2",
+          "areaNameAR": "البرشاء 2",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 77,
+          "areaNameEN": "Al Barsha 3",
+          "areaNameAR": "البرشاء 3",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 78,
+          "areaNameEN": "Al Barsha South",
+          "areaNameAR": "البرشاء جنوب",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 79,
+          "areaNameEN": "Al Buteen",
+          "areaNameAR": "البطين",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 80,
+          "areaNameEN": "Al Dhagaya",
+          "areaNameAR": "الضغاية",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 81,
+          "areaNameEN": "Al Furjan",
+          "areaNameAR": "الفرجان",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 82,
+          "areaNameEN": "Al Garhoud",
+          "areaNameAR": "القرهود",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 83,
+          "areaNameEN": "Al Hamriya",
+          "areaNameAR": "الحمرية",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 84,
+          "areaNameEN": "Al Hudaiba",
+          "areaNameAR": "الحضيبة",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 85,
+          "areaNameEN": "Al Jaddaf",
+          "areaNameAR": "الجداف",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 86,
+          "areaNameEN": "Al Jaffiliya",
+          "areaNameAR": "الجافلية",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 87,
+          "areaNameEN": "Al Karama",
+          "areaNameAR": "الكرامة",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 88,
+          "areaNameEN": "Al Khabaisi",
+          "areaNameAR": "الخبائسي",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 89,
+          "areaNameEN": "Al Khawaneej 1",
+          "areaNameAR": "الخوانيج 1",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 90,
+          "areaNameEN": "Al Khawaneej 2",
+          "areaNameAR": "الخوانيج 2",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 91,
+          "areaNameEN": "Al Kifaf",
+          "areaNameAR": "الكفاف",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 92,
+          "areaNameEN": "Al Mamzar",
+          "areaNameAR": "الممزر",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 93,
+          "areaNameEN": "Al Manara",
+          "areaNameAR": "المنارة",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 94,
+          "areaNameEN": "Al Mankhool",
+          "areaNameAR": "المنخول",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 95,
+          "areaNameEN": "Al Merkad",
+          "areaNameAR": "المركاض",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 96,
+          "areaNameEN": "Al Mina",
+          "areaNameAR": "الميناء",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 97,
+          "areaNameEN": "Al Mizhar 1",
+          "areaNameAR": "المزهر 1",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 98,
+          "areaNameEN": "Al Mizhar 2",
+          "areaNameAR": "المزهر 2",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 99,
+          "areaNameEN": "Al Muraqqabat",
+          "areaNameAR": "المرقبات",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 100,
+          "areaNameEN": "Al Murar",
+          "areaNameAR": "المرر",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 101,
+          "areaNameEN": "Al Mushrif",
+          "areaNameAR": "المشرف",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 102,
+          "areaNameEN": "Al Muteena",
+          "areaNameAR": "المطينة",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 103,
+          "areaNameEN": "Al Nahda 1",
+          "areaNameAR": "النهدة 1",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 104,
+          "areaNameEN": "Al Nahda 2",
+          "areaNameAR": "النهدة 2",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 105,
+          "areaNameEN": "Al Quoz 1",
+          "areaNameAR": "القوز 1",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 106,
+          "areaNameEN": "Al Quoz 2",
+          "areaNameAR": "القوز 2",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 107,
+          "areaNameEN": "Al Quoz 3",
+          "areaNameAR": "القوز 3",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 108,
+          "areaNameEN": "Al Quoz 4",
+          "areaNameAR": "القوز 4",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 109,
+          "areaNameEN": "Al Quoz Industrial Area 1",
+          "areaNameAR": "القوز الصناعية 1",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 110,
+          "areaNameEN": "Al Quoz Industrial Area 2",
+          "areaNameAR": "القوز الصناعية 2",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 111,
+          "areaNameEN": "Al Quoz Industrial Area 3",
+          "areaNameAR": "القوز الصناعية 3",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 112,
+          "areaNameEN": "Al Quoz Industrial Area 4",
+          "areaNameAR": "القوز الصناعية 4",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 113,
+          "areaNameEN": "Al Qusais 1",
+          "areaNameAR": "القصيص 1",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 114,
+          "areaNameEN": "Al Qusais 2",
+          "areaNameAR": "القصيص 2",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 115,
+          "areaNameEN": "Al Qusais 3",
+          "areaNameAR": "القصيص 3",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 116,
+          "areaNameEN": "Al Qusais Industrial Area 1",
+          "areaNameAR": "القصيص الصناعية 1",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 117,
+          "areaNameEN": "Al Qusais Industrial Area 2",
+          "areaNameAR": "القصيص الصناعية 2",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 118,
+          "areaNameEN": "Al Qusais Industrial Area 3",
+          "areaNameAR": "القصيص الصناعية 3",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 119,
+          "areaNameEN": "Al Qusais Industrial Area 4",
+          "areaNameAR": "القصيص الصناعية 4",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 120,
+          "areaNameEN": "Al Qusais Industrial Area 5",
+          "areaNameAR": "القصيص الصناعية 5",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 121,
+          "areaNameEN": "Al Raffa",
+          "areaNameAR": "الرفاعة",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 122,
+          "areaNameEN": "Al Ras",
+          "areaNameAR": "الراس",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 123,
+          "areaNameEN": "Al Rashidiya",
+          "areaNameAR": "الراشدية",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 124,
+          "areaNameEN": "Al Rigga",
+          "areaNameAR": "الرقة",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 125,
+          "areaNameEN": "Al Sabkha",
+          "areaNameAR": "السبخة",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 126,
+          "areaNameEN": "Al Safa",
+          "areaNameAR": "الصفا",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 127,
+          "areaNameEN": "Al Safa 2",
+          "areaNameAR": "الصفا 2",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 128,
+          "areaNameEN": "Al Satwa",
+          "areaNameAR": "السطوة",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 129,
+          "areaNameEN": "Al Shindagha",
+          "areaNameAR": "الشندغة",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 130,
+          "areaNameEN": "Al Souq Al Kabeer",
+          "areaNameAR": "السوق الكبير",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 131,
+          "areaNameEN": "Al Sufouh 1",
+          "areaNameAR": "الصفوح 1",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 132,
+          "areaNameEN": "Al Sufouh 2",
+          "areaNameAR": "الصفوح 2",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 133,
+          "areaNameEN": "Al Twar 1",
+          "areaNameAR": "الطوار 1",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 134,
+          "areaNameEN": "Al Twar 2",
+          "areaNameAR": "الطوار 2",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 135,
+          "areaNameEN": "Al Twar 3",
+          "areaNameAR": "الطوار 3",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 136,
+          "areaNameEN": "Al Waheda",
+          "areaNameAR": "الوحيدة",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 137,
+          "areaNameEN": "Al Warqa 1",
+          "areaNameAR": "الورقاء 1",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 138,
+          "areaNameEN": "Al Warqa 2",
+          "areaNameAR": "الورقاء 2",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 139,
+          "areaNameEN": "Al Warqa 3",
+          "areaNameAR": "الورقاء 3",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 140,
+          "areaNameEN": "Al Warqa 4",
+          "areaNameAR": "الورقاء 4",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 141,
+          "areaNameEN": "Al Warqa 5",
+          "areaNameAR": "الورقاء 5",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 142,
+          "areaNameEN": "Al Wasl",
+          "areaNameAR": "الوصل",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 143,
+          "areaNameEN": "Arabian Ranches",
+          "areaNameAR": "المرابع العربية",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 144,
+          "areaNameEN": "Arabian Ranches 2",
+          "areaNameAR": "المرابع العربية 2",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 145,
+          "areaNameEN": "Barsha Heights - TECOM",
+          "areaNameAR": "ابراج البرشاء- تيكوم",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 146,
+          "areaNameEN": "Bukadra",
+          "areaNameAR": "بو كدرة",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 147,
+          "areaNameEN": "Business Bay",
+          "areaNameAR": "الخليج التجارى",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 148,
+          "areaNameEN": "Corniche Deira",
+          "areaNameAR": "كورنيش ديرة",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 149,
+          "areaNameEN": "DIFC",
+          "areaNameAR": "المركز المالى ",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 150,
+          "areaNameEN": "Discovery Gardens",
+          "areaNameAR": "حدائق ديسكفري ",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 151,
+          "areaNameEN": "Downtown Burj Khalifa",
+          "areaNameAR": "برج خليفة",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 152,
+          "areaNameEN": "Downtown Jabel Ali",
+          "areaNameAR": "جبل على داون تاون",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 153,
+          "areaNameEN": "Dubai Airport Freezone",
+          "areaNameAR": "المنطقة الحرة بمطار دبى",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 154,
+          "areaNameEN": "Dubai Cargo Village",
+          "areaNameAR": "قرية دبى للشحن",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 155,
+          "areaNameEN": "Dubai Design District",
+          "areaNameAR": "منطقة دبي للتصميم",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 156,
+          "areaNameEN": "Dubai Falcon City",
+          "areaNameAR": "دبى فالكون سيتى",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 157,
+          "areaNameEN": "Dubai Festival City",
+          "areaNameAR": "دبي فستيفال سيتي",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 158,
+          "areaNameEN": "Dubai Healthcare City",
+          "areaNameAR": "مدينة دبى الطبية",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 159,
+          "areaNameEN": "Dubai International Airport",
+          "areaNameAR": "مطار دبى الدولى",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 160,
+          "areaNameEN": "Dubai Internet City - DIC",
+          "areaNameAR": "مدينة دبى للانترنت",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 161,
+          "areaNameEN": "Dubai Investments Park 1",
+          "areaNameAR": "مجمع دبى للاستثمار 1",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 162,
+          "areaNameEN": "Dubai Investments Park 2",
+          "areaNameAR": "مجمع دبى للاستثمار 2",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 163,
+          "areaNameEN": "Dubai Marina",
+          "areaNameAR": "مرسى دبى",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 164,
+          "areaNameEN": "Dubai Maritime City",
+          "areaNameAR": "مدينة دبى الملاحية",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 165,
+          "areaNameEN": "Dubai Media City",
+          "areaNameAR": "مدينة دبى للاعلام",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 166,
+          "areaNameEN": "Dubai Motor City",
+          "areaNameAR": "موتور سيتى",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 167,
+          "areaNameEN": "Dubai Silicon Oasis",
+          "areaNameAR": "واحة دبي السيليكون",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 168,
+          "areaNameEN": "Dubai Sports City",
+          "areaNameAR": "مدينة دبى الرياضية",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 169,
+          "areaNameEN": "Dubai Studio City",
+          "areaNameAR": "مدينة دبي للاستوديوهات",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 170,
+          "areaNameEN": "Dubai Techno Park",
+          "areaNameAR": "مجمع التقنية بدبي",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 171,
+          "areaNameEN": "Dubai World Central - DWC",
+          "areaNameAR": "دبي ورلد سنترال",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 172,
+          "areaNameEN": "Dubai World Trade Center - DWTC",
+          "areaNameAR": "مركز دبي التجاري العالمى",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 173,
+          "areaNameEN": "Emirates Hills",
+          "areaNameAR": "تلال الامارات",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 174,
+          "areaNameEN": "Gardens",
+          "areaNameAR": "جاردنز",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 175,
+          "areaNameEN": "Global Village",
+          "areaNameAR": "القرية العالمية",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 176,
+          "areaNameEN": "Green Community Motor City",
+          "areaNameAR": "جرين كوميونيتي موتور سيتي",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 177,
+          "areaNameEN": "Hor Al Anz",
+          "areaNameAR": "هور العنز",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 178,
+          "areaNameEN": "Hor Al Anz East",
+          "areaNameAR": "هور العنز شرق",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 179,
+          "areaNameEN": "Ibn Batutta Mall",
+          "areaNameAR": "ابن بطوطة مول",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 180,
+          "areaNameEN": "IMPZ",
+          "areaNameAR": "المنطقة العالمية للانتاج الاعلامي",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 181,
+          "areaNameEN": "International City",
+          "areaNameAR": "المدينة الدولية",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 182,
+          "areaNameEN": "Jebel Ali 1",
+          "areaNameAR": "جبل علي 1 ",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 183,
+          "areaNameEN": "Jebel Ali 2",
+          "areaNameAR": "جبل علي 2 ",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 184,
+          "areaNameEN": "Jebel Ali Freezone",
+          "areaNameAR": "المنطقة الحرة بجبل على ",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 185,
+          "areaNameEN": "Jebel Ali Freezone Extension",
+          "areaNameAR": "توسعة منطقة جبل علي الحرة",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 186,
+          "areaNameEN": "Jebel Ali Industrial Area",
+          "areaNameAR": "منطقة جبل على الصناعية",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 187,
+          "areaNameEN": "Jumeirah 1",
+          "areaNameAR": "الجميرا 1",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 188,
+          "areaNameEN": "Jumeirah 2",
+          "areaNameAR": "الجميرا 2",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 189,
+          "areaNameEN": "Jumeirah 3",
+          "areaNameAR": "الجميرا 3",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 190,
+          "areaNameEN": "Jumeirah Beach Residence - JBR",
+          "areaNameAR": "جميرا بيتش ريزيدنس",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 191,
+          "areaNameEN": "Jumeirah Golf Estates",
+          "areaNameAR": "ملاعب الجميرة للجولف",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 192,
+          "areaNameEN": "Jumeirah Islands",
+          "areaNameAR": "جزر جميرا",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 193,
+          "areaNameEN": "Jumeirah Lakes Towers - JLT",
+          "areaNameAR": "ابراج بحيرات الجميرا",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 194,
+          "areaNameEN": "Jumeirah Park",
+          "areaNameAR": "جميرا بارك",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 195,
+          "areaNameEN": "Jumeirah Village Circle - JVC",
+          "areaNameAR": "جنوب قرية جميرا",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 196,
+          "areaNameEN": "Jumeirah Village Triangle - JVT",
+          "areaNameAR": "مثلث قرية الجميرا ",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 197,
+          "areaNameEN": "Knowledge Village",
+          "areaNameAR": "قرية المعرفة",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 198,
+          "areaNameEN": "Layan Community",
+          "areaNameAR": "ليان كومينيتي",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 199,
+          "areaNameEN": "Liwan",
+          "areaNameAR": "ليوان",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 200,
+          "areaNameEN": "Meadows",
+          "areaNameAR": "المروج",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 201,
+          "areaNameEN": "Meydan South",
+          "areaNameAR": "ميدان جنوب",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 202,
+          "areaNameEN": "Mira Community",
+          "areaNameAR": "ميرا كوميونيتي",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 203,
+          "areaNameEN": "Mirdif",
+          "areaNameAR": "مردف",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 204,
+          "areaNameEN": "Mudon",
+          "areaNameAR": "مودون",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 205,
+          "areaNameEN": "Muhaisnah 1",
+          "areaNameAR": "محيصنة 1",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 206,
+          "areaNameEN": "Muhaisnah 2",
+          "areaNameAR": "محيصنة 2",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 207,
+          "areaNameEN": "Muhaisnah 3",
+          "areaNameAR": "محيصنة 3",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 208,
+          "areaNameEN": "Muhaisnah 4",
+          "areaNameAR": "محيصنة 4",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 209,
+          "areaNameEN": "Nad Al Sheba 1",
+          "areaNameAR": "ند الشبا 1",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 210,
+          "areaNameEN": "Nad Al Sheba 2",
+          "areaNameAR": "ند الشبا الثانية",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 211,
+          "areaNameEN": "Nad Al Sheba 3",
+          "areaNameAR": "ند الشبا الثالثة",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 212,
+          "areaNameEN": "Nad Al Sheba 4",
+          "areaNameAR": "ند الشبا الرابعة",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 213,
+          "areaNameEN": "Nadd Al Hamar",
+          "areaNameAR": "ند الحمر",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 214,
+          "areaNameEN": "Nadd Al Shamma",
+          "areaNameAR": "ند الشما",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 215,
+          "areaNameEN": "Naif",
+          "areaNameAR": "نايف",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 216,
+          "areaNameEN": "Oud Al Muteena",
+          "areaNameAR": "عود المطينة",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 217,
+          "areaNameEN": "Oud Metha",
+          "areaNameAR": "عود ميثاء",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 218,
+          "areaNameEN": "Port Rashid",
+          "areaNameAR": "ميناء راشد",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 219,
+          "areaNameEN": "Port Saeed",
+          "areaNameAR": "ميناء سعيد",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 220,
+          "areaNameEN": "Ras Al Khor",
+          "areaNameAR": "رأس الخور",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 221,
+          "areaNameEN": "Ras Al Khor Indsutrial Area 1",
+          "areaNameAR": "منطقة رأس الخور الصناعية 1",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 222,
+          "areaNameEN": "Ras Al Khor Indsutrial Area 2",
+          "areaNameAR": "منطقة رأس الخور الصناعية 2",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 223,
+          "areaNameEN": "Ras Al Khor Indsutrial Area 3",
+          "areaNameAR": "منطقة رأس الخور الصناعية 3",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 224,
+          "areaNameEN": "Remraam",
+          "areaNameAR": "رمرام",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 225,
+          "areaNameEN": "Rigga Al Buteen",
+          "areaNameAR": "رقة البطين",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 226,
+          "areaNameEN": "Springs",
+          "areaNameAR": "الينابيع",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 227,
+          "areaNameEN": "The Greens",
+          "areaNameAR": "الروضة",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 228,
+          "areaNameEN": "The Lakes",
+          "areaNameAR": "البحيرات",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 229,
+          "areaNameEN": "The Palm Deira",
+          "areaNameAR": "نخلة ديرة",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 230,
+          "areaNameEN": "The Palm Jebel Ali",
+          "areaNameAR": "نخلة جبل علي",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 231,
+          "areaNameEN": "The Palm Jumeirah",
+          "areaNameAR": "نخلة الجميرا",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 232,
+          "areaNameEN": "The Skycourts",
+          "areaNameAR": "سكاي كورتس",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 233,
+          "areaNameEN": "The Sustainable City",
+          "areaNameAR": "المدينة المستدامة",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 234,
+          "areaNameEN": "The Villa",
+          "areaNameAR": "ذا فيلا",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 235,
+          "areaNameEN": "Um Al Sheif",
+          "areaNameAR": "أم الشيف",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 236,
+          "areaNameEN": "Umm Hurair 1",
+          "areaNameAR": "ام هرير الاولى ",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 237,
+          "areaNameEN": "Umm Hurair 2",
+          "areaNameAR": "ام هرير الثانيه",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 238,
+          "areaNameEN": "Umm Ramool",
+          "areaNameAR": "أم رمول",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 239,
+          "areaNameEN": "Umm Suqeim 1",
+          "areaNameAR": "أم سقيم 1",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 240,
+          "areaNameEN": "Umm Suqeim 2",
+          "areaNameAR": "أم سقيم 2",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 241,
+          "areaNameEN": "Umm Suqeim 3",
+          "areaNameAR": "أم سقيم 3",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 242,
+          "areaNameEN": "Wadi Alamardi",
+          "areaNameAR": "وادى العمردي",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 243,
+          "areaNameEN": "Warsan 1",
+          "areaNameAR": "ورسان 1",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 244,
+          "areaNameEN": "Warsan 2",
+          "areaNameAR": "ورسان 2",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 245,
+          "areaNameEN": "Waterfront",
+          "areaNameAR": "واترفرونت",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 246,
+          "areaNameEN": "Za abeel 1",
+          "areaNameAR": "زعبيل 1",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        },
+        {
+          "areaID": 247,
+          "areaNameEN": "Za abeel 2",
+          "areaNameAR": "زعبيل 2",
+          "areaCode": "",
+          "stateID": 3798,
+          "countryID": 1
+        }
+      ]
+    },
+    {
+      "stateID": 3799,
+      "countryID": 1,
+      "stateNameEN": "Ras al-Khaymah",
+      "stateNameAR": "رأس الخيمة",
+      "stateCode": "",
+      "areas": [
+        {
+          "areaID": 436,
+          "areaNameEN": "All Ras Al Khaima",
+          "areaNameAR": "كل رأس الخيمة",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 437,
+          "areaNameEN": "Al Dhait North",
+          "areaNameAR": "الظيت الشمالي",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 438,
+          "areaNameEN": "Al Dhait South",
+          "areaNameAR": "الظيت الجنوبي",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 439,
+          "areaNameEN": "Al Hamra Free Zone",
+          "areaNameAR": "المنطقة الحرة بالحمرا",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 440,
+          "areaNameEN": "Al Hamra Industrial Area",
+          "areaNameAR": "المنطقة الصناعية بالحمرا",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 441,
+          "areaNameEN": "Al Hamra Village",
+          "areaNameAR": "قرية الحمرا",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 442,
+          "areaNameEN": "Al Jazeerah Al Hamra",
+          "areaNameAR": "جزيرة الحمرا",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 443,
+          "areaNameEN": "Al Jesser Area",
+          "areaNameAR": "منطقة الجسر",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 444,
+          "areaNameEN": "Al Juwais Area",
+          "areaNameAR": "الغواص",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 445,
+          "areaNameEN": "Al Mairid",
+          "areaNameAR": "المعيريض",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 446,
+          "areaNameEN": "Al Marjan Island",
+          "areaNameAR": "جزيرة المرجان",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 447,
+          "areaNameEN": "Al Nakheel Area",
+          "areaNameAR": "منطقة النخيل",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 448,
+          "areaNameEN": "Al Uraibi",
+          "areaNameAR": "العريبي",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 449,
+          "areaNameEN": "Burairaat",
+          "areaNameAR": "بريرات",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 450,
+          "areaNameEN": "Dafan Al Khor",
+          "areaNameAR": "دافن الخور",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 451,
+          "areaNameEN": "Dafan Al Nakheel",
+          "areaNameAR": "دفان النخيل",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 452,
+          "areaNameEN": "Digdagga",
+          "areaNameAR": "دقداقة",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 453,
+          "areaNameEN": "Ghalilah",
+          "areaNameAR": "غاليلة",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 454,
+          "areaNameEN": "Hamrania",
+          "areaNameAR": "الحمرانية",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 455,
+          "areaNameEN": "Khatt",
+          "areaNameAR": "خط",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 456,
+          "areaNameEN": "Khazam",
+          "areaNameAR": "خزام",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 457,
+          "areaNameEN": "Mamoora",
+          "areaNameAR": "المعمورة",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 458,
+          "areaNameEN": "Mina Al arab",
+          "areaNameAR": "ميناء العرب",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 459,
+          "areaNameEN": "Rams",
+          "areaNameAR": "الرمس",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 460,
+          "areaNameEN": "Ras Al Selaab Area",
+          "areaNameAR": "راس السلاب",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 461,
+          "areaNameEN": "Refa`ah",
+          "areaNameAR": "الرفاعة",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 462,
+          "areaNameEN": "Seih Al Araibi Area",
+          "areaNameAR": "سيح العريبي",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 463,
+          "areaNameEN": "Shareesha",
+          "areaNameAR": "الشريشة",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 464,
+          "areaNameEN": "Sidroh",
+          "areaNameAR": "سيدوره",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        },
+        {
+          "areaID": 465,
+          "areaNameEN": "Suhaim Area",
+          "areaNameAR": "سهيم",
+          "areaCode": "",
+          "stateID": 3799,
+          "countryID": 1
+        }
+      ]
+    },
+    {
+      "stateID": 3800,
+      "countryID": 1,
+      "stateNameEN": "Sharjah",
+      "stateNameAR": "الشارقة",
+      "stateCode": "",
+      "areas": [
+        {
+          "areaID": 248,
+          "areaNameEN": "All Sharjah",
+          "areaNameAR": "كل الشارقة",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 249,
+          "areaNameEN": "Abu Shagara",
+          "areaNameAR": "ابو شغارة",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 250,
+          "areaNameEN": "Al Muntazah",
+          "areaNameAR": "المنتزة",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 251,
+          "areaNameEN": "Al Abar",
+          "areaNameAR": "الآبار",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 252,
+          "areaNameEN": "Al Azra",
+          "areaNameAR": "العزرة",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 253,
+          "areaNameEN": "Al Bataeh",
+          "areaNameAR": "البطائح",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 254,
+          "areaNameEN": "Al Darari",
+          "areaNameAR": "الدرارى",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 255,
+          "areaNameEN": "Al Dhaid",
+          "areaNameAR": "الذيد",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 256,
+          "areaNameEN": "Al Elyash",
+          "areaNameAR": "الياش",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 257,
+          "areaNameEN": "Al Falaj",
+          "areaNameAR": "الفلج",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 258,
+          "areaNameEN": "Al Fayha",
+          "areaNameAR": "الفيحاء",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 259,
+          "areaNameEN": "Al Fisht",
+          "areaNameAR": "الفشت",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 260,
+          "areaNameEN": "Al Ghaphia",
+          "areaNameAR": "الغافية",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 261,
+          "areaNameEN": "Al Gharayen",
+          "areaNameAR": "القرائن",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 262,
+          "areaNameEN": "Al Ghubaiba",
+          "areaNameAR": "الغبيبة",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 263,
+          "areaNameEN": "Al Ghuwair",
+          "areaNameAR": "الغوير",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 264,
+          "areaNameEN": "Al Goaz",
+          "areaNameAR": "القوز",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 265,
+          "areaNameEN": "Al Hazana",
+          "areaNameAR": "الحزانة",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 266,
+          "areaNameEN": "Al Homaa",
+          "areaNameAR": "الحومة",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 267,
+          "areaNameEN": "Al Jazzat",
+          "areaNameAR": "الجزات",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 268,
+          "areaNameEN": "Al Jubail",
+          "areaNameAR": "الجبيل",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 269,
+          "areaNameEN": "Al Juraina",
+          "areaNameAR": "الجرينة",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 270,
+          "areaNameEN": "Al Khaledia Suburb",
+          "areaNameAR": "ضاحية الخالدية",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 271,
+          "areaNameEN": "Al Khan",
+          "areaNameAR": "الخان",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 272,
+          "areaNameEN": "Al Khezamia",
+          "areaNameAR": "الخزامية",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 273,
+          "areaNameEN": "Al Layyah",
+          "areaNameAR": "اللية",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 274,
+          "areaNameEN": "Al Mahatta",
+          "areaNameAR": "المحطة",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 275,
+          "areaNameEN": "Al Majaz 1",
+          "areaNameAR": "المجاز 1",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 276,
+          "areaNameEN": "Al Majaz 2",
+          "areaNameAR": "المجاز 2",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 277,
+          "areaNameEN": "Al Majaz 3",
+          "areaNameAR": "المجاز 3",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 278,
+          "areaNameEN": "Al Mamzar",
+          "areaNameAR": "الممزر",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 279,
+          "areaNameEN": "Al Manakh",
+          "areaNameAR": "المناخ",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 280,
+          "areaNameEN": "Al Mansura",
+          "areaNameAR": "المنصورة",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 281,
+          "areaNameEN": "Al Mareija",
+          "areaNameAR": "المريجة",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 282,
+          "areaNameEN": "Al Mirgab",
+          "areaNameAR": "المرقاب",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 283,
+          "areaNameEN": "Al Mujarah",
+          "areaNameAR": "المجرة",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 284,
+          "areaNameEN": "Al Musalla",
+          "areaNameAR": "المصلى",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 285,
+          "areaNameEN": "Al Nabba",
+          "areaNameAR": "النبا",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 286,
+          "areaNameEN": "Al Nad",
+          "areaNameAR": "النود",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 287,
+          "areaNameEN": "Al Nahda",
+          "areaNameAR": "النهدة",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 288,
+          "areaNameEN": "Al Nasserya",
+          "areaNameAR": "الناصرية",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 289,
+          "areaNameEN": "Al Nekhailat",
+          "areaNameAR": "النخيلات",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 290,
+          "areaNameEN": "Al Noof",
+          "areaNameAR": "النوف",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 291,
+          "areaNameEN": "Al Qadisia",
+          "areaNameAR": "القادسية",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 292,
+          "areaNameEN": "Al Qasimia",
+          "areaNameAR": "القاسمية",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 293,
+          "areaNameEN": "Al Qulayaa",
+          "areaNameAR": "القليعة",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 294,
+          "areaNameEN": "Al Rahmania",
+          "areaNameAR": "الرحمانية",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 295,
+          "areaNameEN": "Al Ramaqia",
+          "areaNameAR": "الرماقية",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 296,
+          "areaNameEN": "Al Ramla East",
+          "areaNameAR": "شرق الرملة",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 297,
+          "areaNameEN": "Al Ramla West",
+          "areaNameAR": "غرب الرملة",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 298,
+          "areaNameEN": "Al Ramtha",
+          "areaNameAR": "الرمثاء",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 299,
+          "areaNameEN": "Al Rifah",
+          "areaNameAR": "الرفاعة",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 300,
+          "areaNameEN": "Al Riffa",
+          "areaNameAR": "الرفاع",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 301,
+          "areaNameEN": "Al Sabkha",
+          "areaNameAR": "الصبخة",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 302,
+          "areaNameEN": "Al Seef",
+          "areaNameAR": "السيف",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 303,
+          "areaNameEN": "Al Shahba",
+          "areaNameAR": "الشهباء",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 304,
+          "areaNameEN": "Al Shuwaihen",
+          "areaNameAR": "الشويهين",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 305,
+          "areaNameEN": "Al Soor",
+          "areaNameAR": "السور",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 306,
+          "areaNameEN": "Al Sweihat",
+          "areaNameAR": "السويحات",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 307,
+          "areaNameEN": "Al Taawun",
+          "areaNameAR": "التعاون",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 308,
+          "areaNameEN": "Al Talaa",
+          "areaNameAR": "الطلاع",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 309,
+          "areaNameEN": "Al Tarfa",
+          "areaNameAR": "الطرفا",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 310,
+          "areaNameEN": "Al Yarmook",
+          "areaNameAR": "اليرموك",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 311,
+          "areaNameEN": "Bu Danig",
+          "areaNameAR": "بو دانج",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 312,
+          "areaNameEN": "Bu Tina",
+          "areaNameAR": "بوطينة",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 313,
+          "areaNameEN": "Dasman",
+          "areaNameAR": "دسمان",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 314,
+          "areaNameEN": "Industrial Area 1",
+          "areaNameAR": "المنطقة الصناعية 1",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 315,
+          "areaNameEN": "Industrial Area 10",
+          "areaNameAR": "المنطقة الصناعية 10",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 316,
+          "areaNameEN": "Industrial Area 11",
+          "areaNameAR": "المنطقة الصناعية 11",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 317,
+          "areaNameEN": "Industrial Area 12",
+          "areaNameAR": "المنطقة الصناعية 12",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 318,
+          "areaNameEN": "Industrial Area 13",
+          "areaNameAR": "المنطقة الصناعية 13",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 319,
+          "areaNameEN": "Industrial Area 15",
+          "areaNameAR": "المنطقة الصناعية 15",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 320,
+          "areaNameEN": "Industrial Area 17",
+          "areaNameAR": "المنطقة الصناعية 17",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 321,
+          "areaNameEN": "Industrial Area 18",
+          "areaNameAR": "المنطقة الصناعية 18",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 322,
+          "areaNameEN": "Industrial Area 2",
+          "areaNameAR": "المنطقة الصناعية 2",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 323,
+          "areaNameEN": "Industrial Area 3",
+          "areaNameAR": "المنطقة الصناعية 3",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 324,
+          "areaNameEN": "Industrial Area 4",
+          "areaNameAR": "المنطقة الصناعية 4",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 325,
+          "areaNameEN": "Industrial Area 5",
+          "areaNameAR": "المنطقة الصناعية 5",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 326,
+          "areaNameEN": "Industrial Area 6",
+          "areaNameAR": "المنطقة الصناعية 6",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 327,
+          "areaNameEN": "Industrial Area 7",
+          "areaNameAR": "المنطقة الصناعية 7",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 328,
+          "areaNameEN": "Industrial Area 8",
+          "areaNameAR": "المنطقة الصناعية 8",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 329,
+          "areaNameEN": "Industrial Area 9",
+          "areaNameAR": "المنطقة الصناعية 9",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 330,
+          "areaNameEN": "Khor Fakkan",
+          "areaNameAR": "خورفكان ",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 331,
+          "areaNameEN": "Maysaloon",
+          "areaNameAR": "ميسلون",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 332,
+          "areaNameEN": "Muwafjah",
+          "areaNameAR": "موافجة",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 333,
+          "areaNameEN": "Muwaileh Commercial",
+          "areaNameAR": "مويلح التجارية",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 334,
+          "areaNameEN": "Rolla",
+          "areaNameAR": "الرولة",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 335,
+          "areaNameEN": "Saif Zone",
+          "areaNameAR": "المنطقة الحرة بمطار الشارقة الدولي",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 336,
+          "areaNameEN": "Samnan",
+          "areaNameAR": "سمنان",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 337,
+          "areaNameEN": "Sharqan",
+          "areaNameAR": "شرقان",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 338,
+          "areaNameEN": "Um Altaraffa",
+          "areaNameAR": "أم طرافة",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        },
+        {
+          "areaID": 339,
+          "areaNameEN": "University of Sharjah",
+          "areaNameAR": "جامعة الشارقة",
+          "areaCode": "",
+          "stateID": 3800,
+          "countryID": 1
+        }
+      ]
+    },
+    {
+      "stateID": 3802,
+      "countryID": 1,
+      "stateNameEN": "Umm al Quwain",
+      "stateNameAR": "أم القيوين",
+      "stateCode": "",
+      "areas": [
+        {
+          "areaID": 466,
+          "areaNameEN": "All Umm Al-Quwain",
+          "areaNameAR": "كل ام القوين",
+          "areaCode": "",
+          "stateID": 3802,
+          "countryID": 1
+        },
+        {
+          "areaID": 467,
+          "areaNameEN": "Al Aahad",
+          "areaNameAR": "الاحد",
+          "areaCode": "",
+          "stateID": 3802,
+          "countryID": 1
+        },
+        {
+          "areaID": 468,
+          "areaNameEN": "Al Abrab",
+          "areaNameAR": "الابرب",
+          "areaCode": "",
+          "stateID": 3802,
+          "countryID": 1
+        },
+        {
+          "areaID": 469,
+          "areaNameEN": "Al Dar Al Baidah",
+          "areaNameAR": "الدار البيضاء",
+          "areaCode": "",
+          "stateID": 3802,
+          "countryID": 1
+        },
+        {
+          "areaID": 470,
+          "areaNameEN": "Al Haditha",
+          "areaNameAR": "الحديثة",
+          "areaCode": "",
+          "stateID": 3802,
+          "countryID": 1
+        },
+        {
+          "areaID": 471,
+          "areaNameEN": "Al Hawiyah",
+          "areaNameAR": "الحواية",
+          "areaCode": "",
+          "stateID": 3802,
+          "countryID": 1
+        },
+        {
+          "areaID": 472,
+          "areaNameEN": "Al Humrah - A",
+          "areaNameAR": "الحمرة- 1",
+          "areaCode": "",
+          "stateID": 3802,
+          "countryID": 1
+        },
+        {
+          "areaID": 473,
+          "areaNameEN": "Al Humrah - B",
+          "areaNameAR": "الحمرة- 2",
+          "areaCode": "",
+          "stateID": 3802,
+          "countryID": 1
+        },
+        {
+          "areaID": 474,
+          "areaNameEN": "Al Humrah - C",
+          "areaNameAR": "الحمرة- 3",
+          "areaCode": "",
+          "stateID": 3802,
+          "countryID": 1
+        },
+        {
+          "areaID": 475,
+          "areaNameEN": "Al Humrah - D",
+          "areaNameAR": "الحمرة- 4",
+          "areaCode": "",
+          "stateID": 3802,
+          "countryID": 1
+        },
+        {
+          "areaID": 476,
+          "areaNameEN": "Al Khor",
+          "areaNameAR": "الخور",
+          "areaCode": "",
+          "stateID": 3802,
+          "countryID": 1
+        },
+        {
+          "areaID": 477,
+          "areaNameEN": "Al Limgadhar",
+          "areaNameAR": "اللمغدر",
+          "areaCode": "",
+          "stateID": 3802,
+          "countryID": 1
+        },
+        {
+          "areaID": 478,
+          "areaNameEN": "Al Maidan",
+          "areaNameAR": "الميدان",
+          "areaCode": "",
+          "stateID": 3802,
+          "countryID": 1
+        },
+        {
+          "areaID": 479,
+          "areaNameEN": "Al Raas - A",
+          "areaNameAR": "الراس- 1",
+          "areaCode": "",
+          "stateID": 3802,
+          "countryID": 1
+        },
+        {
+          "areaID": 480,
+          "areaNameEN": "Al Raas - B",
+          "areaNameAR": "الراس- 2",
+          "areaCode": "",
+          "stateID": 3802,
+          "countryID": 1
+        },
+        {
+          "areaID": 481,
+          "areaNameEN": "Al Raas - C",
+          "areaNameAR": "الراس- 3",
+          "areaCode": "",
+          "stateID": 3802,
+          "countryID": 1
+        },
+        {
+          "areaID": 482,
+          "areaNameEN": "Al Ramlah",
+          "areaNameAR": "الرملة",
+          "areaCode": "",
+          "stateID": 3802,
+          "countryID": 1
+        },
+        {
+          "areaID": 483,
+          "areaNameEN": "Al Raudah",
+          "areaNameAR": "الروضة",
+          "areaCode": "",
+          "stateID": 3802,
+          "countryID": 1
+        },
+        {
+          "areaID": 484,
+          "areaNameEN": "Al Riqqah",
+          "areaNameAR": "الرقة",
+          "areaCode": "",
+          "stateID": 3802,
+          "countryID": 1
+        },
+        {
+          "areaID": 485,
+          "areaNameEN": "Al Salamah - A",
+          "areaNameAR": "السلامة- 1",
+          "areaCode": "",
+          "stateID": 3802,
+          "countryID": 1
+        },
+        {
+          "areaID": 486,
+          "areaNameEN": "Al Salamah - B",
+          "areaNameAR": "السلامة- 2",
+          "areaCode": "",
+          "stateID": 3802,
+          "countryID": 1
+        },
+        {
+          "areaID": 487,
+          "areaNameEN": "Al Salamah - C",
+          "areaNameAR": "السلامة- 3",
+          "areaCode": "",
+          "stateID": 3802,
+          "countryID": 1
+        },
+        {
+          "areaID": 488,
+          "areaNameEN": "Defence Camp",
+          "areaNameAR": "مخيم الدفاع",
+          "areaCode": "",
+          "stateID": 3802,
+          "countryID": 1
+        },
+        {
+          "areaID": 489,
+          "areaNameEN": "Green Belt",
+          "areaNameAR": "الحزام الاخضر",
+          "areaCode": "",
+          "stateID": 3802,
+          "countryID": 1
+        },
+        {
+          "areaID": 490,
+          "areaNameEN": "Industrial Area",
+          "areaNameAR": "المنطقة الصناعية",
+          "areaCode": "",
+          "stateID": 3802,
+          "countryID": 1
+        },
+        {
+          "areaID": 491,
+          "areaNameEN": "Old Town Area",
+          "areaNameAR": "المدينة القديمة",
+          "areaCode": "",
+          "stateID": 3802,
+          "countryID": 1
+        },
+        {
+          "areaID": 492,
+          "areaNameEN": "Umm Al Quwain Marina",
+          "areaNameAR": "مارينا ام القوين",
+          "areaCode": "",
+          "stateID": 3802,
+          "countryID": 1
+        }
+      ]
+    },
+    {
+      "stateID": 3803,
+      "countryID": 1,
+      "stateNameEN": "Fujairah",
+      "stateNameAR": "الفجيرة",
+      "stateCode": "",
+      "areas": [
+        {
+          "areaID": 405,
+          "areaNameEN": "All Fujairah",
+          "areaNameAR": "كل الفجيرة",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 406,
+          "areaNameEN": "Al Bedia ",
+          "areaNameAR": "البدية",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 407,
+          "areaNameEN": "Al Buthna ",
+          "areaNameAR": "البثنة",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 408,
+          "areaNameEN": "Al Farfar",
+          "areaNameAR": "الفرفار",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 409,
+          "areaNameEN": "Al Faseel",
+          "areaNameAR": "الفصيل ",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 410,
+          "areaNameEN": "Al Gurfa",
+          "areaNameAR": "الغرفة",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 411,
+          "areaNameEN": "Al Hala ",
+          "areaNameAR": "الحلا",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 412,
+          "areaNameEN": "Al Heel ",
+          "areaNameAR": "الحيل ",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 413,
+          "areaNameEN": "Al Ittihad",
+          "areaNameAR": "الاتحاد ",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 414,
+          "areaNameEN": "Al Mahatta",
+          "areaNameAR": "المحطة",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 415,
+          "areaNameEN": "Al Owaid",
+          "areaNameAR": "العويد",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 416,
+          "areaNameEN": "Al Taween",
+          "areaNameAR": "الطويين",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 417,
+          "areaNameEN": "Albeledah",
+          "areaNameAR": "البليدة",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 418,
+          "areaNameEN": "Anajaimat",
+          "areaNameAR": "النجمات",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 419,
+          "areaNameEN": "Awhala ",
+          "areaNameAR": "أوحلة",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 420,
+          "areaNameEN": "Daba",
+          "areaNameAR": "دبا",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 421,
+          "areaNameEN": "Dedna",
+          "areaNameAR": "ضدنا ",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 422,
+          "areaNameEN": "Fujairah Free Trade Zone",
+          "areaNameAR": "المنطقة التجارية الحرة الفجيرة",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 423,
+          "areaNameEN": "Fujairah Intl Airport",
+          "areaNameAR": "مطار الفجيرة ",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 424,
+          "areaNameEN": "Fujairah Port",
+          "areaNameAR": "ميناء الفجيرة",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 425,
+          "areaNameEN": "Halefaath",
+          "areaNameAR": "الحليفات",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 426,
+          "areaNameEN": "Industrial Area",
+          "areaNameAR": "المنطقة الصناعية",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 427,
+          "areaNameEN": "Madhab",
+          "areaNameAR": "مذهب ",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 428,
+          "areaNameEN": "Masafi",
+          "areaNameAR": "مسافي",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 429,
+          "areaNameEN": "Merashid",
+          "areaNameAR": "مرشد",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 430,
+          "areaNameEN": "Mirbah",
+          "areaNameAR": "مربح",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 431,
+          "areaNameEN": "Old Fujairah City",
+          "areaNameAR": "الفجيرة القديمة ",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 432,
+          "areaNameEN": "Rughaylat",
+          "areaNameAR": "الرغيلات",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 433,
+          "areaNameEN": "Rumailah",
+          "areaNameAR": "الرميلة ",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 434,
+          "areaNameEN": "Sakamkam",
+          "areaNameAR": "سكمكم",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        },
+        {
+          "areaID": 435,
+          "areaNameEN": "Sharm ",
+          "areaNameAR": "شرم",
+          "areaCode": "",
+          "stateID": 3803,
+          "countryID": 1
+        }
+      ]
+    },
+    {
+      "stateID": 3804,
+      "countryID": 1,
+      "stateNameEN": "Al Ain",
+      "stateNameAR": "العين",
+      "stateCode": "",
+      "areas": [
+        {
+          "areaID": 370,
+          "areaNameEN": "All Al Ain",
+          "areaNameAR": "كل العين",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 371,
+          "areaNameEN": "Abu Samrah",
+          "areaNameAR": "أيو سمرة",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 372,
+          "areaNameEN": "Al Agabiyya",
+          "areaNameAR": "العقابية",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 373,
+          "areaNameEN": "Al Ain International Airport",
+          "areaNameAR": "مطار العين الدولي",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 374,
+          "areaNameEN": "Al Ain Mall",
+          "areaNameAR": "العين مول",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 375,
+          "areaNameEN": "Al Ain Oasis Villas",
+          "areaNameAR": "فلل واحة العين",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 376,
+          "areaNameEN": "Al Bateen",
+          "areaNameAR": "البطين",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 377,
+          "areaNameEN": "Al Foaa",
+          "areaNameAR": "الفوعه",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 378,
+          "areaNameEN": "Al Hili",
+          "areaNameAR": "هيلي",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 379,
+          "areaNameEN": "Al Jahili",
+          "areaNameAR": "الجهيلي",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 380,
+          "areaNameEN": "Al Jimi",
+          "areaNameAR": "الجيمي",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 381,
+          "areaNameEN": "Al Khabisi",
+          "areaNameAR": "الخبيصي",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 382,
+          "areaNameEN": "Al Maqam",
+          "areaNameAR": "المقام",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 383,
+          "areaNameEN": "Al Marakhaniya",
+          "areaNameAR": "المرخانية",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 384,
+          "areaNameEN": "Al Masoudi",
+          "areaNameAR": "المسعودي",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 385,
+          "areaNameEN": "Al Murabaa",
+          "areaNameAR": "المربعة",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 386,
+          "areaNameEN": "Al Mutarad",
+          "areaNameAR": "المطارد",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 387,
+          "areaNameEN": "Al Mutawaa",
+          "areaNameAR": "المطاوعة",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 388,
+          "areaNameEN": "Al Qattara",
+          "areaNameAR": "القطارة",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 389,
+          "areaNameEN": "Al Sarooj",
+          "areaNameAR": "الصاروج",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 390,
+          "areaNameEN": "Al Shabiya",
+          "areaNameAR": "الشعيبة",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 391,
+          "areaNameEN": "Al Towayya",
+          "areaNameAR": "الطوية",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 392,
+          "areaNameEN": "Al Yahar",
+          "areaNameAR": "اليحر",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 393,
+          "areaNameEN": "Al Zakher",
+          "areaNameAR": "الزاخر",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 394,
+          "areaNameEN": "Alain Al Fiyada",
+          "areaNameAR": "العين الفايضة",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 395,
+          "areaNameEN": "Asharej",
+          "areaNameAR": "عشارج",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 396,
+          "areaNameEN": "Bedda Bn Ammar",
+          "areaNameAR": "بدع بن عمار",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 397,
+          "areaNameEN": "Falaj Hazzaa",
+          "areaNameAR": "فلج هزاع",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 398,
+          "areaNameEN": "Industrial Area",
+          "areaNameAR": "المنطقة الصناعية",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 399,
+          "areaNameEN": "Manazaf",
+          "areaNameAR": "منازف",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 400,
+          "areaNameEN": "Mubzara",
+          "areaNameAR": "مبزرة",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 401,
+          "areaNameEN": "Neima",
+          "areaNameAR": "نعمة",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 402,
+          "areaNameEN": "Tawam",
+          "areaNameAR": "توام",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 403,
+          "areaNameEN": "UAE University 1",
+          "areaNameAR": "جامعة الامارات 1",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        },
+        {
+          "areaID": 404,
+          "areaNameEN": "UAE University 2",
+          "areaNameAR": "جامعة الامارات 2 ",
+          "areaCode": "",
+          "stateID": 3804,
+          "countryID": 1
+        }
+      ]
+    }
+  ]
+}

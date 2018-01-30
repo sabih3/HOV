@@ -2,6 +2,8 @@ package ae.netaq.homesorder_vendor.network.core;
 
 import java.util.List;
 
+import ae.netaq.homesorder_vendor.network.model.CoverageAreaParams;
+import ae.netaq.homesorder_vendor.network.model.CoveredAreaUpdateResponse;
 import ae.netaq.homesorder_vendor.network.model.GeneralResponse;
 import ae.netaq.homesorder_vendor.network.model.AuthenticationResponse;
 import ae.netaq.homesorder_vendor.network.model.ForgetPasswordParams;
@@ -34,15 +36,12 @@ public interface ServicesInterface {
     @POST(Endpoints.PRODUCT_ADD)
     Call<ResponseAddProduct> productAdd(@Body RemoteProduct remoteProduct,
                                         @Path(value = "userToken") String token);
-
     @POST(Endpoints.PRODUCT_UPDATE)
     Call<ResponseAddProduct> productUpdate(@Body RemoteProduct product,
                                            @Path(value = "userToken") String token);
-
     @POST(Endpoints.USER_PROFILE_UPDATE)
     Call<AuthenticationResponse> userUpdate(@Body NetworkUser user,
                                            @Path(value = "userToken") String token);
-
     @POST(Endpoints.USER_FORGET_PWD)
     Call<GeneralResponse> forgetPwd(@Body ForgetPasswordParams params);
 
@@ -55,17 +54,15 @@ public interface ServicesInterface {
     @GET(Endpoints.ORDER_LIST_PROCESSING)
     Call<List<ResponseOrderList>> getProcessingOrders(@Path(value = "userToken")String token);
 
-
     @GET(Endpoints.ORDER_UPDATE_PROCESSING)
     Call<GeneralResponse> updateOrderProcessing(@Path("orderID") long orderID,
                                                 @Path("userToken") String token);
-
     @GET(Endpoints.ORDER_UPDATE_READY)
     Call<GeneralResponse> updateOrderAsReady(@Path("orderID") long orderID,
                                              @Path("userToken") String token);
 
-
-
-
+    @POST(Endpoints.COVERED_AREA_UPDATE)
+    Call<CoveredAreaUpdateResponse> updateCoveredArea(@Body List<CoverageAreaParams> params,
+                                                      @Path(value = "userToken")String token);
 
 }

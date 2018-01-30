@@ -93,7 +93,7 @@ public class ImagesEditActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void setupImagesRecycler(List<ImageTable> imagesArray) {
-        editImagesRecyclerAdapter = new EditImagesRecyclerAdapter(this,imagesArray, AppController.get(this).getPicasso());
+        editImagesRecyclerAdapter = new EditImagesRecyclerAdapter(this,imagesArray);
         imagesRecycler.setAdapter(editImagesRecyclerAdapter);
 
     }

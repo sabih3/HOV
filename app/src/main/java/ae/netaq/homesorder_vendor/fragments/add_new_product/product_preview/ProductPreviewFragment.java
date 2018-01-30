@@ -37,8 +37,6 @@ public class ProductPreviewFragment extends Fragment {
 
     private ProductPreviewView mCallback;
 
-    private Picasso picasso;
-
     public ProductPreviewFragment() {
     }
 
@@ -62,8 +60,6 @@ public class ProductPreviewFragment extends Fragment {
 
         ButterKnife.bind(this, view);
 
-        picasso = AppController.get(getActivity()).getPicasso();
-
         Common.changeViewWithLocale(getContext(),view);
 
 
@@ -72,7 +68,7 @@ public class ProductPreviewFragment extends Fragment {
     }
 
     public void setupProductImageSlider(ArrayList<Uri> imagesUri) {
-        sliderPager.setAdapter(new SliderPagerAdapter(getActivity(), null,imagesUri, picasso));
+        sliderPager.setAdapter(new SliderPagerAdapter(getActivity(), null,imagesUri));
         circleIndicator.setViewPager(sliderPager);
 
         ProductDetailUtility detailUtility = new ProductDetailUtility(getContext(),

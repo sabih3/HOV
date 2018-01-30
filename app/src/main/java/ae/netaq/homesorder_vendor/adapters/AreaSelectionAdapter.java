@@ -91,11 +91,6 @@ public class AreaSelectionAdapter extends BaseExpandableListAdapter{
 
         Country.State.Area area = getChild(groupPosition, childPosition);
 
-//        if(UserDataManager.getUAERegion().get(0).getSelectedStates()==null){
-//            selectedAreas = new ArrayList<>();
-//        }else{
-//            selectedAreas = UserDataManager.getUAERegion().get(0).getSelectedStates().get(groupPosition).getSelectedAreas();
-//        }
 
         ViewHolder holder;
 
@@ -116,6 +111,7 @@ public class AreaSelectionAdapter extends BaseExpandableListAdapter{
 
         holder.areaCheckBox.setOnCheckedChangeListener(null);
 
+        //TO:DO
         holder.areaCheckBox.setChecked(area.isSelected());
 
 
@@ -142,77 +138,41 @@ public class AreaSelectionAdapter extends BaseExpandableListAdapter{
         private final ViewHolder holder;
         private final int groupPosition;
         private final int childPosition;
-        private Country.State.Area projectedArea;
 
         public AreaSelectionListener(ViewHolder holder, Country.State.Area area,
                                      int groupPosition, int childPosition) {
             this.holder = holder;
-            this.projectedArea = area;
             this.groupPosition = groupPosition;
             this.childPosition = childPosition;
         }
 
         @Override
         public void onClick(View view) {
-            //holder.areaCheckBox.setChecked(true);
+
         }
 
         @Override
         public void onCheckedChanged(SmoothCheckBox smoothCheckBox, boolean isChecked) {
-            handleSelection(projectedArea,isChecked,groupPosition,childPosition);
+            handleSelection(isChecked,groupPosition,childPosition);
         }
     }
 
-    private void handleSelection(Country.State.Area selectedArea, boolean isChecked,
+    private void handleSelection( boolean isChecked,
                                  int groupPosition, int childPosition){
 
 
-        boolean found = false;
 
         if(isChecked){
             country.getStates().get(groupPosition).getAreas().get(childPosition).setIsSelected(true);
-            //getChild(groupPosition,childPosition).setIsSelected(true);
         }else{
             country.getStates().get(groupPosition).getAreas().get(childPosition).setIsSelected(false);
-            //getChild(groupPosition,childPosition).setIsSelected(false);
         }
-
-//        for(Country.State.Area area : selectedAreas){
-//            if(area.getAreaNameEN().equalsIgnoreCase(selectedArea.getAreaNameEN())){
-//                found = true;
-//                //selectedAreas.remove(selectedArea);
-//                getChild(groupPosition,childPosition).setIsSelected(false);
-//                break;
-//            }
-//        }
-//
-//        if(!found){
-//            Country.State group = getGroup(groupPosition);
-//
-//            getChild(groupPosition,childPosition).setIsSelected(true);
-//            //selectedAreas.add(selectedArea);
-//        }
     }
 
     public Country getSelectedAreas() {
-
-
         return country;
     }
 
-    public boolean isAreaExists(Country.State.Area area){
-        boolean areaExists = false;
-
-        for(Country.State.Area alreadySelected :selectedAreas){
-
-            if(alreadySelected.getAreaNameEN().equalsIgnoreCase(area.getAreaNameEN())){
-
-                areaExists = true;
-            }
-        }
-
-        return areaExists;
-    }
     public class ViewHolder{
         RelativeLayout parent;
         TextView textViewChild;

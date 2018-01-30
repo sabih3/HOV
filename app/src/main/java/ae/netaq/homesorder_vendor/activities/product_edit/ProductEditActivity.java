@@ -153,8 +153,7 @@ public class ProductEditActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void setupProductImages(List<ImageTable> imagesArray) {
-        sliderPager.setAdapter(new SliderPagerAdapter(this, imagesArray,null,
-                AppController.get(this).getPicasso()));
+        sliderPager.setAdapter(new SliderPagerAdapter(this, imagesArray,null));
         circleIndicator.setViewPager(sliderPager);
     }
 

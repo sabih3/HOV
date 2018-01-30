@@ -56,26 +56,4 @@ public class UserDataManager {
         DBManager.getInstance().getDbHelper().clearDBData();
         DevicePreferences.getInstance().saveUserInfo(null);
     }
-
-
-    public static void persistUAERegion(Country selectedRegions) {
-        User.getInstance().setUAERegion(selectedRegions);
-        DevicePreferences.getInstance().saveUserInfo(User.getInstance());
-    }
-
-
-    public static Country getUAERegion() {
-        Country selectedRegions = User.getInstance().getUAERegionAreas();
-        return selectedRegions;
-    }
-
-    public static void persistKSARegion(Country ksaRegion) {
-        User.getInstance().setKSARegion(ksaRegion);
-        DevicePreferences.getInstance().saveUserInfo(User.getInstance());
-    }
-
-    public static Country getKSARegion() {
-        Country selectedRegions = User.getInstance().getKsaRegion();
-        return selectedRegions;
-    }
 }

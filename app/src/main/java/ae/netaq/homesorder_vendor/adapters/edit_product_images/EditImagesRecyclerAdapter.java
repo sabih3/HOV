@@ -27,13 +27,9 @@ public class EditImagesRecyclerAdapter extends RecyclerView.Adapter<EditImagesVi
 
     private List<ImageTable> mDataSet;
 
-    private Picasso picasso;
-
-
-    public EditImagesRecyclerAdapter(Context mContext, List<ImageTable> mDataSet, Picasso picasso) {
+    public EditImagesRecyclerAdapter(Context mContext, List<ImageTable> mDataSet) {
         this.mContext = mContext;
         this.mDataSet = mDataSet;
-        this.picasso = picasso;
     }
 
     @Override
@@ -44,7 +40,7 @@ public class EditImagesRecyclerAdapter extends RecyclerView.Adapter<EditImagesVi
 
     @Override
     public void onBindViewHolder(EditImagesViewHolder holder, final int position) {
-        picasso.load(mDataSet.get(position).getImageURI()).resize(200, 200).centerCrop().into(holder.imageView);
+        Picasso.with(mContext).load(mDataSet.get(position).getImageURI()).resize(200, 200).centerCrop().into(holder.imageView);
         holder.removeImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

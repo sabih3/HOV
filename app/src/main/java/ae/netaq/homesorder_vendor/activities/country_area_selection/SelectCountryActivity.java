@@ -1,32 +1,42 @@
 package ae.netaq.homesorder_vendor.activities.country_area_selection;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.event_bus.KSAAreaSelectionEvent;
 import ae.netaq.homesorder_vendor.event_bus.UAEAreasSelectedEvent;
 import ae.netaq.homesorder_vendor.models.Country;
+import ae.netaq.homesorder_vendor.network.core.ErrorUtils;
+import ae.netaq.homesorder_vendor.network.core.RestClient;
+import ae.netaq.homesorder_vendor.network.model.APIError;
+import ae.netaq.homesorder_vendor.network.model.CoverageAreaParams;
+import ae.netaq.homesorder_vendor.network.model.CoveredAreaUpdateResponse;
 import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
 import ae.netaq.homesorder_vendor.utils.UIUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.refactor.library.SmoothCheckBox;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SelectCountryActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -78,8 +88,11 @@ public class SelectCountryActivity extends AppCompatActivity implements View.OnC
     @BindView(R.id.txt_ksa_area_setup)
     TextView ksaAreaSetup;
 
+    private List<CoverageAreaParams> finalAreasParams;
 
     boolean uaeActivated, saudiActivated = false;
+
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -89,6 +102,8 @@ public class SelectCountryActivity extends AppCompatActivity implements View.OnC
 
         EventBus.getDefault().register(this);
 
+        finalAreasParams = new ArrayList<>();
+
         layoutUAE.setOnClickListener(this);
         layoutSaudi.setOnClickListener(this);
 
@@ -97,6 +112,9 @@ public class SelectCountryActivity extends AppCompatActivity implements View.OnC
 
         removeUAE.setOnClickListener(new RemoveUAEListener());
         removeKSA.setOnClickListener(new RemoveKSAListener());
+
+        progressDialog = new ProgressDialog(this, R.style.ProgressDialogTheme);
+
         setupToolbar();
 
         initViews();
@@ -110,6 +128,8 @@ public class SelectCountryActivity extends AppCompatActivity implements View.OnC
 
     @Subscribe
     public void onUAEAreaSelected(UAEAreasSelectedEvent uaeAreasSelection){
+
+        finalAreasParams.add(processSelectedAreasParams(uaeAreasSelection.getUaeRegion(),uaeAreasSelection.getSelectedStates()));
 
         List<Country.State> uaeSelectedStates = uaeAreasSelection.getSelectedStates();
 
@@ -126,6 +146,9 @@ public class SelectCountryActivity extends AppCompatActivity implements View.OnC
 
     @Subscribe
     public void onKSAAreaSelected(KSAAreaSelectionEvent ksaAreaSelectionEvent){
+
+        finalAreasParams.add(processSelectedAreasParams(ksaAreaSelectionEvent.getKsaRegion(),ksaAreaSelectionEvent.getSelectedStates()));
+
         List<Country.State> ksaSelectedStates = ksaAreaSelectionEvent.getSelectedStates();
         if(ksaSelectedStates.size()>0){
             ksaAreaSetup.setTextColor(ContextCompat.getColor(this,R.color.shittyDarkGreen));
@@ -202,6 +225,38 @@ public class SelectCountryActivity extends AppCompatActivity implements View.OnC
         saudiSelectionResultLayout.setVisibility(visibility);
     }
 
+    private CoverageAreaParams processSelectedAreasParams(Country country, List<Country.State> selectedStates) {
+        CoverageAreaParams countryParams = new CoverageAreaParams();
+        countryParams.setCountryNameEN(country.getCountryNameEN());
+        countryParams.setCountryNameAR(country.getCountryNameAR());
+        countryParams.setCountryCode(country.getCountryCode());
+        countryParams.setCountryID(country.getCountryID());
+        List<CoverageAreaParams.State> selectedStatesParams = new ArrayList<>();
+        for(int i =0; i< selectedStates.size(); i++){
+
+            CoverageAreaParams.State state = new CoverageAreaParams.State();
+            state.setStateNameEN(selectedStates.get(i).getStateNameEN());
+            state.setStateNameAR(selectedStates.get(i).getStateNameAR());
+            state.setStateID(selectedStates.get(i).getStateID());
+            state.setStateCode(selectedStates.get(i).getStateCode());
+            state.setCountryID(country.getCountryID());
+
+            List<CoverageAreaParams.Area> selectedAreas = new ArrayList<>();
+            for(Country.State.Area selectedArea: selectedStates.get(i).getSelectedAreas()){
+                CoverageAreaParams.Area area = new CoverageAreaParams.Area();
+                area.setAreaCode(selectedArea.getAreaCode());
+                area.setAreaID(selectedArea.getAreaID());
+                area.setAreaNameEN(selectedArea.getAreaNameEN());
+                area.setAreaNameAR(selectedArea.getAreaNameAR());
+                selectedAreas.add(area);
+            }
+            state.setAreas(selectedAreas);
+            selectedStatesParams.add(state);
+        }
+        countryParams.setStates(selectedStatesParams);
+        return countryParams;
+    }
+
     @Override
     public void onClick(View view) {
         if(view.getId() == R.id.select_country_proceed){
@@ -218,24 +273,62 @@ public class SelectCountryActivity extends AppCompatActivity implements View.OnC
         @Override
         public void onClick(View view) {
 
-//            if(uaeActivated && saudiActivated){
-//                //Todo: Mark this to start both activities from here
-//                Log.d("","");
-//            }else{
-//                if(!uaeActivated && !saudiActivated){
-//                    return;
-//                }else{
-//                    if(uaeActivated){
-//                        NavigationController.showAreaSelectionUAE(SelectCountryActivity.this);
-//                    }
-//
-//                    if(saudiActivated){
-//                        NavigationController.showAreaSelectionKSA(SelectCountryActivity.this);
-//                    }
-//                }
-//            }
+            Call<CoveredAreaUpdateResponse> responseCall = RestClient.getAdapter().updateCoveredArea(finalAreasParams, DevicePreferences.getUserInfo().getUserToken());
 
+            UIUtils.showProgressDialog(SelectCountryActivity.this,"Updating Coverage! Please Wait..", progressDialog);
 
+            responseCall.enqueue(new Callback<CoveredAreaUpdateResponse>() {
+                @Override
+                public void onResponse(Call<CoveredAreaUpdateResponse> call, Response<CoveredAreaUpdateResponse> response) {
+                    if(response.isSuccessful()){
+                        if (response.body() != null) {
+                            if(response.body().getCode() == 200){
+                                UIUtils.hideProgressDialog(progressDialog);
+                                Toast.makeText(SelectCountryActivity.this,"Coverage areas updated successfully!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }else if(response.errorBody() !=null){
+                        APIError apiError = ErrorUtils.parseError(response);
+                        int code = apiError.getCode();
+
+                        switch (code){
+
+                            case 3001:
+                                UIUtils.hideProgressDialog(progressDialog);
+                                UIUtils.showMessageDialog(SelectCountryActivity.this, "Unable to update your coverage area!",
+                                        getString(R.string.dialog_btn_ok),
+                                        "", new UIUtils.DialogButtonListener() {
+                                            @Override
+                                            public void onPositiveButtonClicked() {
+                                            }
+
+                                            @Override
+                                            public void onNegativeButtonClicked() {
+
+                                            }
+                                        });
+                                break;
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<CoveredAreaUpdateResponse> call, Throwable t) {
+                    UIUtils.hideProgressDialog(progressDialog);
+                    UIUtils.showMessageDialog(SelectCountryActivity.this, getString(R.string.unable_to_connect_error),
+                            getString(R.string.dialog_btn_ok),
+                            "", new UIUtils.DialogButtonListener() {
+                                @Override
+                                public void onPositiveButtonClicked() {
+                                }
+
+                                @Override
+                                public void onNegativeButtonClicked() {
+
+                                }
+                            });
+                }
+            });
         }
     }
 

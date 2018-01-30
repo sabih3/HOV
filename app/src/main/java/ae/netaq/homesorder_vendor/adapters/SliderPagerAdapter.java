@@ -29,16 +29,14 @@ public class SliderPagerAdapter extends PagerAdapter {
     private List<ImageTable> images;
     private ArrayList<Uri> imagesUri;
     private LayoutInflater inflater;
-    private Picasso picasso;
     private Context context;
 
     public SliderPagerAdapter(Context context,
                               List<ImageTable> images,
-                              ArrayList<Uri> imagesUri, Picasso picasso) {
+                              ArrayList<Uri> imagesUri) {
         this.context = context;
         this.images = images;
         this.imagesUri = imagesUri;
-        this.picasso = picasso;
         inflater = LayoutInflater.from(context);
     }
 
@@ -67,12 +65,12 @@ public class SliderPagerAdapter extends PagerAdapter {
             String imageURL = images.get(position).getImageURI();
             //String imagePath = Utils.getPathBasedOnSDK(context,imageURI);
             // load from detail
-            picasso.load(imageURL).resize(500, 400).centerCrop().into(imageView);
+            Picasso.with(context).load(imageURL).resize(500, 400).centerCrop().into(imageView);
         }
         if(imagesUri != null){
 
             //load from preview
-            picasso.load(imagesUri.get(position)).resize(500, 400).centerCrop().into(imageView);
+            Picasso.with(context).load(imagesUri.get(position)).resize(500, 400).centerCrop().into(imageView);
 
         }
 

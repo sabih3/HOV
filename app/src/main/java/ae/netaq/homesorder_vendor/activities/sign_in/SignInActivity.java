@@ -20,7 +20,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ae.netaq.homesorder_vendor.R;
+import ae.netaq.homesorder_vendor.db.data_manager.CountryDataManager;
 import ae.netaq.homesorder_vendor.db.data_manager.OrderDataManager;
+import ae.netaq.homesorder_vendor.db.data_manager.UserDataManager;
+import ae.netaq.homesorder_vendor.models.Country;
 import ae.netaq.homesorder_vendor.models.Order;
 import ae.netaq.homesorder_vendor.network.model.ForgetPasswordParams;
 import ae.netaq.homesorder_vendor.network.services.OrderService;
@@ -123,6 +126,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     public void onLoggedIn() {
 
         startProductSyncService();
+
         NavigationController.showMainActivity(SignInActivity.this);
                         finish();
     }
