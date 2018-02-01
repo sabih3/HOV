@@ -7,6 +7,7 @@ import ae.netaq.homesorder_vendor.network.core.ErrorUtils;
 import ae.netaq.homesorder_vendor.network.core.ResponseCodes;
 import ae.netaq.homesorder_vendor.network.core.RestClient;
 import ae.netaq.homesorder_vendor.network.model.APIError;
+import ae.netaq.homesorder_vendor.network.model.AuthenticationResponse;
 import ae.netaq.homesorder_vendor.network.model.NetworkUser;
 import ae.netaq.homesorder_vendor.utils.ErrorResolver;
 import retrofit2.Call;

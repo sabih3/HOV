@@ -18,6 +18,7 @@ public class DevicePreferences {
     private static final String KEY_ARABIC_LOCALE = "key_locale";
     private static final String KEY_USER_INFO = "user_info";
     private static final String KEY_CACHED_PWD = "key_pwd";
+    private static final String KEY_PRODUCT_SYNC_STATUS_KEY = "key_product_sync";
 
 
     private static DevicePreferences instance;
@@ -48,7 +49,6 @@ public class DevicePreferences {
     public static void saveLang(String token) {
 
         SharedPreferences.Editor editor;
-
         try{
             editor = prefs.edit();
             editor.putString(LANGUAGE_PREF_KEY, token);
@@ -61,9 +61,7 @@ public class DevicePreferences {
     }
 
     public static String getLang(){
-
-        String token = prefs.getString(LANGUAGE_PREF_KEY, "");
-        return token;
+        return prefs.getString(LANGUAGE_PREF_KEY, "");
     }
 
     /**Sets Preferred locale
@@ -105,11 +103,22 @@ public class DevicePreferences {
         return user;
     }
 
+    public static void setProductSyncStatus(int status){
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt(KEY_PRODUCT_SYNC_STATUS_KEY, status);
+        editor.commit();
+    }
+
+    public static int getProductSyncStatus(){
+        return prefs.getInt(KEY_PRODUCT_SYNC_STATUS_KEY, 0);
+    }
     public void setPasswordInCache(String password) {
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString(KEY_CACHED_PWD,password);
         editor.commit();
     }
+
+
 
     public String getCachedPassword(){
         String cachedPwd = "";

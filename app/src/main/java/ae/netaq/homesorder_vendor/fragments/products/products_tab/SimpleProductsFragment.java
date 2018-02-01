@@ -14,7 +14,11 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -29,9 +33,9 @@ import ae.netaq.homesorder_vendor.adapters.products.products_tab.SimpleProductsR
 import ae.netaq.homesorder_vendor.db.tables.ProductTable;
 import ae.netaq.homesorder_vendor.event_bus.ProductSyncFailedEvent;
 import ae.netaq.homesorder_vendor.event_bus.ProductSyncFinishEvent;
-import ae.netaq.homesorder_vendor.event_bus.ProductSyncInProgressEvent;
 import ae.netaq.homesorder_vendor.event_bus.ProductUpdatedEvent;
 import ae.netaq.homesorder_vendor.utils.Common;
+import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -53,8 +57,16 @@ public class SimpleProductsFragment extends Fragment implements
     @BindView(R.id.sync_layout)
     RelativeLayout syncLayout;
 
+    @BindView(R.id.sync_image_view)
+    ImageView syncImage;
+
+    @BindView(R.id.sync_text_view)
+    TextView syncTextView;
+
     private ProductsPresenter presenter;
     private ProductTable productToEdit;
+
+    private Animation rotation;
 
     public SimpleProductsFragment() {
     }
@@ -80,7 +92,8 @@ public class SimpleProductsFragment extends Fragment implements
     }
 
     private void initViews() {
-
+        rotation = AnimationUtils.loadAnimation(getContext(), R.anim.rotate_anim);
+        rotation.setRepeatCount(Animation.INFINITE);
     }
 
     @Override
@@ -89,7 +102,20 @@ public class SimpleProductsFragment extends Fragment implements
         EventBus.getDefault().register(this);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshListener());
         presenter = new ProductsPresenter(this);
-        presenter.fetchProducts(getContext());
+
+        if (DevicePreferences.getProductSyncStatus() == 1) {
+            //In case the products are currently syncing.
+            setSyncLayoutSyncing();
+        }else if (DevicePreferences.getProductSyncStatus() == 0){
+            //In case the products sync is finished.
+            setSyncLayoutSyncFinished();
+        }else if (DevicePreferences.getProductSyncStatus() == 3){
+            //In case products sync failed.
+            setSyncLayoutSyncFailed("Sync Failed!");
+        }else if(DevicePreferences.getProductSyncStatus() == 4){
+            //In case no products found.
+            setSyncLayoutSyncFailed("No products found!");
+        }
 
 
     }
@@ -108,20 +134,11 @@ public class SimpleProductsFragment extends Fragment implements
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onProductsSyncInProgressEvent(ProductSyncInProgressEvent syncInProgressEvent){
-        //Product Sync in Progress
-        //Event Received from ProductSyncService.retrieveProductList
-        //show Sync In Progress in UI
-        syncLayout.setVisibility(View.VISIBLE);
-    }
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
     public void onProductSyncFinishedEvent(ProductSyncFinishEvent syncFinishEvent){
         //Product Sync Finished
         //Event Received from ProductSyncService.retrieveProductList
-        // Hide Sync in Progress from UI
-        syncLayout.setVisibility(View.GONE);
-        presenter.fetchProducts(getActivity());
+        //Hide Sync in Progress from UI
+        setSyncLayoutSyncFinished();
 
     }
 
@@ -130,6 +147,7 @@ public class SimpleProductsFragment extends Fragment implements
         //Product Sync Failed
         //Event Received from ProductSyncService.retrieveProductList
         //hide sync icon, show information to refresh
+        setSyncLayoutSyncFailed("Sync Failed!");
     }
 
     @Override
@@ -206,5 +224,21 @@ public class SimpleProductsFragment extends Fragment implements
             //presenter.fetchProducts(getActivity());
             swipeRefreshLayout.setRefreshing(false);
         }
+    }
+
+    void setSyncLayoutSyncing(){
+        syncLayout.setVisibility(View.VISIBLE);
+        syncImage.startAnimation(rotation);
+    }
+
+    void setSyncLayoutSyncFinished(){
+        syncLayout.setVisibility(View.GONE);
+        presenter.fetchProducts(getContext());
+    }
+    void setSyncLayoutSyncFailed(String s){
+        syncLayout.setVisibility(View.VISIBLE);
+        syncImage.setImageResource(R.drawable.ic_sync_problem);
+        syncImage.clearAnimation();
+        syncTextView.setText(s);
     }
 }

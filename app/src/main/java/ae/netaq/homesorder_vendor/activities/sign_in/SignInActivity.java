@@ -20,8 +20,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ae.netaq.homesorder_vendor.R;
+import ae.netaq.homesorder_vendor.db.data_manager.CountryDataManager;
 import ae.netaq.homesorder_vendor.db.data_manager.OrderDataManager;
+import ae.netaq.homesorder_vendor.db.data_manager.UserDataManager;
+import ae.netaq.homesorder_vendor.models.Country;
 import ae.netaq.homesorder_vendor.models.Order;
+import ae.netaq.homesorder_vendor.network.model.ForgetPasswordParams;
 import ae.netaq.homesorder_vendor.network.services.OrderService;
 import ae.netaq.homesorder_vendor.network.services.ProductsSyncService;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
@@ -35,7 +39,7 @@ import butterknife.ButterKnife;
  */
 
 
-public class SignInActivity extends AppCompatActivity implements View.OnClickListener,Validator.ValidationListener,SignInView{
+public class SignInActivity extends AppCompatActivity implements View.OnClickListener,Validator.ValidationListener,SignInView,ForgetPasswordView{
 
     @BindView(R.id.sign_in_register_now)
     LinearLayout registerLayout;
@@ -82,7 +86,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
         forgetPassword.setOnClickListener(this);
 
-        presenter = new SignInPresenter(this,this);
+        presenter = new SignInPresenter(this,this, this);
 
         progressDialog = new ProgressDialog(this, R.style.ProgressDialogTheme);
 
@@ -100,7 +104,11 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
             UIUtils.showForgetPasswordDialog(this, "Forget Password", new UIUtils.ForgetPasswordListener() {
                 @Override
                 public void onPositiveButtonClicked(String username) {
-                    Utils.showToast(SignInActivity.this,username);
+                    if(!username.equals("")){
+                        ForgetPasswordParams forgetPasswordParams = new ForgetPasswordParams(username);
+                        presenter.requestForgetPassword(forgetPasswordParams);
+                        UIUtils.showProgressDialog(SignInActivity.this,"Retrieving account information!", progressDialog);
+                    }
                 }
 
                 @Override
@@ -118,6 +126,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     public void onLoggedIn() {
 
         startProductSyncService();
+
         NavigationController.showMainActivity(SignInActivity.this);
                         finish();
     }
@@ -202,5 +211,73 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                 et_password_layout.setError(errors.get(i).getCollatedErrorMessage(this));
             }
         }
+    }
+
+    @Override
+    public void onEmailSentSuccessfully() {
+        UIUtils.hideProgressDialog(progressDialog);
+        UIUtils.showMessageDialog(this, "Email has been sent! Please check your mailbox.",
+                getString(R.string.dialog_btn_ok),
+                getString(R.string.dialog_btn_cancel), new UIUtils.DialogButtonListener() {
+                    @Override
+                    public void onPositiveButtonClicked() {
+                    }
+
+                    @Override
+                    public void onNegativeButtonClicked() {
+
+                    }
+                });
+    }
+
+    @Override
+    public void onLimitExceeded() {
+        UIUtils.hideProgressDialog(progressDialog);
+        UIUtils.showMessageDialog(this, "Too many forget password request received! Please try again later.",
+                getString(R.string.dialog_btn_ok),
+                getString(R.string.dialog_btn_cancel), new UIUtils.DialogButtonListener() {
+                    @Override
+                    public void onPositiveButtonClicked() {
+                    }
+
+                    @Override
+                    public void onNegativeButtonClicked() {
+
+                    }
+                });
+    }
+
+    @Override
+    public void onForgetPasswordRequestFailure() {
+        UIUtils.hideProgressDialog(progressDialog);
+        UIUtils.showMessageDialog(this, "TSomething went wrong while retrieving your email. Please try agin later.",
+                getString(R.string.dialog_btn_ok),
+                getString(R.string.dialog_btn_cancel), new UIUtils.DialogButtonListener() {
+                    @Override
+                    public void onPositiveButtonClicked() {
+                    }
+
+                    @Override
+                    public void onNegativeButtonClicked() {
+
+                    }
+                });
+    }
+
+    @Override
+    public void onEmailDoesNotExists() {
+        UIUtils.hideProgressDialog(progressDialog);
+        UIUtils.showMessageDialog(this, "The email you entered dose not exist.",
+                getString(R.string.dialog_btn_ok),
+                getString(R.string.dialog_btn_cancel), new UIUtils.DialogButtonListener() {
+                    @Override
+                    public void onPositiveButtonClicked() {
+                    }
+
+                    @Override
+                    public void onNegativeButtonClicked() {
+
+                    }
+                });
     }
 }

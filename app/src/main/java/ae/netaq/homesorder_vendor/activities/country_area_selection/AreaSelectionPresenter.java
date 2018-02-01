@@ -1,11 +1,6 @@
-package ae.netaq.homesorder_vendor.activities;
+package ae.netaq.homesorder_vendor.activities.country_area_selection;
 
 import android.content.Context;
-
-import java.util.ArrayList;
-
-import ae.netaq.homesorder_vendor.db.data_manager.UserDataManager;
-import ae.netaq.homesorder_vendor.models.Country;
 
 /**
  * Created by sabih on 30-Dec-17.

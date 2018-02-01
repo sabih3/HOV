@@ -1,4 +1,4 @@
-package ae.netaq.homesorder_vendor.activities.register;
+package ae.netaq.homesorder_vendor.network.model;
 
 import com.google.gson.annotations.SerializedName;
 

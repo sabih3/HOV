@@ -2,16 +2,15 @@ package ae.netaq.homesorder_vendor.activities.sign_in;
 
 import android.content.Context;
 
-import ae.netaq.homesorder_vendor.activities.register.AuthenticationResponse;
+import ae.netaq.homesorder_vendor.network.model.AuthenticationResponse;
 import ae.netaq.homesorder_vendor.db.data_manager.UserDataManager;
-import ae.netaq.homesorder_vendor.models.User;
 import ae.netaq.homesorder_vendor.network.core.ErrorUtils;
 import ae.netaq.homesorder_vendor.network.core.ResponseCodes;
 import ae.netaq.homesorder_vendor.network.core.RestClient;
 import ae.netaq.homesorder_vendor.network.model.APIError;
+import ae.netaq.homesorder_vendor.network.model.ForgetPasswordParams;
 import ae.netaq.homesorder_vendor.network.model.GeneralResponse;
 import ae.netaq.homesorder_vendor.network.model.Login;
-import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import ae.netaq.homesorder_vendor.utils.ErrorResolver;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -25,12 +24,13 @@ public class SignInPresenter {
 
     private final Context mContext;
     private SignInView viewListener;
+    private ForgetPasswordView forgetPasswordListener;
 
-    public SignInPresenter(Context context,SignInView signInView) {
-        this.mContext = context;
-        this.viewListener = signInView;
+    public SignInPresenter(Context mContext, SignInView viewListener, ForgetPasswordView forgetPasswordListener) {
+        this.mContext = mContext;
+        this.viewListener = viewListener;
+        this.forgetPasswordListener = forgetPasswordListener;
     }
-
 
     /** This method logs the user in and persist user
      *
@@ -85,8 +85,44 @@ public class SignInPresenter {
     }
 
 
-    public void requestForgetPassword(){
-        
-        RestClient.getAdapter().forgetPwd("");
+    public void requestForgetPassword(ForgetPasswordParams params){
+
+        Call<GeneralResponse> forgetPwdRequest = RestClient.getAdapter().forgetPwd(params);
+
+        forgetPwdRequest.enqueue(new Callback<GeneralResponse>() {
+            @Override
+            public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
+                if(response.isSuccessful()){
+                    if (response.body() != null) {
+                        if(response.body().getCode() == 200){
+                            forgetPasswordListener.onEmailSentSuccessfully();
+                        }
+                    }
+                }else if(response.errorBody() !=null){
+                    APIError apiError = ErrorUtils.parseError(response);
+                    int code = apiError.getCode();
+
+                    switch (code){
+
+                        case 3002:
+                            forgetPasswordListener.onEmailDoesNotExists();
+                            break;
+
+                        case 3001:
+                            forgetPasswordListener.onLimitExceeded();
+                            break;
+
+                        default:
+                            forgetPasswordListener.onForgetPasswordRequestFailure();
+                            break;
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<GeneralResponse> call, Throwable t) {
+                forgetPasswordListener.onForgetPasswordRequestFailure();
+            }
+        });
     }
 }

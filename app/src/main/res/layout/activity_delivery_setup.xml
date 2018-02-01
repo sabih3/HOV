@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
+
+    <include layout="@layout/toolbar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="Please select your convenient delivery slots."/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:text="Food Items"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <cn.refactor.library.SmoothCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:color_checked="@color/colorAccent"
+                app:color_unchecked="@color/lightGrey"
+                app:color_unchecked_stroke="@color/lightGrey"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="Morning"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <cn.refactor.library.SmoothCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:color_checked="@color/colorAccent"
+                app:color_unchecked="@color/lightGrey"
+                app:color_unchecked_stroke="@color/lightGrey"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="Afternoon"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <cn.refactor.library.SmoothCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:color_checked="@color/colorAccent"
+                app:color_unchecked="@color/lightGrey"
+                app:color_unchecked_stroke="@color/lightGrey"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="Evening"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:text="Fashion Items"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <cn.refactor.library.SmoothCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:color_checked="@color/colorAccent"
+                app:color_unchecked="@color/lightGrey"
+                app:color_unchecked_stroke="@color/lightGrey"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="Morning"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <cn.refactor.library.SmoothCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:color_checked="@color/colorAccent"
+                app:color_unchecked="@color/lightGrey"
+                app:color_unchecked_stroke="@color/lightGrey"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="Afternoon"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <cn.refactor.library.SmoothCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:color_checked="@color/colorAccent"
+                app:color_unchecked="@color/lightGrey"
+                app:color_unchecked_stroke="@color/lightGrey"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="Evening"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

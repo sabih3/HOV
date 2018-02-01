@@ -25,13 +25,11 @@ public class AddImagesRecyclerAdapter extends RecyclerView.Adapter<AddImagesView
 
     private ArrayList<Uri> mDataSet;
 
-    private Picasso picasso;
 
 
-    public AddImagesRecyclerAdapter(Context mContext, ArrayList<Uri> mDataSet, Picasso picasso) {
+    public AddImagesRecyclerAdapter(Context mContext, ArrayList<Uri> mDataSet) {
         this.mContext = mContext;
         this.mDataSet = mDataSet;
-        this.picasso = picasso;
     }
 
     @Override
@@ -42,7 +40,7 @@ public class AddImagesRecyclerAdapter extends RecyclerView.Adapter<AddImagesView
 
     @Override
     public void onBindViewHolder(AddImagesViewHolder holder, final int position) {
-        picasso.load(mDataSet.get(position)).resize(200, 200).centerCrop().into(holder.imageView);
+        Picasso.with(mContext).load(mDataSet.get(position)).resize(200, 200).centerCrop().into(holder.imageView);
         holder.removeImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

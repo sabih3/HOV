@@ -115,8 +115,6 @@ public class RegisterActivity extends AppCompatActivity implements
 
     private static final int SELECT_PICTURE = 100;
 
-    private Picasso picasso;
-
     private Uri logoImageUri = null;
 
     private RegisterPresenter presenter;
@@ -139,8 +137,6 @@ public class RegisterActivity extends AppCompatActivity implements
         editPhotoImageView.setOnClickListener(this);
 
         registerBtn.setOnClickListener(this);
-
-        picasso = AppController.get(this).getPicasso();
 
         presenter = new RegisterPresenter(this,this);
 
@@ -198,7 +194,7 @@ public class RegisterActivity extends AppCompatActivity implements
                 logoImageUri = data.getData();
                 imagePath = Utils.getPathBasedOnSDK(this,logoImageUri);
 
-                picasso.load("file://"+imagePath).resize(200, 200).centerCrop().into(logoImageView);
+                Picasso.with(this).load("file://"+imagePath).resize(200, 200).centerCrop().into(logoImageView);
 
             }
         }

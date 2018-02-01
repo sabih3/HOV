@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="banks">
+        <item>Bank Name</item>
+    </string-array>
+
+    <string-array name="nav_menu_items">
+        <item>Orders</item>
+        <item>Products</item>
+        <item>Featured</item>
+        <item>Profile</item>
+        <item>Your Coverage</item>
+        <item>Bank Information</item>
+        <item>Delivery Setup</item>
+    </string-array>
+</resources>

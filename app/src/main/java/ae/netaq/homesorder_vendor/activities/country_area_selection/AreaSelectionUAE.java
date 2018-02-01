@@ -1,4 +1,4 @@
-package ae.netaq.homesorder_vendor.activities;
+package ae.netaq.homesorder_vendor.activities.country_area_selection;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,13 +13,14 @@ import java.util.List;
 
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.adapters.AreaSelectionAdapter;
+import ae.netaq.homesorder_vendor.db.data_manager.CountryDataManager;
 import ae.netaq.homesorder_vendor.db.data_manager.UserDataManager;
 import ae.netaq.homesorder_vendor.event_bus.UAEAreasSelectedEvent;
 import ae.netaq.homesorder_vendor.models.Country;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class AreaSelectionUAE extends AppCompatActivity implements AreaSelectionView{
+public class AreaSelectionUAE extends AppCompatActivity implements AreaSelectionView {
 
     @BindView(R.id.area_list)
     ExpandableListView areaList;
@@ -48,7 +49,7 @@ public class AreaSelectionUAE extends AppCompatActivity implements AreaSelection
 
         //presenter.getRegionalData();
 
-        Country uaeRegion = UserDataManager.getUAERegion();
+        Country uaeRegion = CountryDataManager.getUAERegion(this);
 
         loadRegionDataInList(uaeRegion);
 
@@ -71,9 +72,6 @@ public class AreaSelectionUAE extends AppCompatActivity implements AreaSelection
 
             Country country = areaListAdapter.getSelectedAreas();
 
-
-            UserDataManager.persistUAERegion(country);
-
             List<Country.State> selectedStates = new ArrayList<>();
             ArrayList<Country.State.Area> userSelectedAreas;
 
@@ -95,8 +93,6 @@ public class AreaSelectionUAE extends AppCompatActivity implements AreaSelection
                 if(eachState.getSelectedAreas().size()>0){
                     selectedStates.add(eachState);
                 }
-
-
             }
 
             EventBus.getDefault().post(new UAEAreasSelectedEvent(country,selectedStates));

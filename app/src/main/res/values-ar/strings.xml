@@ -167,6 +167,7 @@
     <string name="confirmation_update_order_processing">Are you sure to update this order as Processing ?</string>
     <string name="confirmation_update_order_ready">Are you sure to update this order as Ready ?</string>
     <string name="confirmation_update_order_dispatch">Are you sure to update this order as Dispatched ?</string>
+    <string name="bank_information">Bank Information</string>
 
 
 </resources>

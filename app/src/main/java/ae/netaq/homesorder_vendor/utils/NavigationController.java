@@ -9,11 +9,13 @@ import java.util.ArrayList;
 
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.activities.AddNewProductActivity;
-import ae.netaq.homesorder_vendor.activities.AreaSelectionUAE;
+import ae.netaq.homesorder_vendor.activities.country_area_selection.AreaSelectionUAE;
 import ae.netaq.homesorder_vendor.activities.MainActivity;
 import ae.netaq.homesorder_vendor.activities.OrderDetailActivity;
+import ae.netaq.homesorder_vendor.activities.bank_information.BankInformationActivity;
 import ae.netaq.homesorder_vendor.activities.country_area_selection.AreaSelectionKSA;
 import ae.netaq.homesorder_vendor.activities.country_area_selection.SelectCountryActivity;
+import ae.netaq.homesorder_vendor.activities.delivery_setup.DeliverySetupActvity;
 import ae.netaq.homesorder_vendor.activities.product_detail.ProductDetailActivity;
 import ae.netaq.homesorder_vendor.activities.ProfileActivity;
 import ae.netaq.homesorder_vendor.activities.product_edit.ProductEditActivity;
@@ -178,6 +180,16 @@ public class NavigationController {
         Intent intent = new Intent(context, AreaSelectionKSA.class);
         context.startActivity(intent);
 
+    }
+
+    public static void showBankInformationActivity(Context context) {
+        Intent intent = new Intent(context, BankInformationActivity.class);
+        context.startActivity(intent);
+    }
+
+    public static void showDeliverySetupActivity(Context context) {
+        Intent intent = new Intent(context, DeliverySetupActvity.class);
+        context.startActivity(intent);
     }
 
     public static void showProductEdit(Context context,ProductTable product) {

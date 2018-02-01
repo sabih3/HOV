@@ -63,6 +63,10 @@ public class ErrorResolver {
                 interpretedError = "Please choose below colors only";
             break;
 
+            case 3002:
+                interpretedError = "Email does not exist.";
+                break;
+
             default:
                 interpretedError = mContext.getString(R.string.error_default);
             break;

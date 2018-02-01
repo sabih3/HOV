@@ -1,15 +1,12 @@
 package ae.netaq.homesorder_vendor.activities.update_profile;
 
-import android.accounts.NetworkErrorException;
 import android.content.Context;
 
-import ae.netaq.homesorder_vendor.activities.register.AuthenticationResponse;
+import ae.netaq.homesorder_vendor.network.model.AuthenticationResponse;
 import ae.netaq.homesorder_vendor.db.data_manager.UserDataManager;
-import ae.netaq.homesorder_vendor.models.User;
 import ae.netaq.homesorder_vendor.network.core.ResponseCodes;
 import ae.netaq.homesorder_vendor.network.core.RestClient;
 import ae.netaq.homesorder_vendor.network.model.NetworkUser;
-import ae.netaq.homesorder_vendor.network.model.ResponseAddProduct;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

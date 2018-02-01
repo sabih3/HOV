@@ -40,5 +40,6 @@ public class Endpoints {
 
     public static final String ORDER_UPDATE_DISPATCHED = "vendor/me/order/complete/{orderID}/{userToken}";
 
+    public static final String COVERED_AREA_UPDATE ="vendor/me/coverarea/update/{userToken}";
 
 }

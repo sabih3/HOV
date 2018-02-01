@@ -96,7 +96,7 @@ public class Country implements Serializable{
         public class Area implements Serializable{
             private String areaNameEN;
             private String areaNameAR;
-            private String areaID;
+            private int areaID;
             private String areaCode;
             private boolean isSelected;
 
@@ -108,7 +108,7 @@ public class Country implements Serializable{
                 return areaNameAR;
             }
 
-            public String getAreaID() {
+            public int getAreaID() {
                 return areaID;
             }
 

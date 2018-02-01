@@ -58,7 +58,6 @@ public class AddProductImagesFragment extends Fragment{
 
     private AddProductImagesView mCallback;
 
-    private Picasso picasso;
 
     private ArrayList<Uri> imagesUri;
     private ArrayList<byte[]> bytesArray = new ArrayList<>();
@@ -83,7 +82,6 @@ public class AddProductImagesFragment extends Fragment{
         ButterKnife.bind(this, view);
         EventBus.getDefault().register(this);
 
-        picasso = AppController.get(getActivity()).getPicasso();
         imagesUri = new ArrayList<>();
 
         Common.changeViewWithLocale(getContext(),view);
@@ -132,7 +130,7 @@ public class AddProductImagesFragment extends Fragment{
 
     private void initiateImagesRecycler(ArrayList<Uri> imagesUri) {
         AddImagesRecyclerAdapter addImagesRecyclerAdapter = new AddImagesRecyclerAdapter(getActivity(),
-                                                            imagesUri, picasso);
+                                                            imagesUri);
         addPhotoImagesRecycler.setAdapter(addImagesRecyclerAdapter);
     }
 

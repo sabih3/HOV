@@ -60,8 +60,6 @@ public class ProductDetailActivity extends AppCompatActivity implements ProductD
 
     @BindView(R.id.value_desc_ar) TextView val_desc_ar;
 
-
-    private Picasso picasso;
     private ProductTable product;
 
     @Override
@@ -71,9 +69,6 @@ public class ProductDetailActivity extends AppCompatActivity implements ProductD
         ButterKnife.bind(this);
 
         setToolbar();
-
-
-        picasso = AppController.get(this).getPicasso();
 
         try {
             product = (ProductTable) getIntent().getSerializableExtra(NavigationController.KEY_PRODUCT);
@@ -143,7 +138,7 @@ public class ProductDetailActivity extends AppCompatActivity implements ProductD
 
 
         sliderPager.setAdapter(new SliderPagerAdapter(ProductDetailActivity.this,
-                imagesArray,null, picasso));
+                imagesArray,null));
 
         circleIndicator.setViewPager(sliderPager);
 

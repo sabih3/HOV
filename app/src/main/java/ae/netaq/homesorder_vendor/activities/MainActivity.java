@@ -1,6 +1,5 @@
 package ae.netaq.homesorder_vendor.activities;
 
-import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -9,8 +8,9 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -23,16 +23,18 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.util.Arrays;
+import java.util.List;
+
 import ae.netaq.homesorder_vendor.AppController;
 import ae.netaq.homesorder_vendor.R;
+import ae.netaq.homesorder_vendor.adapters.nav_menu.NavMenuItemsRecyclerAdapter;
 import ae.netaq.homesorder_vendor.db.data_manager.UserDataManager;
 import ae.netaq.homesorder_vendor.event_bus.LanguageChangeEvent;
 import ae.netaq.homesorder_vendor.event_bus.ProfileUpdatedEvent;
 import ae.netaq.homesorder_vendor.fragments.featured.FeaturedFragment;
 import ae.netaq.homesorder_vendor.fragments.orders.OrdersFragment;
 import ae.netaq.homesorder_vendor.fragments.products.ProductsFragment;
-import ae.netaq.homesorder_vendor.models.User;
-import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import ae.netaq.homesorder_vendor.utils.NavigationController;
 import ae.netaq.homesorder_vendor.utils.UIUtils;
 import butterknife.BindView;
@@ -40,8 +42,7 @@ import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity implements
-             NavigationView.OnNavigationItemSelectedListener,
-             View.OnClickListener{
+             View.OnClickListener, NavMenuItemsRecyclerAdapter.NavMenuItemSelectedInterface{
 
     @BindView(R.id.nav_view)
     NavigationView navigationView;
@@ -58,13 +59,20 @@ public class MainActivity extends AppCompatActivity implements
     @BindView(R.id.add_product_fab)
     FloatingActionButton addProductFab;
 
-    private CircleImageView profilePhoto;
+    @BindView(R.id.profile_image)
+    CircleImageView profilePhoto;
 
-    private TextView tvPersonName;
+    @BindView(R.id.drawer_tv_person_name)
+    TextView tvPersonName;
 
-    private ImageView settingsBtn;
+    @BindView(R.id.settings_icon)
+    ImageView settingsBtn;
 
-    private RelativeLayout updateProfileBtn;
+    @BindView(R.id.update_profile_layout)
+    RelativeLayout updateProfileBtn;
+
+    @BindView(R.id.menu_recycler)
+    RecyclerView menuRecycler;
 
     private int navItemIndex = -1;
 
@@ -82,23 +90,17 @@ public class MainActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        AppController.get(this).getHomesOrderServices();
-
         EventBus.getDefault().register(this);
 
         firstTimeLaunch = true;
 
+        List<String> menuItems = Arrays.asList(getResources().getStringArray(R.array.nav_menu_items));
+        menuRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false));
+        menuRecycler.setAdapter(new NavMenuItemsRecyclerAdapter(menuItems, this));
+
         signOutBtn.setOnClickListener(this);
 
         addProductFab.setOnClickListener(this);
-
-        settingsBtn = navigationView.getHeaderView(0).findViewById(R.id.settings_icon);
-
-        updateProfileBtn = navigationView.getHeaderView(0).findViewById(R.id.update_profile_layout);
-
-        profilePhoto = navigationView.getHeaderView(0).findViewById(R.id.profile_image);
-
-        tvPersonName = navigationView.getHeaderView(0).findViewById(R.id.drawer_tv_person_name);
 
         settingsBtn.setOnClickListener(this);
 
@@ -114,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements
 
         //By default when the home activity is loaded select the orders fragment to fill the container.
         if(firstTimeLaunch){
-            selectDrawerItem(navigationView.getMenu().getItem(0));
+            selectDrawerItem("Orders", 0);
             initFragment();
             firstTimeLaunch = false;
         }
@@ -133,8 +135,6 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void configureNavigationDrawer() {
-
-        navigationView.setNavigationItemSelectedListener(this);
 
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawer,
                 toolbar, R.string.openDrawer, R.string.closeDrawer) {
@@ -183,51 +183,43 @@ public class MainActivity extends AppCompatActivity implements
         }
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        selectDrawerItem(item);
-        return true;
-    }
+    public void selectDrawerItem(String title,int position){
 
-    public void selectDrawerItem(MenuItem item){
-
-        int position = 0;
             //Check to see which item was being clicked and perform appropriate action
-            switch (item.getItemId()) {
-                case R.id.nav_orders_item:
+            switch (position) {
+                case 0:
                     fragmentClass = OrdersFragment.class;
-                    position = 0;
                     break;
-                case R.id.nav_products_item:
+                case 1:
                     fragmentClass = ProductsFragment.class;
-                    position = 1;
                     break;
-                case R.id.nav_featured_item:
+                case 2:
                     fragmentClass = FeaturedFragment.class;
-                    position = 2;
                     break;
-                case R.id.nav_profile_item:
+                case 3:
                     NavigationController.startActivityProfile(MainActivity.this);
-                    position = 3;
                     break;
-
-                case R.id.covergae_setup:
+                case 4:
                     NavigationController.showCountrySelectActivity(MainActivity.this);
-                    position = 4;
+                    break;
+                case 5:
+                    NavigationController.showBankInformationActivity(MainActivity.this);
+                    break;
+                case 6:
+                    NavigationController.showDeliverySetupActivity(MainActivity.this);
+                    break;
                 default:
                     fragmentClass = OrdersFragment.class;
             }
-            //Check that if the profile item is selected or not, if yes then do nothing.
-            if(position!=3){
+            //Check that if selected item is supposed to open an activity, if yes then do nothing.
+            if(position<3){
                 if(navItemIndex == position){
                     fragmentClass = null;
                     drawer.closeDrawers();
                 }
                 navItemIndex = position;
-                // Highlight the selected item has been done by NavigationView
-                item.setChecked(true);
                 // Set action bar title
-                toolbar.setTitle(item.getTitle());
+                toolbar.setTitle(title);
                 // Close the navigation drawer
                 drawer.closeDrawers();
             }
@@ -294,5 +286,10 @@ public class MainActivity extends AppCompatActivity implements
     public void onProfileUpdated(ProfileUpdatedEvent profileUpdatedEvent){
         Picasso.with(MainActivity.this).load(UserDataManager.getPersistedUser().getProfileImagePath()).into(profilePhoto);
         tvPersonName.setText(UserDataManager.getPersistedUser().getPersonName());
+    }
+
+    @Override
+    public void onNavMenuItemSelectedListener(String title, int position) {
+        selectDrawerItem(title,position);
     }
 }

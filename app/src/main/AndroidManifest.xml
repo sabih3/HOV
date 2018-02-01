@@ -50,9 +50,11 @@
             android:windowSoftInputMode="adjustPan"/>
 
         <activity android:name=".activities.country_area_selection.SelectCountryActivity" />
-        <activity android:name=".activities.AreaSelectionUAE"></activity>
+        <activity android:name=".activities.country_area_selection.AreaSelectionUAE"></activity>
         <activity android:name=".activities.country_area_selection.AreaSelectionKSA"></activity>
         <activity android:name=".activities.product_promotion.ProductPromotionActivity"/>
+        <activity android:name=".activities.bank_information.BankInformationActivity"/>
+        <activity android:name=".activities.delivery_setup.DeliverySetupActvity"/>
 
         <service
             android:name=".network.services.ProductsSyncService"
