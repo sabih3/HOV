@@ -64,7 +64,11 @@ public class OrderRepository {
         List<OrderTable> persistedOrders = new ArrayList<>();
 
         persistedOrders = orderDAO.queryForEq(OrderTable.ColumnNames.ORDER_STATUS, status);
+        for(OrderTable order : persistedOrders){
 
+            List<OrderedProducts> orderedProducts = getOrderedProducts(order.getOrderID());
+            order.setItems(orderedProducts);
+        }
 
         return persistedOrders;
     }
@@ -73,6 +77,13 @@ public class OrderRepository {
         List<OrderTable> orders = new ArrayList<>();
 
         orders = orderDAO.queryForAll();
+        if(!orders.isEmpty()){
+            for(OrderTable order : orders){
+
+                List<OrderedProducts> orderedProducts = getOrderedProducts(order.getOrderID());
+                order.setItems(orderedProducts);
+            }
+        }
 
         return orders;
     }
@@ -96,6 +107,19 @@ public class OrderRepository {
         orderedProductsDAO.create(orderedProducts);
     }
 
+    public List<OrderedProducts> getOrderedProducts(long orderID){
+        List<OrderedProducts> orderedProducts = new ArrayList<>();
+
+        try {
+            orderedProducts = orderedProductsDAO.queryForEq("order_id", orderID);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+
+        return orderedProducts;
+    }
     public void release(){
         dbManager.releaseHelper();
     }

@@ -4,6 +4,7 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static ae.netaq.homesorder_vendor.db.tables.OrderTable.ColumnNames.COLUMN_CUSTOMER_ADDRESS;
 import static ae.netaq.homesorder_vendor.db.tables.OrderTable.ColumnNames.COLUMN_CUSTOMER_EMAIL;
@@ -66,7 +67,7 @@ public class OrderTable {
     @DatabaseField(columnName = "base_shipping_amount")
     public long baseShippingAmount;
 
-    public ArrayList<OrderedProducts> items;
+    public List<OrderedProducts> items;
 
     public long getId() {
         return id;
@@ -184,7 +185,7 @@ public class OrderTable {
         return baseShippingAmount;
     }
 
-    public ArrayList<OrderedProducts> getItems() {
+    public List<OrderedProducts> getItems() {
         return items;
     }
 
@@ -192,7 +193,7 @@ public class OrderTable {
         this.baseShippingAmount = baseShippingAmount;
     }
 
-    public void setItems(ArrayList<OrderedProducts> items) {
+    public void setItems(List<OrderedProducts> items) {
         this.items = items;
     }
 
