@@ -2,19 +2,14 @@ package ae.netaq.homesorder_vendor.db.data_manager;
 
 import android.content.Context;
 
-import com.j256.ormlite.dao.Dao;
-
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import ae.netaq.homesorder_vendor.db.DBManager;
-import ae.netaq.homesorder_vendor.db.data_manager.tables.OrderTable;
-import ae.netaq.homesorder_vendor.db.data_manager.tables.OrderedProducts;
-import ae.netaq.homesorder_vendor.models.Customer;
-import ae.netaq.homesorder_vendor.models.Order;
+import ae.netaq.homesorder_vendor.db.data.OrderRepository;
+import ae.netaq.homesorder_vendor.db.tables.OrderTable;
+import ae.netaq.homesorder_vendor.db.tables.OrderedProducts;
 import ae.netaq.homesorder_vendor.network.model.ResponseOrderList;
-import okhttp3.Response;
 
 /**
  * Created by Netaq on 11/28/2017.
@@ -29,50 +24,42 @@ public class OrderDataManager {
 
 
     public static List<OrderTable> getNewOrdersList(Context context) throws SQLException {
+        OrderRepository orderRepository = new OrderRepository(context);
         List<OrderTable> persistedOrders = new ArrayList<>();
-
-        persistedOrders = getOrdersForStatus(STATUS_NEW);
+        persistedOrders = orderRepository.getOrdersForStatus(STATUS_NEW);
+        orderRepository.release();
 
         return persistedOrders;
     }
 
     public static List<OrderTable> getProcessingOrdersList(Context context) throws SQLException {
-        List<OrderTable> underProcessOrders = getOrdersForStatus(STATUS_PROCESSING);
+        OrderRepository orderRepository = new OrderRepository(context);
+        List<OrderTable> underProcessOrders = new ArrayList<OrderTable>();
+         //underProcessOrders = getOrdersForStatus(STATUS_PROCESSING);
+        underProcessOrders = orderRepository.getOrdersForStatus(STATUS_PROCESSING);
+        orderRepository.release();
 
         return underProcessOrders;
     }
 
-    private static List<OrderTable> getOrdersForStatus(String status) throws SQLException {
-        List<OrderTable> persistedOrders = new ArrayList<>();
-
-        persistedOrders = getOrderDao().queryForEq(OrderTable.ColumnNames.ORDER_STATUS, status);
-
-
-        return persistedOrders;
-    }
 
     public static List<OrderTable> getReadyOrdersList(Context context) throws SQLException {
-        List<OrderTable> readyOrders = getOrdersForStatus(STATUS_READY);
+        OrderRepository orderRepository = new OrderRepository(context);
+        List<OrderTable> readyOrders = new ArrayList<>();
 
+        readyOrders = orderRepository.getOrdersForStatus(STATUS_READY);
+        orderRepository.release();
         return readyOrders;
     }
 
     public static List<OrderTable> getDispatchedOrdersList(Context context) throws SQLException {
-        List<OrderTable> dispatchedList = getOrdersForStatus(STATUS_DISPATCHED);
+        OrderRepository orderRepository = new OrderRepository(context);
+        List<OrderTable> dispatchedList = new ArrayList<>();
+        dispatchedList = orderRepository.getOrdersForStatus(STATUS_DISPATCHED);
+
+        orderRepository.release();
 
         return dispatchedList;
-    }
-
-
-    public static Dao<OrderTable,Integer> getOrderDao(){
-        Dao<OrderTable, Integer> orderDao = null;
-        try {
-            orderDao = DBManager.getInstance().getDbHelper().getDao(OrderTable.class);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return orderDao;
     }
 
     /**To persist order in database
@@ -80,9 +67,8 @@ public class OrderDataManager {
      * @param order
      * @throws SQLException
      */
-    public static void createOrder(ResponseOrderList remoteOrder) {
-
-        //Customer customer = order.getCustomer();
+    public static void createOrder(Context context,ResponseOrderList remoteOrder) {
+        OrderRepository orderRepository = new OrderRepository(context);
 
         List<ResponseOrderList.Item> items = remoteOrder.getItems();
         OrderTable orderToPersist = new OrderTable();
@@ -101,7 +87,8 @@ public class OrderDataManager {
         orderToPersist.setShippingNotes(remoteOrder.getCustomer().get(0).getShippingNotes());
 
         try {
-            getOrderDao().create(orderToPersist);
+            orderRepository.createOrder(orderToPersist);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -129,36 +116,42 @@ public class OrderDataManager {
             orderedProducts.setItemComments(item.getComments());
 
             try {
-                Dao<OrderedProducts, Integer> orderedProductDAO = DBManager.getInstance().
-                                                        getDbHelper().getDao(OrderedProducts.class);
-
-                orderedProductDAO.create(orderedProducts);
+                orderRepository.createOrderedProducts(orderedProducts);
 
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
+
+        orderRepository.release();
     }
 
-    public static List<OrderTable> getAllOrders(){
-        List<OrderTable> orders = null;
-        try {
-            orders = getOrderDao().queryForAll();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    public static List<OrderTable> getAllOrders(Context context) throws SQLException {
+        List<OrderTable> allPersistedOrders = new ArrayList<>();
 
-        return orders;
+        OrderRepository orderRepository = new OrderRepository(context);
+        allPersistedOrders = orderRepository.getAllOrders();
+
+        orderRepository.release();
+
+        return allPersistedOrders;
     }
 
-    public static void persistAllOrders(List<ResponseOrderList> orders,
+    public static void persistAllOrders(Context context,List<ResponseOrderList> orders,
                                         OrderPersistenceListener persistenceListener) {
+
         for(ResponseOrderList order:orders){
 
-            if(existsInDB(order)){
-                continue;
+            if(existsInDB(context,order)){
+                try {
+                    updateOrder(context,order.getOrderID(),order.getOrderStatus());
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }else{
-                createOrder(order);
+
+                createOrder(context,order);
             }
 
 
@@ -167,37 +160,38 @@ public class OrderDataManager {
         persistenceListener.onOrdersPersisted();
     }
 
-    private static boolean existsInDB(ResponseOrderList remoteOrder) {
+    private static boolean existsInDB(Context context,ResponseOrderList remoteOrder) {
+        OrderRepository orderRepository = new OrderRepository(context);
+
+        boolean exists ;
 
         try {
-            List<OrderTable> orderTableList = getOrderDao().queryForEq(OrderTable.ColumnNames.ORDER_ID,
-                             remoteOrder.getOrderID());
-            if(!orderTableList.isEmpty()){
-                OrderTable orderTable = orderTableList.get(0);
-                if(remoteOrder.getOrderID()==remoteOrder.getOrderID()){
-                    return true;
-                }
-            }else{
-                return false;
-            }
+            exists = orderRepository.checkIfOrderExists(remoteOrder.getOrderID());
         } catch (SQLException e) {
-            //Todo:Handle Exception
-            e.printStackTrace();
+            // In case of exception, returning true, so that the order get updated,
+            //rather created new.
+            exists = true;
+
         }
-        return false;
+        orderRepository.release();
+
+        return exists;
     }
 
-    public static void updateOrder(long orderID, String status) throws SQLException {
-        List<OrderTable> orderList = getOrderDao().queryForEq(OrderTable.ColumnNames.ORDER_ID, orderID);
+    /**Update order by status
+     *
+     * @param orderID
+     * @param status
+     * @throws SQLException
+     */
+    public static void updateOrder(Context context,long orderID, String status) throws SQLException {
+        OrderRepository orderRepository = new OrderRepository(context);
+        orderRepository.updateOrder(orderID,status);
 
-        if(!orderList.isEmpty()){
-
-            OrderTable order = orderList.get(0);
-            order.setOrderStatus(status);
-            getOrderDao().update(order);
-        }
-
+        orderRepository.release();
     }
+
+
 
     public interface OrderPersistenceListener{
 

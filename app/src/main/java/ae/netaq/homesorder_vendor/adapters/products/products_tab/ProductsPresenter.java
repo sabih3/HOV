@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import ae.netaq.homesorder_vendor.db.data_manager.ProductsManager;
-import ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable;
+import ae.netaq.homesorder_vendor.db.tables.ProductTable;
 
 /**
  * Created by sabih on 13-Dec-17.
@@ -24,7 +24,7 @@ public class ProductsPresenter {
         productsView.showProgress();
 
         try {
-            List<ProductTable> allProducts = ProductsManager.getAllProducts();
+            List<ProductTable> allProducts = ProductsManager.getAllProducts(context);
             productsView.onProductsFetched(allProducts);
         } catch (SQLException e) {
             productsView.onException();

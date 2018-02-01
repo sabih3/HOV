@@ -10,6 +10,7 @@ import org.greenrobot.eventbus.EventBus;
 import java.util.ArrayList;
 
 import ae.netaq.homesorder_vendor.constants.Constants;
+import ae.netaq.homesorder_vendor.db.data.ProductsRepository;
 import ae.netaq.homesorder_vendor.db.data_manager.ProductsManager;
 import ae.netaq.homesorder_vendor.db.data_manager.UserDataManager;
 import ae.netaq.homesorder_vendor.event_bus.ProductSyncFailedEvent;
@@ -61,7 +62,7 @@ public class ProductsSyncService extends IntentService{
                         ArrayList<ResponseAddProduct.Product> products = response.body().getItems();
                         for(ResponseAddProduct.Product product : products){
                             try {
-                                ProductsManager.insertRemoteProduct(product);
+                                ProductsManager.insertRemoteProduct(ProductsSyncService.this,product);
                             } catch (Exception e) {
                                 NotificationHelper.dismissProgressNotification(ProductsSyncService.this,
                                         -1);

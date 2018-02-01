@@ -245,13 +245,16 @@ public class MainActivity extends AppCompatActivity implements
                     new UIUtils.DialogButtonListener() {
                 @Override
                 public void onPositiveButtonClicked() {
+                    //Basically, this option is on right, so it is NO on UI
                     //dialog gets dismissed
-                    NavigationController.showCountrySelectActivity(MainActivity.this);
+
                 }
 
                 @Override
                 public void onNegativeButtonClicked() {
                     //log out
+                    //This option is on Left, so it is Yes on UI
+                    //TODO: Clear DB Data
                     UserDataManager.clearUserData();
                     MainActivity.this.finish();
                     NavigationController.startActivitySignIn(MainActivity.this);

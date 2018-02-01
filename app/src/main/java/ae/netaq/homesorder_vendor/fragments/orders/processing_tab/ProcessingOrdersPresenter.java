@@ -3,20 +3,20 @@ package ae.netaq.homesorder_vendor.fragments.orders.processing_tab;
 import android.content.Context;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import ae.netaq.homesorder_vendor.db.data_manager.OrderDataManager;
 import ae.netaq.homesorder_vendor.db.data_manager.UserDataManager;
-import ae.netaq.homesorder_vendor.db.data_manager.tables.OrderTable;
+import ae.netaq.homesorder_vendor.db.tables.OrderTable;
 import ae.netaq.homesorder_vendor.network.core.RestClient;
 import ae.netaq.homesorder_vendor.network.model.GeneralResponse;
-import ae.netaq.homesorder_vendor.network.model.ResponseOrderList;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Created by Netaq on 11/22/2017.
+ * Created by Sabih Ahmed on 11/22/2017.
  */
 
 public class ProcessingOrdersPresenter {
@@ -28,54 +28,21 @@ public class ProcessingOrdersPresenter {
     }
 
     public void getProcessingOrdersList(Context context){
+        List<OrderTable> processingOrdersList = new ArrayList<>();
         try {
 
-            List<OrderTable> processingOrdersList = OrderDataManager.getProcessingOrdersList(context);
-            processingOrderView.onProcessingOrdersFetched(processingOrdersList);
+            processingOrdersList = OrderDataManager.getProcessingOrdersList(context);
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-    }
+        if(processingOrdersList.isEmpty()){
+            processingOrderView.showEmptyView();
+        }else{
+            processingOrderView.showDataView(processingOrdersList);
+        }
 
-    public void syncProcessingOrders() {
-        Call<List<ResponseOrderList>> processingOrdersRequest = RestClient.getAdapter().
-                getProcessingOrders(UserDataManager.getPersistedUser().getUserToken());
-        processingOrderView.showProgress();
-
-        processingOrdersRequest.enqueue(new Callback<List<ResponseOrderList>>() {
-            @Override
-            public void onResponse(Call<List<ResponseOrderList>> call, Response<List<ResponseOrderList>> response) {
-                processingOrderView.hideProgress();
-                if(response.isSuccessful()){
-                    if(response.body().isEmpty()){
-                        //processingOrderView.showEmptyView();
-                    }else{
-                        //Persist processing Orders via persisting policy
-                        OrderDataManager.persistAllOrders(response.body(),
-                                        new OrderDataManager.OrderPersistenceListener() {
-                            @Override
-                            public void onOrdersPersisted() {
-                                processingOrderView.onProductsSynced();
-                            }
-                        });
-
-
-
-                    }
-                }else{
-                    //TODO:Extract the exceptions and show in view
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<ResponseOrderList>> call, Throwable t) {
-                //TODO: Hanlde Other Exception
-                processingOrderView.onNetworkFailure();
-            }
-        });
     }
 
     public void updateOrderAsReady(long orderID) {

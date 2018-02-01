@@ -5,8 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import ae.netaq.homesorder_vendor.R;
-import ae.netaq.homesorder_vendor.activities.product_detail.ProductDetailActivity;
-import ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable;
+import ae.netaq.homesorder_vendor.db.tables.ProductTable;
 import ae.netaq.homesorder_vendor.models.Product;
 import butterknife.BindView;
 import butterknife.ButterKnife;

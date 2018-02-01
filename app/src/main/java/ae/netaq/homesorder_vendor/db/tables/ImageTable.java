@@ -1,6 +1,4 @@
-package ae.netaq.homesorder_vendor.db.data_manager.tables;
-
-import android.net.Uri;
+package ae.netaq.homesorder_vendor.db.tables;
 
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
@@ -8,8 +6,8 @@ import com.j256.ormlite.table.DatabaseTable;
 
 import java.io.Serializable;
 
-import static ae.netaq.homesorder_vendor.db.data_manager.tables.ImageTable.columnNames.COLUMN_IMAGE;
-import static ae.netaq.homesorder_vendor.db.data_manager.tables.ImageTable.columnNames.TABLE_NAME_IMAGES;
+import static ae.netaq.homesorder_vendor.db.tables.ImageTable.columnNames.COLUMN_IMAGE;
+import static ae.netaq.homesorder_vendor.db.tables.ImageTable.columnNames.TABLE_NAME_IMAGES;
 
 /**
  * Created by Sabih Ahmed on 13-Dec-17.

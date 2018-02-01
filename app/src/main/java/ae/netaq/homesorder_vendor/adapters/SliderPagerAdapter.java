@@ -12,8 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ae.netaq.homesorder_vendor.R;
-import ae.netaq.homesorder_vendor.db.data_manager.tables.ImageTable;
-import ae.netaq.homesorder_vendor.utils.Utils;
+import ae.netaq.homesorder_vendor.db.tables.ImageTable;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

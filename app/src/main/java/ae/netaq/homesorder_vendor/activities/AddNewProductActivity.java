@@ -17,14 +17,10 @@ import com.badoualy.stepperindicator.StepperIndicator;
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import ae.netaq.homesorder_vendor.R;
-import ae.netaq.homesorder_vendor.activities.sign_in.SignInActivity;
 import ae.netaq.homesorder_vendor.adapters.FragmentViewPager;
 import ae.netaq.homesorder_vendor.db.data_manager.ProductsManager;
-import ae.netaq.homesorder_vendor.db.data_manager.tables.ImageTable;
-import ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable;
 import ae.netaq.homesorder_vendor.event_bus.StoragePermissionGrantedEvent;
 import ae.netaq.homesorder_vendor.fragments.add_new_product.add_product_images.AddProductImagesFragment;
 import ae.netaq.homesorder_vendor.fragments.add_new_product.add_product_images.AddProductImagesView;
@@ -255,7 +251,7 @@ public class AddNewProductActivity extends AppCompatActivity implements
                 UIUtils.hideProgressDialog(progressDialog);
 
                 try {
-                    ProductsManager.insertRemoteProduct(product);
+                    ProductsManager.insertRemoteProduct(AddNewProductActivity.this,product);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

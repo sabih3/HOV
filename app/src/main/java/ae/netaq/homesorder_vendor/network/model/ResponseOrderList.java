@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ResponseOrderList {
 
-    public int orderID;
+    public long orderID;
     public String orderStatus;
     public Double orderTotal;
     public String payment_mode;
@@ -24,7 +24,7 @@ public class ResponseOrderList {
     public Double base_amount_ordered;
     public int order_id;
 
-    public int getOrderID() {
+    public long getOrderID() {
         return orderID;
     }
 

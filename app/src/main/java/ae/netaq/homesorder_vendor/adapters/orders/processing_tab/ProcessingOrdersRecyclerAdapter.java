@@ -6,13 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.adapters.orders.viewholder.NewOrderHolder;
-import ae.netaq.homesorder_vendor.db.data_manager.tables.OrderTable;
-import ae.netaq.homesorder_vendor.models.Order;
+import ae.netaq.homesorder_vendor.db.tables.OrderTable;
 
 /**
  * Created by Netaq on 11/23/2017.

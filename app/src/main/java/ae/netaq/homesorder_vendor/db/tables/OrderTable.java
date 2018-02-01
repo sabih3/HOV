@@ -1,20 +1,20 @@
-package ae.netaq.homesorder_vendor.db.data_manager.tables;
+package ae.netaq.homesorder_vendor.db.tables;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 import java.util.ArrayList;
 
-import static ae.netaq.homesorder_vendor.db.data_manager.tables.OrderTable.ColumnNames.COLUMN_CUSTOMER_ADDRESS;
-import static ae.netaq.homesorder_vendor.db.data_manager.tables.OrderTable.ColumnNames.COLUMN_CUSTOMER_EMAIL;
-import static ae.netaq.homesorder_vendor.db.data_manager.tables.OrderTable.ColumnNames.COLUMN_CUSTOMER_ID;
-import static ae.netaq.homesorder_vendor.db.data_manager.tables.OrderTable.ColumnNames.COLUMN_CUSTOMER_NAME;
-import static ae.netaq.homesorder_vendor.db.data_manager.tables.OrderTable.ColumnNames.COLUMN_CUSTOMER_PHONE;
-import static ae.netaq.homesorder_vendor.db.data_manager.tables.OrderTable.ColumnNames.COLUMN_SHIPPING_NOTES;
+import static ae.netaq.homesorder_vendor.db.tables.OrderTable.ColumnNames.COLUMN_CUSTOMER_ADDRESS;
+import static ae.netaq.homesorder_vendor.db.tables.OrderTable.ColumnNames.COLUMN_CUSTOMER_EMAIL;
+import static ae.netaq.homesorder_vendor.db.tables.OrderTable.ColumnNames.COLUMN_CUSTOMER_ID;
+import static ae.netaq.homesorder_vendor.db.tables.OrderTable.ColumnNames.COLUMN_CUSTOMER_NAME;
+import static ae.netaq.homesorder_vendor.db.tables.OrderTable.ColumnNames.COLUMN_CUSTOMER_PHONE;
+import static ae.netaq.homesorder_vendor.db.tables.OrderTable.ColumnNames.COLUMN_SHIPPING_NOTES;
 
 
 /**
- * Created by sabih on 05-Dec-17.
+ * Created by Sabih Ahmed on 05-Dec-17.
  */
 
 @DatabaseTable(tableName = OrderTable.ColumnNames.TABLE_NAME)

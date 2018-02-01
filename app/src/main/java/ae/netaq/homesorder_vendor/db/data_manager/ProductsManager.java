@@ -1,126 +1,34 @@
 package ae.netaq.homesorder_vendor.db.data_manager;
 
 import android.content.Context;
-import android.util.Log;
-
-import com.google.gson.Gson;
-import com.j256.ormlite.dao.Dao;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
-import ae.netaq.homesorder_vendor.db.DBManager;
-import ae.netaq.homesorder_vendor.db.data_manager.tables.ImageTable;
-import ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable;
-import ae.netaq.homesorder_vendor.models.Product;
-import ae.netaq.homesorder_vendor.models.Products;
+import ae.netaq.homesorder_vendor.db.data.ProductsRepository;
+import ae.netaq.homesorder_vendor.db.tables.ImageTable;
+import ae.netaq.homesorder_vendor.db.tables.ProductTable;
 import ae.netaq.homesorder_vendor.network.model.ResponseAddProduct;
-import ae.netaq.homesorder_vendor.utils.JSONUtils;
 
 /**
- * Created by sabih on 04-Dec-17.
+ * Created by Sabih Ahmed on 04-Dec-17.
  */
 
 public class ProductsManager {
 
-    private static final String TAG = "ProductsManager";
+    public static List<ProductTable> getAllProducts(Context context) throws SQLException {
+        ProductsRepository productsRepository = new ProductsRepository(context);
+        List<ProductTable> persistedproducts = productsRepository.getAllProducts();
 
-    public static ArrayList<Product> getProducts(Context context){
-        String productsJson = JSONUtils.loadJSONFromAsset(context, "products.json");
-
-        Gson gson = new Gson();
-        Products products = gson.fromJson(productsJson, Products.class);
-        ArrayList<Product> productsList = products.getProducts();
-
-
-
-        return productsList;
-    }
-
-
-    public static void insertAllProducts(ArrayList<ProductTable> productList) {
-
-        for(ProductTable product:productList){
-            try {
-                getProductDao().createOrUpdate(product);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static Dao<ProductTable, Integer> getProductDao(){
-        Dao<ProductTable, Integer> productsDao = null;
-        try {
-            productsDao = DBManager.getInstance().getDbHelper().getDao(ProductTable.class);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return productsDao;
-    }
-
-    public static long addProduct(ProductTable product){
-        long productID = 0;
-        try {
-            productID = getProductDao().create(product);
-        } catch (SQLException e) {
-            Log.e(TAG,e.toString());
-        }
-
-        try {
-            List<ProductTable> productTables = getProductDao().queryForAll();
-            int size = productTables.size();
-            ProductTable persistedProduct = productTables.get(size - 1);
-            productID = persistedProduct.getId();
-        } catch (SQLException e) {
-            Log.e(TAG,e.toString());
-        }
-        return productID;
-    }
-
-
-    public static void insertImage(ImageTable productImage) {
-        int i = -1;
-        try {
-            i = getImageDao().create(productImage);
-        } catch (SQLException e) {
-            Log.e(TAG,e.toString());
-        }
-    }
-
-    private static Dao<ImageTable, Integer> getImageDao() {
-        Dao<ImageTable,Integer> imageDAO = null;
-
-        try {
-            imageDAO = DBManager.getInstance().getDbHelper().getDao(ImageTable.class);
-        } catch (SQLException e) {
-            Log.e(TAG,e.toString());
-        }
-
-        return imageDAO;
-    }
-
-    public static List<ProductTable> getAllProducts() throws SQLException {
-        List<ProductTable> persistedproducts = getProductDao().queryForAll();
-
-
-
-        for(ProductTable product :persistedproducts ){
-            long productID = product.getProductID();
-            Dao<ImageTable, Integer> imageDao = getImageDao();
-
-            List<ImageTable> imageTables = imageDao.
-                             queryForEq(ProductTable.ColumnNames.PRODUCT_ID, productID);
-            product.setImagesArray(imageTables);
-
-        }
+        productsRepository.relase();
 
         return persistedproducts;
     }
 
-    public static void insertRemoteProduct(ResponseAddProduct.Product product) throws Exception {
+    public static void insertRemoteProduct(Context context,ResponseAddProduct.Product product)
+                                           throws Exception {
+        ProductsRepository productsRepository = new ProductsRepository(context);
+
         ProductTable productToPersist = new ProductTable();
         productToPersist.setProductID(product.getProductID());
         productToPersist.setParentCategoryID(Integer.valueOf(product.getMainCategoryID().get(0)));
@@ -193,8 +101,7 @@ public class ProductsManager {
 
         productToPersist.setSize(size);
 
-
-        long localDbID = ProductsManager.addProduct(productToPersist);
+        productsRepository.createProduct(productToPersist);
 
         //Local URI Array, to be replaced with absolute URLs of backend
         List<String > productImagePaths = product.getMedia();
@@ -204,17 +111,19 @@ public class ProductsManager {
             productImage.setImage(null);
             productImage.setImageURI(url);
 
-            ProductsManager.insertImage(productImage);
+            productsRepository.insertProductImages(productImage);
         }
+
+        productsRepository.relase();
     }
 
-    public static void updateExistingProduct(ResponseAddProduct.Product product){
-        try {
-            List<ProductTable> productTables = getProductDao().queryForEq(ProductTable.
-                                               ColumnNames.PRODUCT_ID,
-                                               product.getProductID());
+    public static void updateExistingProduct(Context context,ResponseAddProduct.Product product){
+        ProductsRepository productsRepository = new ProductsRepository(context);
 
-            ProductTable productToUpdate = productTables.get(0);
+        try {
+
+            ProductTable productToUpdate = productsRepository.getProductById(product.getProductID());
+
             productToUpdate.setParentCategoryID(Integer.valueOf(product.getMainCategoryID().get(0)));
 
             productToUpdate.setParentCategoryNameEN(product.getMainCategorynameEN().get(0));
@@ -259,18 +168,15 @@ public class ProductsManager {
             }catch (Exception exc){
                 size = "";
             }
-
             productToUpdate.setSize(size);
 
-            getProductDao().update(productToUpdate);
+            productsRepository.update(productToUpdate);
 
-            List<ImageTable> imageTables = getImageDao().queryForEq(ProductTable.
-                            ColumnNames.PRODUCT_ID,
-                    product.getProductID());
+            List<ImageTable> imageTables = productsRepository.getProductImages(product.getProductID());
 
             if(!imageTables.isEmpty()){
                 for(ImageTable previousImage: imageTables){
-                    getImageDao().delete(previousImage);
+                    productsRepository.deleteProductImages(previousImage);
                 }
             }
 
@@ -282,7 +188,8 @@ public class ProductsManager {
                 productImage.setImage(null);
                 productImage.setImageURI(url);
 
-                ProductsManager.insertImage(productImage);
+                productsRepository.insertProductImages(productImage);
+
             }
 
 
@@ -291,6 +198,6 @@ public class ProductsManager {
         }
 
 
-
+        productsRepository.relase();
     }
 }

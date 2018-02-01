@@ -38,7 +38,7 @@ public class Endpoints {
 
     public static final String ORDER_UPDATE_READY ="vendor/me/order/{orderID}/changestatus/2/{userToken}";
 
-    public static final String ORDER_UPDATE_DISPATCHED = "";
+    public static final String ORDER_UPDATE_DISPATCHED = "vendor/me/order/complete/{orderID}/{userToken}";
 
 
 }

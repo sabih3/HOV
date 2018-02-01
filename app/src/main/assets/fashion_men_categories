@@ -7,21 +7,15 @@
       "backGroundImage":""
     },
     {
-      "id":51,
-      "subCategoryAR":"الفساتين",
-      "subCategoryEN":"Dresses",
-      "backGroundImage":""
-    },
-    {
-      "id":56,
-      "subCategoryAR":"الساعات",
-      "subCategoryEN":"Watches",
-      "backGroundImage":""
-    },
-    {
       "id":53,
       "subCategoryAR":"الإكسسوارات",
       "subCategoryEN":"Accessories",
+      "backGroundImage":""
+    },
+    {
+      "id":65,
+      "subCategoryAR":"ملابس",
+      "subCategoryEN":"Shirt & Pants",
       "backGroundImage":""
     },
     {
@@ -31,15 +25,15 @@
       "backGroundImage":""
     },
     {
-      "id":215,
-      "subCategoryAR":"أدوات التجميل والحلاقة",
-      "subCategoryEN":"Beauty & Grooming",
+      "id":69,
+      "subCategoryAR":"العطور",
+      "subCategoryEN":"Perfumes",
       "backGroundImage":""
     },
     {
-      "id":216,
-      "subCategoryAR":"ملابس",
-      "subCategoryEN":"Shirt & Pants",
+      "id":56,
+      "subCategoryAR":"الساعات",
+      "subCategoryEN":"Watches",
       "backGroundImage":""
     }
   ]

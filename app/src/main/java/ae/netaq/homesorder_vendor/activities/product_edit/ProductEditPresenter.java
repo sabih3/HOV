@@ -45,19 +45,20 @@ public class ProductEditPresenter {
                                                                  productToUpdate.getProductID(),
                                                                 "Product Update",
                                                                 "Updated Product Successfully");
-                    ProductsManager.updateExistingProduct(response.body().getProduct());
+                    ProductsManager.updateExistingProduct(mContext,response.body().getProduct());
                     //Event will be posted on SimpleProductsFragment.onProductUpdatedEvent
                     EventBus.getDefault().post(new ProductUpdatedEvent());
                     productUpdateView.onProductUpdateSuccess();
 
                 }else{
+                    //TODO: Handle exception from API and pass in description
                     NotificationHelper.showExceptionNotification(mContext,
                             (int) productToUpdate.getProductID(),
                             "Failed to update product",
-                            "Weight field");
+                            "Product update cannnot be done this time, please try again");
                     productUpdateView.onProductUpdateFailure();
 
-                    //EventBus.getDefault().post(new ProductUpdatedEvent());
+
                 }
 
             }

@@ -9,6 +9,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -18,8 +21,9 @@ import java.util.List;
 
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.adapters.orders.dispatched_tab.DispatchedOrdersRecyclerAdapter;
-import ae.netaq.homesorder_vendor.db.data_manager.tables.OrderTable;
+import ae.netaq.homesorder_vendor.db.tables.OrderTable;
 import ae.netaq.homesorder_vendor.event_bus.OrderMoveToDispatch;
+import ae.netaq.homesorder_vendor.event_bus.OrderReloadEvent;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -34,6 +38,15 @@ public class DispatchedOrdersFragment extends Fragment implements DispatchedOrde
 
     @BindView(R.id.swipe_refresh_layout)
     SwipeRefreshLayout swipeRefreshLayout;
+
+    @BindView(R.id.empty_orders_parent)
+    RelativeLayout emptyOrdersParent;
+
+    @BindView(R.id.image_no_orders)
+    ImageView emptyOrderImageView;
+
+    @BindView(R.id.text_no_orders)
+    TextView emptyOrdersText;
 
     private DispatchedOrdersPresenter dispatchedOrdersPresenter;
 
@@ -55,11 +68,18 @@ public class DispatchedOrdersFragment extends Fragment implements DispatchedOrde
         if(!EventBus.getDefault().isRegistered(this)){
             EventBus.getDefault().register(this);
         }
+        emptyOrderImageView.setImageResource(R.drawable.ic_empty_dispatched);
+        emptyOrdersText.setText("You dont have dispatched any orders");
 
         dispatchedOrdersPresenter = new DispatchedOrdersPresenter(this);
         dispatchedOrdersPresenter.getDispatchedOrdersList(getActivity());
-
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshListener());
         return view;
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onOrdersReload(OrderReloadEvent orderReloadEvent){
+        dispatchedOrdersPresenter.getDispatchedOrdersList(getContext());
     }
 
     //ReadyOrderFragment.onContextItemSelected
@@ -69,12 +89,29 @@ public class DispatchedOrdersFragment extends Fragment implements DispatchedOrde
     }
 
     @Override
-    public void onDispatchedOrdersFetched(List<OrderTable> orders) {
+    public void showDataView(List<OrderTable> orders) {
+        swipeRefreshLayout.setRefreshing(false);
+        processingOrdersRecycler.setVisibility(View.VISIBLE);
+        emptyOrdersParent.setVisibility(View.GONE);
         DispatchedOrdersRecyclerAdapter dispatchedOrdersRecyclerAdapter =
                                         new DispatchedOrdersRecyclerAdapter(orders);
 
         processingOrdersRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
 
         processingOrdersRecycler.setAdapter(dispatchedOrdersRecyclerAdapter);
+    }
+
+    @Override
+    public void showEmptyView() {
+        swipeRefreshLayout.setRefreshing(false);
+        processingOrdersRecycler.setVisibility(View.GONE);
+        emptyOrdersParent.setVisibility(View.VISIBLE);
+    }
+
+    private class SwipeRefreshListener implements SwipeRefreshLayout.OnRefreshListener {
+        @Override
+        public void onRefresh() {
+            dispatchedOrdersPresenter.getDispatchedOrdersList(getContext());
+        }
     }
 }

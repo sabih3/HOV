@@ -1,15 +1,13 @@
 package ae.netaq.homesorder_vendor.db.data_manager;
 
 import ae.netaq.homesorder_vendor.activities.register.AuthenticationResponse;
-import ae.netaq.homesorder_vendor.db.DBHelper;
-import ae.netaq.homesorder_vendor.db.DBManager;
 import ae.netaq.homesorder_vendor.models.Country;
 import ae.netaq.homesorder_vendor.models.User;
 import ae.netaq.homesorder_vendor.utils.DevicePreferences;
 import retrofit2.Response;
 
 /**
- * Created by sabih on 27-Dec-17.
+ * Created by Sabih Ahmed on 27-Dec-17.
  */
 
 public class UserDataManager {
@@ -54,7 +52,6 @@ public class UserDataManager {
     }
 
     public static void clearUserData() {
-        DBManager.getInstance().getDbHelper().clearDBData();
         DevicePreferences.getInstance().saveUserInfo(null);
     }
 

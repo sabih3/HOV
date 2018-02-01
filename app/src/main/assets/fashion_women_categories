@@ -7,21 +7,9 @@
       "backGroundImage":""
     },
     {
-      "id":221,
-      "subCategoryAR":"الفساتين",
-      "subCategoryEN":"Dresses",
-      "backGroundImage":""
-    },
-    {
       "id":52,
       "subCategoryAR":"العبايات",
       "subCategoryEN":"Abaya & Sheela",
-      "backGroundImage":""
-    },
-    {
-      "id":57,
-      "subCategoryAR":"الساعات",
-      "subCategoryEN":"Watches",
       "backGroundImage":""
     },
     {
@@ -31,9 +19,9 @@
       "backGroundImage":""
     },
     {
-      "id":60,
-      "subCategoryAR":"الأحذية",
-      "subCategoryEN":"Shoes",
+      "id":71,
+      "subCategoryAR":"حقائب",
+      "subCategoryEN":"Bags",
       "backGroundImage":""
     },
     {
@@ -43,10 +31,29 @@
       "backGroundImage":""
     },
     {
-      "id":227,
+      "id":70,
       "subCategoryAR":"ملابس",
-      "subCategoryEN":"Shirt & Pants",
+      "subCategoryEN":"Clothing",
+      "backGroundImage":""
+    },
+    {
+      "id":72,
+      "subCategoryAR":"العطور",
+      "subCategoryEN":"Perfumes",
+      "backGroundImage":""
+    },
+    {
+      "id":60,
+      "subCategoryAR":"الأحذية",
+      "subCategoryEN":"Shoes",
+      "backGroundImage":""
+    },
+    {
+      "id":57,
+      "subCategoryAR":"الساعات",
+      "subCategoryEN":"Watches",
       "backGroundImage":""
     }
+
   ]
 }

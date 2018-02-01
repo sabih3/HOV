@@ -1,10 +1,10 @@
-package ae.netaq.homesorder_vendor.db.data_manager.tables;
+package ae.netaq.homesorder_vendor.db.tables;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 /**
- * Created by sabih on 24-Jan-18.
+ * Created by Sabih Ahmed on 05-Dec-17.
  */
 
 @DatabaseTable(tableName = OrderedProducts.ColumnNames.TABLE_NAME)

@@ -1,4 +1,4 @@
-package ae.netaq.homesorder_vendor.db.data_manager.tables;
+package ae.netaq.homesorder_vendor.db.tables;
 
 import android.net.Uri;
 
@@ -9,29 +9,29 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.COLOR;
-import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.DESCRIPTION_AR;
-import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.DESCRIPTION_EN;
-import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.FEATURED;
-import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.HANDLING_TIME;
-import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.NAME_AR;
-import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.NAME_EN;
-import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.ORDER_LIMIT;
-import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.PARENT_CATEGORY_AR;
-import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.PARENT_CATEGORY_EN;
-import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.PARENT_ID;
-import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.PRICE;
-import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.PRODUCT_ID;
-import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.PROMOTION;
-import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.SIZE;
-import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.SUB_CATEGORY;
-import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.SUB_CATEGORY_NAME_AR;
-import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.SUB_CATEGORY_NAME_EN;
-import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.TABLE_NAME;
-import static ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable.ColumnNames.TARGET_GROUP;
+import static ae.netaq.homesorder_vendor.db.tables.ProductTable.ColumnNames.COLOR;
+import static ae.netaq.homesorder_vendor.db.tables.ProductTable.ColumnNames.DESCRIPTION_AR;
+import static ae.netaq.homesorder_vendor.db.tables.ProductTable.ColumnNames.DESCRIPTION_EN;
+import static ae.netaq.homesorder_vendor.db.tables.ProductTable.ColumnNames.FEATURED;
+import static ae.netaq.homesorder_vendor.db.tables.ProductTable.ColumnNames.HANDLING_TIME;
+import static ae.netaq.homesorder_vendor.db.tables.ProductTable.ColumnNames.NAME_AR;
+import static ae.netaq.homesorder_vendor.db.tables.ProductTable.ColumnNames.NAME_EN;
+import static ae.netaq.homesorder_vendor.db.tables.ProductTable.ColumnNames.ORDER_LIMIT;
+import static ae.netaq.homesorder_vendor.db.tables.ProductTable.ColumnNames.PARENT_CATEGORY_AR;
+import static ae.netaq.homesorder_vendor.db.tables.ProductTable.ColumnNames.PARENT_CATEGORY_EN;
+import static ae.netaq.homesorder_vendor.db.tables.ProductTable.ColumnNames.PARENT_ID;
+import static ae.netaq.homesorder_vendor.db.tables.ProductTable.ColumnNames.PRICE;
+import static ae.netaq.homesorder_vendor.db.tables.ProductTable.ColumnNames.PRODUCT_ID;
+import static ae.netaq.homesorder_vendor.db.tables.ProductTable.ColumnNames.PROMOTION;
+import static ae.netaq.homesorder_vendor.db.tables.ProductTable.ColumnNames.SIZE;
+import static ae.netaq.homesorder_vendor.db.tables.ProductTable.ColumnNames.SUB_CATEGORY;
+import static ae.netaq.homesorder_vendor.db.tables.ProductTable.ColumnNames.SUB_CATEGORY_NAME_AR;
+import static ae.netaq.homesorder_vendor.db.tables.ProductTable.ColumnNames.SUB_CATEGORY_NAME_EN;
+import static ae.netaq.homesorder_vendor.db.tables.ProductTable.ColumnNames.TABLE_NAME;
+import static ae.netaq.homesorder_vendor.db.tables.ProductTable.ColumnNames.TARGET_GROUP;
 
 /**
- * Created by sabih on 05-Dec-17.
+ * Created by Sabih Ahmed on 05-Dec-17.
  */
 
 @DatabaseTable(tableName = TABLE_NAME)

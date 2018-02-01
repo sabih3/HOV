@@ -49,12 +49,18 @@ public interface ServicesInterface {
     @GET(Endpoints.PRODUCT_LIST)
     Call<ResponseProductList> getProductList(@Path(value = "userToken") String token);
 
+    @GET(Endpoints.ORDER_LIST_ALL)
+    Call<List<ResponseOrderList>> getAllOrdersList(@Path(value = "userToken")String token);
+
     @GET(Endpoints.ORDER_LIST_NEW)
     Call<List<ResponseOrderList>> getNewOrders(@Path(value = "userToken")String token);
 
     @GET(Endpoints.ORDER_LIST_PROCESSING)
     Call<List<ResponseOrderList>> getProcessingOrders(@Path(value = "userToken")String token);
 
+
+    @GET(Endpoints.ORDER_LIST_READY)
+    Call<List<ResponseOrderList>> getReadyOrders(@Path(value = "userToken")String token);
 
     @GET(Endpoints.ORDER_UPDATE_PROCESSING)
     Call<GeneralResponse> updateOrderProcessing(@Path("orderID") long orderID,
@@ -65,7 +71,7 @@ public interface ServicesInterface {
                                              @Path("userToken") String token);
 
 
-
-
-
+    @GET(Endpoints.ORDER_UPDATE_DISPATCHED)
+    Call<GeneralResponse> updateOrderAsDispatched(@Path("orderID") long orderID,
+                                                  @Path("userToken")String token);
 }

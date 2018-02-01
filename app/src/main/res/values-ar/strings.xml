@@ -164,9 +164,9 @@
     <string name="validation_error_size">Please provide available sizes, for eg: S,M,L,XL or 250 gms, 500 gms or 1 Ltr, 2 Ltr etc</string>
     <string name="btn_update_product">تحديث</string>
     <string name="product_description_arabic_required_error">Product description in arabic is required</string>
-    <string name="confirmation_update_order_ready">Are you sure to update this order as Ready ?</string>
     <string name="confirmation_update_order_processing">Are you sure to update this order as Processing ?</string>
-
+    <string name="confirmation_update_order_ready">Are you sure to update this order as Ready ?</string>
+    <string name="confirmation_update_order_dispatch">Are you sure to update this order as Dispatched ?</string>
 
 
 </resources>

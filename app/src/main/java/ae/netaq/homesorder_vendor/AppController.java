@@ -8,11 +8,7 @@ import com.squareup.picasso.Picasso;
 import ae.netaq.homesorder_vendor.dagger.AppComponent;
 import ae.netaq.homesorder_vendor.dagger.ContextModule;
 import ae.netaq.homesorder_vendor.dagger.DaggerAppComponent;
-import ae.netaq.homesorder_vendor.db.DBManager;
-import ae.netaq.homesorder_vendor.db.data_manager.CountryDataManager;
-import ae.netaq.homesorder_vendor.db.data_manager.UserDataManager;
-import ae.netaq.homesorder_vendor.models.Country;
-import ae.netaq.homesorder_vendor.models.User;
+import ae.netaq.homesorder_vendor.db.core.DatabaseHelper;
 import ae.netaq.homesorder_vendor.network.HomesOrderServices;
 import ae.netaq.homesorder_vendor.utils.Common;
 import ae.netaq.homesorder_vendor.utils.DevicePreferences;
@@ -42,8 +38,8 @@ public class AppController extends Application{
         homesOrderServices = component.getHomesOrderServices();
         picasso = component.getPicasso();
 
-
-        DBManager.init(this);// init DB
+        DatabaseHelper dbHelper = new DatabaseHelper(this);
+        dbHelper.getWritableDatabase();
 
         boolean preferredLocale = DevicePreferences.getInstance().isLocaleSetToArabic();
 

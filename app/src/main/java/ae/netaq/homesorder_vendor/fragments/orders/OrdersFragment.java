@@ -58,7 +58,7 @@ public class OrdersFragment extends Fragment{
 
     private void initViews() {
         PagerAdapter orderViewsAdapter = NavigationController.getOrdersPagerAdapter(this.getContext(), getChildFragmentManager());
-        pager.setOffscreenPageLimit(0);
+        pager.setOffscreenPageLimit(4);
         pager.setAdapter(orderViewsAdapter);
         tabs.setupWithViewPager(pager);
     }

@@ -2,7 +2,7 @@ package ae.netaq.homesorder_vendor.adapters.products.products_tab;
 
 import java.util.List;
 
-import ae.netaq.homesorder_vendor.db.data_manager.tables.ProductTable;
+import ae.netaq.homesorder_vendor.db.tables.ProductTable;
 
 /**
  * Created by sabih on 13-Dec-17.

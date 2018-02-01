@@ -9,6 +9,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -20,9 +23,10 @@ import java.util.List;
 import ae.netaq.homesorder_vendor.R;
 import ae.netaq.homesorder_vendor.adapters.orders.processing_tab.ProcessingOrdersRecyclerAdapter;
 import ae.netaq.homesorder_vendor.db.data_manager.OrderDataManager;
-import ae.netaq.homesorder_vendor.db.data_manager.tables.OrderTable;
+import ae.netaq.homesorder_vendor.db.tables.OrderTable;
 import ae.netaq.homesorder_vendor.event_bus.OrderMoveToReady;
 import ae.netaq.homesorder_vendor.event_bus.OrderMovedToProcess;
+import ae.netaq.homesorder_vendor.event_bus.OrderReloadEvent;
 import ae.netaq.homesorder_vendor.utils.OrderManagementUtils;
 import ae.netaq.homesorder_vendor.utils.UIUtils;
 import butterknife.BindView;
@@ -38,8 +42,17 @@ public class ProcessingOrdersFragment extends Fragment implements ProcessingOrde
     @BindView(R.id.listing_recycler)
     RecyclerView processingOrdersRecycler;
 
+    @BindView(R.id.empty_orders_parent)
+    RelativeLayout emptyOrdersParent;
+
     @BindView(R.id.swipe_refresh_layout)
     SwipeRefreshLayout swipeRefreshLayout;
+
+    @BindView(R.id.image_no_orders)
+    ImageView emptyOrderImageView;
+
+    @BindView(R.id.text_no_orders)
+    TextView emptyOrdersText;
 
     private ProcessingOrdersPresenter processingOrdersPresenter;
     private long orderID ;
@@ -63,6 +76,9 @@ public class ProcessingOrdersFragment extends Fragment implements ProcessingOrde
         View view = inflater.inflate(R.layout.listing_layout, container, false);
         ButterKnife.bind(this, view);
 
+        emptyOrderImageView.setImageResource(R.drawable.ic_empty_processing);
+        emptyOrdersText.setText("You don't have orders in progress");
+
         if(!EventBus.getDefault().isRegistered(this)){
             EventBus.getDefault().register(this);
         }
@@ -74,14 +90,25 @@ public class ProcessingOrdersFragment extends Fragment implements ProcessingOrde
     }
 
 
-    //NewOrderFragment.onContextItemSelected
+    //This will be posted from NewOrderPresenter.getAllOrdersSnapshot
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onOrdersReload(OrderReloadEvent orderReloadEvent){
+        processingOrdersPresenter.getProcessingOrdersList(getContext());
+    }
+
+    //NewOrderFragment.onOrderUpdatedSuccessfully
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onOrderMovedToProcessing(OrderMovedToProcess orderStatusChangeEvent){
         processingOrdersPresenter.getProcessingOrdersList(getActivity());
     }
 
+    //Will be triggered from ProcessingOrdersPresenter.getProcessingOrdersList
+    //Responsible for Display of data in list view
     @Override
-    public void onProcessingOrdersFetched(List<OrderTable> orders) {
+    public void showDataView(List<OrderTable> orders) {
+        emptyOrdersParent.setVisibility(View.GONE);
+        processingOrdersRecycler.setVisibility(View.VISIBLE);
+        swipeRefreshLayout.setRefreshing(false);
         ProcessingOrdersRecyclerAdapter processingOrdersRecyclerAdapter =
                                         new ProcessingOrdersRecyclerAdapter(orders);
         processingOrdersRecyclerAdapter.setOptionButtonClickListener(this);
@@ -89,6 +116,15 @@ public class ProcessingOrdersFragment extends Fragment implements ProcessingOrde
                                  LinearLayoutManager.VERTICAL,false));
 
         processingOrdersRecycler.setAdapter(processingOrdersRecyclerAdapter);
+    }
+
+    //Will be triggered from ProcessingOrdersPresenter.getProcessingOrdersList
+    //Responsible for hiding list view & showing empty view
+    @Override
+    public void showEmptyView() {
+        swipeRefreshLayout.setRefreshing(false);
+        emptyOrdersParent.setVisibility(View.VISIBLE);
+        processingOrdersRecycler.setVisibility(View.GONE);
     }
 
     @Override
@@ -101,34 +137,34 @@ public class ProcessingOrdersFragment extends Fragment implements ProcessingOrde
         swipeRefreshLayout.setRefreshing(false);
     }
 
-    @Override
-    public void showEmptyView() {
-        //TODO: show empty view for Processing Order Fragment
-    }
+
 
     @Override
     public void onProductsSynced() {
         processingOrdersPresenter.getProcessingOrdersList(getActivity());
     }
 
+    //ProcessingOrdersPresenter.updateOrderAsReady
     @Override
     public void onOrderUpdateSuccessfully() {
         try {
-            OrderDataManager.updateOrder(orderID,
+            OrderDataManager.updateOrder(getContext(),orderID,
                     OrderDataManager.STATUS_READY);
             processingOrdersPresenter.getProcessingOrdersList(getContext());
+            //This event will be posted on ReadyOrderFragment, to let it reload its data
             EventBus.getDefault().post(new OrderMoveToReady());
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
     }
-
+    //ProcessingOrdersPresenter.updateOrderAsReady
     @Override
     public void onOrderUpdateException(String resolvedError) {
         UIUtils.showToast(getContext(),resolvedError);
     }
 
+    //To update Order status
     @Override
     public void onOptionButtonSelected(final long orderID) {
         this.orderID = orderID;
@@ -160,17 +196,19 @@ public class ProcessingOrdersFragment extends Fragment implements ProcessingOrde
     @Override
     public void onNetworkFailure() {
         swipeRefreshLayout.setRefreshing(false);
+        //TODO: Handle Network failure in Processing Order Fragment
     }
 
     @Override
     public void onUnDefinedException(String localizedError) {
-
+        //TODO: Handle Un defined Exception for Processing orders Fragment
     }
 
     private class SwipeRefreshListener implements SwipeRefreshLayout.OnRefreshListener {
         @Override
         public void onRefresh() {
-            processingOrdersPresenter.syncProcessingOrders();
+            processingOrdersPresenter.getProcessingOrdersList(getActivity());
+            //processingOrdersPresenter.syncProcessingOrders();
         }
     }
 }

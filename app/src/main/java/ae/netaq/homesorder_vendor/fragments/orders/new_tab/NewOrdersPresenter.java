@@ -2,15 +2,17 @@ package ae.netaq.homesorder_vendor.fragments.orders.new_tab;
 
 import android.content.Context;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import ae.netaq.homesorder_vendor.db.data_manager.OrderDataManager;
 import ae.netaq.homesorder_vendor.db.data_manager.UserDataManager;
-import ae.netaq.homesorder_vendor.db.data_manager.tables.OrderTable;
-import ae.netaq.homesorder_vendor.models.Orders;
+import ae.netaq.homesorder_vendor.db.tables.OrderTable;
+import ae.netaq.homesorder_vendor.event_bus.OrderReloadEvent;
 import ae.netaq.homesorder_vendor.network.core.RestClient;
-import ae.netaq.homesorder_vendor.network.model.APIError;
 import ae.netaq.homesorder_vendor.network.model.GeneralResponse;
 import ae.netaq.homesorder_vendor.network.model.ResponseOrderList;
 import retrofit2.Call;
@@ -18,7 +20,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Created by Netaq on 11/22/2017.
+ * Created by Sabih Ahmed on 11/22/2017.
  */
 
 public class NewOrdersPresenter {
@@ -29,46 +31,25 @@ public class NewOrdersPresenter {
         this.newOrdersView = newOrdersView;
     }
 
+    /**Fetches orders from db with status as new only
+     *
+     * @param context
+     */
     public void getNewOrdersList(Context context){
 
-
-        Call<List<ResponseOrderList>> newOrdersRequest = RestClient.getAdapter().
-                getNewOrders(UserDataManager.getPersistedUser().getUserToken());
-        newOrdersView.showProgress();
-        newOrdersRequest.enqueue(new Callback<List<ResponseOrderList>>() {
-            @Override
-            public void onResponse(Call<List<ResponseOrderList>> call, Response<List<ResponseOrderList>> response) {
-                newOrdersView.hideProgress();
-                if(response.isSuccessful()){
-                    if(response.body().isEmpty()){
-
-                        newOrdersView.showEmptyDataView();
-                    }else{
-                        newOrdersView.onNewOrdersFetched(response.body());
-                    }
-                }else{
-                    //Todo (1): code 3001 for token expired exception
-                    //Todo (2):Extract other codes and return them on view
-                    //extract
-                }
+        List<OrderTable> newOrdersList = new ArrayList<>();
+        try {
+            newOrdersList = OrderDataManager.getNewOrdersList(context);
+            if(newOrdersList.isEmpty()){
+                newOrdersView.showEmptyView();
+            }else{
+                newOrdersView.showDataView(newOrdersList);
             }
 
-            @Override
-            public void onFailure(Call<List<ResponseOrderList>> call, Throwable t) {
-                newOrdersView.hideProgress();
-
-            }
-        });
-
-
-//        List<OrderTable> newOrdersList = null;
-//        try {
-//            newOrdersList = OrderDataManager.getNewOrdersList(context);
-//            newOrdersView.onNewOrdersFetched(newOrdersList);
-//        } catch (SQLException e) {
-//            //Todo: handle exception here for view
-//            e.printStackTrace();
-//        }
+        } catch (SQLException e) {
+            //Todo: handle exception here for view
+            e.printStackTrace();
+        }
 
     }
 
@@ -95,5 +76,41 @@ public class NewOrdersPresenter {
                 newOrdersView.onNetworkFailure();
             }
         });
+    }
+
+    public void getAllOrdersSnapshot(final Context context){
+        Call<List<ResponseOrderList>> allOrdersRequest = RestClient.getAdapter().
+                getAllOrdersList(UserDataManager.getPersistedUser().getUserToken());
+        newOrdersView.showProgress();
+        allOrdersRequest.enqueue(new Callback<List<ResponseOrderList>>() {
+            @Override
+            public void onResponse(Call<List<ResponseOrderList>> call, Response<List<ResponseOrderList>> response) {
+                newOrdersView.hideProgress();
+                if(response.isSuccessful()){
+
+                    if(response.body().isEmpty()){
+                        //TODO: HANDLE Empty Case
+                    }else{
+                        OrderDataManager.persistAllOrders(context,response.body(), new OrderDataManager.OrderPersistenceListener() {
+                            @Override
+                            public void onOrdersPersisted() {
+                                //Broadcast all fragment so that they can re load their views
+                                EventBus.getDefault().post(new OrderReloadEvent());
+                                newOrdersView.onAllOrdersSynced();
+                            }
+                        });
+                    }
+                }else{
+                    //TODO: Handle Exceptional case
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<ResponseOrderList>> call, Throwable t) {
+                newOrdersView.hideProgress();
+                newOrdersView.onNetworkFailure();
+            }
+        });
+
     }
 }
